@@ -20,7 +20,6 @@
 		DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B481E6B84D40004245A /* ExtensionUIColor.swift */; };
 		DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B491E6B84D40004245A /* ExtensionUIFont.swift */; };
 		DA630B6F1E6B84D40004245A /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B4A1E6B84D40004245A /* ExtensionURL.swift */; };
-		DA630B701E6B84D40004245A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA630B4B1E6B84D40004245A /* Info.plist */; };
 		DA630B711E6B84D40004245A /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B4E1E6B84D40004245A /* MSession.swift */; };
 		DA630B721E6B84D40004245A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA630B501E6B84D40004245A /* Localizable.strings */; };
 		DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA630B521E6B84D40004245A /* ResourceUrl.plist */; };
@@ -36,6 +35,7 @@
 		DA630B7D1E6B84D40004245A /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B601E6B84D40004245A /* VSpinner.swift */; };
 		DA630B7E1E6B84D40004245A /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B611E6B84D40004245A /* VToast.swift */; };
 		DA630B7F1E6B84D40004245A /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B621E6B84D40004245A /* VView.swift */; };
+		DA630B841E6B8B090004245A /* CDrawList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B831E6B8B090004245A /* CDrawList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +69,7 @@
 		DA630B601E6B84D40004245A /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA630B611E6B84D40004245A /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA630B621E6B84D40004245A /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
+		DA630B831E6B8B090004245A /* CDrawList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +125,7 @@
 		DA630B3D1E6B84D40004245A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA630B801E6B8AEA0004245A /* Draw */,
 				DA630B3E1E6B84D40004245A /* Main */,
 			);
 			path = Controller;
@@ -222,6 +224,14 @@
 			path = Subclasses;
 			sourceTree = "<group>";
 		};
+		DA630B801E6B8AEA0004245A /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B831E6B8B090004245A /* CDrawList.swift */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,7 +295,6 @@
 				DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */,
 				DA630B721E6B84D40004245A /* Localizable.strings in Resources */,
 				DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */,
-				DA630B701E6B84D40004245A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
+				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
 				DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */,

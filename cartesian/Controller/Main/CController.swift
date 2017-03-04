@@ -27,8 +27,6 @@ class CController:UIViewController
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
-        
-        AnalyticsManager.sharedInstance?.trackScreen(screen:self)
     }
     
     override var preferredStatusBarStyle:UIStatusBarStyle
