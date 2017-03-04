@@ -6,8 +6,69 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
+		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
+		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
+		DA630B661E6B84D40004245A /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B401E6B84D40004245A /* CController.swift */; };
+		DA630B671E6B84D40004245A /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B411E6B84D40004245A /* CParent.swift */; };
+		DA630B681E6B84D40004245A /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B431E6B84D40004245A /* ExtensionFileManager.swift */; };
+		DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B441E6B84D40004245A /* ExtensionNotification.swift */; };
+		DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B451E6B84D40004245A /* ExtensionNSLayoutConstraint.swift */; };
+		DA630B6B1E6B84D40004245A /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B461E6B84D40004245A /* ExtensionNSManagedObject.swift */; };
+		DA630B6C1E6B84D40004245A /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B471E6B84D40004245A /* ExtensionUICollectionReusableView.swift */; };
+		DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B481E6B84D40004245A /* ExtensionUIColor.swift */; };
+		DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B491E6B84D40004245A /* ExtensionUIFont.swift */; };
+		DA630B6F1E6B84D40004245A /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B4A1E6B84D40004245A /* ExtensionURL.swift */; };
+		DA630B701E6B84D40004245A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA630B4B1E6B84D40004245A /* Info.plist */; };
+		DA630B711E6B84D40004245A /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B4E1E6B84D40004245A /* MSession.swift */; };
+		DA630B721E6B84D40004245A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA630B501E6B84D40004245A /* Localizable.strings */; };
+		DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA630B521E6B84D40004245A /* ResourceUrl.plist */; };
+		DA630B741E6B84D40004245A /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B561E6B84D40004245A /* VParent.swift */; };
+		DA630B751E6B84D40004245A /* VParentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B571E6B84D40004245A /* VParentBar.swift */; };
+		DA630B761E6B84D40004245A /* VParentBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B581E6B84D40004245A /* VParentBarButton.swift */; };
+		DA630B771E6B84D40004245A /* VParentPushBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B591E6B84D40004245A /* VParentPushBackground.swift */; };
+		DA630B781E6B84D40004245A /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B5B1E6B84D40004245A /* VAlert.swift */; };
+		DA630B791E6B84D40004245A /* VBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B5C1E6B84D40004245A /* VBlur.swift */; };
+		DA630B7A1E6B84D40004245A /* VBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B5D1E6B84D40004245A /* VBorder.swift */; };
+		DA630B7B1E6B84D40004245A /* VCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B5E1E6B84D40004245A /* VCollection.swift */; };
+		DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B5F1E6B84D40004245A /* VCollectionFlow.swift */; };
+		DA630B7D1E6B84D40004245A /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B601E6B84D40004245A /* VSpinner.swift */; };
+		DA630B7E1E6B84D40004245A /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B611E6B84D40004245A /* VToast.swift */; };
+		DA630B7F1E6B84D40004245A /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B621E6B84D40004245A /* VView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
+		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA630B3F1E6B84D40004245A /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
+		DA630B401E6B84D40004245A /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
+		DA630B411E6B84D40004245A /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
+		DA630B431E6B84D40004245A /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
+		DA630B441E6B84D40004245A /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
+		DA630B451E6B84D40004245A /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
+		DA630B461E6B84D40004245A /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
+		DA630B471E6B84D40004245A /* ExtensionUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionReusableView.swift; sourceTree = "<group>"; };
+		DA630B481E6B84D40004245A /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		DA630B491E6B84D40004245A /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
+		DA630B4A1E6B84D40004245A /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
+		DA630B4B1E6B84D40004245A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA630B4E1E6B84D40004245A /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
+		DA630B511E6B84D40004245A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA630B521E6B84D40004245A /* ResourceUrl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceUrl.plist; sourceTree = "<group>"; };
+		DA630B561E6B84D40004245A /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
+		DA630B571E6B84D40004245A /* VParentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBar.swift; sourceTree = "<group>"; };
+		DA630B581E6B84D40004245A /* VParentBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentBarButton.swift; sourceTree = "<group>"; };
+		DA630B591E6B84D40004245A /* VParentPushBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParentPushBackground.swift; sourceTree = "<group>"; };
+		DA630B5B1E6B84D40004245A /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
+		DA630B5C1E6B84D40004245A /* VBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBlur.swift; sourceTree = "<group>"; };
+		DA630B5D1E6B84D40004245A /* VBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBorder.swift; sourceTree = "<group>"; };
+		DA630B5E1E6B84D40004245A /* VCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollection.swift; sourceTree = "<group>"; };
+		DA630B5F1E6B84D40004245A /* VCollectionFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollectionFlow.swift; sourceTree = "<group>"; };
+		DA630B601E6B84D40004245A /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
+		DA630B611E6B84D40004245A /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
+		DA630B621E6B84D40004245A /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +101,125 @@
 		DA630B271E6B823D0004245A /* cartesian */ = {
 			isa = PBXGroup;
 			children = (
+				DA630B3A1E6B84D40004245A /* Assets */,
+				DA630B3D1E6B84D40004245A /* Controller */,
+				DA630B421E6B84D40004245A /* Extensions */,
+				DA630B4B1E6B84D40004245A /* Info.plist */,
+				DA630B4C1E6B84D40004245A /* Model */,
+				DA630B4F1E6B84D40004245A /* Resource */,
+				DA630B531E6B84D40004245A /* View */,
 			);
 			path = cartesian;
+			sourceTree = "<group>";
+		};
+		DA630B3A1E6B84D40004245A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B3B1E6B84D40004245A /* generic.xcassets */,
+				DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		DA630B3D1E6B84D40004245A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B3E1E6B84D40004245A /* Main */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA630B3E1E6B84D40004245A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B3F1E6B84D40004245A /* CAppDelegate.swift */,
+				DA630B401E6B84D40004245A /* CController.swift */,
+				DA630B411E6B84D40004245A /* CParent.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA630B421E6B84D40004245A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B431E6B84D40004245A /* ExtensionFileManager.swift */,
+				DA630B441E6B84D40004245A /* ExtensionNotification.swift */,
+				DA630B451E6B84D40004245A /* ExtensionNSLayoutConstraint.swift */,
+				DA630B461E6B84D40004245A /* ExtensionNSManagedObject.swift */,
+				DA630B471E6B84D40004245A /* ExtensionUICollectionReusableView.swift */,
+				DA630B481E6B84D40004245A /* ExtensionUIColor.swift */,
+				DA630B491E6B84D40004245A /* ExtensionUIFont.swift */,
+				DA630B4A1E6B84D40004245A /* ExtensionURL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DA630B4C1E6B84D40004245A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B4D1E6B84D40004245A /* Session */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA630B4D1E6B84D40004245A /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B4E1E6B84D40004245A /* MSession.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		DA630B4F1E6B84D40004245A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B501E6B84D40004245A /* Localizable.strings */,
+				DA630B521E6B84D40004245A /* ResourceUrl.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA630B531E6B84D40004245A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B541E6B84D40004245A /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA630B541E6B84D40004245A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B551E6B84D40004245A /* Parent */,
+				DA630B5A1E6B84D40004245A /* Subclasses */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA630B551E6B84D40004245A /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B561E6B84D40004245A /* VParent.swift */,
+				DA630B571E6B84D40004245A /* VParentBar.swift */,
+				DA630B581E6B84D40004245A /* VParentBarButton.swift */,
+				DA630B591E6B84D40004245A /* VParentPushBackground.swift */,
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
+		DA630B5A1E6B84D40004245A /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				DA630B5B1E6B84D40004245A /* VAlert.swift */,
+				DA630B5C1E6B84D40004245A /* VBlur.swift */,
+				DA630B5D1E6B84D40004245A /* VBorder.swift */,
+				DA630B5E1E6B84D40004245A /* VCollection.swift */,
+				DA630B5F1E6B84D40004245A /* VCollectionFlow.swift */,
+				DA630B601E6B84D40004245A /* VSpinner.swift */,
+				DA630B611E6B84D40004245A /* VToast.swift */,
+				DA630B621E6B84D40004245A /* VView.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +282,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA630B631E6B84D40004245A /* generic.xcassets in Resources */,
+				DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */,
+				DA630B721E6B84D40004245A /* Localizable.strings in Resources */,
+				DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */,
+				DA630B701E6B84D40004245A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,10 +297,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
+				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
+				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
+				DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */,
+				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
+				DA630B7E1E6B84D40004245A /* VToast.swift in Sources */,
+				DA630B7A1E6B84D40004245A /* VBorder.swift in Sources */,
+				DA630B681E6B84D40004245A /* ExtensionFileManager.swift in Sources */,
+				DA630B661E6B84D40004245A /* CController.swift in Sources */,
+				DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */,
+				DA630B771E6B84D40004245A /* VParentPushBackground.swift in Sources */,
+				DA630B7D1E6B84D40004245A /* VSpinner.swift in Sources */,
+				DA630B761E6B84D40004245A /* VParentBarButton.swift in Sources */,
+				DA630B6B1E6B84D40004245A /* ExtensionNSManagedObject.swift in Sources */,
+				DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */,
+				DA630B671E6B84D40004245A /* CParent.swift in Sources */,
+				DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DA630B7B1E6B84D40004245A /* VCollection.swift in Sources */,
+				DA630B781E6B84D40004245A /* VAlert.swift in Sources */,
+				DA630B6C1E6B84D40004245A /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA630B711E6B84D40004245A /* MSession.swift in Sources */,
+				DA630B751E6B84D40004245A /* VParentBar.swift in Sources */,
+				DA630B6F1E6B84D40004245A /* ExtensionURL.swift in Sources */,
+				DA630B7F1E6B84D40004245A /* VView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA630B501E6B84D40004245A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA630B511E6B84D40004245A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA630B351E6B823D0004245A /* Debug */ = {
