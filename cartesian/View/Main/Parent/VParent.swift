@@ -10,7 +10,7 @@ class VParent:UIView
     private let kAnimationDuration:TimeInterval = 0.4
     private let kBarHeight:CGFloat = 70
     private let kMaxXPanning:CGFloat = 60
-    private let kMaxXDelta:CGFloat = 90
+    private let kMaxXDelta:CGFloat = 210
     private let kMinXDelta:CGFloat = 30
     
     convenience init(controller:CParent)

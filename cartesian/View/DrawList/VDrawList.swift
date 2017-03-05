@@ -19,6 +19,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         collectionView.dataSource = self
         collectionView.registerCell(cell:VDrawListCell.self)
         collectionView.registerHeader(header:VDrawListHeader.self)
+        self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
