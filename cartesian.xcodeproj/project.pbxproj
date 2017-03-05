@@ -40,7 +40,7 @@
 		DA630B841E6B8B090004245A /* CDrawList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B831E6B8B090004245A /* CDrawList.swift */; };
 		DA630B871E6B94660004245A /* VDrawList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B861E6B94660004245A /* VDrawList.swift */; };
 		DAED2D9F1E6CA0030064C837 /* CDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */; };
-		DAED2DA21E6CA03B0064C837 /* VDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA11E6CA03B0064C837 /* VDrawProject.swift */; };
+		DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +79,7 @@
 		DA630B831E6B8B090004245A /* CDrawList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawList.swift; sourceTree = "<group>"; };
 		DA630B861E6B94660004245A /* VDrawList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawList.swift; sourceTree = "<group>"; };
 		DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawProject.swift; sourceTree = "<group>"; };
-		DAED2DA11E6CA03B0064C837 /* VDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProject.swift; sourceTree = "<group>"; };
+		DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,9 +258,33 @@
 		DAED2DA01E6CA0310064C837 /* DrawProject */ = {
 			isa = PBXGroup;
 			children = (
-				DAED2DA11E6CA03B0064C837 /* VDrawProject.swift */,
+				DAED2DA31E6CA53D0064C837 /* Canvas */,
+				DAED2DA41E6CA53D0064C837 /* Menu */,
+				DAED2DA51E6CA53D0064C837 /* Main */,
 			);
 			path = DrawProject;
+			sourceTree = "<group>";
+		};
+		DAED2DA31E6CA53D0064C837 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		DAED2DA41E6CA53D0064C837 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DAED2DA51E6CA53D0064C837 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +364,7 @@
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
-				DAED2DA21E6CA03B0064C837 /* VDrawProject.swift in Sources */,
+				DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */,
 				DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */,
 				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
 				DA630B871E6B94660004245A /* VDrawList.swift in Sources */,
