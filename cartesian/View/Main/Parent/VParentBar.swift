@@ -21,7 +21,7 @@ class VParentBar:UIView
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let buttonHome:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetGenericHome"))
+            image:#imageLiteral(resourceName: "assetGenericDraw"))
         buttonHome.isSelected = true
         buttonHome.addTarget(
             self,
@@ -30,7 +30,7 @@ class VParentBar:UIView
         self.buttonHome = buttonHome
         
         let buttonSettings:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetGenericSettings"))
+            image:#imageLiteral(resourceName: "assetGenericDraw"))
         buttonSettings.isSelected = false
         buttonSettings.addTarget(
             self,
@@ -39,7 +39,7 @@ class VParentBar:UIView
         self.buttonSettings = buttonSettings
         
         let buttonStore:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetGenericStore"))
+            image:#imageLiteral(resourceName: "assetGenericDraw"))
         buttonStore.isSelected = false
         buttonStore.addTarget(
             self,
@@ -141,11 +141,11 @@ class VParentBar:UIView
             buttonSettings.isSelected = false
             buttonStore.isSelected = false
             
-            let controllerHome:CHome = CHome()
+            let controllerDraw:CDrawList = CDrawList()
             
             controller.slideTo(
                 horizontal:transition,
-                controller:controllerHome)
+                controller:controllerDraw)
         }
     }
     
@@ -157,11 +157,11 @@ class VParentBar:UIView
             buttonSettings.isSelected = true
             buttonStore.isSelected = false
             
-            let controllerSettings:CSettings = CSettings()
-            
-            controller.slideTo(
-                horizontal:CParent.TransitionHorizontal.fromLeft,
-                controller:controllerSettings)
+//            let controllerSettings:CSettings = CSettings()
+//            
+//            controller.slideTo(
+//                horizontal:CParent.TransitionHorizontal.fromLeft,
+//                controller:controllerSettings)
         }
     }
     
@@ -181,9 +181,9 @@ class VParentBar:UIView
         buttonSettings.isSelected = false
         buttonStore.isSelected = true
         
-        let controllerStore:CStore = CStore()
-        controller.slideTo(
-            horizontal:CParent.TransitionHorizontal.fromRight,
-            controller:controllerStore)
+//        let controllerStore:CStore = CStore()
+//        controller.slideTo(
+//            horizontal:CParent.TransitionHorizontal.fromRight,
+//            controller:controllerStore)
     }
 }

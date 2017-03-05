@@ -23,8 +23,6 @@ class CParent:UIViewController
     init()
     {
         super.init(nibName:nil, bundle:nil)
-        
-        AnalyticsManager.sharedInstance?.startAnalytics()
     }
     
     required init?(coder:NSCoder)
@@ -36,10 +34,10 @@ class CParent:UIViewController
     {
         super.viewDidLoad()
         
-        let controllerHome:CHome = CHome()
-        mainController(controller:controllerHome)
+        let controllerDraw:CDrawList = CDrawList()
+        mainController(controller:controllerDraw)
         
-        MSession.sharedInstance.loadSettings()
+//        MSession.sharedInstance.loadSettings()
     }
     
     override func loadView()
