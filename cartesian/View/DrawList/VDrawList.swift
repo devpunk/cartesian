@@ -68,6 +68,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             withReuseIdentifier:
             VDrawListHeader.reusableIdentifier,
             for:indexPath) as! VDrawListHeader
+        header.config(controller:controller)
         
         return header
     }

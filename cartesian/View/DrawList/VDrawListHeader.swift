@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawListHeader:UICollectionReusableView
 {
+    private weak var controller:CDrawList?
     private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kButtonSize:CGFloat = 40
     private let kButtonBottom:CGFloat = -20
@@ -23,6 +24,10 @@ class VDrawListHeader:UICollectionReusableView
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center
         button.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(button)
         
@@ -50,5 +55,19 @@ class VDrawListHeader:UICollectionReusableView
         let marginLeft:CGFloat = remainWidth / 2.0
         
         layoutButtonLeft.constant = marginLeft
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller?.newDraw()
+    }
+    
+    //MARK: public
+    
+    func config(controller:CDrawList)
+    {
+        self.controller = controller
     }
 }

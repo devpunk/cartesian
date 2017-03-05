@@ -10,4 +10,11 @@ class CDrawList:CController
         self.viewList = viewList
         view = viewList
     }
+    
+    //MARK: public
+    
+    func newDraw()
+    {
+        
+    }
 }
