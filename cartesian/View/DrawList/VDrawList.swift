@@ -42,6 +42,13 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         return nil
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
