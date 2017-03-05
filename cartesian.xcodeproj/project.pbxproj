@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */; };
+		DA007DB31E6B967E005684F6 /* VDrawListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB21E6B967E005684F6 /* VDrawListCell.swift */; };
 		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
 		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
 		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListHeader.swift; sourceTree = "<group>"; };
+		DA007DB21E6B967E005684F6 /* VDrawListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListCell.swift; sourceTree = "<group>"; };
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				DA630B861E6B94660004245A /* VDrawList.swift */,
+				DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */,
+				DA007DB21E6B967E005684F6 /* VDrawListCell.swift */,
 			);
 			path = DrawList;
 			sourceTree = "<group>";
@@ -326,11 +332,13 @@
 				DA630B7E1E6B84D40004245A /* VToast.swift in Sources */,
 				DA630B7A1E6B84D40004245A /* VBorder.swift in Sources */,
 				DA630B681E6B84D40004245A /* ExtensionFileManager.swift in Sources */,
+				DA007DB31E6B967E005684F6 /* VDrawListCell.swift in Sources */,
 				DA630B661E6B84D40004245A /* CController.swift in Sources */,
 				DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */,
 				DA630B771E6B84D40004245A /* VParentPushBackground.swift in Sources */,
 				DA630B7D1E6B84D40004245A /* VSpinner.swift in Sources */,
 				DA630B761E6B84D40004245A /* VParentBarButton.swift in Sources */,
+				DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */,
 				DA630B6B1E6B84D40004245A /* ExtensionNSManagedObject.swift in Sources */,
 				DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */,
 				DA630B671E6B84D40004245A /* CParent.swift in Sources */,
