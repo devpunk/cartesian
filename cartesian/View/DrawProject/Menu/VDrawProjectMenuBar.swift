@@ -3,6 +3,7 @@ import UIKit
 class VDrawProjectMenuBar:UIView
 {
     private(set) weak var controller:CDrawProject!
+    private weak var buttonSettings:UIButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
@@ -32,6 +33,19 @@ class VDrawProjectMenuBar:UIView
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
+        
+        let buttonSettings:UIButton = UIButton()
+        buttonSettings.translatesAutoresizingMaskIntoConstraints = false
+        buttonSettings.setImage(
+            #imageLiteral(resourceName: "assetGenericSettings").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.selected)
+        buttonSettings.setImage(
+            #imageLiteral(resourceName: "assetGenericSettings").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.highlighted)
+        buttonSettings.setImage(
+            #imageLiteral(resourceName: "assetGenericSettings").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.normal)
+        buttonSettings
         
         addSubview(border)
         addSubview(buttonBack)

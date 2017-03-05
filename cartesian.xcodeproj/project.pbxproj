@@ -44,6 +44,7 @@
 		DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */; };
 		DAED2DAB1E6CA6820064C837 /* VDrawProjectMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DAA1E6CA6820064C837 /* VDrawProjectMenuBar.swift */; };
 		DAED2DAD1E6CAA940064C837 /* VDrawProjectMenuSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DAC1E6CAA940064C837 /* VDrawProjectMenuSettings.swift */; };
+		DAED2DAF1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DAE1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenu.swift; sourceTree = "<group>"; };
 		DAED2DAA1E6CA6820064C837 /* VDrawProjectMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuBar.swift; sourceTree = "<group>"; };
 		DAED2DAC1E6CAA940064C837 /* VDrawProjectMenuSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuSettings.swift; sourceTree = "<group>"; };
+		DAED2DAE1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuBarButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 			children = (
 				DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */,
 				DAED2DAA1E6CA6820064C837 /* VDrawProjectMenuBar.swift */,
+				DAED2DAE1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift */,
 				DAED2DAC1E6CAA940064C837 /* VDrawProjectMenuSettings.swift */,
 			);
 			path = Menu;
@@ -402,6 +405,7 @@
 				DAED2DAD1E6CAA940064C837 /* VDrawProjectMenuSettings.swift in Sources */,
 				DA630B6F1E6B84D40004245A /* ExtensionURL.swift in Sources */,
 				DA630B7F1E6B84D40004245A /* VView.swift in Sources */,
+				DAED2DAF1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
