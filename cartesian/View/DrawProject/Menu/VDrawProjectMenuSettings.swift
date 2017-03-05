@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuBar:UIView
+class VDrawProjectMenuSettings:UIView
 {
     private weak var controller:CDrawProject!
     
