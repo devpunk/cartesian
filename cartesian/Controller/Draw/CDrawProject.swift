@@ -2,7 +2,7 @@ import UIKit
 
 class CDrawProject:CController
 {
-    private weak var viewProject:VDrawProject!
+    private(set) weak var viewProject:VDrawProject!
     
     override func loadView()
     {
@@ -24,5 +24,12 @@ class CDrawProject:CController
         super.viewDidDisappear(animated)
         
         parentController.hideBar(barHidden:false)
+    }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
     }
 }

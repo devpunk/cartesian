@@ -4,7 +4,7 @@ class VDrawProjectMenu:UIView
 {
     private weak var controller:CDrawProject!
     private weak var viewBar:VDrawProjectMenuBar!
-    private let kBarHeight:CGFloat = 50
+    private let kBarHeight:CGFloat = 51
     
     init(controller:CDrawProject)
     {
