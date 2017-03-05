@@ -2,9 +2,9 @@ import UIKit
 
 class VDrawListHeader:UICollectionReusableView
 {
-    private weak var layoutButtonTop:NSLayoutConstraint!
     private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kButtonSize:CGFloat = 40
+    private let kButtonBottom:CGFloat = -20
     
     override init(frame:CGRect)
     {
@@ -26,9 +26,10 @@ class VDrawListHeader:UICollectionReusableView
         
         addSubview(button)
         
-        layoutButtonTop = NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.bottomToBottom(
             view:button,
-            toView:self)
+            toView:self,
+            constant:kButtonBottom)
         layoutButtonLeft = NSLayoutConstraint.leftToLeft(
             view:button,
             toView:self)
@@ -45,13 +46,9 @@ class VDrawListHeader:UICollectionReusableView
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
         let remainWidth:CGFloat = width - kButtonSize
-        let remainHeight:CGFloat = height - kButtonSize
         let marginLeft:CGFloat = remainWidth / 2.0
-        let marginTop:CGFloat = remainHeight / 2.0
         
         layoutButtonLeft.constant = marginLeft
-        layoutButtonTop.constant = marginTop
     }
 }
