@@ -18,7 +18,9 @@ class VDrawProjectMenuBarButton:UIButton
             for:UIControlState.selected)
         imageView!.clipsToBounds = true
         imageView!.contentMode = UIViewContentMode.center
-        imageView!.tintColor = UIColor(white:0.9, alpha:1)
+        imageView!.tintColor = UIColor(red:0.75, green:0.8, blue:0.85, alpha:1)
+        isHighlighted = false
+        isSelected = false
     }
     
     required init?(coder aDecoder: NSCoder)

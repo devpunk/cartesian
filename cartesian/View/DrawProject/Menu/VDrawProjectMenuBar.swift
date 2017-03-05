@@ -3,7 +3,7 @@ import UIKit
 class VDrawProjectMenuBar:UIView
 {
     private(set) weak var controller:CDrawProject!
-    private weak var buttonSettings:UIButton!
+    private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
@@ -18,37 +18,20 @@ class VDrawProjectMenuBar:UIView
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
-        let buttonBack:UIButton = UIButton()
-        buttonBack.translatesAutoresizingMaskIntoConstraints = false
-        buttonBack.setImage(
-            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonBack.setImage(
-            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonBack.imageView!.clipsToBounds = true
-        buttonBack.imageView!.contentMode = UIViewContentMode.center
-        buttonBack.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        let buttonBack:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
+            image:#imageLiteral(resourceName: "assetGenericBack"))
         buttonBack.addTarget(
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        let buttonSettings:UIButton = UIButton()
-        buttonSettings.translatesAutoresizingMaskIntoConstraints = false
-        buttonSettings.setImage(
-            #imageLiteral(resourceName: "assetGenericSettings").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.selected)
-        buttonSettings.setImage(
-            #imageLiteral(resourceName: "assetGenericSettings").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.highlighted)
-        buttonSettings.setImage(
-            #imageLiteral(resourceName: "assetGenericSettings").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.normal)
-        buttonSettings
+        let buttonSettings:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
+            image:#imageLiteral(resourceName: "assetGenericSettings"))
+        self.buttonSettings = buttonSettings
         
         addSubview(border)
         addSubview(buttonBack)
+        addSubview(buttonSettings)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -68,6 +51,16 @@ class VDrawProjectMenuBar:UIView
             toView:self)
         NSLayoutConstraint.width(
             view:buttonBack,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonSettings,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonSettings,
+            toView:buttonBack)
+        NSLayoutConstraint.width(
+            view:buttonSettings,
             constant:kButtonWidth)
     }
     
