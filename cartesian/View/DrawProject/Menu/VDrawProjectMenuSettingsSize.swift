@@ -34,7 +34,6 @@ class VDrawProjectMenuSettingsSize:UIView
         labelWidth.backgroundColor = UIColor.clear
         labelWidth.font = font
         labelWidth.textColor = color
-        labelWidth.text = "300px"
         self.labelWidth = labelWidth
         
         let labelHeight:UILabel = UILabel()
@@ -43,7 +42,6 @@ class VDrawProjectMenuSettingsSize:UIView
         labelHeight.backgroundColor = UIColor.clear
         labelHeight.font = font
         labelHeight.textColor = color
-        labelHeight.text = "500px"
         self.labelHeight = labelHeight
         
         addSubview(icon)
@@ -91,5 +89,12 @@ class VDrawProjectMenuSettingsSize:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: public
+    
+    func update()
+    {
+        "VDrawProjectMenuSettingsSize_labels"
     }
 }

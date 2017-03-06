@@ -4,6 +4,7 @@ class VDrawProject:VView
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewMenu:VDrawProjectMenu!
+    private(set) weak var scrollView:ui
     private weak var layoutMenuBottom:NSLayoutConstraint!
     private let kMenuHeight:CGFloat = 251
     private let kMenuMaxBottom:CGFloat = 200
