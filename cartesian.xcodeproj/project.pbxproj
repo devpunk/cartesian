@@ -56,6 +56,12 @@
 		DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94437F1E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift */; };
 		DA9443821E6DF7E700CD5993 /* DNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9443811E6DF7E700CD5993 /* DNodeExtension.swift */; };
 		DA99BE3A1E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE391E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift */; };
+		DA99BE3D1E6E07A900AECF25 /* VDrawProjectColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE3C1E6E07A900AECF25 /* VDrawProjectColor.swift */; };
+		DA99BE3F1E6E07BF00AECF25 /* VDrawProjectColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE3E1E6E07BF00AECF25 /* VDrawProjectColorCell.swift */; };
+		DA99BE421E6E08A500AECF25 /* MDrawProjectColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE411E6E08A500AECF25 /* MDrawProjectColor.swift */; };
+		DA99BE441E6E08B200AECF25 /* MDrawProjectColorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE431E6E08B200AECF25 /* MDrawProjectColorItem.swift */; };
+		DA99BE481E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE471E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift */; };
+		DA99BE4A1E6E090D00AECF25 /* MDrawProjectColorItemUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99BE491E6E090D00AECF25 /* MDrawProjectColorItemUser.swift */; };
 		DAED2D9F1E6CA0030064C837 /* CDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */; };
 		DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */; };
 		DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */; };
@@ -116,6 +122,12 @@
 		DA94437F1E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemOval.swift; sourceTree = "<group>"; };
 		DA9443811E6DF7E700CD5993 /* DNodeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeExtension.swift; sourceTree = "<group>"; };
 		DA99BE391E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvasNode.swift; sourceTree = "<group>"; };
+		DA99BE3C1E6E07A900AECF25 /* VDrawProjectColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectColor.swift; sourceTree = "<group>"; };
+		DA99BE3E1E6E07BF00AECF25 /* VDrawProjectColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectColorCell.swift; sourceTree = "<group>"; };
+		DA99BE411E6E08A500AECF25 /* MDrawProjectColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectColor.swift; sourceTree = "<group>"; };
+		DA99BE431E6E08B200AECF25 /* MDrawProjectColorItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectColorItem.swift; sourceTree = "<group>"; };
+		DA99BE471E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectColorItemSystem.swift; sourceTree = "<group>"; };
+		DA99BE491E6E090D00AECF25 /* MDrawProjectColorItemUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectColorItemUser.swift; sourceTree = "<group>"; };
 		DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenu.swift; sourceTree = "<group>"; };
@@ -139,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				DA45C49D1E6DD25200CA6A20 /* Menu */,
+				DA99BE401E6E088B00AECF25 /* Color */,
 			);
 			path = DrawProject;
 			sourceTree = "<group>";
@@ -347,12 +360,33 @@
 			path = Nodes;
 			sourceTree = "<group>";
 		};
+		DA99BE3B1E6E078500AECF25 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DA99BE3C1E6E07A900AECF25 /* VDrawProjectColor.swift */,
+				DA99BE3E1E6E07BF00AECF25 /* VDrawProjectColorCell.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		DA99BE401E6E088B00AECF25 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DA99BE411E6E08A500AECF25 /* MDrawProjectColor.swift */,
+				DA99BE431E6E08B200AECF25 /* MDrawProjectColorItem.swift */,
+				DA99BE471E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift */,
+				DA99BE491E6E090D00AECF25 /* MDrawProjectColorItemUser.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 		DAED2DA01E6CA0310064C837 /* DrawProject */ = {
 			isa = PBXGroup;
 			children = (
 				DAED2DA51E6CA53D0064C837 /* Main */,
 				DAED2DA31E6CA53D0064C837 /* Canvas */,
 				DAED2DA41E6CA53D0064C837 /* Menu */,
+				DA99BE3B1E6E078500AECF25 /* Color */,
 			);
 			path = DrawProject;
 			sourceTree = "<group>";
@@ -477,9 +511,11 @@
 				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
 				DA99BE3A1E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift in Sources */,
 				DA45C4951E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift in Sources */,
+				DA99BE441E6E08B200AECF25 /* MDrawProjectColorItem.swift in Sources */,
 				DA630B871E6B94660004245A /* VDrawList.swift in Sources */,
 				DA630B7E1E6B84D40004245A /* VToast.swift in Sources */,
 				DA9443741E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift in Sources */,
+				DA99BE421E6E08A500AECF25 /* MDrawProjectColor.swift in Sources */,
 				DA94437A1E6DE10200CD5993 /* MDrawProjectMenuNodesItemRect.swift in Sources */,
 				DA630B7A1E6B84D40004245A /* VBorder.swift in Sources */,
 				DA630B681E6B84D40004245A /* ExtensionFileManager.swift in Sources */,
@@ -493,15 +529,19 @@
 				DA630B761E6B84D40004245A /* VParentBarButton.swift in Sources */,
 				DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */,
 				DA9443711E6DDA8F00CD5993 /* DManager.swift in Sources */,
+				DA99BE3F1E6E07BF00AECF25 /* VDrawProjectColorCell.swift in Sources */,
 				DA45C4931E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift in Sources */,
 				DA630B6B1E6B84D40004245A /* ExtensionNSManagedObject.swift in Sources */,
+				DA99BE4A1E6E090D00AECF25 /* MDrawProjectColorItemUser.swift in Sources */,
 				DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */,
 				DA630B671E6B84D40004245A /* CParent.swift in Sources */,
+				DA99BE3D1E6E07A900AECF25 /* VDrawProjectColor.swift in Sources */,
 				DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */,
 				DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */,
 				DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */,
 				DA45C4991E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift in Sources */,
 				DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DA99BE481E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift in Sources */,
 				DA630B7B1E6B84D40004245A /* VCollection.swift in Sources */,
 				DA94437E1E6DE2B400CD5993 /* VDrawProjectMenuNodesCell.swift in Sources */,
 				DA630B781E6B84D40004245A /* VAlert.swift in Sources */,

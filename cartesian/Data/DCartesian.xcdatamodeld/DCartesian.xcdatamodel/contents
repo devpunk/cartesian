@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DColor" representedClassName="DColor" syncable="YES" codeGenerationType="class"/>
     <entity name="DNode" representedClassName="DNode" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="centerX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="centerY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -22,5 +23,6 @@
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
+        <element name="DColor" positionX="-54" positionY="72" width="128" height="45"/>
     </elements>
 </model>
