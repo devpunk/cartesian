@@ -5,8 +5,8 @@ class VDrawProjectMenuSettings:UIView
     private weak var controller:CDrawProject!
     private(set) weak var viewSize:VDrawProjectMenuSettingsSize!
     private let kSizeMargin:CGFloat = 10
-    private let kSizeWidth:CGFloat = 150
-    private let kSizeHeight:CGFloat = 50
+    private let kSizeWidth:CGFloat = 110
+    private let kSizeHeight:CGFloat = 55
     
     init(controller:CDrawProject)
     {

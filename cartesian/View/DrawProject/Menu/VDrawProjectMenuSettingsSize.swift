@@ -6,8 +6,9 @@ class VDrawProjectMenuSettingsSize:UIView
     private weak var labelWidth:UILabel!
     private weak var labelHeight:UILabel!
     private let kIconSize:CGFloat = 30
-    private let kLabelsHeight:CGFloat = 20
-    private let kLabelsWidth:CGFloat = 120
+    private let kLabelsHeight:CGFloat = 17
+    private let kLabelsWidth:CGFloat = 80
+    private let kLabelWidthLeft:CGFloat = 4
     
     init(controller:CDrawProject)
     {
@@ -17,7 +18,7 @@ class VDrawProjectMenuSettingsSize:UIView
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
         
-        let font:UIFont = UIFont.numeric(size:15)
+        let font:UIFont = UIFont.numeric(size:14)
         let color:UIColor = UIColor.black
         
         let icon:UIImageView = UIImageView()
@@ -32,6 +33,7 @@ class VDrawProjectMenuSettingsSize:UIView
         labelWidth.isUserInteractionEnabled = false
         labelWidth.backgroundColor = UIColor.clear
         labelWidth.font = font
+        labelWidth.textColor = color
         labelWidth.text = "300px"
         self.labelWidth = labelWidth
         
@@ -40,6 +42,7 @@ class VDrawProjectMenuSettingsSize:UIView
         labelHeight.isUserInteractionEnabled = false
         labelHeight.backgroundColor = UIColor.clear
         labelHeight.font = font
+        labelHeight.textColor = color
         labelHeight.text = "500px"
         self.labelHeight = labelHeight
         
@@ -65,7 +68,8 @@ class VDrawProjectMenuSettingsSize:UIView
             constant:kLabelsHeight)
         NSLayoutConstraint.leftToRight(
             view:labelWidth,
-            toView:icon)
+            toView:icon,
+            constant:kLabelWidthLeft)
         NSLayoutConstraint.width(
             view:labelWidth,
             constant:kLabelsWidth)
