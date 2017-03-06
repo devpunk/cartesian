@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuNodes:UIView
+class VDrawProjectCanvas:UIView
 {
     private weak var controller:CDrawProject!
     
@@ -8,8 +8,7 @@ class VDrawProjectMenuNodes:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.white
-        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = UIColor.red
         self.controller = controller
     }
     

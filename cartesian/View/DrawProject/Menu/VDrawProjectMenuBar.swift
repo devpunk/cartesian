@@ -17,6 +17,7 @@ class VDrawProjectMenuBar:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let blur:VBlur = VBlur.light()
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let buttonBack:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
@@ -42,10 +43,15 @@ class VDrawProjectMenuBar:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonNodes = buttonNodes
         
+        addSubview(blur)
         addSubview(border)
         addSubview(buttonBack)
         addSubview(buttonSettings)
         addSubview(buttonNodes)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
