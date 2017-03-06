@@ -123,22 +123,36 @@ class VDrawProjectMenuSettingsZoom:UIView
     
     func actionMinus(sender button:UIButton)
     {
-        
+        if controller.modelZoom.currentItem > 0
+        {
+            controller.modelZoom.currentItem -= 1
+            
+            printZoom()
+        }
     }
     
     func actionPlus(sender button:UIButton)
     {
+        let countZooms:Int = controller.modelZoom.items.count
         
+        if controller.modelZoom.currentItem < countZooms - 1
+        {
+            controller.modelZoom.currentItem += 1
+            
+            printZoom()
+        }
     }
     
     //MARK: private
     
     private func printZoom()
     {
-        let zoomMultiplied:NSNumber = (controller.zoom * kZoomMultiplier) as NSNumber
+        let currentZoom:CGFloat = controller.modelZoom.currentZoom()
+        let zoomMultiplied:Int = Int(currentZoom * kZoomMultiplier)
+        let zoomMultipliedNumber:NSNumber = zoomMultiplied as NSNumber
         let zoomString:String = String(
             format:NSLocalizedString("VDrawProjectMenuSettingsZoom_label", comment:""),
-            zoomMultiplied)
+            zoomMultipliedNumber)
         label.text = zoomString
     }
 }

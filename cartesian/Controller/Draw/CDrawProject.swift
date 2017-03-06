@@ -2,13 +2,12 @@ import UIKit
 
 class CDrawProject:CController
 {
-    var zoom:CGFloat
+    let modelZoom:MDrawProjectMenuZoom
     private(set) weak var viewProject:VDrawProject!
-    private let kInitialZoom:CGFloat = 1
     
     override init()
     {
-        zoom = kInitialZoom
+        modelZoom = MDrawProjectMenuZoom()
         
         super.init()
     }
