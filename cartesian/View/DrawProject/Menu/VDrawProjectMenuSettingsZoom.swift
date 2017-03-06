@@ -31,7 +31,7 @@ class VDrawProjectMenuSettingsZoom:UIView
         label.textAlignment = NSTextAlignment.center
         label.font = UIFont.numeric(size:14)
         label.textColor = UIColor(white:0.6, alpha:1)
-        label.text = "100%"
+        self.label = label
         
         let buttonMinus:UIButton = UIButton()
         buttonMinus.translatesAutoresizingMaskIntoConstraints = false

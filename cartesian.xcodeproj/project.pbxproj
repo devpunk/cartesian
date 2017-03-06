@@ -46,6 +46,7 @@
 		DA630B7F1E6B84D40004245A /* VView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B621E6B84D40004245A /* VView.swift */; };
 		DA630B841E6B8B090004245A /* CDrawList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B831E6B8B090004245A /* CDrawList.swift */; };
 		DA630B871E6B94660004245A /* VDrawList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B861E6B94660004245A /* VDrawList.swift */; };
+		DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA94436D1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld */; };
 		DAED2D9F1E6CA0030064C837 /* CDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */; };
 		DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */; };
 		DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */; };
@@ -96,6 +97,7 @@
 		DA630B621E6B84D40004245A /* VView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VView.swift; sourceTree = "<group>"; };
 		DA630B831E6B8B090004245A /* CDrawList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawList.swift; sourceTree = "<group>"; };
 		DA630B861E6B94660004245A /* VDrawList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawList.swift; sourceTree = "<group>"; };
+		DA94436E1E6DDA6F00CD5993 /* DCartesian.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCartesian.xcdatamodel; sourceTree = "<group>"; };
 		DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenu.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		DA630B271E6B823D0004245A /* cartesian */ = {
 			isa = PBXGroup;
 			children = (
+				DA94436C1E6DDA6000CD5993 /* Data */,
 				DA630B3A1E6B84D40004245A /* Assets */,
 				DA630B3D1E6B84D40004245A /* Controller */,
 				DA630B421E6B84D40004245A /* Extensions */,
@@ -303,6 +306,14 @@
 			path = DrawList;
 			sourceTree = "<group>";
 		};
+		DA94436C1E6DDA6000CD5993 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DA94436D1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		DAED2DA01E6CA0310064C837 /* DrawProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +456,7 @@
 				DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */,
 				DA630B671E6B84D40004245A /* CParent.swift in Sources */,
 				DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */,
+				DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */,
 				DA45C4991E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift in Sources */,
 				DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA630B7B1E6B84D40004245A /* VCollection.swift in Sources */,
@@ -616,6 +628,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA94436D1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA94436E1E6DDA6F00CD5993 /* DCartesian.xcdatamodel */,
+			);
+			currentVersion = DA94436E1E6DDA6F00CD5993 /* DCartesian.xcdatamodel */;
+			path = DCartesian.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA630B1D1E6B823C0004245A /* Project object */;
 }
