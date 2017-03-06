@@ -6,6 +6,7 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private(set) weak var viewBar:VDrawProjectColorBar!
     private weak var collectionView:VCollection!
     private let kBarHeight:CGFloat = 60
+    private let kRows:CGFloat = 2
     
     init(controller:CDrawProject)
     {
@@ -19,6 +20,18 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             controller:controller)
         self.viewBar = viewBar
         
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.registerCell(cell:VDrawProjectColorCell.self)
+        self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        }
+        
         addSubview(viewBar)
         
         NSLayoutConstraint.topToTop(
@@ -30,7 +43,6 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
-        
     }
     
     required init?(coder:NSCoder)
@@ -38,7 +50,29 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         return nil
     }
     
-    // collectionView delegate
+    override func layoutSubviews()
+    {
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            let height:CGFloat = collectionView.bounds.maxY
+            let cellSide:CGFloat = height / kRows
+            let cellSize:CGSize = CGSize(width:cellSide, height:cellSide)
+            flow.itemSize = cellSize
+        }
+        
+        super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MDrawProjectColorItem
+    {
+        let item:MDrawProjectColorItem = controller.modelColor.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -47,6 +81,20 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
+        let count:Int = controller.modelColor.items.count
         
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MDrawProjectColorItem = modelAtIndex(index:indexPath)
+        let cell:VDrawProjectColorCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VDrawProjectColorCell.reusableIdentifier,
+            for:indexPath) as! VDrawProjectColorCell
+        cell.config(model:item)
+        
+        return cell
     }
 }
