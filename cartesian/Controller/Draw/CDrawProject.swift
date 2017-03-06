@@ -3,6 +3,7 @@ import UIKit
 class CDrawProject:CController
 {
     let modelZoom:MDrawProjectMenuZoom
+    let modelColor:MDrawProjectColor
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
     private let kInitialSize:Float = 50
@@ -11,6 +12,7 @@ class CDrawProject:CController
     {
         self.model = model
         modelZoom = MDrawProjectMenuZoom()
+        modelColor = MDrawProjectColor()
         
         super.init()
         

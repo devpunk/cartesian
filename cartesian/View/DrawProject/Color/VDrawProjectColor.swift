@@ -5,6 +5,7 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private weak var controller:CDrawProject!
     private(set) weak var viewBar:VDrawProjectColorBar!
     private weak var collectionView:VCollection!
+    private let kBarHeight:CGFloat = 60
     
     init(controller:CDrawProject)
     {
@@ -12,8 +13,23 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
-        let viewBar:VDrawProjectColorBa
+        let viewBar:VDrawProjectColorBar = VDrawProjectColorBar(
+            controller:controller)
+        self.viewBar = viewBar
+        
+        addSubview(viewBar)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
+            toView:self)
         
     }
     
@@ -24,10 +40,13 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     // collectionView delegate
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
     
-    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        
+    }
 }
