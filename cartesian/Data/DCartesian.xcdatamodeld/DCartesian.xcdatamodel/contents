@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="DNode" representedClassName="DNode" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="centerX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="centerY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="height" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
+    </entity>
+    <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="nodes" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DNode" inverseName="project" inverseEntity="DNode" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DProject" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="DNode" positionX="-54" positionY="0" width="128" height="120"/>
+    </elements>
 </model>
