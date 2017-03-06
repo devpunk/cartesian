@@ -5,6 +5,7 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
     private let model:MDrawProjectMenuNodes
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
+    private let kRows:CGFloat = 2
     
     init(controller:CDrawProject)
     {
@@ -38,6 +39,19 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            let height:CGFloat = bounds.maxY
+            let cellSide:CGFloat = height / kRows
+            let cellSize:CGSize = CGSize(width:cellSide, height:cellSide)
+            flow.itemSize = cellSize
+        }
+        
+        super.layoutSubviews()
     }
     
     //MARK: private
