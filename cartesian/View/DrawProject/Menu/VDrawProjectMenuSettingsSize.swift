@@ -20,7 +20,7 @@ class VDrawProjectMenuSettingsSize:UIView
         self.controller = controller
         
         let font:UIFont = UIFont.numeric(size:14)
-        let color:UIColor = UIColor.black
+        let color:UIColor = UIColor(white:0.6, alpha:1)
         
         let icon:UIImageView = UIImageView()
         icon.translatesAutoresizingMaskIntoConstraints = false

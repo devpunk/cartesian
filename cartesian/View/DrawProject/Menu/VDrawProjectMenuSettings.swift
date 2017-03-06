@@ -4,9 +4,13 @@ class VDrawProjectMenuSettings:UIView
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewSize:VDrawProjectMenuSettingsSize!
+    private(set) weak var viewZoom:VDrawProjectMenuSettingsZoom!
     private let kSizeMargin:CGFloat = 10
     private let kSizeWidth:CGFloat = 110
     private let kSizeHeight:CGFloat = 55
+    private let kZoomMargin:CGFloat = 10
+    private let kZoomWidth:CGFloat = 110
+    private let kZoomHeight:CGFloat = 65
     
     init(controller:CDrawProject)
     {
@@ -20,7 +24,12 @@ class VDrawProjectMenuSettings:UIView
             controller:controller)
         self.viewSize = viewSize
         
+        let viewZoom:VDrawProjectMenuSettingsZoom = VDrawProjectMenuSettingsZoom(
+            controller:controller)
+        self.viewZoom = viewZoom
+        
         addSubview(viewSize)
+        addSubview(viewZoom)
         
         NSLayoutConstraint.topToTop(
             view:viewSize,
@@ -36,6 +45,21 @@ class VDrawProjectMenuSettings:UIView
         NSLayoutConstraint.width(
             view:viewSize,
             constant:kSizeWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewZoom,
+            toView:self,
+            constant:kZoomMargin)
+        NSLayoutConstraint.height(
+            view:viewZoom,
+            constant:kZoomHeight)
+        NSLayoutConstraint.rightToRight(
+            view:viewZoom,
+            toView:self,
+            constant:-kZoomMargin)
+        NSLayoutConstraint.width(
+            view:viewZoom,
+            constant:kZoomWidth)
     }
     
     required init?(coder:NSCoder)
