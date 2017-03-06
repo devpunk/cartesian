@@ -106,5 +106,12 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
                 scrollPosition:UICollectionViewScrollPosition())
             collectionView?.isUserInteractionEnabled = true
         }
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.controller.addNode(
+                entityName:item.entityName)
+        }
     }
 }

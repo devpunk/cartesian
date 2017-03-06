@@ -13,9 +13,13 @@ class CDrawProject:CController
         
         super.init()
         
-        if model == nil
-        {
-            createProject()
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            if self?.model == nil
+            {
+                self?.createProject()
+            }
         }
     }
     
@@ -64,5 +68,26 @@ class CDrawProject:CController
     func back()
     {
         parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
+    func addNode(entityName:String)
+    {
+        let centerPoint:CGPoint = viewProject.viewScroll.centerPoint()
+        
+        DManager.sharedInstance?.createData(
+            entityName:entityName)
+        { [weak self] (data) in
+            
+            guard
+            
+                let node:DNode = data as? DNode
+            
+            else
+            {
+                return
+            }
+            
+            node.centerX = Float()
+        }
     }
 }

@@ -54,6 +54,7 @@
 		DA94437C1E6DE23700CD5993 /* node.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA94437B1E6DE23700CD5993 /* node.xcassets */; };
 		DA94437E1E6DE2B400CD5993 /* VDrawProjectMenuNodesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94437D1E6DE2B400CD5993 /* VDrawProjectMenuNodesCell.swift */; };
 		DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA94437F1E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift */; };
+		DA9443821E6DF7E700CD5993 /* DNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9443811E6DF7E700CD5993 /* DNodeExtension.swift */; };
 		DAED2D9F1E6CA0030064C837 /* CDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */; };
 		DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */; };
 		DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */; };
@@ -112,6 +113,7 @@
 		DA94437B1E6DE23700CD5993 /* node.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = node.xcassets; sourceTree = "<group>"; };
 		DA94437D1E6DE2B400CD5993 /* VDrawProjectMenuNodesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuNodesCell.swift; sourceTree = "<group>"; };
 		DA94437F1E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemOval.swift; sourceTree = "<group>"; };
+		DA9443811E6DF7E700CD5993 /* DNodeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeExtension.swift; sourceTree = "<group>"; };
 		DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenu.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			children = (
 				DA94436D1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld */,
 				DA9443701E6DDA8F00CD5993 /* DManager.swift */,
+				DA9443811E6DF7E700CD5993 /* DNodeExtension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
+				DA9443821E6DF7E700CD5993 /* DNodeExtension.swift in Sources */,
 				DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */,
 				DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */,
 				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
