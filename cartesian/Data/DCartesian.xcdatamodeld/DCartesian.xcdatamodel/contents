@@ -3,6 +3,10 @@
     <entity name="DNode" representedClassName="DNode" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="centerX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="centerY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorAlpha" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorBlue" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorGreen" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorRed" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="height" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
@@ -14,7 +18,7 @@
         <relationship name="nodes" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DNode" inverseName="project" inverseEntity="DNode" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DNode" positionX="-54" positionY="0" width="128" height="120"/>
+        <element name="DNode" positionX="-54" positionY="0" width="128" height="180"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
