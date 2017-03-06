@@ -1,8 +1,9 @@
 import UIKit
 
-class VDrawProjectMenuNodes:UIView
+class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CDrawProject!
+    private weak var collectionView:VCollection!
     
     init(controller:CDrawProject)
     {
@@ -16,5 +17,17 @@ class VDrawProjectMenuNodes:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let 
     }
 }
