@@ -5,7 +5,7 @@ class VDrawProjectMenuSettingsZoom:UIView
     private weak var controller:CDrawProject!
     private weak var label:UILabel!
     private let kButtonsWidth:CGFloat = 55
-    private let kLabelHeight:CGFloat = 20
+    private let kLabelHeight:CGFloat = 16
     private let kIconBottom:CGFloat = 8
     
     init(controller:CDrawProject)
@@ -28,7 +28,7 @@ class VDrawProjectMenuSettingsZoom:UIView
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.numeric(size:15)
+        label.font = UIFont.numeric(size:14)
         label.textColor = UIColor(white:0.6, alpha:1)
         label.text = "100%"
         

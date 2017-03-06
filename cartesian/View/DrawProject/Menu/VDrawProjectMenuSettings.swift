@@ -8,9 +8,8 @@ class VDrawProjectMenuSettings:UIView
     private let kSizeMargin:CGFloat = 10
     private let kSizeWidth:CGFloat = 110
     private let kSizeHeight:CGFloat = 55
-    private let kZoomMargin:CGFloat = 10
-    private let kZoomWidth:CGFloat = 110
-    private let kZoomHeight:CGFloat = 65
+    private let kZoomWidth:CGFloat = 115
+    private let kZoomHeight:CGFloat = 50
     
     init(controller:CDrawProject)
     {
@@ -48,15 +47,13 @@ class VDrawProjectMenuSettings:UIView
         
         NSLayoutConstraint.topToTop(
             view:viewZoom,
-            toView:self,
-            constant:kZoomMargin)
+            toView:self)
         NSLayoutConstraint.height(
             view:viewZoom,
             constant:kZoomHeight)
         NSLayoutConstraint.rightToRight(
             view:viewZoom,
-            toView:self,
-            constant:-kZoomMargin)
+            toView:self)
         NSLayoutConstraint.width(
             view:viewZoom,
             constant:kZoomWidth)
