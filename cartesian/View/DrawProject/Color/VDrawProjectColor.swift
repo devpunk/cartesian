@@ -8,9 +8,9 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private weak var blurContainter:UIView!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 60
-    private let kBaseHeight:CGFloat = 290
-    private let kRows:CGFloat = 2
-    private let kAnimationDuration:TimeInterval = 3
+    private let kBaseHeight:CGFloat = 210
+    private let kRows:CGFloat = 3
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject)
     {

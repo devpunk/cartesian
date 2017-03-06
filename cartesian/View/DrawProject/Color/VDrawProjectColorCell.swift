@@ -2,9 +2,12 @@ import UIKit
 
 class VDrawProjectColorCell:UICollectionViewCell
 {
-    private weak var imageView:UIImageView!
+    private weak var innerColor:UIView!
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
+    private let kMargin:CGFloat = 1
+    private let kPadding:CGFloat = 15
+    private let kCornerRadius:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -12,18 +15,46 @@ class VDrawProjectColorCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView = imageView
+        let outerColor:UIView = UIView()
+        outerColor.clipsToBounds = true
+        outerColor.translatesAutoresizingMaskIntoConstraints = false
+        outerColor.isUserInteractionEnabled = false
+        outerColor.backgroundColor = UIColor.black
+        outerColor.layer.cornerRadius = kCornerRadius
         
-        addSubview(imageView)
+        let middleColor:UIView = UIView()
+        middleColor.clipsToBounds = true
+        middleColor.translatesAutoresizingMaskIntoConstraints = false
+        middleColor.isUserInteractionEnabled = false
+        middleColor.backgroundColor = UIColor.white
+        middleColor.layer.cornerRadius = kCornerRadius
+        
+        let innerColor:UIView = UIView()
+        innerColor.clipsToBounds = true
+        innerColor.translatesAutoresizingMaskIntoConstraints = false
+        innerColor.isUserInteractionEnabled = false
+        innerColor.backgroundColor = UIColor.clear
+        innerColor.layer.cornerRadius = kCornerRadius
+        self.innerColor = innerColor
+        
+        addSubview(outerColor)
+        addSubview(middleColor)
+        addSubview(innerColor)
         
         NSLayoutConstraint.equals(
-            view:imageView,
-            toView:self)
+            view:outerColor,
+            toView:self,
+            margin:kPadding)
+        
+        NSLayoutConstraint.equals(
+            view:middleColor,
+            toView:outerColor,
+            margin:kMargin)
+        
+        NSLayoutConstraint.equals(
+            view:innerColor,
+            toView:middleColor,
+            margin:kMargin)
     }
     
     required init?(coder:NSCoder)
@@ -65,7 +96,7 @@ class VDrawProjectColorCell:UICollectionViewCell
     
     func config(model:MDrawProjectColorItem)
     {
-        imageView.tintColor = model.color
+        innerColor.backgroundColor = model.color
         hover()
     }
 }
