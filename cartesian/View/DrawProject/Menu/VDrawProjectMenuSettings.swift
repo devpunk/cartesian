@@ -5,6 +5,7 @@ class VDrawProjectMenuSettings:UIView
     private weak var controller:CDrawProject!
     private(set) weak var viewSize:VDrawProjectMenuSettingsSize!
     private(set) weak var viewZoom:VDrawProjectMenuSettingsZoom!
+    private(set) weak var viewDefaultColor:VDrawProjectMenuSettingsDefaultColor!
     private let kSizeMargin:CGFloat = 10
     private let kSizeWidth:CGFloat = 110
     private let kSizeHeight:CGFloat = 55
@@ -27,8 +28,13 @@ class VDrawProjectMenuSettings:UIView
             controller:controller)
         self.viewZoom = viewZoom
         
+        let viewDefaultColor:VDrawProjectMenuSettingsDefaultColor = VDrawProjectMenuSettingsDefaultColor(
+            controller:controller)
+        self.viewDefaultColor = viewDefaultColor
+        
         addSubview(viewSize)
         addSubview(viewZoom)
+        addSubview(viewDefaultColor)
         
         NSLayoutConstraint.topToTop(
             view:viewSize,
