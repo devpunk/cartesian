@@ -15,6 +15,7 @@
 		DA45C4991E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4981E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift */; };
 		DA45C49B1E6DCE4E00CA6A20 /* VDrawProjectCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C49A1E6DCE4E00CA6A20 /* VDrawProjectCanvas.swift */; };
 		DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */; };
+		DA45C4A61E6DD32E00CA6A20 /* ResourceZoom.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA45C4A51E6DD32E00CA6A20 /* ResourceZoom.plist */; };
 		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
 		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
 		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		DA45C4981E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuSettingsZoom.swift; sourceTree = "<group>"; };
 		DA45C49A1E6DCE4E00CA6A20 /* VDrawProjectCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvas.swift; sourceTree = "<group>"; };
 		DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoom.swift; sourceTree = "<group>"; };
+		DA45C4A51E6DD32E00CA6A20 /* ResourceZoom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceZoom.plist; sourceTree = "<group>"; };
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				DA630B501E6B84D40004245A /* Localizable.strings */,
 				DA630B521E6B84D40004245A /* ResourceUrl.plist */,
+				DA45C4A51E6DD32E00CA6A20 /* ResourceZoom.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			files = (
 				DA630B631E6B84D40004245A /* generic.xcassets in Resources */,
 				DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */,
+				DA45C4A61E6DD32E00CA6A20 /* ResourceZoom.plist in Resources */,
 				DA630B721E6B84D40004245A /* Localizable.strings in Resources */,
 				DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */,
 			);
