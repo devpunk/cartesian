@@ -4,7 +4,7 @@ class VDrawProject:VView
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewMenu:VDrawProjectMenu!
-    private(set) weak var scrollView:ui
+    private(set) weak var viewScroll:VDrawProjectScroll!
     private weak var layoutMenuBottom:NSLayoutConstraint!
     private let kMenuHeight:CGFloat = 251
     private let kMenuMaxBottom:CGFloat = 200
@@ -15,10 +15,15 @@ class VDrawProject:VView
         super.init(controller:controller)
         self.controller = controller as? CDrawProject
         
+        let viewScroll:VDrawProjectScroll = VDrawProjectScroll(
+            controller:self.controller)
+        self.viewScroll = viewScroll
+        
         let viewMenu:VDrawProjectMenu = VDrawProjectMenu(
             controller:self.controller)
         self.viewMenu = viewMenu
         
+        addSubview(viewScroll)
         addSubview(viewMenu)
         
         NSLayoutConstraint.height(
@@ -30,6 +35,10 @@ class VDrawProject:VView
             constant:kMenuMaxBottom)
         NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewScroll,
             toView:self)
     }
     
@@ -43,6 +52,7 @@ class VDrawProject:VView
     func viewDidAppeared()
     {
         viewMenu.viewBar.selectSettings()
+        viewMenu.viewSettings.viewSize.update()
     }
     
     func showMenu()

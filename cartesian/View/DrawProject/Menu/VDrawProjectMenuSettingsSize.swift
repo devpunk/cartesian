@@ -95,6 +95,17 @@ class VDrawProjectMenuSettingsSize:UIView
     
     func update()
     {
-        "VDrawProjectMenuSettingsSize_labels"
+        let scrollSize:CGSize = controller.viewProject.viewScroll.contentSize
+        let scrollWidth:CGFloat = scrollSize.width
+        let scrollHeight:CGFloat = scrollSize.height
+        let stringWidth:String = String(
+            format:"VDrawProjectMenuSettingsSize_labels",
+            scrollWidth)
+        let stringHeight:String = String(
+            format:"VDrawProjectMenuSettingsSize_labels",
+            scrollHeight)
+        
+        labelWidth.text = stringWidth
+        labelHeight.text = stringHeight
     }
 }
