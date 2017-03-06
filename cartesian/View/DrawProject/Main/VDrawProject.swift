@@ -6,8 +6,8 @@ class VDrawProject:VView
     private(set) weak var viewMenu:VDrawProjectMenu!
     private(set) weak var viewScroll:VDrawProjectScroll!
     private weak var layoutMenuBottom:NSLayoutConstraint!
-    private let kMenuHeight:CGFloat = 251
-    private let kMenuMaxBottom:CGFloat = 200
+    private let kMenuHeight:CGFloat = 171
+    private let kMenuMaxBottom:CGFloat = 120
     private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)

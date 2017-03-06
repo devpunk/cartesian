@@ -15,7 +15,7 @@ class CDrawList:CController
     
     func newDraw()
     {
-        let controllerProject:CDrawProject = CDrawProject()
+        let controllerProject:CDrawProject = CDrawProject(model:nil)
         parentController.push(
             controller:controllerProject,
             horizontal:CParent.TransitionHorizontal.fromRight)

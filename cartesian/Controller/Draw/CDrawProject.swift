@@ -3,13 +3,20 @@ import UIKit
 class CDrawProject:CController
 {
     let modelZoom:MDrawProjectMenuZoom
+    var model:DProject?
     private(set) weak var viewProject:VDrawProject!
     
-    override init()
+    init(model:DProject?)
     {
+        self.model = model
         modelZoom = MDrawProjectMenuZoom()
         
         super.init()
+        
+        if model == nil
+        {
+            createProject()
+        }
     }
     
     required init?(coder:NSCoder)
@@ -38,6 +45,18 @@ class CDrawProject:CController
         super.viewDidDisappear(animated)
         
         parentController.hideBar(barHidden:false)
+    }
+    
+    //MARK: private
+    
+    private func createProject()
+    {
+        DManager.sharedInstance?.createData(
+            entityName:DProject.entityName)
+        { [weak self] (data) in
+            
+            self?.model = data as? DProject
+        }
     }
     
     //MARK: public

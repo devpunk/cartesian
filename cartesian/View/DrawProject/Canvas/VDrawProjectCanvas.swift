@@ -16,4 +16,6 @@ class VDrawProjectCanvas:UIView
     {
         return nil
     }
+    
+    //MARK: public
 }
