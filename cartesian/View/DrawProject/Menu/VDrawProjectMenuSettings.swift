@@ -11,8 +11,9 @@ class VDrawProjectMenuSettings:UIView
     private let kSizeHeight:CGFloat = 55
     private let kZoomWidth:CGFloat = 115
     private let kZoomHeight:CGFloat = 50
+    private let kDefaultColorTop:CGFloat = 18
     private let kDefaultColorHeight:CGFloat = 36
-    private let kDefaultColorWidth:CGFloat = 70
+    private let kDefaultColorWidth:CGFloat = 80
     
     init(controller:CDrawProject)
     {
@@ -65,6 +66,20 @@ class VDrawProjectMenuSettings:UIView
         NSLayoutConstraint.width(
             view:viewZoom,
             constant:kZoomWidth)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewDefaultColor,
+            toView:viewSize,
+            constant:kDefaultColorTop)
+        NSLayoutConstraint.height(
+            view:viewDefaultColor,
+            constant:kDefaultColorHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:viewDefaultColor,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:viewDefaultColor,
+            constant:kDefaultColorWidth)
     }
     
     required init?(coder:NSCoder)

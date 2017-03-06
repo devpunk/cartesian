@@ -8,8 +8,8 @@ class VDrawProject:VView
     private(set) weak var viewColors:VDrawProjectColor?
     private weak var layoutMenuBottom:NSLayoutConstraint!
     private weak var layoutColorsTop:NSLayoutConstraint!
-    private let kMenuHeight:CGFloat = 171
-    private let kMenuMaxBottom:CGFloat = 120
+    private let kMenuHeight:CGFloat = 191
+    private let kMenuMaxBottom:CGFloat = 140
     private let kColorsHeight:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
     

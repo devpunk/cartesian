@@ -3,6 +3,7 @@ import UIKit
 class MDrawProjectColor
 {
     private(set) var items:[MDrawProjectColorItem]
+    var selectedItem:Int
     
     init()
     {
@@ -14,6 +15,7 @@ class MDrawProjectColor
         items = [
             systemBlue,
             systemGreen]
+        selectedItem = 0
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
@@ -57,5 +59,14 @@ class MDrawProjectColor
                 model:color)
             items.append(itemUser)
         }
+    }
+    
+    //MARK: public
+    
+    func selectedColor() -> UIColor
+    {
+        let item:MDrawProjectColorItem = items[selectedItem]
+        
+        return item.color
     }
 }

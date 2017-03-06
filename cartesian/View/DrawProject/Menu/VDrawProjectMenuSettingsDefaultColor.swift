@@ -5,10 +5,18 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
     private weak var controller:CDrawProject!
     private weak var viewInner:UIView!
     private weak var layoutOuterColorWidth:NSLayoutConstraint!
-    private let kMarginOuter:CGFloat = -2
+    private let padding2:CGFloat
+    private let kPadding:CGFloat = 10
+    private let kMarginOuter:CGFloat = 1
+    private let kLabelRight:CGFloat = -6
+    private let kInitialWidth:CGFloat = 20
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
     
     init(controller:CDrawProject)
     {
+        padding2 = kPadding + kPadding
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -31,20 +39,34 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
         viewInner.isUserInteractionEnabled = false
         viewInner.translatesAutoresizingMaskIntoConstraints = false
         viewInner.clipsToBounds = true
+        viewInner.backgroundColor = controller.modelColor.selectedColor()
         self.viewInner = viewInner
+        
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.textAlignment = NSTextAlignment.right
+        label.font = UIFont.bold(size:14)
+        label.textColor = UIColor(white:0.6, alpha:1)
+        label.text = NSLocalizedString("VDrawProjectMenuSettingsDefaultColor_label", comment:"")
         
         addSubview(viewOuter)
         addSubview(viewMiddle)
         addSubview(viewInner)
+        addSubview(label)
         
         NSLayoutConstraint.equalsVertical(
             view:viewOuter,
-            toView:self)
+            toView:self,
+            margin:kPadding)
         NSLayoutConstraint.rightToRight(
             view:viewOuter,
-            toView:self)
+            toView:self,
+            constant:-kPadding)
         layoutOuterColorWidth = NSLayoutConstraint.width(
-            view:viewOuter)
+            view:viewOuter,
+            constant:kInitialWidth)
         
         NSLayoutConstraint.equals(
             view:viewMiddle,
@@ -55,6 +77,17 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
             view:viewInner,
             toView:viewMiddle,
             margin:kMarginOuter)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.rightToLeft(
+            view:label,
+            toView:viewOuter,
+            constant:kLabelRight)
     }
     
     required init?(coder:NSCoder)
@@ -65,8 +98,38 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
     override func layoutSubviews()
     {
         let height:CGFloat = bounds.maxY
-        layoutOuterColorWidth.constant = height
+        layoutOuterColorWidth.constant = height - padding2
         
         super.layoutSubviews()
+    }
+    
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
     }
 }
