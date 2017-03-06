@@ -17,6 +17,7 @@ class VDrawProjectMenuSettingsSize:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
+        self.controller = controller
         
         let font:UIFont = UIFont.numeric(size:14)
         let color:UIColor = UIColor.black
@@ -96,13 +97,13 @@ class VDrawProjectMenuSettingsSize:UIView
     func update()
     {
         let scrollSize:CGSize = controller.viewProject.viewScroll.contentSize
-        let scrollWidth:CGFloat = scrollSize.width
-        let scrollHeight:CGFloat = scrollSize.height
+        let scrollWidth:NSNumber = scrollSize.width as NSNumber
+        let scrollHeight:NSNumber = scrollSize.height as NSNumber
         let stringWidth:String = String(
-            format:"VDrawProjectMenuSettingsSize_labels",
+            format:NSLocalizedString("VDrawProjectMenuSettingsSize_labels", comment:""),
             scrollWidth)
         let stringHeight:String = String(
-            format:"VDrawProjectMenuSettingsSize_labels",
+            format:NSLocalizedString("VDrawProjectMenuSettingsSize_labels", comment:""),
             scrollHeight)
         
         labelWidth.text = stringWidth
