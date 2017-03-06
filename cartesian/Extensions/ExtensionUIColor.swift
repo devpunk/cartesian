@@ -2,38 +2,26 @@ import UIKit
 
 extension UIColor
 {
-    open class var squadBlue:UIColor //#0AA9BC
+    open class var cartesianBlue:UIColor //#4696C8
     {
         get
         {
             return UIColor(
-                red:0.03921568627451,
-                green:0.662745098039216,
-                blue:0.737254901960784,
+                red:0.274509803921569,
+                green:0.588235294117647,
+                blue:0.784313725490196,
                 alpha:1)
         }
     }
     
-    open class var squadRed:UIColor //#FF3722
+    open class var cartesianGreen:UIColor //#B8E986
     {
         get
         {
             return UIColor(
-                red:1,
-                green:0.215686274509804,
-                blue:0.133333333333333,
-                alpha:1)
-        }
-    }
-    
-    open class var squadGreen:UIColor //#A5E193
-    {
-        get
-        {
-            return UIColor(
-                red:0.647058823529412,
-                green:0.882352941176471,
-                blue:0.576470588235294,
+                red:0.72156862745098,
+                green:0.913725490196078,
+                blue:0.525490196078431,
                 alpha:1)
         }
     }
