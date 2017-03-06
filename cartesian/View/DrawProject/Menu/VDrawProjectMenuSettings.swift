@@ -11,6 +11,8 @@ class VDrawProjectMenuSettings:UIView
     private let kSizeHeight:CGFloat = 55
     private let kZoomWidth:CGFloat = 115
     private let kZoomHeight:CGFloat = 50
+    private let kDefaultColorHeight:CGFloat = 36
+    private let kDefaultColorWidth:CGFloat = 70
     
     init(controller:CDrawProject)
     {
