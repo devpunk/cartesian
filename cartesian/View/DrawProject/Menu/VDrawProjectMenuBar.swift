@@ -102,11 +102,35 @@ class VDrawProjectMenuBar:UIView
     
     func actionSettings(sender button:UIButton)
     {
-        
+        if !buttonSettings.isSelected
+        {
+            selectSettings()
+        }
     }
     
     func actionNodes(sender button:UIButton)
     {
-        
+        if !buttonNodes.isSelected
+        {
+            selectNodes()
+        }
+    }
+    
+    //MARK: public
+    
+    func selectSettings()
+    {
+        buttonSettings.isSelected = true
+        buttonNodes.isSelected = false
+        controller.viewProject.viewMenu.displaySettings()
+        controller.viewProject.showMenu()
+    }
+    
+    func selectNodes()
+    {
+        buttonSettings.isSelected = false
+        buttonNodes.isSelected = true
+        controller.viewProject.viewMenu.displayNodes()
+        controller.viewProject.showMenu()
     }
 }

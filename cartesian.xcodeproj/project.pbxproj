@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */; };
 		DA007DB31E6B967E005684F6 /* VDrawListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB21E6B967E005684F6 /* VDrawListCell.swift */; };
+		DA45C4931E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4921E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift */; };
 		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
 		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
 		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListHeader.swift; sourceTree = "<group>"; };
 		DA007DB21E6B967E005684F6 /* VDrawListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListCell.swift; sourceTree = "<group>"; };
+		DA45C4921E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuSettingsSize.swift; sourceTree = "<group>"; };
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				DAED2DAA1E6CA6820064C837 /* VDrawProjectMenuBar.swift */,
 				DAED2DAE1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift */,
 				DAED2DAC1E6CAA940064C837 /* VDrawProjectMenuSettings.swift */,
+				DA45C4921E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				DA630B7D1E6B84D40004245A /* VSpinner.swift in Sources */,
 				DA630B761E6B84D40004245A /* VParentBarButton.swift in Sources */,
 				DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */,
+				DA45C4931E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift in Sources */,
 				DA630B6B1E6B84D40004245A /* ExtensionNSManagedObject.swift in Sources */,
 				DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */,
 				DA630B671E6B84D40004245A /* CParent.swift in Sources */,

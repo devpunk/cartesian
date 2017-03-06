@@ -14,9 +14,10 @@ class CDrawProject:CController
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
-        
         parentController.hideBar(barHidden:true)
         parentController.viewParent.panRecognizer.isEnabled = false
+        
+        viewProject.viewDidAppeared()
     }
     
     override func viewDidDisappear(_ animated:Bool)

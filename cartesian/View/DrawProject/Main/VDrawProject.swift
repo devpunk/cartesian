@@ -7,6 +7,7 @@ class VDrawProject:VView
     private weak var layoutMenuBottom:NSLayoutConstraint!
     private let kMenuHeight:CGFloat = 251
     private let kMenuMaxBottom:CGFloat = 200
+    private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
     {
@@ -24,7 +25,8 @@ class VDrawProject:VView
             constant:kMenuHeight)
         layoutMenuBottom = NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
-            toView:self)
+            toView:self,
+            constant:kMenuMaxBottom)
         NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
             toView:self)
@@ -33,5 +35,34 @@ class VDrawProject:VView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: public
+    
+    func viewDidAppeared()
+    {
+        viewMenu.viewBar.selectSettings()
+    }
+    
+    func showMenu()
+    {
+        layoutMenuBottom.constant = 0
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
+    func hideMenu()
+    {
+        layoutMenuBottom.constant = kMenuMaxBottom
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
 }

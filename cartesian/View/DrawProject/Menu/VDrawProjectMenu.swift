@@ -3,7 +3,7 @@ import UIKit
 class VDrawProjectMenu:UIView
 {
     private weak var controller:CDrawProject!
-    private weak var viewBar:VDrawProjectMenuBar!
+    private(set) weak var viewBar:VDrawProjectMenuBar!
     private let kBarHeight:CGFloat = 51
     
     init(controller:CDrawProject)
@@ -33,5 +33,17 @@ class VDrawProjectMenu:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: public
+    
+    func displaySettings()
+    {
+        
+    }
+    
+    func displayNodes()
+    {
+        
     }
 }
