@@ -53,6 +53,7 @@ class VDrawProject:VView
     {
         viewMenu.viewBar.selectSettings()
         viewMenu.viewSettings.viewSize.update()
+        viewScroll.viewCanvas.draw()
     }
     
     func showMenu()

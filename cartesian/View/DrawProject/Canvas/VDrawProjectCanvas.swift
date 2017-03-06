@@ -17,10 +17,31 @@ class VDrawProjectCanvas:UIView
         return nil
     }
     
-    override func draw(_ rect:CGRect)
-    {
-        print("redraw canvas")
-    }
-    
     //MARK: public
+    
+    func draw()
+    {
+        for subview:UIView in subviews
+        {
+            subview.removeFromSuperview()
+        }
+        
+        guard
+        
+            let nodes:[DNode] = controller.model?.nodes?.array as? [DNode]
+        
+        else
+        {
+            return
+        }
+        
+        for node:DNode in nodes
+        {
+            let viewNode:VDrawProjectCanvasNode = VDrawProjectCanvasNode(
+                model:node)
+            
+            addSubview(viewNode)
+            viewNode.centerNode()
+        }
+    }
 }

@@ -5,6 +5,7 @@ class CDrawProject:CController
     let modelZoom:MDrawProjectMenuZoom
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
+    private let kInitialSize:Float = 50
     
     init(model:DProject?)
     {
@@ -68,7 +69,7 @@ class CDrawProject:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewProject.viewScroll.viewCanvas.setNeedsDisplay()
+            self?.viewProject.viewScroll.viewCanvas.draw()
         }
     }
     
@@ -89,7 +90,8 @@ class CDrawProject:CController
             
             guard
             
-                let node:DNode = data as? DNode
+                let node:DNode = data as? DNode,
+                let initialSize:Float = self?.kInitialSize
             
             else
             {
@@ -98,6 +100,8 @@ class CDrawProject:CController
             
             node.centerAt(center:centerPoint)
             node.project = self?.model
+            node.width = initialSize
+            node.height = initialSize
             
             self?.reDraw()
         }
