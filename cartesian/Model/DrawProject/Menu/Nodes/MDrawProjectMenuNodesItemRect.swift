@@ -6,6 +6,6 @@ class MDrawProjectMenuNodesItemRect:MDrawProjectMenuNodesItem
     {
         super.init(
             icon:#imageLiteral(resourceName: "assetNodeRect"),
-            entityName:"")
+            entityName:DNodeRect.entityName)
     }
 }

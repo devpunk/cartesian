@@ -17,5 +17,10 @@ class VDrawProjectCanvas:UIView
         return nil
     }
     
+    override func draw(_ rect:CGRect)
+    {
+        print("redraw canvas")
+    }
+    
     //MARK: public
 }

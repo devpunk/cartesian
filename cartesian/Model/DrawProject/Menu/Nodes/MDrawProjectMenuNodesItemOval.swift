@@ -6,6 +6,6 @@ class MDrawProjectMenuNodesItemOval:MDrawProjectMenuNodesItem
     {
         super.init(
             icon:#imageLiteral(resourceName: "assetNodeOval"),
-            entityName:"")
+            entityName:DNodeOval.entityName)
     }
 }

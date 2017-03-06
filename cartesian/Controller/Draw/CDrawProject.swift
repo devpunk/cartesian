@@ -63,6 +63,15 @@ class CDrawProject:CController
         }
     }
     
+    private func reDraw()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewProject.viewScroll.viewCanvas.setNeedsDisplay()
+        }
+    }
+    
     //MARK: public
     
     func back()
@@ -87,7 +96,10 @@ class CDrawProject:CController
                 return
             }
             
-            node.centerX = Float()
+            node.centerAt(center:centerPoint)
+            node.project = self?.model
+            
+            self?.reDraw()
         }
     }
 }
