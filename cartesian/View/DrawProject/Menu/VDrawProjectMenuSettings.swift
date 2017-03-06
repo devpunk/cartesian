@@ -5,7 +5,8 @@ class VDrawProjectMenuSettings:UIView
     private weak var controller:CDrawProject!
     private(set) weak var viewSize:VDrawProjectMenuSettingsSize!
     private let kSizeMargin:CGFloat = 10
-    private let kSizeSize:CGFloat = 50
+    private let kSizeWidth:CGFloat = 150
+    private let kSizeHeight:CGFloat = 50
     
     init(controller:CDrawProject)
     {
@@ -25,12 +26,16 @@ class VDrawProjectMenuSettings:UIView
             view:viewSize,
             toView:self,
             constant:kSizeMargin)
-        NSLayoutConstraint.size(
+        NSLayoutConstraint.height(
             view:viewSize,
-            constant:kSizeSize)
+            constant:kSizeHeight)
         NSLayoutConstraint.leftToLeft(
             view:viewSize,
-            toView:self)
+            toView:self,
+            constant:kSizeMargin)
+        NSLayoutConstraint.width(
+            view:viewSize,
+            constant:kSizeWidth)
     }
     
     required init?(coder:NSCoder)

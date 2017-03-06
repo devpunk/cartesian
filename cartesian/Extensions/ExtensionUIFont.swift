@@ -4,11 +4,6 @@ extension UIFont
 {
     class func numeric(size:CGFloat) -> UIFont
     {
-        return UIFont(name:"HelveticaNeue-Thin", size:size)!
-    }
-    
-    class func numericBold(size:CGFloat) -> UIFont
-    {
         return UIFont(name:"HelveticaNeue", size:size)!
     }
     

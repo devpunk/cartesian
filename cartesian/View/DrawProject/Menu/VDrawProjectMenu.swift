@@ -4,8 +4,8 @@ class VDrawProjectMenu:UIView
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewBar:VDrawProjectMenuBar!
-    private(set) weak var viewSettings:VDrawProjectMenuSettings?
-    private(set) weak var viewNodes:VDrawProjectMenuNodes?
+    private(set) weak var viewSettings:VDrawProjectMenuSettings!
+    private(set) weak var viewNodes:VDrawProjectMenuNodes!
     private let kBarHeight:CGFloat = 51
     
     init(controller:CDrawProject)
@@ -19,7 +19,19 @@ class VDrawProjectMenu:UIView
         let viewBar:VDrawProjectMenuBar = VDrawProjectMenuBar(controller:controller)
         self.viewBar = viewBar
         
+        let viewSettings:VDrawProjectMenuSettings = VDrawProjectMenuSettings(
+            controller:controller)
+        viewSettings.isHidden = true
+        self.viewSettings = viewSettings
+        
+        let viewNodes:VDrawProjectMenuNodes = VDrawProjectMenuNodes(
+            controller:controller)
+        viewNodes.isHidden = true
+        self.viewNodes = viewNodes
+        
         addSubview(viewBar)
+        addSubview(viewSettings)
+        addSubview(viewNodes)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -30,6 +42,9 @@ class VDrawProjectMenu:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:self)
+        
+        layoutView(view:viewSettings)
+        layoutView(view:viewNodes)
     }
     
     required init?(coder:NSCoder)
@@ -38,12 +53,6 @@ class VDrawProjectMenu:UIView
     }
     
     //MARK: private
-    
-    private func clean()
-    {
-        viewSettings?.removeFromSuperview()
-        viewNodes?.removeFromSuperview()
-    }
     
     private func layoutView(view:UIView)
     {
@@ -62,25 +71,13 @@ class VDrawProjectMenu:UIView
     
     func displaySettings()
     {
-        clean()
-        
-        let viewSettings:VDrawProjectMenuSettings = VDrawProjectMenuSettings(
-            controller:controller)
-        self.viewSettings = viewSettings
-        
-        addSubview(viewSettings)
-        layoutView(view:viewSettings)
+        viewSettings.isHidden = false
+        viewNodes.isHidden = true
     }
     
     func displayNodes()
     {
-        clean()
-        
-        let viewNodes:VDrawProjectMenuNodes = VDrawProjectMenuNodes(
-            controller:controller)
-        self.viewNodes = viewNodes
-        
-        addSubview(viewNodes)
-        layoutView(view:viewNodes)
+        viewSettings.isHidden = true
+        viewNodes.isHidden = false
     }
 }
