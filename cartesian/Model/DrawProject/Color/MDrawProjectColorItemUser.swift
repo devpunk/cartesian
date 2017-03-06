@@ -1,9 +1,20 @@
-//
-//  MDrawProjectColorItemUser.swift
-//  cartesian
-//
-//  Created by zero on 3/6/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MDrawProjectColorItemUser:MDrawProjectColorItem
+{
+    init(model:DColor)
+    {
+        let red:CGFloat = CGFloat(model.red)
+        let green:CGFloat = CGFloat(model.green)
+        let blue:CGFloat = CGFloat(model.blue)
+        let alpha:CGFloat = CGFloat(model.alpha)
+        
+        let color:UIColor = UIColor(
+            red:red,
+            green:green,
+            blue:blue,
+            alpha:alpha)
+        
+        super.init(color:color)
+    }
+}

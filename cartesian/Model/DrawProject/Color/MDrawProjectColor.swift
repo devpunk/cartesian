@@ -1,9 +1,18 @@
-//
-//  MDrawProjectColor.swift
-//  cartesian
-//
-//  Created by zero on 3/6/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MDrawProjectColor
+{
+    let items:[MDrawProjectColorItem]
+    
+    init()
+    {
+        let systemBlue:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.cartesianBlue)
+        let systemGreen:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.cartesianGreen)
+        
+        items = [
+            systemBlue,
+            systemGreen]
+    }
+}
