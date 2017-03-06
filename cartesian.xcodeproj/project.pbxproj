@@ -14,6 +14,7 @@
 		DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4961E6DBD8900CA6A20 /* VDrawProjectScroll.swift */; };
 		DA45C4991E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4981E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift */; };
 		DA45C49B1E6DCE4E00CA6A20 /* VDrawProjectCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C49A1E6DCE4E00CA6A20 /* VDrawProjectCanvas.swift */; };
+		DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */; };
 		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
 		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
 		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		DA45C4961E6DBD8900CA6A20 /* VDrawProjectScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectScroll.swift; sourceTree = "<group>"; };
 		DA45C4981E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuSettingsZoom.swift; sourceTree = "<group>"; };
 		DA45C49A1E6DCE4E00CA6A20 /* VDrawProjectCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvas.swift; sourceTree = "<group>"; };
+		DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoom.swift; sourceTree = "<group>"; };
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA45C49C1E6DD25200CA6A20 /* DrawProject */ = {
+			isa = PBXGroup;
+			children = (
+				DA45C49D1E6DD25200CA6A20 /* Menu */,
+			);
+			path = DrawProject;
+			sourceTree = "<group>";
+		};
+		DA45C49D1E6DD25200CA6A20 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DA45C49E1E6DD25200CA6A20 /* Zoom */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DA45C49E1E6DD25200CA6A20 /* Zoom */ = {
+			isa = PBXGroup;
+			children = (
+				DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */,
+			);
+			path = Zoom;
+			sourceTree = "<group>";
+		};
 		DA630B1C1E6B823C0004245A = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +213,7 @@
 		DA630B4C1E6B84D40004245A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA45C49C1E6DD25200CA6A20 /* DrawProject */,
 				DA630B4D1E6B84D40004245A /* Session */,
 			);
 			path = Model;
@@ -388,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
+				DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */,
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,

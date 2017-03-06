@@ -7,6 +7,7 @@ class VDrawProjectMenuSettingsZoom:UIView
     private let kButtonsWidth:CGFloat = 55
     private let kLabelHeight:CGFloat = 16
     private let kIconBottom:CGFloat = 8
+    private let kZoomMultiplier:CGFloat = 100
     
     init(controller:CDrawProject)
     {
@@ -109,6 +110,8 @@ class VDrawProjectMenuSettingsZoom:UIView
         NSLayoutConstraint.rightToRight(
             view:buttonPlus,
             toView:self)
+        
+        printZoom()
     }
     
     required init?(coder:NSCoder)
@@ -126,5 +129,16 @@ class VDrawProjectMenuSettingsZoom:UIView
     func actionPlus(sender button:UIButton)
     {
         
+    }
+    
+    //MARK: private
+    
+    private func printZoom()
+    {
+        let zoomMultiplied:NSNumber = (controller.zoom * kZoomMultiplier) as NSNumber
+        let zoomString:String = String(
+            format:NSLocalizedString("VDrawProjectMenuSettingsZoom_label", comment:""),
+            zoomMultiplied)
+        label.text = zoomString
     }
 }

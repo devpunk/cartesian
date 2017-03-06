@@ -2,7 +2,21 @@ import UIKit
 
 class CDrawProject:CController
 {
+    var zoom:CGFloat
     private(set) weak var viewProject:VDrawProject!
+    private let kInitialZoom:CGFloat = 1
+    
+    override init()
+    {
+        zoom = kInitialZoom
+        
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
     
     override func loadView()
     {
