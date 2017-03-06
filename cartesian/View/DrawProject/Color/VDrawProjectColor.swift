@@ -2,11 +2,15 @@ import UIKit
 
 class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private weak var controller:CDrawProject!
     private(set) weak var viewBar:VDrawProjectColorBar!
+    private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
+    private weak var blurContainter:UIView!
+    private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 60
+    private let kBaseHeight:CGFloat = 290
     private let kRows:CGFloat = 2
+    private let kAnimationDuration:TimeInterval = 3
     
     init(controller:CDrawProject)
     {
@@ -15,6 +19,20 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let blurContainter:UIView = UIView()
+        blurContainter.isUserInteractionEnabled = false
+        blurContainter.translatesAutoresizingMaskIntoConstraints = false
+        blurContainter.clipsToBounds = true
+        blurContainter.alpha = 0
+        self.blurContainter = blurContainter
+        
+        let blur:VBlur = VBlur.dark()
+        
+        let baseView:UIView = UIView()
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.clipsToBounds = true
+        baseView.backgroundColor = UIColor.white
         
         let viewBar:VDrawProjectColorBar = VDrawProjectColorBar(
             controller:controller)
@@ -29,20 +47,68 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
+            let collectionHeight:CGFloat = kBaseHeight - kBarHeight
+            let cellSide:CGFloat = collectionHeight / kRows
+            flow.itemSize = CGSize(width:cellSide, height:cellSide)
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         }
         
-        addSubview(viewBar)
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(
+            self,
+            action:#selector(actionClose(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
+        blurContainter.addSubview(blur)
+        baseView.addSubview(collectionView)
+        baseView.addSubview(viewBar)
+        addSubview(blurContainter)
+        addSubview(button)
+        addSubview(baseView)
+        
+        NSLayoutConstraint.equals(
+            view:blurContainter,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:blurContainter)
+        
+        NSLayoutConstraint.equals(
+            view:button,
+            toView:self)
+        
+        layoutBaseTop = NSLayoutConstraint.topToTop(
+            view:baseView,
+            toView:self,
+            constant:-kBaseHeight)
+        NSLayoutConstraint.height(
+            view:baseView,
+            constant:kBaseHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:baseView,
+            toView:self)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
-            toView:self)
+            toView:baseView)
         NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
-            toView:self)
+            toView:baseView)
+        
+        NSLayoutConstraint.topToBottom(
+            view:collectionView,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:baseView)
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:baseView)
     }
     
     required init?(coder:NSCoder)
@@ -50,17 +116,20 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         return nil
     }
     
-    override func layoutSubviews()
+    //MARK: actions
+    
+    func actionClose(sender button:UIButton)
     {
-        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
-        {
-            let height:CGFloat = collectionView.bounds.maxY
-            let cellSide:CGFloat = height / kRows
-            let cellSize:CGSize = CGSize(width:cellSide, height:cellSide)
-            flow.itemSize = cellSize
-        }
+        UIView.animate(withDuration:kAnimationDuration,
+        animations:
+        { [weak self] in
+            
+            self?.alpha = 0
+        })
+        { [weak self] (done:Bool) in
         
-        super.layoutSubviews()
+            self?.removeFromSuperview()
+        }
     }
     
     //MARK: private
@@ -70,6 +139,20 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         let item:MDrawProjectColorItem = controller.modelColor.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func animateShow()
+    {
+        layoutBaseTop.constant = 0
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.blurContainter.alpha = 0.95
+            self?.layoutIfNeeded()
+        }
     }
     
     //MARK: collectionView delegate

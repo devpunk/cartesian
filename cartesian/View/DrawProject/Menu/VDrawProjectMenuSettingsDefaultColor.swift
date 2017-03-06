@@ -21,6 +21,10 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        addTarget(
+            self,
+            action:#selector(actionColors(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.controller = controller
         
         let viewOuter:UIView = UIView()
@@ -117,6 +121,13 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
         {
             hover()
         }
+    }
+    
+    //MARK: actions
+    
+    func actionColors(sender button:UIButton)
+    {
+        controller.viewProject.showColors(title:"hello world")
     }
     
     //MARK: private

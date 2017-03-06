@@ -7,10 +7,8 @@ class VDrawProject:VView
     private(set) weak var viewScroll:VDrawProjectScroll!
     private(set) weak var viewColors:VDrawProjectColor?
     private weak var layoutMenuBottom:NSLayoutConstraint!
-    private weak var layoutColorsTop:NSLayoutConstraint!
     private let kMenuHeight:CGFloat = 191
     private let kMenuMaxBottom:CGFloat = 140
-    private let kColorsHeight:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
@@ -83,31 +81,19 @@ class VDrawProject:VView
     
     func showColors(title:String)
     {
+        self.viewColors?.removeFromSuperview()
+        
         let viewColors:VDrawProjectColor = VDrawProjectColor(
             controller:controller)
         self.viewColors = viewColors
         
         addSubview(viewColors)
         
-        layoutColorsTop = NSLayoutConstraint.topToTop(
-            view:viewColors,
-            toView:self,
-            constant:-kColorsHeight)
-        NSLayoutConstraint.height(
-            view:viewColors,
-            constant:kColorsHeight)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equals(
             view:viewColors,
             toView:self)
         
         layoutIfNeeded()
-        
-        layoutColorsTop.constant = 0
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.viewColors?.layoutIfNeeded()
-        }
+        viewColors.animateShow()
     }
 }
