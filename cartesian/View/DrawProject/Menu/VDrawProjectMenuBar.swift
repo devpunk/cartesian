@@ -4,6 +4,7 @@ class VDrawProjectMenuBar:UIView
 {
     private(set) weak var controller:CDrawProject!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
+    private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
@@ -27,11 +28,24 @@ class VDrawProjectMenuBar:UIView
         
         let buttonSettings:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
             image:#imageLiteral(resourceName: "assetGenericSettings"))
+        buttonSettings.addTarget(
+            self,
+            action:#selector(actionSettings(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonSettings = buttonSettings
+        
+        let buttonNodes:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
+            image:#imageLiteral(resourceName: "assetGenericNodes"))
+        buttonNodes.addTarget(
+            self,
+            action:#selector(actionNodes(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonNodes = buttonNodes
         
         addSubview(border)
         addSubview(buttonBack)
         addSubview(buttonSettings)
+        addSubview(buttonNodes)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -62,6 +76,16 @@ class VDrawProjectMenuBar:UIView
         NSLayoutConstraint.width(
             view:buttonSettings,
             constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonNodes,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonNodes,
+            toView:buttonSettings)
+        NSLayoutConstraint.width(
+            view:buttonNodes,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
@@ -74,5 +98,15 @@ class VDrawProjectMenuBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionSettings(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionNodes(sender button:UIButton)
+    {
+        
     }
 }
