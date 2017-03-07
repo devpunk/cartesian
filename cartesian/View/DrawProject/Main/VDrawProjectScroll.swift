@@ -43,8 +43,8 @@ class VDrawProjectScroll:UIScrollView
     
     func centerPoint() -> CGPoint
     {
-        let centerX:CGFloat = bounds.midX + contentOffset.x
-        let centerY:CGFloat = bounds.midY + contentOffset.y
+        let centerX:CGFloat = bounds.midX + contentInset.left
+        let centerY:CGFloat = bounds.midY + contentInset.top
         let center:CGPoint = CGPoint(
             x:centerX,
             y:centerY)
