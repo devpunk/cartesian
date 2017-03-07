@@ -79,12 +79,14 @@ class VDrawProject:VView
         }
     }
     
-    func showColors(title:String)
+    func showColors(title:String, delegate:MDrawProjectColorDelegate)
     {
         self.viewColors?.removeFromSuperview()
         
         let viewColors:VDrawProjectColor = VDrawProjectColor(
-            controller:controller)
+            controller:controller,
+            delegate:delegate)
+        viewColors.viewBar.labelTitle.text = title
         self.viewColors = viewColors
         
         addSubview(viewColors)

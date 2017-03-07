@@ -4,21 +4,24 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
 {
     private(set) weak var viewBar:VDrawProjectColorBar!
     private weak var controller:CDrawProject!
+    private weak var delegate:MDrawProjectColorDelegate?
     private weak var collectionView:VCollection!
     private weak var blurContainter:UIView!
     private weak var layoutBaseTop:NSLayoutConstraint!
+    private let kInterItem:CGFloat = 18
     private let kBarHeight:CGFloat = 60
     private let kBaseHeight:CGFloat = 210
     private let kRows:CGFloat = 3
     private let kAnimationDuration:TimeInterval = 0.3
     
-    init(controller:CDrawProject)
+    init(controller:CDrawProject, delegate:MDrawProjectColorDelegate)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        self.delegate = delegate
         
         let blurContainter:UIView = UIView()
         blurContainter.isUserInteractionEnabled = false
@@ -48,9 +51,18 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             let collectionHeight:CGFloat = kBaseHeight - kBarHeight
-            let cellSide:CGFloat = collectionHeight / kRows
+            let interItems:CGFloat = kInterItem * (kRows + 1)
+            let collectionRemain:CGFloat = collectionHeight - interItems
+            let cellSide:CGFloat = collectionRemain / kRows
+            flow.minimumInteritemSpacing = kInterItem
+            flow.minimumLineSpacing = kInterItem
             flow.itemSize = CGSize(width:cellSide, height:cellSide)
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+            flow.sectionInset = UIEdgeInsets(
+                top:kInterItem,
+                left:kInterItem,
+                bottom:kInterItem,
+                right:kInterItem)
         }
         
         let button:UIButton = UIButton()
@@ -120,16 +132,7 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func actionClose(sender button:UIButton)
     {
-        UIView.animate(withDuration:kAnimationDuration,
-        animations:
-        { [weak self] in
-            
-            self?.alpha = 0
-        })
-        { [weak self] (done:Bool) in
-        
-            self?.removeFromSuperview()
-        }
+        animateClose()
     }
     
     //MARK: private
@@ -139,6 +142,20 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         let item:MDrawProjectColorItem = controller.modelColor.items[index.item]
         
         return item
+    }
+    
+    private func animateClose()
+    {
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
+        { [weak self] in
+            
+            self?.alpha = 0
+        })
+        { [weak self] (done:Bool) in
+            
+            self?.removeFromSuperview()
+        }
     }
     
     //MARK: public
@@ -179,5 +196,13 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let indexSelected:Int = indexPath.item
+        delegate?.colorSelected(index:indexSelected)
+        
+        animateClose()
     }
 }

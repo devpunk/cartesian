@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuSettingsDefaultColor:UIButton
+class VDrawProjectMenuSettingsDefaultColor:UIButton, MDrawProjectColorDelegate
 {
     private weak var controller:CDrawProject!
     private weak var viewInner:UIView!
@@ -127,7 +127,9 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
     
     func actionColors(sender button:UIButton)
     {
-        controller.viewProject.showColors(title:"hello world")
+        controller.viewProject.showColors(
+            title:NSLocalizedString("VDrawProjectMenuSettingsDefaultColor_defaultColor", comment:""),
+            delegate:self)
     }
     
     //MARK: private
@@ -142,5 +144,13 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton
         {
             alpha = kAlphaNotSelected
         }
+    }
+    
+    //MARK: color delegate
+    
+    func colorSelected(index:Int)
+    {
+        controller.modelColor.selectedItem = index
+        viewInner.backgroundColor = controller.modelColor.selectedColor()
     }
 }

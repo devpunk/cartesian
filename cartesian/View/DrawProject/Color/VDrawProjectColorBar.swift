@@ -22,7 +22,7 @@ class VDrawProjectColorBar:UIView
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.bold(size:14)
+        labelTitle.font = UIFont.bold(size:16)
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         

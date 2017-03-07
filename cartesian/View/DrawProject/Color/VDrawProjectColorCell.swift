@@ -6,8 +6,7 @@ class VDrawProjectColorCell:UICollectionViewCell
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     private let kMargin:CGFloat = 1
-    private let kPadding:CGFloat = 15
-    private let kCornerRadius:CGFloat = 20
+    private let kCornerRadius:CGFloat = 2
     
     override init(frame:CGRect)
     {
@@ -43,8 +42,7 @@ class VDrawProjectColorCell:UICollectionViewCell
         
         NSLayoutConstraint.equals(
             view:outerColor,
-            toView:self,
-            margin:kPadding)
+            toView:self)
         
         NSLayoutConstraint.equals(
             view:middleColor,

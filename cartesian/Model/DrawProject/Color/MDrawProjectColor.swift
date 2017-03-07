@@ -7,14 +7,29 @@ class MDrawProjectColor
     
     init()
     {
-        let systemBlue:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+        let systemCartesianBlue:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
             color:UIColor.cartesianBlue)
-        let systemGreen:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+        let systemCartesianGreen:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
             color:UIColor.cartesianGreen)
+        let systemBlack:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.black)
+        let systemWhite:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.white)
+        let systemRed:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.red)
+        let systemGreen:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.green)
+        let systemBlue:MDrawProjectColorItemSystem = MDrawProjectColorItemSystem(
+            color:UIColor.blue)
         
         items = [
-            systemBlue,
-            systemGreen]
+            systemCartesianBlue,
+            systemCartesianGreen,
+            systemBlack,
+            systemWhite,
+            systemRed,
+            systemGreen,
+            systemBlue]
         selectedItem = 0
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
