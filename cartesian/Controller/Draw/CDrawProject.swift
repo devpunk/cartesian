@@ -6,7 +6,7 @@ class CDrawProject:CController
     let modelColor:MDrawProjectColor
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
-    private let kInitialSize:Float = 50
+    private let kInitialSize:Float = 100
     
     init(model:DProject?)
     {

@@ -6,7 +6,7 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private let kRows:CGFloat = 2
-    private let kDeselectTime:TimeInterval = 0.4
+    private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CDrawProject)
     {
