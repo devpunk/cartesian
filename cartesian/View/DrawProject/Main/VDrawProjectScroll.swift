@@ -4,16 +4,16 @@ class VDrawProjectScroll:UIScrollView
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewCanvas:VDrawProjectCanvas!
-    private var layoutStarted:Bool
+    private let kInitialWidth:CGFloat = 3000
+    private let kInitialHeight:CGFloat = 3000
     
     init(controller:CDrawProject)
     {
-        layoutStarted = false
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        contentSize = CGSize(width:kInitialWidth, height:kInitialHeight)
         self.controller = controller
         
         let viewCanvas:VDrawProjectCanvas = VDrawProjectCanvas(
@@ -21,23 +21,13 @@ class VDrawProjectScroll:UIScrollView
         self.viewCanvas = viewCanvas
         
         addSubview(viewCanvas)
+        
+        canvasResize()
     }
     
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        if !layoutStarted
-        {
-            layoutStarted = true
-            contentSize = bounds.size
-            canvasResize()
-        }
-        
-        super.layoutSubviews()
     }
     
     //MARK: private
