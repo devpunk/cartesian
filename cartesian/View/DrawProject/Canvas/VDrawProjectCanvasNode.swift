@@ -21,11 +21,8 @@ class VDrawProjectCanvasNode:UIView
             model:model)
         self.viewSpatial = viewSpatial
         
-        let viewMask:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
+        let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect(
             model:model)
-        
-        let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect()
-        viewEffect.mask = viewMask
         self.viewEffect = viewEffect
         
         addSubview(viewSpatial)

@@ -7,7 +7,7 @@ class VDrawProjectCanvasNodeEffect:UIView
     private let imageWidth:CGFloat
     private let imageHeight:CGFloat
     
-    init()
+    init(model:DNode)
     {
         image = #imageLiteral(resourceName: "assetNodeEffectStar")
         imageWidth = image.size.width
@@ -19,6 +19,10 @@ class VDrawProjectCanvasNodeEffect:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
+        
+        let viewMask:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
+            model:model)
+        mask = viewMask
     }
     
     required init?(coder:NSCoder)
