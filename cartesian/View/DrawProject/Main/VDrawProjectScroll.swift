@@ -4,7 +4,7 @@ class VDrawProjectScroll:UIScrollView
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewCanvas:VDrawProjectCanvas!
-    private(set) weak var viewRules:VDrawProjectScrollRules!
+    weak var viewRules:VDrawProjectRules!
     private let kInitialWidth:CGFloat = 3000
     private let kInitialHeight:CGFloat = 3000
     
@@ -27,16 +27,7 @@ class VDrawProjectScroll:UIScrollView
             controller:controller)
         self.viewCanvas = viewCanvas
         
-        let viewRules:VDrawProjectScrollRules = VDrawProjectScrollRules(
-            controller:controller)
-        self.viewRules = viewRules
-        
         addSubview(viewCanvas)
-        addSubview(viewRules)
-        
-        NSLayoutConstraint.equals(
-            view:viewRules,
-            toView:self)
         
         canvasResize()
     }

@@ -24,7 +24,12 @@ class VDrawProject:VView
             controller:self.controller)
         self.viewMenu = viewMenu
         
+        let viewRules:VDrawProjectRules = VDrawProjectRules(
+            controller:self.controller)
+        viewScroll.viewRules = viewRules
+        
         addSubview(viewScroll)
+        addSubview(viewRules)
         addSubview(viewMenu)
         
         NSLayoutConstraint.height(
@@ -40,6 +45,10 @@ class VDrawProject:VView
         
         NSLayoutConstraint.equals(
             view:viewScroll,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewRules,
             toView:self)
     }
     

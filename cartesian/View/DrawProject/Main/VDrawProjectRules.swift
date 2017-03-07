@@ -23,6 +23,8 @@ class VDrawProjectRules:UIView
     
     override func draw(_ rect:CGRect)
     {
+        print("draw rules")
+        
         guard
             
             let context:CGContext = UIGraphicsGetCurrentContext()
