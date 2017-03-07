@@ -3,6 +3,7 @@ import UIKit
 class VDrawProjectCanvasNode:UIView
 {
     private(set) weak var model:DNode?
+    private(set) weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
     
@@ -14,6 +15,16 @@ class VDrawProjectCanvasNode:UIView
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        
+        let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect()
+        viewEffect.isHidden = true
+        self.viewEffect = viewEffect
+        
+        addSubview(viewEffect)
+        
+        NSLayoutConstraint.equals(
+            view:viewEffect,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
