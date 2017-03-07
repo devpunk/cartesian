@@ -14,6 +14,10 @@ class VDrawProjectScroll:UIScrollView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         contentSize = CGSize(width:kInitialWidth, height:kInitialHeight)
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+        alwaysBounceVertical = true
+        alwaysBounceHorizontal = true
         self.controller = controller
         
         let viewCanvas:VDrawProjectCanvas = VDrawProjectCanvas(
