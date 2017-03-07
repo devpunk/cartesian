@@ -3,8 +3,8 @@ import UIKit
 class VDrawProjectScrollRules:UIView
 {
     private weak var controller:CDrawProject!
-    private let kLineWidth:CGFloat = 2
-    private let kLineHeight:CGFloat = 6
+    private let kLineWidth:CGFloat = 1
+    private let kLineHeight:CGFloat = 10
     private let kDelta:CGFloat = 10
     
     init(controller:CDrawProject)
@@ -45,6 +45,7 @@ class VDrawProjectScrollRules:UIView
                 height:kLineHeight)
             
             context.addRect(rect)
+            currentX += kDelta
         }
         
         context.drawPath(using:CGPathDrawingMode.fill)
