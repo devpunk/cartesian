@@ -38,7 +38,7 @@ class VDrawProjectMenuBarEdit:UIView
         button.setTitle(
             NSLocalizedString("VDrawProjectMenuBarEdit_button", comment:""),
             for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.bold(size:13)
+        button.titleLabel!.font = UIFont.bold(size:14)
         button.layer.cornerRadius = kCornerRadius
         button.addTarget(
             self,
@@ -81,6 +81,6 @@ class VDrawProjectMenuBarEdit:UIView
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller.stopEdition()
     }
 }

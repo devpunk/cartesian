@@ -7,7 +7,7 @@ class VDrawProjectCanvasNode:UIView
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
-    private let kTimerInterval:TimeInterval = 0.2
+    private let kTimerInterval:TimeInterval = 0.05
     
     init(model:DNode)
     {

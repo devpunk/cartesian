@@ -6,6 +6,7 @@ class CDrawProject:CController
     let modelColor:MDrawProjectColor
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
+    private weak var editingNode:VDrawProjectCanvasNode?
     private let kInitialSize:Float = 100
     
     init(model:DProject?)
@@ -113,7 +114,10 @@ class CDrawProject:CController
     
     func editNode(node:VDrawProjectCanvasNode)
     {
+        editingNode?.endEffect()
         node.startEffect()
+        self.editingNode = node
+        
         viewProject.viewScroll.centerOn(point:node.center)
         
         guard
@@ -130,6 +134,9 @@ class CDrawProject:CController
     
     func stopEdition()
     {
+        editingNode?.endEffect()
+        editingNode = nil
         
+        viewProject.viewMenu.viewBar.modeNormal()
     }
 }

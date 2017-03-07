@@ -150,7 +150,13 @@ class VDrawProjectMenuBar:UIView
     
     private func showButtons()
     {
+        layoutBackLeft.constant = 0
         
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     //MARK: public
@@ -185,6 +191,7 @@ class VDrawProjectMenuBar:UIView
     func modeNormal()
     {
         showButtons()
+        selectNodes()
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
