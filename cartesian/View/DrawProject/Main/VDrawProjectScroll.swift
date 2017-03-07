@@ -66,4 +66,19 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
         
         return center
     }
+    
+    func centerOn(point:CGPoint)
+    {
+        let width:CGFloat = bounds.size.width
+        let height:CGFloat = bounds.size.height
+        let width_2:CGFloat = width / 2.0
+        let height_2:CGFloat = height / 2.0
+        let rect:CGRect = CGRect(
+            x:point.x - width_2,
+            y:point.y - height_2,
+            width:width,
+            height:height)
+        
+        scrollRectToVisible(rect, animated:true)
+    }
 }

@@ -110,4 +110,25 @@ class CDrawProject:CController
             self?.reDraw()
         }
     }
+    
+    func editNode(node:VDrawProjectCanvasNode)
+    {
+        viewProject.viewScroll.centerOn(point:node.center)
+        
+        guard
+        
+            let nodeModel:DNode = node.model
+        
+        else
+        {
+            return
+        }
+        
+        viewProject.viewMenu.displayNode(model:nodeModel)
+    }
+    
+    func stopEdition()
+    {
+        
+    }
 }
