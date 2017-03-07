@@ -113,6 +113,7 @@ class CDrawProject:CController
     
     func editNode(node:VDrawProjectCanvasNode)
     {
+        node.startEffect()
         viewProject.viewScroll.centerOn(point:node.center)
         
         guard

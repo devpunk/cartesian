@@ -3,7 +3,7 @@ import UIKit
 class VDrawProjectCanvasNode:UIView
 {
     private(set) weak var model:DNode?
-    private(set) weak var viewEffect:VDrawProjectCanvasNodeEffect!
+    private weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
     
@@ -17,7 +17,6 @@ class VDrawProjectCanvasNode:UIView
         backgroundColor = UIColor.clear
         
         let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect()
-        viewEffect.isHidden = true
         self.viewEffect = viewEffect
         
         addSubview(viewEffect)
@@ -78,5 +77,15 @@ class VDrawProjectCanvasNode:UIView
             y:positionedY,
             width:widthExpanded,
             height:heightExpanded)
+    }
+    
+    func startEffect()
+    {
+        viewEffect.start()
+    }
+    
+    func endEffect()
+    {
+        viewEffect.end()
     }
 }

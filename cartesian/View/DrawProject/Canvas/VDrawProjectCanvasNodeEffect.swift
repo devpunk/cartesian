@@ -13,6 +13,7 @@ class VDrawProjectCanvasNodeEffect:UIView
         imageHeight = image.size.height
         
         super.init(frame:CGRect.zero)
+        isHidden = true
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +27,18 @@ class VDrawProjectCanvasNodeEffect:UIView
     
     override func draw(_ rect:CGRect)
     {
-        image.draw(in:CGRect(x:2, y:2, width:imageWidth, height:imageHeight))
+        image.draw(in:CGRect(x:0, y:0, width:imageWidth, height:imageHeight))
+    }
+    
+    //MARK: public
+    
+    func start()
+    {
+        
+    }
+    
+    func end()
+    {
+        
     }
 }
