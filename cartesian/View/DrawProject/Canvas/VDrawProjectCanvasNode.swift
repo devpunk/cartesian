@@ -33,7 +33,7 @@ class VDrawProjectCanvasNode:UIView
             return
         }
         
-        model.draw(context:context)
+        model.draw(rect:rect, context:context)
     }
     
     //MARK: public

@@ -28,7 +28,7 @@ extension DNode
         colorAlpha = Float(alpha)
     }
     
-    func draw(context:CGContext)
+    func draw(rect:CGRect, context:CGContext)
     {
         let red:CGFloat = CGFloat(colorRed)
         let green:CGFloat = CGFloat(colorGreen)
@@ -40,7 +40,11 @@ extension DNode
             green:green,
             blue:blue,
             alpha:alpha)
-        context.addRect(CGRect(x:5, y:5, width:20, height:20))
-        context.drawPath(using:CGPathDrawingMode.fill)
+        
+        drawPaths(rect:rect, context:context)
+    }
+    
+    func drawPaths(rect:CGRect, context:CGContext)
+    {
     }
 }
