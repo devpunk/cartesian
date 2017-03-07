@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectCanvasNodeEffect:UIView
 {
+    private var model:MDrawProjectCanvasEffect?
     private let image:UIImage
     private let imageWidth:CGFloat
     private let imageHeight:CGFloat
@@ -27,18 +28,48 @@ class VDrawProjectCanvasNodeEffect:UIView
     
     override func draw(_ rect:CGRect)
     {
-        image.draw(in:CGRect(x:0, y:0, width:imageWidth, height:imageHeight))
+        guard
+        
+            let _:CGContext = UIGraphicsGetCurrentContext(),
+            let model:MDrawProjectCanvasEffect = self.model
+        
+        else
+        {
+            return
+        }
+        
+        for item:MDrawProjectCanvasEffectItem in model.items
+        {
+            item.step()
+            
+            let rect:CGRect = CGRect(
+                x:item.positionX,
+                y:item.positionY,
+                width:imageWidth,
+                height:imageHeight)
+            
+            image.draw(in:rect)
+        }
     }
     
     //MARK: public
     
     func start()
     {
-        
+        let width:CGFloat = bounds.size.width
+        let height:CGFloat = bounds.size.height
+        model = MDrawProjectCanvasEffect(width:width, height:height)
+        isHidden = false
     }
     
     func end()
     {
-        
+        model = nil
+        isHidden = true
+    }
+    
+    func tick()
+    {
+        setNeedsDisplay()
     }
 }

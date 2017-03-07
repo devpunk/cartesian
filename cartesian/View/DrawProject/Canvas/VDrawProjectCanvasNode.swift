@@ -3,9 +3,11 @@ import UIKit
 class VDrawProjectCanvasNode:UIView
 {
     private(set) weak var model:DNode?
+    private weak var timer:Timer?
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
+    private let kTimerInterval:TimeInterval = 0.2
     
     init(model:DNode)
     {
@@ -31,6 +33,11 @@ class VDrawProjectCanvasNode:UIView
         return nil
     }
     
+    deinit
+    {
+        timer?.invalidate()
+    }
+    
     override func draw(_ rect:CGRect)
     {
         guard
@@ -44,6 +51,13 @@ class VDrawProjectCanvasNode:UIView
         }
         
         model.draw(rect:rect, context:context)
+    }
+    
+    //MARK: actions
+    
+    func actionTick(sender timer:Timer)
+    {
+        viewEffect.tick()
     }
     
     //MARK: public
@@ -82,10 +96,18 @@ class VDrawProjectCanvasNode:UIView
     func startEffect()
     {
         viewEffect.start()
+        
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimerInterval,
+            target:self,
+            selector:#selector(actionTick(sender:)),
+            userInfo:nil,
+            repeats:true)
     }
     
     func endEffect()
     {
         viewEffect.end()
+        timer?.invalidate()
     }
 }

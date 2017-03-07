@@ -40,6 +40,17 @@ class VDrawProjectCanvas:UIView
         for subview:UIView in subviews
         {
             subview.removeFromSuperview()
+            
+            guard
+            
+                let node:VDrawProjectCanvasNode = subview as? VDrawProjectCanvasNode
+            
+            else
+            {
+                continue
+            }
+            
+            node.endEffect()
         }
         
         guard
