@@ -26,6 +26,13 @@ class VDrawProjectCanvasNodeEffect:UIView
         return nil
     }
     
+    override func layoutSubviews()
+    {
+        mask?.frame = bounds
+        
+        super.layoutSubviews()
+    }
+    
     override func draw(_ rect:CGRect)
     {
         guard
@@ -56,6 +63,8 @@ class VDrawProjectCanvasNodeEffect:UIView
     
     func start()
     {
+        setNeedsDisplay()
+        
         let width:CGFloat = bounds.size.width
         let height:CGFloat = bounds.size.height
         model = MDrawProjectCanvasEffect(width:width, height:height)

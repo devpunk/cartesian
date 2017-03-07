@@ -40,8 +40,8 @@ extension DNode
         
         if selected
         {
-            context.setLineWidth(1)
-            context.setStrokeColor(UIColor(white:0, alpha:0.1).cgColor)
+            context.setLineWidth(4)
+            context.setStrokeColor(UIColor(white:0, alpha:0.2).cgColor)
         }
         else
         {

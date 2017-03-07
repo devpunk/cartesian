@@ -125,7 +125,7 @@ class CDrawProject:CController
             
             guard
                 
-                let nodeModel:DNode = editingNode.model
+                let nodeModel:DNode = editingNode.viewSpatial.model
                 
             else
             {

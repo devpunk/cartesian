@@ -2,29 +2,38 @@ import UIKit
 
 class VDrawProjectCanvasNode:UIView
 {
-    private(set) weak var model:DNode?
+    private(set) weak var viewSpatial:VDrawProjectCanvasNodeSpatial!
     private weak var timer:Timer?
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
-    private var selected:Bool
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
     private let kTimerInterval:TimeInterval = 0.05
     
     init(model:DNode)
     {
-        self.model = model
         margin2 = kMargin + kMargin
-        selected = false
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
+        let viewSpatial:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
+            model:model)
+        self.viewSpatial = viewSpatial
+        
+        let viewMask:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
+            model:model)
+        
         let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect()
+        viewEffect.mask = viewMask
         self.viewEffect = viewEffect
         
+        addSubview(viewSpatial)
         addSubview(viewEffect)
         
+        NSLayoutConstraint.equals(
+            view:viewSpatial,
+            toView:self)
         NSLayoutConstraint.equals(
             view:viewEffect,
             toView:self)
@@ -42,20 +51,7 @@ class VDrawProjectCanvasNode:UIView
     
     override func draw(_ rect:CGRect)
     {
-        guard
-            
-            let model:DNode = self.model,
-            let context:CGContext = UIGraphicsGetCurrentContext()
-            
-        else
-        {
-            return
-        }
-        
-        model.draw(
-            rect:rect,
-            context:context,
-            selected:selected)
+        viewSpatial.setNeedsDisplay()
     }
     
     //MARK: actions
@@ -71,7 +67,7 @@ class VDrawProjectCanvasNode:UIView
     {
         guard
             
-            let model:DNode = self.model
+            let model:DNode = self.viewSpatial.model
         
         else
         {
@@ -100,7 +96,7 @@ class VDrawProjectCanvasNode:UIView
     
     func startEffect()
     {
-        selected = true
+        viewSpatial.selected = true
         viewEffect.start()
         
         timer = Timer.scheduledTimer(
@@ -114,7 +110,7 @@ class VDrawProjectCanvasNode:UIView
     
     func endEffect()
     {
-        selected = false
+        viewSpatial.selected = false
         viewEffect.end()
         timer?.invalidate()
         setNeedsDisplay()
