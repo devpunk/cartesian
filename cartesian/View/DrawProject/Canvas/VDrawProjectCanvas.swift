@@ -17,6 +17,26 @@ class VDrawProjectCanvas:UIView
         return nil
     }
     
+    override func touchesBegan(_ touches:Set<UITouch>, with event:UIEvent?)
+    {
+        guard
+        
+            let touch:UITouch = touches.first,
+            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode
+        
+        else
+        {
+            return
+        }
+        
+        print(touch.timestamp)
+    }
+    
+    override func touchesEstimatedPropertiesUpdated(_ touches: Set<UITouch>)
+    {
+        print("asd")
+    }
+    
     //MARK: public
     
     func draw()

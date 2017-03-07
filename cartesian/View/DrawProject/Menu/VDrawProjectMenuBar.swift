@@ -8,6 +8,7 @@ class VDrawProjectMenuBar:UIView
     private weak var layoutBackLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject)
     {
@@ -122,6 +123,25 @@ class VDrawProjectMenuBar:UIView
         }
     }
     
+    //MARK: private
+    
+    private func hideButtons()
+    {
+        let width:CGFloat = bounds.width
+        layoutBackLeft.constant = -width
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
+    }
+    
+    private func showButtons()
+    {
+        
+    }
+    
     //MARK: public
     
     func selectSettings()
@@ -138,5 +158,15 @@ class VDrawProjectMenuBar:UIView
         buttonNodes.isSelected = true
         controller.viewProject.viewMenu.displayNodes()
         controller.viewProject.showMenu()
+    }
+    
+    func modeEdit()
+    {
+        hideButtons()
+    }
+    
+    func modeNormal()
+    {
+        showButtons()
     }
 }

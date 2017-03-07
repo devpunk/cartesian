@@ -2,7 +2,7 @@ import UIKit
 
 class VDrawProjectCanvasNode:UIView
 {
-    private weak var model:DNode?
+    private(set) weak var model:DNode?
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
     

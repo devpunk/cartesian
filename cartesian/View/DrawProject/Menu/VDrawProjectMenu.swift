@@ -6,6 +6,7 @@ class VDrawProjectMenu:UIView
     private(set) weak var viewBar:VDrawProjectMenuBar!
     private(set) weak var viewSettings:VDrawProjectMenuSettings!
     private(set) weak var viewNodes:VDrawProjectMenuNodes!
+    private(set) weak var viewEdit:VDrawProjectMenuEdit!
     private let kBarHeight:CGFloat = 51
     
     init(controller:CDrawProject)
@@ -29,6 +30,11 @@ class VDrawProjectMenu:UIView
         viewNodes.isHidden = true
         self.viewNodes = viewNodes
         
+        let viewEdit:VDrawProjectMenuEdit = VDrawProjectMenuEdit(
+            controller:controller)
+        viewEdit.isHidden = true
+        self.viewEdit = viewEdit
+        
         addSubview(viewBar)
         addSubview(viewSettings)
         addSubview(viewNodes)
@@ -45,6 +51,7 @@ class VDrawProjectMenu:UIView
         
         layoutView(view:viewSettings)
         layoutView(view:viewNodes)
+        layoutView(view:viewEdit)
     }
     
     required init?(coder:NSCoder)
@@ -69,15 +76,24 @@ class VDrawProjectMenu:UIView
     
     //MARK: public
     
+    func displayNode(model:DNode)
+    {
+        viewSettings.isHidden = true
+        viewNodes.isHidden = true
+        viewEdit.isHidden = false
+    }
+    
     func displaySettings()
     {
         viewSettings.isHidden = false
         viewNodes.isHidden = true
+        viewEdit.isHidden = true
     }
     
     func displayNodes()
     {
         viewSettings.isHidden = true
         viewNodes.isHidden = false
+        viewEdit.isHidden = true
     }
 }
