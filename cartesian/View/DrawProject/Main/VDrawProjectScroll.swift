@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectScroll:UIScrollView
+class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
 {
     private weak var controller:CDrawProject!
     private(set) weak var viewCanvas:VDrawProjectCanvas!
@@ -21,6 +21,7 @@ class VDrawProjectScroll:UIScrollView
         showsHorizontalScrollIndicator = false
         alwaysBounceVertical = true
         alwaysBounceHorizontal = true
+        delegate = self
         self.controller = controller
         
         let viewCanvas:VDrawProjectCanvas = VDrawProjectCanvas(
@@ -35,6 +36,11 @@ class VDrawProjectScroll:UIScrollView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        viewRules.scrollDidScroll(offset:scrollView.contentOffset)
     }
     
     //MARK: private
