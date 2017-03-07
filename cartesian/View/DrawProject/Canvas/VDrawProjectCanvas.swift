@@ -29,8 +29,8 @@ class VDrawProjectCanvas:UIView
             return
         }
         
-        controller.editNode(node:node)
-        
+        bringSubview(toFront:node)
+        controller.editNode(editingNode:node)
     }
     
     //MARK: public

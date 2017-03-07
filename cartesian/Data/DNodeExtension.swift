@@ -28,12 +28,25 @@ extension DNode
         colorAlpha = Float(alpha)
     }
     
-    func draw(rect:CGRect, context:CGContext)
+    func draw(
+        rect:CGRect,
+        context:CGContext,
+        selected:Bool)
     {
         let red:CGFloat = CGFloat(colorRed)
         let green:CGFloat = CGFloat(colorGreen)
         let blue:CGFloat = CGFloat(colorBlue)
         let alpha:CGFloat = CGFloat(colorAlpha)
+        
+        if selected
+        {
+            context.setLineWidth(1)
+            context.setStrokeColor(UIColor(white:0, alpha:0.1).cgColor)
+        }
+        else
+        {
+            context.setLineWidth(0)
+        }
         
         context.setFillColor(
             red:red,
@@ -41,10 +54,14 @@ extension DNode
             blue:blue,
             alpha:alpha)
         
-        drawPaths(rect:rect, context:context)
+        drawPaths(
+            rect:rect,
+            context:context)
     }
     
-    func drawPaths(rect:CGRect, context:CGContext)
+    func drawPaths(
+        rect:CGRect,
+        context:CGContext)
     {
     }
 }

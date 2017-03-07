@@ -3,7 +3,9 @@ import CoreData
 
 extension DNodeRect
 {
-    override func drawPaths(rect:CGRect, context:CGContext)
+    override func drawPaths(
+        rect:CGRect,
+        context:CGContext)
     {
         let modelWidth:CGFloat = CGFloat(self.width)
         let modelHeight:CGFloat = CGFloat(self.height)
@@ -21,6 +23,6 @@ extension DNodeRect
             height:modelHeight)
         
         context.addRect(rect)
-        context.drawPath(using:CGPathDrawingMode.fill)
+        context.drawPath(using:CGPathDrawingMode.fillStroke)
     }
 }

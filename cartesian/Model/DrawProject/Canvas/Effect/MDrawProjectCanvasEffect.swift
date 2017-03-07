@@ -6,8 +6,8 @@ class MDrawProjectCanvasEffect
     private let kMinItems:Int = 3
     private let kPossibleItems:UInt32 = 3
     private let kBottomExpansion:UInt32 = 20
-    private let kRemoveWidth:UInt32 = 60
-    private let kAddWidth:CGFloat = 20
+    private let kRemoveWidth:UInt32 = 80
+    private let kAddWidth:CGFloat = 25
     
     init(width:CGFloat, height:CGFloat)
     {

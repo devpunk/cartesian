@@ -5,6 +5,7 @@ class VDrawProjectCanvasNode:UIView
     private(set) weak var model:DNode?
     private weak var timer:Timer?
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
+    private var selected:Bool
     private let margin2:CGFloat
     private let kMargin:CGFloat = 20
     private let kTimerInterval:TimeInterval = 0.05
@@ -13,6 +14,7 @@ class VDrawProjectCanvasNode:UIView
     {
         self.model = model
         margin2 = kMargin + kMargin
+        selected = false
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -50,7 +52,10 @@ class VDrawProjectCanvasNode:UIView
             return
         }
         
-        model.draw(rect:rect, context:context)
+        model.draw(
+            rect:rect,
+            context:context,
+            selected:selected)
     }
     
     //MARK: actions
@@ -95,6 +100,7 @@ class VDrawProjectCanvasNode:UIView
     
     func startEffect()
     {
+        selected = true
         viewEffect.start()
         
         timer = Timer.scheduledTimer(
@@ -103,11 +109,14 @@ class VDrawProjectCanvasNode:UIView
             selector:#selector(actionTick(sender:)),
             userInfo:nil,
             repeats:true)
+        setNeedsDisplay()
     }
     
     func endEffect()
     {
+        selected = false
         viewEffect.end()
         timer?.invalidate()
+        setNeedsDisplay()
     }
 }

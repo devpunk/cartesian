@@ -112,24 +112,28 @@ class CDrawProject:CController
         }
     }
     
-    func editNode(node:VDrawProjectCanvasNode)
+    func editNode(editingNode:VDrawProjectCanvasNode)
     {
-        editingNode?.endEffect()
-        node.startEffect()
-        self.editingNode = node
-        
-        viewProject.viewScroll.centerOn(point:node.center)
-        
-        guard
-        
-            let nodeModel:DNode = node.model
-        
-        else
+        if editingNode != self.editingNode
         {
-            return
+            self.editingNode?.endEffect()
+            editingNode.startEffect()
+            self.editingNode = editingNode
+            
+            viewProject.viewScroll.centerOn(
+                point:editingNode.center)
+            
+            guard
+                
+                let nodeModel:DNode = editingNode.model
+                
+            else
+            {
+                return
+            }
+            
+            viewProject.viewMenu.displayNode(model:nodeModel)
         }
-        
-        viewProject.viewMenu.displayNode(model:nodeModel)
     }
     
     func stopEdition()
