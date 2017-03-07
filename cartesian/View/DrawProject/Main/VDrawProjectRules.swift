@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectScrollRules:UIView
+class VDrawProjectRules:UIView
 {
     private weak var controller:CDrawProject!
     private let kLineWidth:CGFloat = 1
@@ -13,6 +13,7 @@ class VDrawProjectScrollRules:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder:NSCoder)
@@ -23,10 +24,10 @@ class VDrawProjectScrollRules:UIView
     override func draw(_ rect:CGRect)
     {
         guard
-        
+            
             let context:CGContext = UIGraphicsGetCurrentContext()
-        
-        else
+            
+            else
         {
             return
         }

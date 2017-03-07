@@ -14,7 +14,9 @@ class VDrawProjectScroll:UIScrollView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        contentSize = CGSize(width:kInitialWidth, height:kInitialHeight)
+        contentSize = CGSize(
+            width:kInitialWidth,
+            height:kInitialHeight)
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         alwaysBounceVertical = true
@@ -31,6 +33,10 @@ class VDrawProjectScroll:UIScrollView
         
         addSubview(viewCanvas)
         addSubview(viewRules)
+        
+        NSLayoutConstraint.equals(
+            view:viewRules,
+            toView:self)
         
         canvasResize()
     }
@@ -49,7 +55,6 @@ class VDrawProjectScroll:UIScrollView
             size:contentSize)
         
         viewCanvas.frame = frame
-        viewRules.frame = frame
     }
     
     //MARK: public
