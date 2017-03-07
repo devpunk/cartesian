@@ -38,6 +38,7 @@ class VDrawProjectMenu:UIView
         addSubview(viewBar)
         addSubview(viewSettings)
         addSubview(viewNodes)
+        addSubview(viewEdit)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -81,6 +82,8 @@ class VDrawProjectMenu:UIView
         viewSettings.isHidden = true
         viewNodes.isHidden = true
         viewEdit.isHidden = false
+        
+        viewBar.modeEdit()
     }
     
     func displaySettings()

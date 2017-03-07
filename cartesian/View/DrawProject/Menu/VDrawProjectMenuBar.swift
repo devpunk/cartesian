@@ -2,7 +2,8 @@ import UIKit
 
 class VDrawProjectMenuBar:UIView
 {
-    private(set) weak var controller:CDrawProject!
+    private weak var controller:CDrawProject!
+    private(set) weak var viewEdit:VDrawProjectMenuBarEdit!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
@@ -44,11 +45,17 @@ class VDrawProjectMenuBar:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonNodes = buttonNodes
         
+        let viewEdit:VDrawProjectMenuBarEdit = VDrawProjectMenuBarEdit(
+            controller:controller)
+        viewEdit.alpha = 0
+        self.viewEdit = viewEdit
+        
         addSubview(blur)
         addSubview(border)
         addSubview(buttonBack)
         addSubview(buttonSettings)
         addSubview(buttonNodes)
+        addSubview(viewEdit)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -93,6 +100,10 @@ class VDrawProjectMenuBar:UIView
         NSLayoutConstraint.width(
             view:buttonNodes,
             constant:kButtonWidth)
+        
+        NSLayoutConstraint.equals(
+            view:viewEdit,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -163,10 +174,22 @@ class VDrawProjectMenuBar:UIView
     func modeEdit()
     {
         hideButtons()
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewEdit.alpha = 1
+        }
     }
     
     func modeNormal()
     {
         showButtons()
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewEdit.alpha = 0
+        }
     }
 }

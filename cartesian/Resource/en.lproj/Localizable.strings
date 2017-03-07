@@ -2,3 +2,5 @@
 "VDrawProjectMenuSettingsZoom_label"="%@%%";
 "VDrawProjectMenuSettingsDefaultColor_label"="Color";
 "VDrawProjectMenuSettingsDefaultColor_defaultColor"="Select default color";
+"VDrawProjectMenuBarEdit_label"="Edit node";
+"VDrawProjectMenuBarEdit_button"="Done";

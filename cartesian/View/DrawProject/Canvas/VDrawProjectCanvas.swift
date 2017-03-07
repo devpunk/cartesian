@@ -22,14 +22,15 @@ class VDrawProjectCanvas:UIView
         guard
         
             let touch:UITouch = touches.first,
-            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode
+            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode,
+            let model:DNode = node.model
         
         else
         {
             return
         }
         
-        print(touch.timestamp)
+        controller.viewProject.viewMenu.displayNode(model:model)
     }
     
     override func touchesEstimatedPropertiesUpdated(_ touches: Set<UITouch>)
