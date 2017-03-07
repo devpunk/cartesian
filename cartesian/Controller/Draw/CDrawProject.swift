@@ -93,7 +93,8 @@ class CDrawProject:CController
             guard
             
                 let node:DNode = data as? DNode,
-                let initialSize:Float = self?.kInitialSize
+                let initialSize:Float = self?.kInitialSize,
+                let color:UIColor = self?.modelColor.selectedColor()
             
             else
             {
@@ -104,6 +105,7 @@ class CDrawProject:CController
             node.project = self?.model
             node.width = initialSize
             node.height = initialSize
+            node.colorWithColor(color:color)
             
             self?.reDraw()
         }
