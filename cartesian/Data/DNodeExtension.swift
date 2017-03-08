@@ -64,4 +64,12 @@ extension DNode
         context:CGContext)
     {
     }
+    
+    func notifyDraw()
+    {
+        NotificationCenter.default.post(
+            name:Notification.nodeDraw,
+            object:self,
+            userInfo:nil)
+    }
 }

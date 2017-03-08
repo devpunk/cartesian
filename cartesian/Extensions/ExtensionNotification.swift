@@ -2,6 +2,5 @@ import Foundation
 
 extension Notification
 {
-    static let keyboardUpdate:Notification.Name = Notification.Name("keyboardUpdate")
-    static let functionUpdate:Notification.Name = Notification.Name("functionUpdate")
+    static let nodeDraw:Notification.Name = Notification.Name("nodeDraw")
 }
