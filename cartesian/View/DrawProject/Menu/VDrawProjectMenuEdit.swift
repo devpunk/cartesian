@@ -7,7 +7,7 @@ class VDrawProjectMenuEdit:UIView
     private weak var viewInfo:VDrawProjectMenuEditInfo!
     private weak var viewBar:VDrawProjectMenuEditBar!
     private weak var layoutSpatialWidth:NSLayoutConstraint!
-    private let kBarHeight:CGFloat = 70
+    private let kBarHeight:CGFloat = 90
     
     init(controller:CDrawProject)
     {
@@ -17,7 +17,8 @@ class VDrawProjectMenuEdit:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let viewSpatial:VDrawProjectMenuEditSpatial = VDrawProjectMenuEditSpatial()
+        let viewSpatial:VDrawProjectMenuEditSpatial = VDrawProjectMenuEditSpatial(
+            controller:controller)
         self.viewSpatial = viewSpatial
         
         let viewInfo:VDrawProjectMenuEditInfo = VDrawProjectMenuEditInfo()

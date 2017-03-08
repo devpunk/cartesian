@@ -31,7 +31,7 @@ class VDrawProjectMenuEditInfo:UIView
         
         attributesSubtitle = [
             NSFontAttributeName:UIFont.numeric(size:13),
-            NSForegroundColorAttributeName:UIColor(white:0.2, alpha:1)]
+            NSForegroundColorAttributeName:UIColor(white:0.1, alpha:1)]
         
         titlePositionX = NSAttributedString(
             string:NSLocalizedString("VDrawProjectMenuEditInfo_titlePositionX", comment:""),

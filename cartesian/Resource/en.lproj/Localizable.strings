@@ -4,7 +4,7 @@
 "VDrawProjectMenuSettingsDefaultColor_defaultColor"="Select default color";
 "VDrawProjectMenuBarEdit_label"="Edit node";
 "VDrawProjectMenuBarEdit_button"="Done";
-"VDrawProjectMenuEditInfo_titlePositionX"="X: ";
-"VDrawProjectMenuEditInfo_titlePositionY"="\nY: ";
-"VDrawProjectMenuEditInfo_titleWidth"="Width: ";
-"VDrawProjectMenuEditInfo_titleHeight"="\nHeight: ";
+"VDrawProjectMenuEditInfo_titlePositionX"="x ";
+"VDrawProjectMenuEditInfo_titlePositionY"="\ny ";
+"VDrawProjectMenuEditInfo_titleWidth"="width ";
+"VDrawProjectMenuEditInfo_titleHeight"="\nheight ";

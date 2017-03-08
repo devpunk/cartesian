@@ -120,8 +120,7 @@ class CDrawProject:CController
             editingNode.startEffect()
             self.editingNode = editingNode
             
-            viewProject.viewScroll.centerOn(
-                point:editingNode.center)
+            centerOnEditing()
             
             guard
                 
@@ -134,6 +133,20 @@ class CDrawProject:CController
             
             viewProject.viewMenu.displayNode(model:nodeModel)
         }
+    }
+    
+    func centerOnEditing()
+    {
+        guard
+            
+            let point:CGPoint = editingNode?.center
+        
+        else
+        {
+            return
+        }
+        
+        viewProject.viewScroll.centerOn(point:point)
     }
     
     func stopEdition()

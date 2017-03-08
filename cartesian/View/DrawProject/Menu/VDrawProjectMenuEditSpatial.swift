@@ -3,12 +3,13 @@ import UIKit
 class VDrawProjectMenuEditSpatial:UIView
 {
     weak var model:DNode?
+    private weak var controller:CDrawProject!
     private let margin2:CGFloat
     private let kBorderWidth:CGFloat = 1
     private let kSelected:Bool = false
-    private let kMargin:CGFloat = 15
+    private let kMargin:CGFloat = 10
     
-    init()
+    init(controller:CDrawProject)
     {
         margin2 = kMargin + kMargin
         
@@ -16,10 +17,20 @@ class VDrawProjectMenuEditSpatial:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        isUserInteractionEnabled = false
+        self.controller = controller
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.clear
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(border)
+        addSubview(button)
         
         NSLayoutConstraint.equalsVertical(
             view:border,
@@ -30,6 +41,10 @@ class VDrawProjectMenuEditSpatial:UIView
         NSLayoutConstraint.width(
             view:border,
             constant:kBorderWidth)
+        
+        NSLayoutConstraint.equals(
+            view:button,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -59,5 +74,12 @@ class VDrawProjectMenuEditSpatial:UIView
             rect:newRect,
             context:context,
             selected:kSelected)
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller.centerOnEditing()
     }
 }
