@@ -17,7 +17,7 @@ class MDrawProjectMenuEditBarItemColor:MDrawProjectMenuEditBarItem, MDrawProject
     {
         self.controller = controller
         
-        controller.viewProject.showColors(
+        controller.viewProject.showColor(
             title:NSLocalizedString("MDrawProjectMenuEditBarItemColor_defaultColor", comment:""),
             delegate:self)
     }

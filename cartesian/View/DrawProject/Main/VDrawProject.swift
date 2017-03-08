@@ -6,6 +6,7 @@ class VDrawProject:VView
     private(set) weak var viewMenu:VDrawProjectMenu!
     private(set) weak var viewScroll:VDrawProjectScroll!
     private(set) weak var viewColor:VDrawProjectColor?
+    private(set) weak var viewSize:VDrawProjectSize?
     private weak var layoutMenuBottom:NSLayoutConstraint!
     private let kMenuHeight:CGFloat = 191
     private let kMenuMaxBottom:CGFloat = 140
@@ -88,7 +89,7 @@ class VDrawProject:VView
         }
     }
     
-    func showColors(title:String, delegate:MDrawProjectColorDelegate)
+    func showColor(title:String, delegate:MDrawProjectColorDelegate)
     {
         self.viewColor?.removeFromSuperview()
         
@@ -106,6 +107,24 @@ class VDrawProject:VView
         
         layoutIfNeeded()
         viewColor.animateShow()
+    }
+    
+    func showSize(title:String, delegate:MDrawProjectSizeDelegate)
+    {
+        self.viewSize?.removeFromSuperview()
+        
+        let viewSize:VDrawProjectSize = VDrawProjectSize(
+            controller:controller,
+            delegate:delegate)
+        viewSize.viewBar.labelTitle.text = title
+        self.viewSize = viewSize
+        
+        addSubview(viewSize)
+        
+        NSLayoutConstraint.equals(
+            view:viewSize,
+            toView:self)
+        viewSize.animateShow()
     }
     
     func refresh()

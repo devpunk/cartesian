@@ -6,7 +6,7 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private weak var controller:CDrawProject!
     private weak var delegate:MDrawProjectColorDelegate?
     private weak var collectionView:VCollection!
-    private weak var blurContainter:UIView!
+    private weak var blurContainer:UIView!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kInterItem:CGFloat = 18
     private let kBarHeight:CGFloat = 60
@@ -23,12 +23,12 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.controller = controller
         self.delegate = delegate
         
-        let blurContainter:UIView = UIView()
-        blurContainter.isUserInteractionEnabled = false
-        blurContainter.translatesAutoresizingMaskIntoConstraints = false
-        blurContainter.clipsToBounds = true
-        blurContainter.alpha = 0
-        self.blurContainter = blurContainter
+        let blurContainer:UIView = UIView()
+        blurContainer.isUserInteractionEnabled = false
+        blurContainer.translatesAutoresizingMaskIntoConstraints = false
+        blurContainer.clipsToBounds = true
+        blurContainer.alpha = 0
+        self.blurContainer = blurContainer
         
         let blur:VBlur = VBlur.dark()
         
@@ -72,20 +72,20 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             action:#selector(actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        blurContainter.addSubview(blur)
+        blurContainer.addSubview(blur)
         baseView.addSubview(collectionView)
         baseView.addSubview(viewBar)
-        addSubview(blurContainter)
+        addSubview(blurContainer)
         addSubview(button)
         addSubview(baseView)
         
         NSLayoutConstraint.equals(
-            view:blurContainter,
+            view:blurContainer,
             toView:self)
         
         NSLayoutConstraint.equals(
             view:blur,
-            toView:blurContainter)
+            toView:blurContainer)
         
         NSLayoutConstraint.equals(
             view:button,
@@ -168,7 +168,7 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             
-            self?.blurContainter.alpha = 0.95
+            self?.blurContainer.alpha = 0.95
             self?.layoutIfNeeded()
         }
     }

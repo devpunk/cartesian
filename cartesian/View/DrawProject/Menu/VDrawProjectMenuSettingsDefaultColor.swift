@@ -127,7 +127,7 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton, MDrawProjectColorDelegate
     
     func actionColors(sender button:UIButton)
     {
-        controller.viewProject.showColors(
+        controller.viewProject.showColor(
             title:NSLocalizedString("VDrawProjectMenuSettingsDefaultColor_defaultColor", comment:""),
             delegate:self)
     }
