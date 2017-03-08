@@ -12,7 +12,7 @@ class MDrawProjectMenuEditBar
         
         items = [
             itemColor,
-            itemTrash,
-            itemResize]
+            itemResize,
+            itemTrash]
     }
 }
