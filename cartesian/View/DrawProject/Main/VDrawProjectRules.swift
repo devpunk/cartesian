@@ -55,13 +55,17 @@ class VDrawProjectRules:UIView
         context.setStrokeColor(UIColor.black.cgColor)
         let width:Int = Int(rect.maxX)
         let height:Int = Int(rect.maxY)
+        let scale100:Int = Int(100.0 * controller.modelZoom.currentZoom())
+        let scale50:Int = Int(50 * controller.modelZoom.currentZoom())
+        let scale10:Int = Int(10.0 * controller.modelZoom.currentZoom())
+        let scale5:Int = Int(5.0 * controller.modelZoom.currentZoom())
         
         for positionX:Int in 0 ..< width
         {
             let compositePositionX:Int = positionX + offsetX
             let lineHeight:Int?
             
-            if compositePositionX % 100 == 0
+            if compositePositionX % scale100 == 0
             {
                 lineHeight = kLineHeightFifties
                 
@@ -77,15 +81,15 @@ class VDrawProjectRules:UIView
                 
                 attributedString.draw(in:stringRect)
             }
-            else if compositePositionX % 50 == 0
+            else if compositePositionX % scale50 == 0
             {
                 lineHeight = kLineHeightFifties
             }
-            else if compositePositionX % 10 == 0
+            else if compositePositionX % scale10 == 0
             {
                 lineHeight = kLineHeightTens
             }
-            else if compositePositionX % 5 == 0
+            else if compositePositionX % scale5 == 0
             {
                 lineHeight = kLineHeightFives
             }
@@ -116,7 +120,7 @@ class VDrawProjectRules:UIView
             let compositePositionY:Int = positionY + offsetY
             let lineWidth:Int?
             
-            if compositePositionY % 100 == 0
+            if compositePositionY % scale100 == 0
             {
                 lineWidth = kLineHeightFifties
                 
@@ -132,15 +136,15 @@ class VDrawProjectRules:UIView
                 
                 attributedString.draw(in:stringRect)
             }
-            else if compositePositionY % 50 == 0
+            else if compositePositionY % scale50 == 0
             {
                 lineWidth = kLineHeightFifties
             }
-            else if compositePositionY % 10 == 0
+            else if compositePositionY % scale10 == 0
             {
                 lineWidth = kLineHeightTens
             }
-            else if compositePositionY % 5 == 0
+            else if compositePositionY % scale5 == 0
             {
                 lineWidth = kLineHeightFives
             }
