@@ -6,11 +6,15 @@ class MDrawProjectMenuZoomItem
     let kLineLong:Int = 20
     let kLineMedium:Int = 10
     let kLineSmall:Int = 7
+    private let numberFormatter:NumberFormatter
     private let attributes:[String:AnyObject]
     private let kLineWidth:Int = 1
     private let kTextTop:Int = 22
     private let kTextWidth:Int = 150
     private let kTextHeight:Int = 14
+    private let kMinFraction:Int = 0
+    private let kMinInteger:Int = 1
+    private let kMaxFraction:Int = 1
     
     init(scalar:CGFloat)
     {
@@ -18,6 +22,12 @@ class MDrawProjectMenuZoomItem
         attributes = [
             NSFontAttributeName:UIFont.numeric(size:10),
             NSForegroundColorAttributeName:UIColor.black]
+        
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.minimumFractionDigits = kMinFraction
+        numberFormatter.minimumIntegerDigits = kMinInteger
+        numberFormatter.maximumFractionDigits = kMaxFraction
     }
     
     //MARK: public
@@ -58,9 +68,21 @@ class MDrawProjectMenuZoomItem
         context.addRect(rect)
     }
     
-    final func drawGuideHorizontal(position:Int)
+    final func drawGuideHorizontal(
+        position:Int,
+        guide:CGFloat)
     {
-        let stringPosition:String = "\(position)"
+        let number:NSNumber = guide as NSNumber
+        
+        guard
+            
+            let stringPosition:String = numberFormatter.string(from:number)
+            
+        else
+        {
+            return
+        }
+        
         let attributedString:NSAttributedString = NSAttributedString(
             string:stringPosition,
             attributes:attributes)
@@ -74,9 +96,21 @@ class MDrawProjectMenuZoomItem
         attributedString.draw(in:stringRect)
     }
     
-    final func drawGuideVertical(position:Int)
+    final func drawGuideVertical(
+        position:Int,
+        guide:CGFloat)
     {
-        let stringPosition:String = "\(position)"
+        let number:NSNumber = guide as NSNumber
+        
+        guard
+            
+            let stringPosition:String = numberFormatter.string(from:number)
+        
+        else
+        {
+            return
+        }
+        
         let attributedString:NSAttributedString = NSAttributedString(
             string:stringPosition,
             attributes:attributes)

@@ -21,6 +21,25 @@ class MDrawProjectMenuZoomItem100:MDrawProjectMenuZoomItem
         if zoomPosition.remainder(dividingBy:100) == 0
         {
             lineLength = kLineLong
+            
+            switch ruleType
+            {
+            case MDrawProjectMenuZoom.RuleType.horizontal:
+                
+                drawGuideHorizontal(
+                    position:position,
+                    guide:zoomPosition)
+                
+                break
+                
+            case MDrawProjectMenuZoom.RuleType.vertical:
+                
+                drawGuideVertical(
+                    position:position,
+                    guide:zoomPosition)
+                
+                break
+            }
         }
         else if zoomPosition.remainder(dividingBy:50) == 0
         {
