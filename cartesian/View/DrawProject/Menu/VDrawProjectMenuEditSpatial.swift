@@ -45,11 +45,22 @@ class VDrawProjectMenuEditSpatial:UIView
         NSLayoutConstraint.equals(
             view:button,
             toView:self)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedNodeDraw(sender:)),
+            name:Notification.nodeDraw,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func draw(_ rect:CGRect)
@@ -74,6 +85,26 @@ class VDrawProjectMenuEditSpatial:UIView
             rect:newRect,
             context:context,
             selected:kSelected)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedNodeDraw(sender notification:Notification)
+    {
+        guard
+            
+            let nodeSender:DNode = notification.object as? DNode,
+            let currentNode:DNode = model
+            
+        else
+        {
+            return
+        }
+        
+        if currentNode === nodeSender
+        {
+            setNeedsDisplay()
+        }
     }
     
     //MARK: actions
