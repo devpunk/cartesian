@@ -6,6 +6,9 @@ class MDrawProjectMenuEditBar
     
     init()
     {
-        items = []
+        let itemTrash:MDrawProjectMenuEditBarItemTrash = MDrawProjectMenuEditBarItemTrash()
+        
+        items = [
+            itemTrash]
     }
 }

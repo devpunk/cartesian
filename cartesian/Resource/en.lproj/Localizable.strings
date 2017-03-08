@@ -8,3 +8,5 @@
 "VDrawProjectMenuEditInfo_titlePositionY"="\ny ";
 "VDrawProjectMenuEditInfo_titleWidth"="width ";
 "VDrawProjectMenuEditInfo_titleHeight"="\nheight ";
+
+"MDrawProjectMenuEditBarItemTrash_title"="Delete";
