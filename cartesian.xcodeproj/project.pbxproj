@@ -52,6 +52,7 @@
 		DA8FF2A31E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A21E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift */; };
 		DA8FF2A51E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A41E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift */; };
 		DA8FF2A71E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A61E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift */; };
+		DA8FF2AA1E70BA5F005D7985 /* VDrawProjectSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A91E70BA5F005D7985 /* VDrawProjectSize.swift */; };
 		DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA94436D1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld */; };
 		DA9443711E6DDA8F00CD5993 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9443701E6DDA8F00CD5993 /* DManager.swift */; };
 		DA9443741E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9443731E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift */; };
@@ -143,6 +144,7 @@
 		DA8FF2A21E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem50.swift; sourceTree = "<group>"; };
 		DA8FF2A41E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem10.swift; sourceTree = "<group>"; };
 		DA8FF2A61E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem300.swift; sourceTree = "<group>"; };
+		DA8FF2A91E70BA5F005D7985 /* VDrawProjectSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectSize.swift; sourceTree = "<group>"; };
 		DA94436E1E6DDA6F00CD5993 /* DCartesian.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCartesian.xcdatamodel; sourceTree = "<group>"; };
 		DA9443701E6DDA8F00CD5993 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA9443731E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodes.swift; sourceTree = "<group>"; };
@@ -397,6 +399,14 @@
 			path = DrawList;
 			sourceTree = "<group>";
 		};
+		DA8FF2A81E70BA3E005D7985 /* Size */ = {
+			isa = PBXGroup;
+			children = (
+				DA8FF2A91E70BA5F005D7985 /* VDrawProjectSize.swift */,
+			);
+			path = Size;
+			sourceTree = "<group>";
+		};
 		DA94436C1E6DDA6000CD5993 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +494,7 @@
 				DAED2DA31E6CA53D0064C837 /* Canvas */,
 				DAED2DA41E6CA53D0064C837 /* Menu */,
 				DA99BE3B1E6E078500AECF25 /* Color */,
+				DA8FF2A81E70BA3E005D7985 /* Size */,
 			);
 			path = DrawProject;
 			sourceTree = "<group>";
@@ -610,6 +621,7 @@
 				DA8FF2A11E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift in Sources */,
 				DA9443761E6DE0EB00CD5993 /* MDrawProjectMenuNodesItem.swift in Sources */,
 				DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */,
+				DA8FF2AA1E70BA5F005D7985 /* VDrawProjectSize.swift in Sources */,
 				DAE70D671E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift in Sources */,
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DAE70D651E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift in Sources */,

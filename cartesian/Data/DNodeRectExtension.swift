@@ -34,8 +34,10 @@ extension DNodeRect
             modelHeight = modelHeight / ratio
         }
         
-        let deltaWidth:CGFloat = width - modelWidth
-        let deltaHeight:CGFloat = height - modelHeight
+        let zoomedWidth:CGFloat = modelWidth * zoom
+        let zoomedHeight:CGFloat = modelHeight * zoom
+        let deltaWidth:CGFloat = width - zoomedWidth
+        let deltaHeight:CGFloat = height - zoomedHeight
         let deltaWidth_2:CGFloat = deltaWidth / 2.0
         let deltaHeight_2:CGFloat = deltaHeight / 2.0
         let positionX:CGFloat = originX + deltaWidth_2
@@ -43,8 +45,8 @@ extension DNodeRect
         let rect:CGRect = CGRect(
             x:positionX,
             y:positionY,
-            width:modelWidth,
-            height:modelHeight)
+            width:zoomedWidth,
+            height:zoomedHeight)
         
         context.addRect(rect)
         context.drawPath(using:CGPathDrawingMode.fillStroke)

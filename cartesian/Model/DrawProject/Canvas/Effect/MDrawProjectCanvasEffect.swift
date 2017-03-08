@@ -15,7 +15,17 @@ class MDrawProjectCanvasEffect
         
         let possibleItems:Int = Int(arc4random_uniform(kPossibleItems))
         let totalItems:Int = kMinItems + possibleItems
-        let totalWidth:UInt32 = UInt32(width) - kRemoveWidth
+        let uInt32Width:UInt32 = UInt32(width)
+        let totalWidth:UInt32
+        
+        if uInt32Width > kRemoveWidth
+        {
+            totalWidth = uInt32Width - kRemoveWidth
+        }
+        else
+        {
+             totalWidth = uInt32Width
+        }
         
         for _:Int in 0 ..< totalItems
         {
