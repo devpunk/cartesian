@@ -56,67 +56,27 @@ class VDrawProjectRules:UIView
         context.setStrokeColor(UIColor.black.cgColor)
         let width:Int = Int(rect.maxX)
         let height:Int = Int(rect.maxY)
-        let zoomScale:CGFloat = controller.modelZoom.currentZoom()
+        let zoomModel:MDrawProjectMenuZoomItem = controller.modelZoom.currentZoomModel()
         
         for positionX:Int in 0 ..< width
         {
-            let sumPositionX:CGFloat = CGFloat(positionX + offsetX)
-            let sumPositionXZoom:CGFloat = sumPositionX / zoomScale
-            let compositePositionX:Int = Int(round(sumPositionXZoom))
-            let lineHeight:Int?
-            
-            if compositePositionX % 100 == 0
-            {
-                lineHeight = kLineHeightFifties
-                
-                let stringPosition:String = "\(compositePositionX)"
-                let attributedString:NSAttributedString = NSAttributedString(
-                    string:stringPosition,
-                    attributes:attributes)
-                let stringRect:CGRect = CGRect(
-                    x:positionX,
-                    y:kStringTop,
-                    width:kStringWidth,
-                    height:kStringHeight)
-                
-                attributedString.draw(in:stringRect)
-            }
-            else if compositePositionX % 50 == 0
-            {
-                lineHeight = kLineHeightFifties
-            }
-            else if compositePositionX % 10 == 0
-            {
-                lineHeight = kLineHeightTens
-            }
-            else if compositePositionX % 5 == 0
-            {
-                lineHeight = kLineHeightFives
-            }
-            else
-            {
-                lineHeight = nil
-            }
-            
-            guard
-            
-                let drawLine:Int = lineHeight
-            
-            else
-            {
-                continue
-            }
-            
-            let rect:CGRect = CGRect(
-                x:positionX,
-                y:0,
-                width:kLineWidth,
-                height:drawLine)
-            context.addRect(rect)
+            let sumPositionX:Int = positionX + offsetX
+            zoomModel.draw(
+                context:context,
+                position:sumPositionX,
+                ruleType:MDrawProjectMenuZoom.RuleType.horizontal)
         }
         
         for positionY:Int in 0 ..< height
         {
+            let sumPositionY:Int = positionY + offsetY
+            zoomModel.draw(
+                context:context,
+                position:sumPositionY,
+                ruleType:MDrawProjectMenuZoom.RuleType.vertical)
+            
+            /*
+            
             let compositePositionY:Int = positionY + offsetY
             let lineWidth:Int?
             
@@ -167,7 +127,7 @@ class VDrawProjectRules:UIView
                 y:positionY,
                 width:drawLine,
                 height:kLineWidth)
-            context.addRect(rect)
+            context.addRect(rect)*/
         }
         
         context.drawPath(using:CGPathDrawingMode.fill)

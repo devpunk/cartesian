@@ -2,6 +2,12 @@ import UIKit
 
 class MDrawProjectMenuZoom
 {
+    enum RuleType
+    {
+        case horizontal
+        case vertical
+    }
+    
     let items:[MDrawProjectMenuZoomItem]
     var currentItem:Int
     
@@ -28,5 +34,12 @@ class MDrawProjectMenuZoom
         let zoom:CGFloat = items[currentItem].scalar
         
         return zoom
+    }
+    
+    func currentZoomModel() -> MDrawProjectMenuZoomItem
+    {
+        let item:MDrawProjectMenuZoomItem = items[currentItem]
+        
+        return item
     }
 }
