@@ -12,12 +12,40 @@ class MDrawProjectMenuZoomItem100:MDrawProjectMenuZoomItem
     override func draw(
         context:CGContext,
         position:Int,
+        compositePosition:Int,
         ruleType:MDrawProjectMenuZoom.RuleType)
     {
-        let sumPositionX:CGFloat = CGFloat(positionX + offsetX)
-        let sumPositionXZoom:CGFloat = sumPositionX / zoomScale
-        let compositePositionX:Int = Int(round(sumPositionXZoom))
-        let lineHeight:Int?
+        let zoomPosition:CGFloat = CGFloat(compositePosition) / kScalar
+        let lineLength:Int
+        
+        if zoomPosition.remainder(dividingBy:100) == 0
+        {
+            lineLength = kLineLong
+        }
+        else if zoomPosition.remainder(dividingBy:50) == 0
+        {
+            lineLength = kLineLong
+        }
+        else if zoomPosition.remainder(dividingBy:10) == 0
+        {
+            lineLength = kLineMedium
+        }
+        else if zoomPosition.remainder(dividingBy:5) == 0
+        {
+            lineLength = kLineSmall
+        }
+        else
+        {
+            return
+        }
+        
+        let rect:CGRect = CGRect(
+            x:positionX,
+            y:0,
+            width:kLineWidth,
+            height:drawLine)
+        context.addRect(rect)
+        
         
         if compositePositionX % 100 == 0
         {

@@ -28,7 +28,7 @@ extension DNode
         colorAlpha = Float(alpha)
     }
     
-    func draw(
+    final func draw(
         rect:CGRect,
         context:CGContext,
         selected:Bool)
@@ -59,17 +59,17 @@ extension DNode
             context:context)
     }
     
-    func drawPaths(
-        rect:CGRect,
-        context:CGContext)
-    {
-    }
-    
-    func notifyDraw()
+    final func notifyDraw()
     {
         NotificationCenter.default.post(
             name:Notification.nodeDraw,
             object:self,
             userInfo:nil)
+    }
+    
+    func drawPaths(
+        rect:CGRect,
+        context:CGContext)
+    {
     }
 }

@@ -63,7 +63,8 @@ class VDrawProjectRules:UIView
             let sumPositionX:Int = positionX + offsetX
             zoomModel.draw(
                 context:context,
-                position:sumPositionX,
+                position:positionX,
+                compositePosition:sumPositionX,
                 ruleType:MDrawProjectMenuZoom.RuleType.horizontal)
         }
         
@@ -72,7 +73,8 @@ class VDrawProjectRules:UIView
             let sumPositionY:Int = positionY + offsetY
             zoomModel.draw(
                 context:context,
-                position:sumPositionY,
+                position:positionY,
+                compositePosition:sumPositionY,
                 ruleType:MDrawProjectMenuZoom.RuleType.vertical)
             
             /*

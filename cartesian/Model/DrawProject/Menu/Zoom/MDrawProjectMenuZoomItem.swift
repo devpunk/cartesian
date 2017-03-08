@@ -4,6 +4,9 @@ class MDrawProjectMenuZoomItem
 {
     let scalar:CGFloat
     let attributes:[String:AnyObject]
+    let kLineLong:Int = 20
+    let kLineMedium:Int = 10
+    let kLineSmall:Int = 7
     
     init(scalar:CGFloat)
     {
@@ -18,7 +21,23 @@ class MDrawProjectMenuZoomItem
     func draw(
         context:CGContext,
         position:Int,
+        compositePosition:Int,
         ruleType:MDrawProjectMenuZoom.RuleType)
+    {
+    }
+    
+    final func drawLineHorizontal(
+        context:CGContext,
+        position:Int,
+        length:Int)
+    {
+        
+    }
+    
+    final func drawLineVertical(
+        context:CGContext,
+        position:Int,
+        length:Int)
     {
         
     }
