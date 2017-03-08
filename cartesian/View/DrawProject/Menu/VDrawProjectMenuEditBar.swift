@@ -2,12 +2,16 @@ import UIKit
 
 class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
+    private let model:MDrawProjectMenuEditBar
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
+    private let kCellWidth:CGFloat = 60
     
     init(controller:CDrawProject)
     {
+        model = MDrawProjectMenuEditBar()
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -52,7 +56,24 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
         return nil
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MDrawProjectMenuEditBarItem
+    {
+        let item:MDrawProjectMenuEditBarItem = model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -61,6 +82,20 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MDrawProjectMenuEditBarItem = modelAtIndex(index:indexPath)
+        let cell:VDrawProjectMenuEditBarCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VDrawProjectMenuEditBarCell.reusableIdentifier,
+            for:indexPath) as! VDrawProjectMenuEditBarCell
+        cell.config(model:item)
+        
+        return cell
     }
 }

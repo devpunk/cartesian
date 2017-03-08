@@ -13,4 +13,10 @@ class VDrawProjectMenuEditBarCell:UICollectionViewCell
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(model:MDrawProjectMenuEditBarItem)
+    {
+    }
 }
