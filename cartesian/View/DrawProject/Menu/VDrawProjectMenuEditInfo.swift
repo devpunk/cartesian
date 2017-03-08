@@ -6,22 +6,32 @@ class VDrawProjectMenuEditInfo:UIView
     private weak var labelInfoRight:UILabel!
     private weak var layoutLabelLeftWidth:NSLayoutConstraint!
     private weak var layoutLabelRightWidth:NSLayoutConstraint!
+    private let numberFormatter:NumberFormatter
     private let attributesSubtitle:[String:AnyObject]
     private let titlePositionX:NSAttributedString
     private let titlePositionY:NSAttributedString
     private let titleWidth:NSAttributedString
     private let titleHeight:NSAttributedString
     private let kLabelHorizontal:CGFloat = 10
+    private let kMaxDecimals:Int = 2
+    private let kMinDecimals:Int = 0
+    private let kMinIntegers:Int = 1
     
     init()
     {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.maximumFractionDigits = kMaxDecimals
+        numberFormatter.minimumFractionDigits = kMinDecimals
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        
         let attributesTitle:[String:AnyObject] = [
             NSFontAttributeName:UIFont.bold(size:12),
-            NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)]
+            NSForegroundColorAttributeName:UIColor(white:0.6, alpha:1)]
         
         attributesSubtitle = [
-            NSFontAttributeName:UIFont.numeric(size:12),
-            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)]
+            NSFontAttributeName:UIFont.numeric(size:13),
+            NSForegroundColorAttributeName:UIColor(white:0.2, alpha:1)]
         
         titlePositionX = NSAttributedString(
             string:NSLocalizedString("VDrawProjectMenuEditInfo_titlePositionX", comment:""),
@@ -64,7 +74,8 @@ class VDrawProjectMenuEditInfo:UIView
             toView:self)
         NSLayoutConstraint.leftToLeft(
             view:labelInfoLeft,
-            toView:self)
+            toView:self,
+            constant:kLabelHorizontal)
         layoutLabelLeftWidth = NSLayoutConstraint.width(
             view:labelInfoLeft)
         
@@ -73,7 +84,8 @@ class VDrawProjectMenuEditInfo:UIView
             toView:self)
         NSLayoutConstraint.rightToRight(
             view:labelInfoRight,
-            toView:self)
+            toView:self,
+            constant:-kLabelHorizontal)
         layoutLabelRightWidth = NSLayoutConstraint.width(
             view:labelInfoRight)
     }
@@ -109,10 +121,17 @@ class VDrawProjectMenuEditInfo:UIView
         let originX:Float = modelCenterX - modelWidth_2
         let originY:Float = modelCenterY - modelHeight_2
         
-        let rawStringPositionX:String = "\(originX)"
-        let rawStringPositionY:String = "\(originY)"
-        let rawStringWidth:String = "\(modelWidth)"
-        let rawStringHeight:String = "\(modelHeight)"
+        guard
+            
+            let rawStringPositionX:String = numberFormatter.string(from:originX as NSNumber),
+            let rawStringPositionY:String = numberFormatter.string(from:originY as NSNumber),
+            let rawStringWidth:String = numberFormatter.string(from:modelWidth as NSNumber),
+            let rawStringHeight:String = numberFormatter.string(from:modelHeight as NSNumber)
+        
+        else
+        {
+            return
+        }
         
         let stringPositionX:NSAttributedString = NSAttributedString(
             string:rawStringPositionX,
@@ -156,6 +175,9 @@ class VDrawProjectMenuEditInfo:UIView
     
     func showInfo(model:DNode)
     {
+        labelInfoLeft.attributedText = nil
+        labelInfoRight.attributedText = nil
+        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
