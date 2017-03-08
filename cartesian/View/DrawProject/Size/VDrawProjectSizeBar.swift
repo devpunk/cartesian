@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectColorBar:UIView
+class VDrawProjectSizeBar:UIView
 {
     private weak var controller:CDrawProject!
     private(set) weak var labelTitle:UILabel!
@@ -36,7 +36,7 @@ class VDrawProjectColorBar:UIView
             UIColor(white:0, alpha:0.2),
             for:UIControlState.highlighted)
         buttonClose.setTitle(
-            NSLocalizedString("VDrawProjectColorBar_buttonClose", comment:""),
+            NSLocalizedString("VDrawProjectSizeBar_buttonClose", comment:""),
             for:UIControlState.normal)
         buttonClose.titleLabel!.font = UIFont.bolder(size:16)
         buttonClose.addTarget(
