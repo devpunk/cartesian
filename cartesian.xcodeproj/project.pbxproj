@@ -17,6 +17,7 @@
 		DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */; };
 		DA45C4A61E6DD32E00CA6A20 /* ResourceZoom.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA45C4A51E6DD32E00CA6A20 /* ResourceZoom.plist */; };
 		DA5CA11F1E70C49700FD2340 /* MDrawProjectMenuEditBarItemResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CA11E1E70C49700FD2340 /* MDrawProjectMenuEditBarItemResize.swift */; };
+		DA5CA1211E70C8AA00FD2340 /* VDrawProjectSizeDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CA1201E70C8AA00FD2340 /* VDrawProjectSizeDimension.swift */; };
 		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
 		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
 		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
@@ -110,6 +111,7 @@
 		DA45C49F1E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoom.swift; sourceTree = "<group>"; };
 		DA45C4A51E6DD32E00CA6A20 /* ResourceZoom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceZoom.plist; sourceTree = "<group>"; };
 		DA5CA11E1E70C49700FD2340 /* MDrawProjectMenuEditBarItemResize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemResize.swift; sourceTree = "<group>"; };
+		DA5CA1201E70C8AA00FD2340 /* VDrawProjectSizeDimension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectSizeDimension.swift; sourceTree = "<group>"; };
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			children = (
 				DA8FF2A91E70BA5F005D7985 /* VDrawProjectSize.swift */,
 				DA8FF2AE1E70BFF1005D7985 /* VDrawProjectSizeBar.swift */,
+				DA5CA1201E70C8AA00FD2340 /* VDrawProjectSizeDimension.swift */,
 			);
 			path = Size;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				DA99BE4E1E6E15B000AECF25 /* VDrawProjectMenuSettingsDefaultColor.swift in Sources */,
 				DA630B661E6B84D40004245A /* CController.swift in Sources */,
 				DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */,
+				DA5CA1211E70C8AA00FD2340 /* VDrawProjectSizeDimension.swift in Sources */,
 				DAA94A871E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift in Sources */,
 				DA8FF2AF1E70BFF1005D7985 /* VDrawProjectSizeBar.swift in Sources */,
 				DA630B771E6B84D40004245A /* VParentPushBackground.swift in Sources */,

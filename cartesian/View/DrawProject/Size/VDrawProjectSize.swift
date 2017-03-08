@@ -8,7 +8,7 @@ class VDrawProjectSize:UIView
     private weak var blurContainer:UIView!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 60
-    private let kBaseHeight:CGFloat = 210
+    private let kBaseHeight:CGFloat = 230
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject, delegate:MDrawProjectSizeDelegate)
@@ -24,6 +24,7 @@ class VDrawProjectSize:UIView
         blurContainer.isUserInteractionEnabled = false
         blurContainer.clipsToBounds = true
         blurContainer.translatesAutoresizingMaskIntoConstraints = false
+        blurContainer.alpha = 0
         self.blurContainer = blurContainer
         
         let blur:VBlur = VBlur.dark()
@@ -57,6 +58,10 @@ class VDrawProjectSize:UIView
         
         NSLayoutConstraint.equals(
             view:blurContainer,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:button,
             toView:self)
         
         NSLayoutConstraint.topToTop(

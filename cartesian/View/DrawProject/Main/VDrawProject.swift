@@ -124,6 +124,8 @@ class VDrawProject:VView
         NSLayoutConstraint.equals(
             view:viewSize,
             toView:self)
+        
+        layoutIfNeeded()
         viewSize.animateShow()
     }
     
