@@ -1,8 +1,8 @@
 import UIKit
 
-class MDrawProjectMenuZoomItem10:MDrawProjectMenuZoomItem
+class MDrawProjectMenuZoomItem300:MDrawProjectMenuZoomItem
 {
-    private let kScalar:CGFloat = 0.1
+    private let kScalar:CGFloat = 3
     
     init()
     {
@@ -18,7 +18,7 @@ class MDrawProjectMenuZoomItem10:MDrawProjectMenuZoomItem
         let zoomPosition:CGFloat = CGFloat(compositePosition) / kScalar
         let lineLength:Int
         
-        if zoomPosition.remainder(dividingBy:500) == 0
+        if zoomPosition.remainder(dividingBy:25) == 0
         {
             lineLength = kLineLong
             
@@ -41,11 +41,11 @@ class MDrawProjectMenuZoomItem10:MDrawProjectMenuZoomItem
                 break
             }
         }
-        else if zoomPosition.remainder(dividingBy:250) == 0
+        else if zoomPosition.remainder(dividingBy:10) == 0
         {
             lineLength = kLineMedium
         }
-        else if zoomPosition.remainder(dividingBy:50) == 0
+        else if zoomPosition.remainder(dividingBy:5) == 0
         {
             lineLength = kLineSmall
         }

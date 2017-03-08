@@ -51,6 +51,7 @@
 		DA8FF2A11E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A01E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift */; };
 		DA8FF2A31E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A21E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift */; };
 		DA8FF2A51E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A41E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift */; };
+		DA8FF2A71E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8FF2A61E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift */; };
 		DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA94436D1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld */; };
 		DA9443711E6DDA8F00CD5993 /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9443701E6DDA8F00CD5993 /* DManager.swift */; };
 		DA9443741E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9443731E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift */; };
@@ -141,6 +142,7 @@
 		DA8FF2A01E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem200.swift; sourceTree = "<group>"; };
 		DA8FF2A21E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem50.swift; sourceTree = "<group>"; };
 		DA8FF2A41E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem10.swift; sourceTree = "<group>"; };
+		DA8FF2A61E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuZoomItem300.swift; sourceTree = "<group>"; };
 		DA94436E1E6DDA6F00CD5993 /* DCartesian.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCartesian.xcdatamodel; sourceTree = "<group>"; };
 		DA9443701E6DDA8F00CD5993 /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA9443731E6DE0E100CD5993 /* MDrawProjectMenuNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodes.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				DA8FF2A21E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift */,
 				DA8FF29E1E708AD4005D7985 /* MDrawProjectMenuZoomItem100.swift */,
 				DA8FF2A01E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift */,
+				DA8FF2A61E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift */,
 			);
 			path = Zoom;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				DAE70D611E6F5732009FAA27 /* MDrawProjectCanvasEffectItem.swift in Sources */,
 				DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */,
 				DA8FF29F1E708AD4005D7985 /* MDrawProjectMenuZoomItem100.swift in Sources */,
+				DA8FF2A71E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift in Sources */,
 				DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */,
 				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
 				DA99BE3A1E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift in Sources */,

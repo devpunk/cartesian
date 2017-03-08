@@ -18,7 +18,7 @@ class MDrawProjectMenuZoomItem200:MDrawProjectMenuZoomItem
         let zoomPosition:CGFloat = CGFloat(compositePosition) / kScalar
         let lineLength:Int
         
-        if zoomPosition.remainder(dividingBy:100) == 0
+        if zoomPosition.remainder(dividingBy:50) == 0
         {
             lineLength = kLineLong
             
@@ -40,10 +40,6 @@ class MDrawProjectMenuZoomItem200:MDrawProjectMenuZoomItem
                 
                 break
             }
-        }
-        else if zoomPosition.remainder(dividingBy:50) == 0
-        {
-            lineLength = kLineLong
         }
         else if zoomPosition.remainder(dividingBy:10) == 0
         {
