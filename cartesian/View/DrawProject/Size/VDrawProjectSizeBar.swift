@@ -2,8 +2,8 @@ import UIKit
 
 class VDrawProjectSizeBar:UIView
 {
-    private weak var controller:CDrawProject!
     private(set) weak var labelTitle:UILabel!
+    private weak var controller:CDrawProject!
     private let kLabelTitleLeft:CGFloat = 10
     private let kLabelTitleWidth:CGFloat = 200
     private let kButtonCloseWidth:CGFloat = 100

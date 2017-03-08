@@ -6,9 +6,12 @@ class VDrawProjectSize:UIView
     private weak var controller:CDrawProject!
     private weak var delegate:MDrawProjectSizeDelegate?
     private weak var blurContainer:UIView!
+    private weak var viewWidth:VDrawProjectSizeDimension!
+    private weak var viewHeight:VDrawProjectSizeDimension!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 60
     private let kBaseHeight:CGFloat = 230
+    private let kDimensionWidth:CGFloat = 150
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject, delegate:MDrawProjectSizeDelegate)
@@ -46,8 +49,20 @@ class VDrawProjectSize:UIView
             controller:controller)
         self.viewBar = viewBar
         
+        let viewWidth:VDrawProjectSizeDimension = VDrawProjectSizeDimension(
+            title:"width",
+            originalSize:100)
+        self.viewWidth = viewWidth
+        
+        let viewHeight:VDrawProjectSizeDimension = VDrawProjectSizeDimension(
+            title:"height",
+            originalSize:100)
+        self.viewHeight = viewHeight
+        
         blurContainer.addSubview(blur)
         baseView.addSubview(viewBar)
+        baseView.addSubview(viewWidth)
+        baseView.addSubview(viewHeight)
         addSubview(blurContainer)
         addSubview(button)
         addSubview(baseView)
@@ -84,6 +99,32 @@ class VDrawProjectSize:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:baseView,
             toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewWidth,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewWidth,
+            toView:baseView)
+        NSLayoutConstraint.leftToLeft(
+            view:viewWidth,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:viewWidth,
+            constant:kDimensionWidth)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewHeight,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewHeight,
+            toView:viewBar)
+        NSLayoutConstraint.leftToRight(
+            view:viewHeight,
+            toView:viewWidth)
+        NSLayoutConstraint.width(
+            view:viewHeight,
+            constant:kDimensionWidth)
     }
     
     required init?(coder:NSCoder)
