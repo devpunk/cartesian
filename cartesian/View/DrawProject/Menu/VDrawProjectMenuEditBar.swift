@@ -7,6 +7,7 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
     private let kCellWidth:CGFloat = 60
+    private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CDrawProject)
     {
@@ -97,5 +98,24 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        let item:MDrawProjectMenuEditBarItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
+        }
     }
 }

@@ -10,4 +10,10 @@ class MDrawProjectMenuEditBarItem
         self.title = title
         self.image = image
     }
+    
+    //MARK: public
+    
+    func selected(controller:CDrawProject)
+    {
+    }
 }
