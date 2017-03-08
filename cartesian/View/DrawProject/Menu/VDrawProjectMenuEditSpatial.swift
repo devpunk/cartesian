@@ -8,6 +8,7 @@ class VDrawProjectMenuEditSpatial:UIView
     private let kBorderWidth:CGFloat = 1
     private let kSelected:Bool = false
     private let kMargin:CGFloat = 10
+    private let kZoom:CGFloat = 1
     
     init(controller:CDrawProject)
     {
@@ -84,6 +85,7 @@ class VDrawProjectMenuEditSpatial:UIView
         model.draw(
             rect:newRect,
             context:context,
+            zoom:kZoom,
             selected:kSelected)
     }
     

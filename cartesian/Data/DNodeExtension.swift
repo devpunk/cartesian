@@ -31,6 +31,7 @@ extension DNode
     final func draw(
         rect:CGRect,
         context:CGContext,
+        zoom:CGFloat,
         selected:Bool)
     {
         let red:CGFloat = CGFloat(colorRed)
@@ -56,7 +57,8 @@ extension DNode
         
         drawPaths(
             rect:rect,
-            context:context)
+            context:context,
+            zoom:zoom)
     }
     
     final func notifyDraw()
@@ -69,7 +71,8 @@ extension DNode
     
     func drawPaths(
         rect:CGRect,
-        context:CGContext)
+        context:CGContext,
+        zoom:CGFloat)
     {
     }
 }

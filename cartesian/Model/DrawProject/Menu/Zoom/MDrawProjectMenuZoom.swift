@@ -9,7 +9,7 @@ class MDrawProjectMenuZoom
     }
     
     let items:[MDrawProjectMenuZoomItem]
-    var currentItem:Int
+    private(set) var currentItem:Int
     
     init()
     {
@@ -46,5 +46,15 @@ class MDrawProjectMenuZoom
         let item:MDrawProjectMenuZoomItem = items[currentItem]
         
         return item
+    }
+    
+    func increase()
+    {
+        currentItem += 1
+    }
+    
+    func decrease()
+    {
+        currentItem -= 1
     }
 }

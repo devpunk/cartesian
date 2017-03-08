@@ -65,6 +65,7 @@ class VDrawProjectCanvas:UIView
         for node:DNode in nodes
         {
             let viewNode:VDrawProjectCanvasNode = VDrawProjectCanvasNode(
+                controller:controller,
                 model:node)
             
             addSubview(viewNode)

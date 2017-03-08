@@ -3,12 +3,16 @@ import UIKit
 class VDrawProjectCanvasNodeSpatial:UIView
 {
     private(set) weak var model:DNode?
+    private weak var controller:CDrawProject!
     var selected:Bool
     
-    init(model:DNode)
+    init(
+        controller:CDrawProject,
+        model:DNode)
     {
         self.model = model
         selected = false
+        self.controller = controller
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -34,9 +38,12 @@ class VDrawProjectCanvasNodeSpatial:UIView
             return
         }
         
+        let zoom:CGFloat = controller.modelZoom.currentZoom()
+        
         model.draw(
             rect:rect,
             context:context,
+            zoom:zoom,
             selected:selected)
     }
 }

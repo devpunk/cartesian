@@ -2,21 +2,23 @@ import UIKit
 
 class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
 {
-    private weak var controller:CDrawProject!
-    private(set) weak var viewCanvas:VDrawProjectCanvas!
     weak var viewRules:VDrawProjectRules!
+    private(set) weak var viewCanvas:VDrawProjectCanvas!
+    private(set) var contentWidth:CGFloat
+    private(set) var contentHeight:CGFloat
+    private weak var controller:CDrawProject!
     private let kInitialWidth:CGFloat = 3000
     private let kInitialHeight:CGFloat = 3000
     
     init(controller:CDrawProject)
     {
+        contentWidth = kInitialWidth
+        contentHeight = kInitialHeight
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        contentSize = CGSize(
-            width:kInitialWidth,
-            height:kInitialHeight)
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         alwaysBounceVertical = true
@@ -47,6 +49,14 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
     
     private func canvasResize()
     {
+        let zoom:CGFloat = controller.modelZoom.currentZoom()
+        let zoomedWidth:CGFloat = contentWidth * zoom
+        let zoomedHeight:CGFloat = contentHeight * zoom
+        
+        contentSize = CGSize(
+            width:zoomedWidth,
+            height:zoomedHeight)
+        
         let frame:CGRect = CGRect(
             origin:CGPoint.zero,
             size:contentSize)
@@ -80,5 +90,12 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
             height:height)
         
         scrollRectToVisible(rect, animated:true)
+    }
+    
+    func refresh()
+    {
+        canvasResize()
+        viewCanvas.draw()
+        viewRules.setNeedsDisplay()
     }
 }

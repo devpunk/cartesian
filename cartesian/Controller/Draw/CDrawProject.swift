@@ -156,4 +156,16 @@ class CDrawProject:CController
         
         viewProject.viewMenu.viewBar.modeNormal()
     }
+    
+    func increaseZoom()
+    {
+        modelZoom.increase()
+        viewProject.refresh()
+    }
+    
+    func decreaseZoom()
+    {
+        modelZoom.decrease()
+        viewProject.refresh()
+    }
 }

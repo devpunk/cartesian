@@ -125,8 +125,7 @@ class VDrawProjectMenuSettingsZoom:UIView
     {
         if controller.modelZoom.currentItem > 0
         {
-            controller.modelZoom.currentItem -= 1
-            
+            controller.decreaseZoom()
             printZoom()
         }
     }
@@ -137,8 +136,7 @@ class VDrawProjectMenuSettingsZoom:UIView
         
         if controller.modelZoom.currentItem < countZooms - 1
         {
-            controller.modelZoom.currentItem += 1
-            
+            controller.increaseZoom()
             printZoom()
         }
     }

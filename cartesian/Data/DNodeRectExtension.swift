@@ -5,7 +5,8 @@ extension DNodeRect
 {
     override func drawPaths(
         rect:CGRect,
-        context:CGContext)
+        context:CGContext,
+        zoom:CGFloat)
     {
         var modelWidth:CGFloat = CGFloat(self.width)
         var modelHeight:CGFloat = CGFloat(self.height)

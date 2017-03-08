@@ -107,4 +107,9 @@ class VDrawProject:VView
         layoutIfNeeded()
         viewColors.animateShow()
     }
+    
+    func refresh()
+    {
+        viewScroll.refresh()
+    }
 }
