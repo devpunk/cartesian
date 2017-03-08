@@ -4,6 +4,7 @@ class VDrawProjectMenuEdit:UIView
 {
     private weak var controller:CDrawProject!
     private weak var viewSpatial:VDrawProjectMenuEditSpatial!
+    private weak var viewInfo:VDrawProjectMenuEditInfo!
     private weak var viewBar:VDrawProjectMenuEditBar!
     private weak var layoutSpatialWidth:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 70
@@ -19,9 +20,13 @@ class VDrawProjectMenuEdit:UIView
         let viewSpatial:VDrawProjectMenuEditSpatial = VDrawProjectMenuEditSpatial()
         self.viewSpatial = viewSpatial
         
+        let viewInfo:VDrawProjectMenuEditInfo = VDrawProjectMenuEditInfo()
+        self.viewInfo = viewInfo
+        
         let viewBar:VDrawProjectMenuEditBar = VDrawProjectMenuEditBar(
             controller:controller)
         
+        addSubview(viewInfo)
         addSubview(viewSpatial)
         addSubview(viewBar)
 
@@ -46,6 +51,19 @@ class VDrawProjectMenuEdit:UIView
             toView:self)
         layoutSpatialWidth = NSLayoutConstraint.width(
             view:viewSpatial)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewInfo,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:viewInfo,
+            toView:viewSpatial)
+        NSLayoutConstraint.rightToRight(
+            view:viewInfo,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:viewInfo,
+            toView:viewBar)
     }
     
     required init?(coder:NSCoder)
@@ -67,5 +85,6 @@ class VDrawProjectMenuEdit:UIView
     {
         viewSpatial.model = model
         viewSpatial.setNeedsDisplay()
+        viewInfo.showInfo(model:model)
     }
 }
