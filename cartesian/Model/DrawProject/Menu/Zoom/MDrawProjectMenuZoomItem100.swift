@@ -39,61 +39,25 @@ class MDrawProjectMenuZoomItem100:MDrawProjectMenuZoomItem
             return
         }
         
-        let rect:CGRect = CGRect(
-            x:positionX,
-            y:0,
-            width:kLineWidth,
-            height:drawLine)
-        context.addRect(rect)
-        
-        
-        if compositePositionX % 100 == 0
+        switch ruleType
         {
-            lineHeight = kLineHeightFifties
+        case MDrawProjectMenuZoom.RuleType.horizontal:
             
-            let stringPosition:String = "\(compositePositionX)"
-            let attributedString:NSAttributedString = NSAttributedString(
-                string:stringPosition,
-                attributes:attributes)
-            let stringRect:CGRect = CGRect(
-                x:positionX,
-                y:kStringTop,
-                width:kStringWidth,
-                height:kStringHeight)
+            drawLineHorizontal(
+                context:context,
+                position:position,
+                length:lineLength)
             
-            attributedString.draw(in:stringRect)
-        }
-        else if compositePositionX % 50 == 0
-        {
-            lineHeight = kLineHeightFifties
-        }
-        else if compositePositionX % 10 == 0
-        {
-            lineHeight = kLineHeightTens
-        }
-        else if compositePositionX % 5 == 0
-        {
-            lineHeight = kLineHeightFives
-        }
-        else
-        {
-            lineHeight = nil
-        }
-        
-        guard
+            break
             
-            let drawLine:Int = lineHeight
+        case MDrawProjectMenuZoom.RuleType.vertical:
             
-            else
-        {
-            continue
+            drawLineVertical(
+                context:context,
+                position:position,
+                length:lineLength)
+            
+            break
         }
-        
-        let rect:CGRect = CGRect(
-            x:positionX,
-            y:0,
-            width:kLineWidth,
-            height:drawLine)
-        context.addRect(rect)
     }
 }
