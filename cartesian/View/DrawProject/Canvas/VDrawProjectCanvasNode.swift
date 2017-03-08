@@ -34,6 +34,12 @@ class VDrawProjectCanvasNode:UIView
         NSLayoutConstraint.equals(
             view:viewEffect,
             toView:self)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedNodeDraw(sender:)),
+            name:Notification.nodeDraw,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -44,11 +50,33 @@ class VDrawProjectCanvasNode:UIView
     deinit
     {
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func draw(_ rect:CGRect)
     {
         viewSpatial.setNeedsDisplay()
+    }
+    
+    //MARK: notifications
+    
+    func notifiedNodeDraw(sender notification:Notification)
+    {
+        guard
+        
+            let nodeSender:DNode = notification.object as? DNode,
+            let currentNode:DNode = viewSpatial.model
+        
+        else
+        {
+            return
+        }
+        
+        if currentNode === nodeSender
+        {
+            centerNode()
+            setNeedsDisplay()
+        }
     }
     
     //MARK: actions
