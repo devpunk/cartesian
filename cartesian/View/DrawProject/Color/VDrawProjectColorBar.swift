@@ -6,6 +6,7 @@ class VDrawProjectColorBar:UIView
     private(set) weak var labelTitle:UILabel!
     private let kLabelTitleLeft:CGFloat = 10
     private let kLabelTitleWidth:CGFloat = 200
+    private let kButtonCloseWidth:CGFloat = 150
     private let kBorderHeight:CGFloat = 1
     
     init(controller:CDrawProject)
@@ -29,11 +30,23 @@ class VDrawProjectColorBar:UIView
         let buttonClose:UIButton = UIButton()
         buttonClose.translatesAutoresizingMaskIntoConstraints = false
         buttonClose.setTitleColor(
-            UIColor.clear,
+            UIColor.cartesianOrange,
             for:UIControlState.normal)
+        buttonClose.setTitleColor(
+            UIColor(white:0, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonClose.setTitle(
+            NSLocalizedString("VDrawProjectColorBar_buttonClose", comment:""),
+            for:UIControlState.normal)
+        buttonClose.titleLabel!.font = UIFont.bold(size:14)
+        buttonClose.addTarget(
+            self,
+            action:#selector(actionClose(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(labelTitle)
+        addSubview(buttonClose)
         
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,
@@ -55,6 +68,16 @@ class VDrawProjectColorBar:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonClose,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonClose,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonClose,
+            constant:kButtonCloseWidth)
     }
     
     required init?(coder:NSCoder)
