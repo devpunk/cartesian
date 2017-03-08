@@ -6,7 +6,7 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
-    private let kCellWidth:CGFloat = 60
+    private let kCellWidth:CGFloat = 70
     private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CDrawProject)
