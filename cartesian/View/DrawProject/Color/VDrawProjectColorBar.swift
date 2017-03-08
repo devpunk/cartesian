@@ -26,6 +26,12 @@ class VDrawProjectColorBar:UIView
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
+        let buttonClose:UIButton = UIButton()
+        buttonClose.translatesAutoresizingMaskIntoConstraints = false
+        buttonClose.setTitleColor(
+            UIColor.clear,
+            for:UIControlState.normal)
+        
         addSubview(border)
         addSubview(labelTitle)
         
@@ -54,5 +60,12 @@ class VDrawProjectColorBar:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionClose(sender button:UIButton)
+    {
+        controller.viewProject.viewColor?.animateClose()
     }
 }

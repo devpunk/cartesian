@@ -25,4 +25,16 @@ extension UIColor
                 alpha:1)
         }
     }
+    
+    open class var cartesianOrange:UIColor //#FF9600
+    {
+        get
+        {
+            return UIColor(
+                red:1,
+                green:0.588235294117647,
+                blue:0,
+                alpha:1)
+        }
+    }
 }

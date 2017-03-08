@@ -144,10 +144,13 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         return item
     }
     
-    private func animateClose()
+    //MARK: public
+    
+    func animateClose()
     {
-        UIView.animate(withDuration:kAnimationDuration,
-                       animations:
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
         { [weak self] in
             
             self?.alpha = 0
@@ -157,8 +160,6 @@ class VDrawProjectColor:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             self?.removeFromSuperview()
         }
     }
-    
-    //MARK: public
     
     func animateShow()
     {
