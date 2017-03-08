@@ -83,6 +83,7 @@ class VDrawProjectMenu:UIView
         viewNodes.isHidden = true
         viewEdit.isHidden = false
         
+        viewEdit.loadNode(model:model)
         viewBar.modeEdit()
     }
     

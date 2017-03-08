@@ -73,6 +73,8 @@
 		DAE70D5D1E6F56E9009FAA27 /* MDrawProjectCanvasEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D5C1E6F56E9009FAA27 /* MDrawProjectCanvasEffect.swift */; };
 		DAE70D611E6F5732009FAA27 /* MDrawProjectCanvasEffectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D601E6F5732009FAA27 /* MDrawProjectCanvasEffectItem.swift */; };
 		DAE70D631E6F7071009FAA27 /* VDrawProjectCanvasNodeSpatial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D621E6F7071009FAA27 /* VDrawProjectCanvasNodeSpatial.swift */; };
+		DAE70D651E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D641E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift */; };
+		DAE70D671E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D661E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift */; };
 		DAED2D9F1E6CA0030064C837 /* CDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */; };
 		DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */; };
 		DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */; };
@@ -150,6 +152,8 @@
 		DAE70D5C1E6F56E9009FAA27 /* MDrawProjectCanvasEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectCanvasEffect.swift; sourceTree = "<group>"; };
 		DAE70D601E6F5732009FAA27 /* MDrawProjectCanvasEffectItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectCanvasEffectItem.swift; sourceTree = "<group>"; };
 		DAE70D621E6F7071009FAA27 /* VDrawProjectCanvasNodeSpatial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvasNodeSpatial.swift; sourceTree = "<group>"; };
+		DAE70D641E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuEditSpatial.swift; sourceTree = "<group>"; };
+		DAE70D661E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuEditBar.swift; sourceTree = "<group>"; };
 		DAED2D9E1E6CA0030064C837 /* CDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA61E6CA53D0064C837 /* VDrawProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProject.swift; sourceTree = "<group>"; };
 		DAED2DA81E6CA5640064C837 /* VDrawProjectMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenu.swift; sourceTree = "<group>"; };
@@ -459,6 +463,8 @@
 				DA45C4941E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift */,
 				DA94437D1E6DE2B400CD5993 /* VDrawProjectMenuNodesCell.swift */,
 				DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */,
+				DAE70D641E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift */,
+				DAE70D661E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -551,7 +557,9 @@
 				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
 				DA9443761E6DE0EB00CD5993 /* MDrawProjectMenuNodesItem.swift in Sources */,
 				DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */,
+				DAE70D671E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift in Sources */,
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
+				DAE70D651E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DAE70D551E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
