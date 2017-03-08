@@ -89,6 +89,6 @@ class VDrawProjectSizeBar:UIView
     
     func actionClose(sender button:UIButton)
     {
-        controller.viewProject.viewColor?.animateClose()
+        controller.viewProject.viewSize?.animateClose()
     }
 }

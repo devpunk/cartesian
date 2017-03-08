@@ -14,3 +14,5 @@
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";
 "MDrawProjectMenuEditBarItemColor_defaultColor"="Node color";
+"MDrawProjectMenuEditBarItemResize_title"="Resize";
+"MDrawProjectMenuEditBarItemResize_defaultSize"="Node size";
