@@ -9,6 +9,8 @@ extension DNodeRect
     {
         var modelWidth:CGFloat = CGFloat(self.width)
         var modelHeight:CGFloat = CGFloat(self.height)
+        let originX:CGFloat = rect.origin.x
+        let originY:CGFloat = rect.origin.y
         let width:CGFloat = rect.size.width
         let height:CGFloat = rect.size.height
         let deltaSpaceWidth:CGFloat = modelWidth - width
@@ -35,9 +37,11 @@ extension DNodeRect
         let deltaHeight:CGFloat = height - modelHeight
         let deltaWidth_2:CGFloat = deltaWidth / 2.0
         let deltaHeight_2:CGFloat = deltaHeight / 2.0
+        let positionX:CGFloat = originX + deltaWidth_2
+        let positionY:CGFloat = originY + deltaHeight_2
         let rect:CGRect = CGRect(
-            x:deltaWidth_2,
-            y:deltaHeight_2,
+            x:positionX,
+            y:positionY,
             width:modelWidth,
             height:modelHeight)
         

@@ -55,8 +55,8 @@ class VDrawProjectMenuEdit:UIView
     
     override func layoutSubviews()
     {
-        let height:CGFloat = bounds.maxY
-        layoutSpatialWidth.constant = height
+        let spatialHeight:CGFloat = bounds.maxY - kBarHeight
+        layoutSpatialWidth.constant = spatialHeight
         
         super.layoutSubviews()
     }

@@ -3,11 +3,15 @@ import UIKit
 class VDrawProjectMenuEditSpatial:UIView
 {
     weak var model:DNode?
+    private let margin2:CGFloat
     private let kBorderWidth:CGFloat = 1
     private let kSelected:Bool = false
+    private let kMargin:CGFloat = 15
     
     init()
     {
+        margin2 = kMargin + kMargin
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -45,8 +49,14 @@ class VDrawProjectMenuEditSpatial:UIView
             return
         }
         
+        let newRect:CGRect = CGRect(
+            x:rect.origin.x + kMargin,
+            y:rect.origin.y + kMargin,
+            width:rect.size.width - margin2,
+            height:rect.size.height - margin2)
+        
         model.draw(
-            rect:rect,
+            rect:newRect,
             context:context,
             selected:kSelected)
     }
