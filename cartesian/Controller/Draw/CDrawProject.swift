@@ -157,6 +157,14 @@ class CDrawProject:CController
         viewProject.viewMenu.viewBar.modeNormal()
     }
     
+    func startMoving()
+    {
+        editingNode?.endEffect()
+        editingNode = nil
+        
+        viewProject.viewMenu.viewBar.modeMove()
+    }
+    
     func increaseZoom()
     {
         modelZoom.increase()

@@ -2,8 +2,9 @@ import UIKit
 
 class VDrawProjectMenuBar:UIView
 {
-    private weak var controller:CDrawProject!
     private(set) weak var viewEdit:VDrawProjectMenuBarEdit!
+    private(set) weak var viewMove:VDrawProjectMenuBarMove!
+    private weak var controller:CDrawProject!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
@@ -49,6 +50,11 @@ class VDrawProjectMenuBar:UIView
             controller:controller)
         viewEdit.alpha = 0
         self.viewEdit = viewEdit
+        
+        let viewMove:VDrawProjectMenuBarMove = VDrawProjectMenuBarMove(
+            controller:controller)
+        viewMove.alpha = 0
+        self.viewMove = viewMove
         
         addSubview(blur)
         addSubview(border)
@@ -103,6 +109,10 @@ class VDrawProjectMenuBar:UIView
         
         NSLayoutConstraint.equals(
             view:viewEdit,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewMove,
             toView:self)
     }
     
@@ -185,6 +195,19 @@ class VDrawProjectMenuBar:UIView
         { [weak self] in
             
             self?.viewEdit.alpha = 1
+            self?.viewMove.alpha = 0
+        }
+    }
+    
+    func modeMove()
+    {
+        hideButtons()
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewEdit.alpha = 0
+            self?.viewMove.alpha = 1
         }
     }
     
@@ -197,6 +220,7 @@ class VDrawProjectMenuBar:UIView
         { [weak self] in
             
             self?.viewEdit.alpha = 0
+            self?.viewMove.alpha = 0
         }
     }
 }
