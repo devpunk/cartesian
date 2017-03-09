@@ -81,7 +81,16 @@ class VDrawProjectCanvasNode:UIView
         if currentNode === nodeSender
         {
             centerNode()
-            setNeedsDisplay()
+            layoutIfNeeded()
+            
+            if timer == nil
+            {
+                setNeedsDisplay()
+            }
+            else
+            {
+                startEffect()
+            }
         }
     }
     
@@ -135,6 +144,7 @@ class VDrawProjectCanvasNode:UIView
         viewSpatial.selected = true
         viewEffect.start()
         
+        timer?.invalidate()
         timer = Timer.scheduledTimer(
             timeInterval:kTimerInterval,
             target:self,
