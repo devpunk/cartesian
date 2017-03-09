@@ -132,6 +132,7 @@ class CDrawProject:CController
             }
             
             viewProject.viewMenu.displayNode(model:nodeModel)
+            viewProject.showMenu()
         }
     }
     
@@ -163,6 +164,7 @@ class CDrawProject:CController
         editingNode = nil
         
         viewProject.viewMenu.viewBar.modeMove()
+        viewProject.hideMenu()
     }
     
     func increaseZoom()

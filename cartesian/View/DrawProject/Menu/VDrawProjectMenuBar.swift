@@ -62,6 +62,7 @@ class VDrawProjectMenuBar:UIView
         addSubview(buttonSettings)
         addSubview(buttonNodes)
         addSubview(viewEdit)
+        addSubview(viewMove)
         
         NSLayoutConstraint.equals(
             view:blur,

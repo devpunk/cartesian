@@ -10,4 +10,9 @@ class MDrawProjectMenuEditBarItemMove:MDrawProjectMenuEditBarItem
             title:title,
             image:#imageLiteral(resourceName: "assetGenericMove"))
     }
+    
+    override func selected(controller:CDrawProject)
+    {
+        controller.startMoving()
+    }
 }
