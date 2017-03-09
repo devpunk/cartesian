@@ -84,6 +84,7 @@
 		DAA94A851E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA94A841E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift */; };
 		DAA94A871E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA94A861E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift */; };
 		DABAACE41E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABAACE31E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift */; };
+		DABAACE61E71DE1F00735972 /* VDrawProjectMenuMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABAACE51E71DE1F00735972 /* VDrawProjectMenuMove.swift */; };
 		DAE70D551E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */; };
 		DAE70D571E6F3DB3009FAA27 /* VDrawProjectMenuBarEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D561E6F3DB3009FAA27 /* VDrawProjectMenuBarEdit.swift */; };
 		DAE70D591E6F4E79009FAA27 /* VDrawProjectCanvasNodeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D581E6F4E79009FAA27 /* VDrawProjectCanvasNodeEffect.swift */; };
@@ -180,6 +181,7 @@
 		DAA94A841E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemTrash.swift; sourceTree = "<group>"; };
 		DAA94A861E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemColor.swift; sourceTree = "<group>"; };
 		DABAACE31E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemMove.swift; sourceTree = "<group>"; };
+		DABAACE51E71DE1F00735972 /* VDrawProjectMenuMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuMove.swift; sourceTree = "<group>"; };
 		DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuEdit.swift; sourceTree = "<group>"; };
 		DAE70D561E6F3DB3009FAA27 /* VDrawProjectMenuBarEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuBarEdit.swift; sourceTree = "<group>"; };
 		DAE70D581E6F4E79009FAA27 /* VDrawProjectCanvasNodeEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvasNodeEffect.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				DAE70D661E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift */,
 				DAA94A7C1E705E4E004EB390 /* VDrawProjectMenuEditBarCell.swift */,
 				DAA94A7A1E7052DF004EB390 /* VDrawProjectMenuEditInfo.swift */,
+				DABAACE51E71DE1F00735972 /* VDrawProjectMenuMove.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				DA630B6C1E6B84D40004245A /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA630B711E6B84D40004245A /* MSession.swift in Sources */,
 				DAA94A831E706273004EB390 /* MDrawProjectMenuEditBarItem.swift in Sources */,
+				DABAACE61E71DE1F00735972 /* VDrawProjectMenuMove.swift in Sources */,
 				DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */,
 				DA630B751E6B84D40004245A /* VParentBar.swift in Sources */,
 				DAED2DAD1E6CAA940064C837 /* VDrawProjectMenuSettings.swift in Sources */,
