@@ -39,6 +39,10 @@ class VDrawProjectMenuBarMove:UIView
             for:UIControlState.normal)
         button.titleLabel!.font = UIFont.bold(size:15)
         button.layer.cornerRadius = kCornerRadius
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(label)
         addSubview(button)
@@ -70,5 +74,12 @@ class VDrawProjectMenuBarMove:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller.endMoving()
     }
 }

@@ -114,12 +114,16 @@ class VDrawProjectCanvas:UIView
     
     func stateMoving()
     {
+        isUserInteractionEnabled = false
         state = State.moving
+        isUserInteractionEnabled = true
     }
     
     func stateStand()
     {
+        isUserInteractionEnabled = false
         state = State.stand
+        isUserInteractionEnabled = true
     }
     
     func draw()

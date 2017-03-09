@@ -168,6 +168,13 @@ class CDrawProject:CController
         viewProject.hideMenu()
     }
     
+    func endMoving()
+    {
+        viewProject.viewScroll.viewCanvas.stateStand()
+        viewProject.viewMenu.viewBar.modeNormal()
+        viewProject.showMenu()
+    }
+    
     func increaseZoom()
     {
         modelZoom.increase()
