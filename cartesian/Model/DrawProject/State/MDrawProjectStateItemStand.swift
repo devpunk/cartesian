@@ -2,6 +2,11 @@ import UIKit
 
 class MDrawProjectStateItemStand:MDrawProjectStateItem
 {
+    override func canvasScrollDidScroll(scrollView:UIScrollView)
+    {
+        controller.viewProject.hideMenu()
+    }
+    
     override func touchBegan(touch:UITouch)
     {
         guard

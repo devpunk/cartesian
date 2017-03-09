@@ -7,7 +7,6 @@ class VDrawProject:VView
     private(set) weak var viewScroll:VDrawProjectScroll!
     private(set) weak var viewColor:VDrawProjectColor?
     private(set) weak var viewSize:VDrawProjectSize?
-    private weak var layoutMenuBottom:NSLayoutConstraint!
     private let kMenuHeight:CGFloat = 191
     private let kMenuMaxBottom:CGFloat = 140
     private let kAnimationDuration:TimeInterval = 0.3
@@ -36,7 +35,7 @@ class VDrawProject:VView
         NSLayoutConstraint.height(
             view:viewMenu,
             constant:kMenuHeight)
-        layoutMenuBottom = NSLayoutConstraint.bottomToBottom(
+        viewMenu.layoutBottom = NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
             toView:self,
             constant:kMenuMaxBottom)

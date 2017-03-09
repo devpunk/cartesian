@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectMenu:UIView
 {
+    weak var layoutBottom:NSLayoutConstraint!
     private weak var controller:CDrawProject!
     private(set) weak var viewBar:VDrawProjectMenuBar!
     private(set) weak var viewSettings:VDrawProjectMenuSettings!

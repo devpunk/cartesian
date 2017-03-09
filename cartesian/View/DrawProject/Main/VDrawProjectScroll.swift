@@ -43,6 +43,7 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
         viewRules.scrollDidScroll(offset:scrollView.contentOffset)
+        controller.modelState.current?.canvasScrollDidScroll(scrollView:scrollView)
     }
     
     //MARK: private

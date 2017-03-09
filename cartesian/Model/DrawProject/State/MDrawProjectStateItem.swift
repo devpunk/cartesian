@@ -11,6 +11,10 @@ class MDrawProjectStateItem
     
     //MARK: public
     
+    func canvasScrollDidScroll(scrollView:UIScrollView)
+    {
+    }
+    
     func touchBegan(touch:UITouch)
     {
     }
