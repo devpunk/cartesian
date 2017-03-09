@@ -2,7 +2,7 @@ import UIKit
 
 class MDrawProjectMenuStateItemShown:MDrawProjectMenuStateItem
 {
-    private let kBottom:CGFloat = 140
+    private let kBottom:CGFloat = 0
     
     init(controller:CDrawProject)
     {
@@ -13,9 +13,17 @@ class MDrawProjectMenuStateItemShown:MDrawProjectMenuStateItem
     
     override func hide()
     {
-        controller.viewProject.viewMenu.layoutBottom.constant = bottom
         controller.modelMenuState.stateHidden(
             controller:controller)
+        
+        guard
+            
+            let newBottom:CGFloat = controller.modelMenuState.current?.bottom
+            
+        else
+        {
+            return
+        }
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak controller] in

@@ -13,9 +13,19 @@ class MDrawProjectMenuStateItemHidden:MDrawProjectMenuStateItem
     
     override func show()
     {
-        controller.viewProject.viewMenu.layoutBottom.constant = bottom
         controller.modelMenuState.stateShown(
             controller:controller)
+        
+        guard
+            
+            let newBottom:CGFloat = controller.modelMenuState.current?.bottom
+        
+        else
+        {
+            return
+        }
+        
+        controller.viewProject.viewMenu.layoutBottom.constant = newBottom
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak controller] in
