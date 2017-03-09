@@ -3,7 +3,6 @@ import UIKit
 class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjectSizeDelegate
 {
     private weak var controller:CDrawProject?
-    private let kKeepSelected:Bool = false
     
     init()
     {
@@ -11,8 +10,7 @@ class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjec
         
         super.init(
             title:title,
-            image:#imageLiteral(resourceName: "assetGenericResize"),
-            keepSelected:kKeepSelected)
+            image:#imageLiteral(resourceName: "assetGenericResize"))
     }
     
     override func selected(controller:CDrawProject)

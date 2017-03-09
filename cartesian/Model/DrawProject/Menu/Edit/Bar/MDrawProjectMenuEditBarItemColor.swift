@@ -3,7 +3,6 @@ import UIKit
 class MDrawProjectMenuEditBarItemColor:MDrawProjectMenuEditBarItem, MDrawProjectColorDelegate
 {
     private weak var controller:CDrawProject?
-    private let kKeepSelected:Bool = false
     
     init()
     {
@@ -11,8 +10,7 @@ class MDrawProjectMenuEditBarItemColor:MDrawProjectMenuEditBarItem, MDrawProject
         
         super.init(
             title:title,
-            image:#imageLiteral(resourceName: "assetGenericColor"),
-            keepSelected:kKeepSelected)
+            image:#imageLiteral(resourceName: "assetGenericColor"))
     }
     
     override func selected(controller:CDrawProject)

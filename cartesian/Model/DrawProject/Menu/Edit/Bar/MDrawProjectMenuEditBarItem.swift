@@ -4,16 +4,13 @@ class MDrawProjectMenuEditBarItem
 {
     let title:String
     let image:UIImage
-    let keepSelected:Bool
     
     init(
         title:String,
-        image:UIImage,
-        keepSelected:Bool)
+        image:UIImage)
     {
         self.title = title
         self.image = image
-        self.keepSelected = keepSelected
     }
     
     //MARK: public
