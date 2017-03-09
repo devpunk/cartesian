@@ -66,6 +66,16 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
         return item
     }
     
+    //MARK: public
+    
+    func deselectItems()
+    {
+        collectionView.selectItem(
+            at:nil,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition())
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -109,13 +119,14 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
-        { [weak collectionView] in
+        { [weak self, weak collectionView] in
             
-            collectionView?.selectItem(
-                at:nil,
-                animated:true,
-                scrollPosition:UICollectionViewScrollPosition())
             collectionView?.isUserInteractionEnabled = true
+            
+            if item.keepSelected
+            {
+                self?.deselectItems()
+            }
         }
     }
 }
