@@ -2,12 +2,6 @@ import UIKit
 
 class VDrawProjectCanvas:UIView
 {
-    private enum State
-    {
-        case stand
-        case moving
-    }
-    
     private weak var controller:CDrawProject!
     private weak var movingNode:VDrawProjectCanvasNode?
     private var movingDeltaPoint:CGPoint?

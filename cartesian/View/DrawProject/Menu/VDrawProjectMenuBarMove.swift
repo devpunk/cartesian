@@ -15,6 +15,7 @@ class VDrawProjectMenuBarMove:UIView
         clipsToBounds = true
         backgroundColor = UIColor.cartesianBlue
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false

@@ -29,7 +29,7 @@ class VDrawProjectMenuEditBarCell:UICollectionViewCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.isUserInteractionEnabled = false
         labelTitle.textAlignment = NSTextAlignment.center
-        labelTitle.font = UIFont.regular(size:11)
+        labelTitle.font = UIFont.regular(size:12)
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
 

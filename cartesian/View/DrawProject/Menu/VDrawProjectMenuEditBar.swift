@@ -6,7 +6,7 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
-    private let kCellWidth:CGFloat = 70
+    private let kCellWidth:CGFloat = 85
     private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CDrawProject)
@@ -22,8 +22,7 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let collectionView:VCollection = VCollection()
-        collectionView.isScrollEnabled = false
-        collectionView.bounces = false
+        collectionView.alwaysBounceHorizontal = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCell(cell:VDrawProjectMenuEditBarCell.self)
