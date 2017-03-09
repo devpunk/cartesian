@@ -163,6 +163,7 @@ class CDrawProject:CController
         editingNode?.endEffect()
         editingNode = nil
         
+        viewProject.viewScroll.viewCanvas.stateMoving()
         viewProject.viewMenu.viewBar.modeMove()
         viewProject.hideMenu()
     }

@@ -41,7 +41,7 @@ extension DNode
         
         if selected
         {
-            context.setLineWidth(4)
+            context.setLineWidth(5)
             context.setStrokeColor(UIColor(white:0, alpha:0.2).cgColor)
         }
         else

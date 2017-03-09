@@ -161,4 +161,16 @@ class VDrawProjectCanvasNode:UIView
         timer?.invalidate()
         setNeedsDisplay()
     }
+    
+    func startMoving()
+    {
+        viewSpatial.selected = true
+        setNeedsDisplay()
+    }
+    
+    func stopMoving()
+    {
+        viewSpatial.selected = false
+        setNeedsDisplay()
+    }
 }
