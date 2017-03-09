@@ -4,8 +4,10 @@ class VDrawProjectMenuBarMove:UIView
 {
     private weak var controller:CDrawProject!
     private let kLabelLeft:CGFloat = 10
-    private let kLabelHeight:CGFloat = 50
     private let kLabelWidth:CGFloat = 200
+    private let kButtonMargin:CGFloat = 10
+    private let kButtonWidth:CGFloat = 100
+    private let kCornerRadius:CGFloat = 5
     
     init(controller:CDrawProject)
     {
@@ -22,14 +24,28 @@ class VDrawProjectMenuBarMove:UIView
         label.textColor = UIColor.white
         label.text = NSLocalizedString("VDrawProjectMenuBarMove_labelTitle", comment:"")
         
-        addSubview(label)
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.backgroundColor = UIColor.black
+        button.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        button.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        button.setTitle(
+            NSLocalizedString("VDrawProjectMenuBarMove_button", comment:""),
+            for:UIControlState.normal)
+        button.titleLabel!.font = UIFont.bold(size:15)
+        button.layer.cornerRadius = kCornerRadius
         
-        NSLayoutConstraint.topToTop(
+        addSubview(label)
+        addSubview(button)
+        
+        NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        NSLayoutConstraint.height(
-            view:label,
-            constant:kLabelHeight)
         NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self,
@@ -37,6 +53,18 @@ class VDrawProjectMenuBarMove:UIView
         NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:button,
+            toView:self,
+            margin:kButtonMargin)
+        NSLayoutConstraint.rightToRight(
+            view:button,
+            toView:self,
+            constant:-kButtonMargin)
+        NSLayoutConstraint.width(
+            view:button,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
