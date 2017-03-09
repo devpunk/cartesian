@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectMenuEditInfo:UIView
 {
+    private weak var model:DNode?
     private weak var labelInfoLeft:UILabel!
     private weak var labelInfoRight:UILabel!
     private weak var layoutLabelLeftWidth:NSLayoutConstraint!
@@ -88,11 +89,22 @@ class VDrawProjectMenuEditInfo:UIView
             constant:-kLabelHorizontal)
         layoutLabelRightWidth = NSLayoutConstraint.width(
             view:labelInfoRight)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedNodeDraw(sender:)),
+            name:Notification.nodeDraw,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func layoutSubviews()
@@ -105,10 +117,39 @@ class VDrawProjectMenuEditInfo:UIView
         super.layoutSubviews()
     }
     
+    //MARK: notifications
+    
+    func notifiedNodeDraw(sender notification:Notification)
+    {
+        guard
+            
+            let nodeSender:DNode = notification.object as? DNode,
+            let currentNode:DNode = model
+            
+        else
+        {
+            return
+        }
+        
+        if currentNode === nodeSender
+        {
+            asyncShowInfo()
+        }
+    }
+    
     //MARK: private
     
-    private func asyncShowInfo(model:DNode)
+    private func asyncShowInfo()
     {
+        guard
+            
+            let model:DNode = self.model
+        
+        else
+        {
+            return
+        }
+        
         let mutableStringLeft:NSMutableAttributedString = NSMutableAttributedString()
         let mutableStringRight:NSMutableAttributedString = NSMutableAttributedString()
         
@@ -175,13 +216,14 @@ class VDrawProjectMenuEditInfo:UIView
     
     func showInfo(model:DNode)
     {
+        self.model = model
         labelInfoLeft.attributedText = nil
         labelInfoRight.attributedText = nil
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncShowInfo(model:model)
+            self?.asyncShowInfo()
         }
     }
 }
