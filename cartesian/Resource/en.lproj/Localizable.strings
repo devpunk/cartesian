@@ -20,3 +20,4 @@
 "MDrawProjectMenuEditBarItemColor_defaultColor"="Node color";
 "MDrawProjectMenuEditBarItemResize_title"="Resize";
 "MDrawProjectMenuEditBarItemResize_defaultSize"="Node size";
+"MDrawProjectMenuEditBarItemMove_title"="Move";

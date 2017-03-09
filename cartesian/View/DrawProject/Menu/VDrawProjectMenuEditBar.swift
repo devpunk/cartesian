@@ -123,7 +123,7 @@ class VDrawProjectMenuEditBar:UIView, UICollectionViewDataSource, UICollectionVi
             
             collectionView?.isUserInteractionEnabled = true
             
-            if item.keepSelected
+            if !item.keepSelected
             {
                 self?.deselectItems()
             }
