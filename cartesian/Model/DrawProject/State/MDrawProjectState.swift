@@ -4,25 +4,23 @@ class MDrawProjectState
 {
     private(set) var current:MDrawProjectStateItem?
     
-    init()
-    {
-        current = MDrawProjectStateItemStand()
-    }
-    
     //MARK: public
     
-    func stateMoving()
+    func stateMoving(controller:CDrawProject)
     {
-        current = MDrawProjectStateItemMove()
+        current = MDrawProjectStateItemMove(
+            controller:controller)
     }
     
-    func stateEditing()
+    func stateEditing(controller:CDrawProject)
     {
-        current = MDrawProjectStateItemEdit()
+        current = MDrawProjectStateItemEdit(
+            controller:controller)
     }
     
-    func stateStand()
+    func stateStand(controller:CDrawProject)
     {
-        current = MDrawProjectStateItemStand()
+        current = MDrawProjectStateItemStand(
+            controller:controller)
     }
 }

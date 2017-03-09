@@ -5,12 +5,9 @@ class VDrawProjectCanvas:UIView
     private weak var controller:CDrawProject!
     private weak var movingNode:VDrawProjectCanvasNode?
     private var movingDeltaPoint:CGPoint?
-    private var state:State
     
     init(controller:CDrawProject)
     {
-        state = State.stand
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -27,8 +24,7 @@ class VDrawProjectCanvas:UIView
         guard
         
             let touch:UITouch = touches.first,
-            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode,
-            let model:DNode = node.viewSpatial.model
+            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode
         
         else
         {
@@ -36,30 +32,9 @@ class VDrawProjectCanvas:UIView
         }
         
         bringSubview(toFront:node)
-        
-        switch state
-        {
-        case State.stand:
-            
-            controller.editNode(editingNode:node)
-            
-            break
-            
-        case State.moving:
-            
-            controller.viewProject.viewScroll.isScrollEnabled = false
-            
-            node.startMoving()
-            movingNode = node
-            let modelX:CGFloat = CGFloat(model.centerX)
-            let modelY:CGFloat = CGFloat(model.centerY)
-            let touchPoint:CGPoint = touch.location(in:self)
-            let deltaX:CGFloat = modelX - touchPoint.x
-            let deltaY:CGFloat = modelY - touchPoint.y
-            movingDeltaPoint = CGPoint(x:deltaX, y:deltaY)
-            
-            break
-        }
+        controller.modelState.current?.touchBegan(
+            touch:touch,
+            node:node)
     }
     
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)

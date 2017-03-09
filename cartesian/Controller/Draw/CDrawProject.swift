@@ -2,6 +2,7 @@ import UIKit
 
 class CDrawProject:CController
 {
+    let modelState:MDrawProjectState
     let modelZoom:MDrawProjectMenuZoom
     let modelColor:MDrawProjectColor
     var model:DProject?
@@ -12,10 +13,13 @@ class CDrawProject:CController
     init(model:DProject?)
     {
         self.model = model
+        modelState = MDrawProjectState()
         modelZoom = MDrawProjectMenuZoom()
         modelColor = MDrawProjectColor()
         
         super.init()
+        
+        modelState.stateStand(controller:self)
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
