@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuMove:UIView
+class VDrawProjectMenuBarMove:UIView
 {
     private weak var controller:CDrawProject!
     private let kLabelLeft:CGFloat = 10
@@ -20,7 +20,7 @@ class VDrawProjectMenuMove:UIView
         label.backgroundColor = UIColor.clear
         label.font = UIFont.bold(size:14)
         label.textColor = UIColor.white
-        label.text = NSLocalizedString("VDrawProjectMenuMove_labelTitle", comment:"")
+        label.text = NSLocalizedString("VDrawProjectMenuBarMove_labelTitle", comment:"")
         
         addSubview(label)
         

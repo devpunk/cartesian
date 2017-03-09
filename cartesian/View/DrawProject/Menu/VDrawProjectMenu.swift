@@ -7,7 +7,6 @@ class VDrawProjectMenu:UIView
     private(set) weak var viewSettings:VDrawProjectMenuSettings!
     private(set) weak var viewNodes:VDrawProjectMenuNodes!
     private(set) weak var viewEdit:VDrawProjectMenuEdit!
-    private(set) weak var viewMove:VDrawProjectMenuMove!
     private let kBarHeight:CGFloat = 51
     
     init(controller:CDrawProject)
@@ -36,16 +35,10 @@ class VDrawProjectMenu:UIView
         viewEdit.isHidden = true
         self.viewEdit = viewEdit
         
-        let viewMove:VDrawProjectMenuMove = VDrawProjectMenuMove(
-            controller:controller)
-        viewMove.isHidden = true
-        self.viewMove = viewMove
-        
         addSubview(viewBar)
         addSubview(viewSettings)
         addSubview(viewNodes)
         addSubview(viewEdit)
-        addSubview(viewMove)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
@@ -60,7 +53,6 @@ class VDrawProjectMenu:UIView
         layoutView(view:viewSettings)
         layoutView(view:viewNodes)
         layoutView(view:viewEdit)
-        layoutView(view:viewMove)
     }
     
     required init?(coder:NSCoder)
@@ -90,7 +82,6 @@ class VDrawProjectMenu:UIView
         viewSettings.isHidden = true
         viewNodes.isHidden = true
         viewEdit.isHidden = false
-        viewMove.isHidden = true
         
         viewEdit.loadNode(model:model)
         viewBar.modeEdit()
@@ -101,7 +92,6 @@ class VDrawProjectMenu:UIView
         viewSettings.isHidden = false
         viewNodes.isHidden = true
         viewEdit.isHidden = true
-        viewMove.isHidden = true
     }
     
     func displayNodes()
@@ -109,14 +99,5 @@ class VDrawProjectMenu:UIView
         viewSettings.isHidden = true
         viewNodes.isHidden = false
         viewEdit.isHidden = true
-        viewMove.isHidden = true
-    }
-    
-    func displayMove()
-    {
-        viewSettings.isHidden = true
-        viewNodes.isHidden = true
-        viewEdit.isHidden = true
-        viewMove.isHidden = false
     }
 }
