@@ -183,21 +183,51 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
     
     private func cleanNumber(string:String) -> String
     {
-        guard
-        
-            let number:NSNumber = numberFormatter.number(from:string)
-        
-        else
-        {
-            let defaultString:String = NSLocalizedString("VDrawProjectSize_default", comment:"")
-            
-            return defaultString
-        }
-        
-        let scalar:CGFloat = number as CGFloat
+        let scalar:CGFloat = scalarFromString(string:string)
         let cleaned:String = stringFromNumber(scalar:scalar)
         
         return cleaned
+    }
+    
+    private func scalarFromString(string:String) -> CGFloat
+    {
+        guard
+            
+            let number:NSNumber = numberFormatter.number(from:string)
+            
+        else
+        {
+            return 0
+        }
+        
+        let scalar:CGFloat = number as CGFloat
+        
+        return scalar
+    }
+    
+    private func postChanges()
+    {
+        guard
+            
+            let rawWidth:String = viewWidth.textField.text,
+            let rawHeight:String = viewHeight.textField.text,
+            let originalWidth:CGFloat = delegate?.originalWidth(),
+            let originalHeight:CGFloat = delegate?.originalHeight()
+            
+        else
+        {
+            return
+        }
+        
+        let scalarWidth:CGFloat = scalarFromString(string:rawWidth)
+        let scalarHeight:CGFloat = scalarFromString(string:rawHeight)
+        
+        if scalarWidth != originalWidth || scalarHeight != originalHeight
+        {
+            delegate?.sizeChanged(
+                width:scalarWidth,
+                height:scalarHeight)
+        }
     }
     
     //MARK: public
@@ -215,6 +245,7 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
             })
         { [weak self] (done:Bool) in
             
+            self?.postChanges()
             self?.removeFromSuperview()
         }
     }
