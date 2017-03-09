@@ -3,7 +3,6 @@ import UIKit
 class VDrawProjectSizeDimension:UIView
 {
     private(set) weak var textField:UITextField!
-    private let kPlaceholder:String = "0"
     private let kLabelHeight:CGFloat = 45
     private let kLabelBottom:CGFloat = -5
     private let kFieldMargin:CGFloat = 19
@@ -33,7 +32,7 @@ class VDrawProjectSizeDimension:UIView
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clear
-        textField.placeholder = kPlaceholder
+        textField.placeholder = NSLocalizedString("VDrawProjectSizeDimension_placeholder", comment:"")
         textField.keyboardType = UIKeyboardType.numbersAndPunctuation
         textField.keyboardAppearance = UIKeyboardAppearance.light
         textField.spellCheckingType = UITextSpellCheckingType.no

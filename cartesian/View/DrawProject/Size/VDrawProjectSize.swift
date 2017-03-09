@@ -9,13 +9,27 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
     private weak var viewWidth:VDrawProjectSizeDimension!
     private weak var viewHeight:VDrawProjectSizeDimension!
     private weak var layoutBaseTop:NSLayoutConstraint!
+    private let numberFormatter:NumberFormatter
     private let kBarHeight:CGFloat = 60
     private let kBaseHeight:CGFloat = 160
     private let kDimensionWidth:CGFloat = 150
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kMaxFractions:Int = 0
+    private let kMinFractions:Int = 0
+    private let kMinIntegers:Int = 1
+    private let kGroupSeparator:Bool = false
     
-    init(controller:CDrawProject, delegate:MDrawProjectSizeDelegate)
+    init(
+        controller:CDrawProject,
+        delegate:MDrawProjectSizeDelegate)
     {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.minimumFractionDigits = kMinFractions
+        numberFormatter.maximumFractionDigits = kMaxFractions
+        numberFormatter.minimumIntegerDigits = kMinIntegers
+        numberFormatter.usesGroupingSeparator = kGroupSeparator
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -50,12 +64,12 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
         self.viewBar = viewBar
         
         let viewWidth:VDrawProjectSizeDimension = VDrawProjectSizeDimension(
-            title:"width")
+            title:NSLocalizedString("VDrawProjectSize_titleWidth", comment:""))
         viewWidth.textField.delegate = self
         self.viewWidth = viewWidth
         
         let viewHeight:VDrawProjectSizeDimension = VDrawProjectSizeDimension(
-            title:"height")
+            title:NSLocalizedString("VDrawProjectSize_titleHeight", comment:""))
         viewHeight.textField.delegate = self
         self.viewHeight = viewHeight
         
@@ -125,6 +139,14 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
         NSLayoutConstraint.width(
             view:viewHeight,
             constant:kDimensionWidth)
+        
+        let scalarWidth:CGFloat = delegate.originalWidth()
+        let scalarHeight:CGFloat = delegate.originalHeight()
+        let stringWidth:String = stringFromNumber(scalar:scalarWidth)
+        let stringHeight:String = stringFromNumber(scalar:scalarHeight)
+        
+        viewWidth.textField.text = stringWidth
+        viewHeight.textField.text = stringHeight
     }
     
     required init?(coder:NSCoder)
@@ -137,6 +159,45 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
     func actionClose(sender button:UIButton)
     {
         animateClose()
+    }
+    
+    //MARK: private
+    
+    private func stringFromNumber(scalar:CGFloat) -> String
+    {
+        let number:NSNumber = scalar as NSNumber
+        
+        guard
+        
+            let string:String = numberFormatter.string(from:number)
+        
+        else
+        {
+            let defaultString:String = NSLocalizedString("VDrawProjectSize_default", comment:"")
+            
+            return defaultString
+        }
+        
+        return string
+    }
+    
+    private func cleanNumber(string:String) -> String
+    {
+        guard
+        
+            let number:NSNumber = numberFormatter.number(from:string)
+        
+        else
+        {
+            let defaultString:String = NSLocalizedString("VDrawProjectSize_default", comment:"")
+            
+            return defaultString
+        }
+        
+        let scalar:CGFloat = number as CGFloat
+        let cleaned:String = stringFromNumber(scalar:scalar)
+        
+        return cleaned
     }
     
     //MARK: public
@@ -177,5 +238,21 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
         textField.resignFirstResponder()
         
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField:UITextField)
+    {
+        guard
+            
+            let original:String = textField.text
+        
+        else
+        {
+            return
+        }
+        
+        let cleaned:String = cleanNumber(string:original)
+        
+        textField.text = cleaned
     }
 }

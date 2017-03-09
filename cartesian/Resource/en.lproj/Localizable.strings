@@ -10,6 +10,10 @@
 "VDrawProjectMenuEditInfo_titlePositionY"="\ny ";
 "VDrawProjectMenuEditInfo_titleWidth"="width ";
 "VDrawProjectMenuEditInfo_titleHeight"="\nheight ";
+"VDrawProjectSize_titleWidth"="width";
+"VDrawProjectSize_titleHeight"="height";
+"VDrawProjectSize_default"="0";
+"VDrawProjectSizeDimension_placeholder"="0";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

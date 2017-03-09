@@ -39,4 +39,36 @@ class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjec
         node.height = Float(height)
         node.notifyDraw()
     }
+    
+    func originalWidth() -> CGFloat
+    {
+        guard
+            
+            let node:DNode = controller?.editingNode?.viewSpatial.model
+            
+        else
+        {
+            return 0
+        }
+        
+        let floatWidth:CGFloat = CGFloat(node.width)
+        
+        return floatWidth
+    }
+    
+    func originalHeight() -> CGFloat
+    {
+        guard
+            
+            let node:DNode = controller?.editingNode?.viewSpatial.model
+            
+        else
+        {
+            return 0
+        }
+        
+        let floatHeight:CGFloat = CGFloat(node.height)
+        
+        return floatHeight
+    }
 }
