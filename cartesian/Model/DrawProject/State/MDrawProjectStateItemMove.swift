@@ -55,4 +55,13 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         movingNode.centerY = pointY
         movingNode.notifyDraw()
     }
+    
+    override func touchFinished()
+    {
+        controller.viewProject.viewScroll.isScrollEnabled = true
+        movingNode?.stopMoving()
+        movingNode = nil
+        deltaX = nil
+        deltaY = nil
+    }
 }

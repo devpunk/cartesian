@@ -135,6 +135,7 @@ class CDrawProject:CController
                 return
             }
             
+            modelState.stateEditing(controller:self)
             viewProject.viewMenu.displayNode(model:nodeModel)
             viewProject.showMenu()
         }
@@ -167,14 +168,14 @@ class CDrawProject:CController
         editingNode?.endEffect()
         editingNode = nil
         
-        viewProject.viewScroll.viewCanvas.stateMoving()
+        modelState.stateMoving(controller:self)
         viewProject.viewMenu.viewBar.modeMove()
         viewProject.hideMenu()
     }
     
     func endMoving()
     {
-        viewProject.viewScroll.viewCanvas.stateStand()
+        modelState.stateStand(controller:self)
         viewProject.viewMenu.viewBar.modeNormal()
         viewProject.showMenu()
     }

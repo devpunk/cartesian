@@ -18,4 +18,8 @@ class MDrawProjectStateItem
     func touchMoved(touch:UITouch)
     {
     }
+    
+    func touchFinished()
+    {
+    }
 }

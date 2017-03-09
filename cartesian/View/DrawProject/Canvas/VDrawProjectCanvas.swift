@@ -49,39 +49,15 @@ class VDrawProjectCanvas:UIView
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)
     {
-        touchFinished()
+        controller.modelState.current?.touchFinished()
     }
     
     override func touchesCancelled(_ touches:Set<UITouch>, with event:UIEvent?)
     {
-        touchFinished()
-    }
-    
-    //MARK: private
-    
-    private func touchFinished()
-    {
-        controller.viewProject.viewScroll.isScrollEnabled = true
-        movingNode?.stopMoving()
-        movingNode = nil
-        movingDeltaPoint = nil
+        controller.modelState.current?.touchFinished()
     }
     
     //MARK: public
-    
-    func stateMoving()
-    {
-        isUserInteractionEnabled = false
-        state = State.moving
-        isUserInteractionEnabled = true
-    }
-    
-    func stateStand()
-    {
-        isUserInteractionEnabled = false
-        state = State.stand
-        isUserInteractionEnabled = true
-    }
     
     func draw()
     {
