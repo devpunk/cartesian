@@ -3,6 +3,7 @@ import UIKit
 class CDrawProject:CController
 {
     let modelState:MDrawProjectState
+    let modelMenuState:MDrawProjectMenuState
     let modelZoom:MDrawProjectMenuZoom
     let modelColor:MDrawProjectColor
     var model:DProject?
@@ -14,12 +15,15 @@ class CDrawProject:CController
     {
         self.model = model
         modelState = MDrawProjectState()
+        modelMenuState = MDrawProjectMenuState()
         modelZoom = MDrawProjectMenuZoom()
         modelColor = MDrawProjectColor()
         
         super.init()
         
         modelState.stateStand(controller:self)
+        modelMenuState.stateHidden(
+            controller:self)
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
@@ -137,7 +141,7 @@ class CDrawProject:CController
             
             modelState.stateEditing(controller:self)
             viewProject.viewMenu.displayNode(model:nodeModel)
-            viewProject.showMenu()
+            modelMenuState.current?.show()
         }
     }
     
@@ -169,15 +173,15 @@ class CDrawProject:CController
         editingNode = nil
         
         modelState.stateMoving(controller:self)
+        modelMenuState.current?.hide()
         viewProject.viewMenu.viewBar.modeMove()
-        viewProject.hideMenu()
     }
     
     func endMoving()
     {
         modelState.stateStand(controller:self)
+        modelMenuState.current?.show()
         viewProject.viewMenu.viewBar.modeNormal()
-        viewProject.showMenu()
     }
     
     func increaseZoom()

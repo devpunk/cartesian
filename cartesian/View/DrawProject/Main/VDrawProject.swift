@@ -7,9 +7,6 @@ class VDrawProject:VView
     private(set) weak var viewScroll:VDrawProjectScroll!
     private(set) weak var viewColor:VDrawProjectColor?
     private(set) weak var viewSize:VDrawProjectSize?
-    private let kMenuHeight:CGFloat = 191
-    private let kMenuMaxBottom:CGFloat = 140
-    private let kAnimationDuration:TimeInterval = 0.3
     
     override init(controller:CController)
     {
@@ -34,11 +31,10 @@ class VDrawProject:VView
         
         NSLayoutConstraint.height(
             view:viewMenu,
-            constant:kMenuHeight)
+            constant:self.controller.modelMenuState.kMenuHeight)
         viewMenu.layoutBottom = NSLayoutConstraint.bottomToBottom(
             view:viewMenu,
-            toView:self,
-            constant:kMenuMaxBottom)
+            toView:self)
         NSLayoutConstraint.equalsHorizontal(
             view:viewMenu,
             toView:self)
@@ -50,6 +46,11 @@ class VDrawProject:VView
         NSLayoutConstraint.equals(
             view:viewRules,
             toView:self)
+        
+        if let menuBottom:CGFloat = self.controller.modelMenuState.current?.bottom
+        {
+            viewMenu.layoutBottom.constant = menuBottom
+        }
     }
     
     required init?(coder:NSCoder)
@@ -64,28 +65,6 @@ class VDrawProject:VView
         viewMenu.viewBar.selectSettings()
         viewMenu.viewSettings.viewSize.update()
         viewScroll.viewCanvas.draw()
-    }
-    
-    func showMenu()
-    {
-        layoutMenuBottom.constant = 0
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
-    }
-    
-    func hideMenu()
-    {
-        layoutMenuBottom.constant = kMenuMaxBottom
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
     }
     
     func showColor(title:String, delegate:MDrawProjectColorDelegate)

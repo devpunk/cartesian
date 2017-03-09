@@ -177,7 +177,7 @@ class VDrawProjectMenuBar:UIView
         buttonSettings.isSelected = true
         buttonNodes.isSelected = false
         controller.viewProject.viewMenu.displaySettings()
-        controller.viewProject.showMenu()
+        controller.modelMenuState.current?.show()
     }
     
     func selectNodes()
@@ -185,7 +185,7 @@ class VDrawProjectMenuBar:UIView
         buttonSettings.isSelected = false
         buttonNodes.isSelected = true
         controller.viewProject.viewMenu.displayNodes()
-        controller.viewProject.showMenu()
+        controller.modelMenuState.current?.show()
     }
     
     func modeEdit()

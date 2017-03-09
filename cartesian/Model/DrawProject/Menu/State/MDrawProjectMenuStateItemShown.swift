@@ -10,4 +10,17 @@ class MDrawProjectMenuStateItemShown:MDrawProjectMenuStateItem
             controller:controller,
             bottom:kBottom)
     }
+    
+    override func hide()
+    {
+        controller.viewProject.viewMenu.layoutBottom.constant = bottom
+        controller.modelMenuState.stateHidden(
+            controller:controller)
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak controller] in
+            
+            controller?.viewProject.layoutIfNeeded()
+        }
+    }
 }

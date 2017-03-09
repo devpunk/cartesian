@@ -4,7 +4,7 @@ class MDrawProjectStateItemStand:MDrawProjectStateItem
 {
     override func canvasScrollDidScroll(scrollView:UIScrollView)
     {
-        controller.viewProject.hideMenu()
+        controller.modelMenuState.current?.hide()
     }
     
     override func touchBegan(touch:UITouch)
