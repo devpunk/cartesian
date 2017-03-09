@@ -5,7 +5,7 @@
 "VDrawProjectMenuBarEdit_label"="Edit node";
 "VDrawProjectMenuBarEdit_button"="Done";
 "VDrawProjectColorBar_buttonClose"="Close";
-"VDrawProjectSizeBar_buttonClose"="Close";
+"VDrawProjectSizeBar_buttonClose"="Done";
 "VDrawProjectMenuEditInfo_titlePositionX"="x ";
 "VDrawProjectMenuEditInfo_titlePositionY"="\ny ";
 "VDrawProjectMenuEditInfo_titleWidth"="width ";

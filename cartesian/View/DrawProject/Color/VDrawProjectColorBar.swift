@@ -23,7 +23,7 @@ class VDrawProjectColorBar:UIView
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.bold(size:16)
+        labelTitle.font = UIFont.medium(size:16)
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
@@ -38,7 +38,7 @@ class VDrawProjectColorBar:UIView
         buttonClose.setTitle(
             NSLocalizedString("VDrawProjectColorBar_buttonClose", comment:""),
             for:UIControlState.normal)
-        buttonClose.titleLabel!.font = UIFont.bolder(size:16)
+        buttonClose.titleLabel!.font = UIFont.bolder(size:17)
         buttonClose.addTarget(
             self,
             action:#selector(actionClose(sender:)),

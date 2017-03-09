@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectSize:UIView
+class VDrawProjectSize:UIView, UITextFieldDelegate
 {
     private(set) weak var viewBar:VDrawProjectSizeBar!
     private weak var controller:CDrawProject!
@@ -10,7 +10,7 @@ class VDrawProjectSize:UIView
     private weak var viewHeight:VDrawProjectSizeDimension!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBarHeight:CGFloat = 60
-    private let kBaseHeight:CGFloat = 230
+    private let kBaseHeight:CGFloat = 160
     private let kDimensionWidth:CGFloat = 150
     private let kAnimationDuration:TimeInterval = 0.3
     
@@ -43,20 +43,20 @@ class VDrawProjectSize:UIView
         let baseView:UIView = UIView()
         baseView.translatesAutoresizingMaskIntoConstraints = false
         baseView.clipsToBounds = true
-        baseView.backgroundColor = UIColor.white
+        baseView.backgroundColor = UIColor(white:0.97, alpha:1)
         
         let viewBar:VDrawProjectSizeBar = VDrawProjectSizeBar(
             controller:controller)
         self.viewBar = viewBar
         
         let viewWidth:VDrawProjectSizeDimension = VDrawProjectSizeDimension(
-            title:"width",
-            originalSize:100)
+            title:"width")
+        viewWidth.textField.delegate = self
         self.viewWidth = viewWidth
         
         let viewHeight:VDrawProjectSizeDimension = VDrawProjectSizeDimension(
-            title:"height",
-            originalSize:100)
+            title:"height")
+        viewHeight.textField.delegate = self
         self.viewHeight = viewHeight
         
         blurContainer.addSubview(blur)
@@ -108,7 +108,7 @@ class VDrawProjectSize:UIView
             toView:baseView)
         NSLayoutConstraint.leftToLeft(
             view:viewWidth,
-            toView:self)
+            toView:baseView)
         NSLayoutConstraint.width(
             view:viewWidth,
             constant:kDimensionWidth)
@@ -118,7 +118,7 @@ class VDrawProjectSize:UIView
             toView:viewBar)
         NSLayoutConstraint.bottomToBottom(
             view:viewHeight,
-            toView:viewBar)
+            toView:baseView)
         NSLayoutConstraint.leftToRight(
             view:viewHeight,
             toView:viewWidth)
@@ -143,6 +143,8 @@ class VDrawProjectSize:UIView
     
     func animateClose()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         UIView.animate(
             withDuration:kAnimationDuration,
             animations:
@@ -166,5 +168,14 @@ class VDrawProjectSize:UIView
             self?.blurContainer.alpha = 0.95
             self?.layoutIfNeeded()
         }
+    }
+    
+    //MARK: textfield delegate
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        
+        return true
     }
 }
