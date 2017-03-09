@@ -3,8 +3,6 @@ import UIKit
 class VDrawProjectCanvas:UIView
 {
     private weak var controller:CDrawProject!
-    private weak var movingNode:VDrawProjectCanvasNode?
-    private var movingDeltaPoint:CGPoint?
     
     init(controller:CDrawProject)
     {
@@ -23,40 +21,30 @@ class VDrawProjectCanvas:UIView
     {
         guard
         
-            let touch:UITouch = touches.first,
-            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode
+            let touch:UITouch = touches.first
         
         else
         {
             return
         }
         
-        bringSubview(toFront:node)
         controller.modelState.current?.touchBegan(
-            touch:touch,
-            node:node)
+            touch:touch)
     }
     
     override func touchesMoved(_ touches:Set<UITouch>, with event:UIEvent?)
     {
         guard
         
-            let touch:UITouch = touches.first,
-            let movingNode:DNode = self.movingNode?.viewSpatial.model,
-            let movingDeltaPoint:CGPoint = self.movingDeltaPoint
+            let touch:UITouch = touches.first
         
         else
         {
             return
         }
         
-        let point:CGPoint = touch.location(in:self)
-        let pointX:Float = Float(point.x + movingDeltaPoint.x)
-        let pointY:Float = Float(point.y + movingDeltaPoint.y)
-        
-        movingNode.centerX = pointX
-        movingNode.centerY = pointY
-        movingNode.notifyDraw()
+        controller.modelState.current?.touchMoved(
+            touch:touch)
     }
     
     override func touchesEnded(_ touches:Set<UITouch>, with event:UIEvent?)

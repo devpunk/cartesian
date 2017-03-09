@@ -6,10 +6,11 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
     private(set) var deltaX:CGFloat?
     private(set) var deltaY:CGFloat?
     
-    override func touchBegan(touch:UITouch, node:VDrawProjectCanvasNode)
+    override func touchBegan(touch:UITouch)
     {
         guard
             
+            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode,
             let model:DNode = node.viewSpatial.model
         
         else
@@ -17,6 +18,7 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
             return
         }
         
+        controller.viewProject.viewScroll.viewCanvas.bringSubview(toFront:node)
         controller.viewProject.viewScroll.isScrollEnabled = false
         
         node.startMoving()
@@ -29,5 +31,28 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         deltaX = modelX - touchPoint.x
         deltaY = modelY - touchPoint.y
         movingNode = node
+    }
+    
+    override func touchMoved(touch:UITouch)
+    {
+        guard
+            
+            let movingNode:DNode = self.movingNode?.viewSpatial.model,
+            let deltaX:CGFloat = self.deltaX,
+            let deltaY:CGFloat = self.deltaY
+            
+        else
+        {
+            return
+        }
+        
+        let point:CGPoint = touch.location(
+            in:controller.viewProject.viewScroll.viewCanvas)
+        let pointX:Float = Float(point.x + deltaX)
+        let pointY:Float = Float(point.y + deltaY)
+        
+        movingNode.centerX = pointX
+        movingNode.centerY = pointY
+        movingNode.notifyDraw()
     }
 }

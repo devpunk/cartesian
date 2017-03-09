@@ -11,8 +11,11 @@ class MDrawProjectStateItem
     
     //MARK: public
     
-    func touchBegan(touch:UITouch, node:VDrawProjectCanvasNode)
+    func touchBegan(touch:UITouch)
     {
-        
+    }
+    
+    func touchMoved(touch:UITouch)
+    {
     }
 }
