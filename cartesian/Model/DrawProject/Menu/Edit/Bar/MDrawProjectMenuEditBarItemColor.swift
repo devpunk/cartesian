@@ -39,5 +39,6 @@ class MDrawProjectMenuEditBarItemColor:MDrawProjectMenuEditBarItem, MDrawProject
         let color:MDrawProjectColorItem = controller.modelColor.items[index]
         node.colorWithColor(color:color.color)
         node.notifyDraw()
+        DManager.sharedInstance?.save()
     }
 }
