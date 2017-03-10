@@ -188,6 +188,15 @@ class VDrawProjectMenuBar:UIView
         controller.modelMenuState.current?.show()
     }
     
+    func selectNothing()
+    {
+        buttonSettings.isSelected = false
+        buttonNodes.isSelected = false
+        showButtons()
+        viewEdit.alpha = 0
+        viewMove.alpha = 0
+    }
+    
     func modeEdit()
     {
         hideButtons()

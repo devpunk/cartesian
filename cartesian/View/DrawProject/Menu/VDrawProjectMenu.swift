@@ -83,7 +83,7 @@ class VDrawProjectMenu:UIView
         viewSettings.isHidden = false
         viewNodes.isHidden = false
         viewEdit.isHidden = false
-        viewBar.modeNormal()
+        viewBar.selectNothing()
     }
     
     func displayNode(model:DNode)

@@ -4,6 +4,7 @@ class MDrawProjectStateItemStand:MDrawProjectStateItem
 {
     override func canvasStartDragging(scrollView:UIScrollView)
     {
+        controller.viewProject.viewMenu.displayNothing()
         controller.modelMenuState.current?.hide()
     }
     
