@@ -9,6 +9,8 @@ class VDrawProjectMenuSettingsSize:UIView
     private let kLabelsHeight:CGFloat = 17
     private let kLabelsWidth:CGFloat = 80
     private let kLabelWidthLeft:CGFloat = 4
+    private let kMarginTop:CGFloat = 15
+    private let kMarginLeft:CGFloat = 10
     
     init(controller:CDrawProject)
     {
@@ -51,17 +53,20 @@ class VDrawProjectMenuSettingsSize:UIView
         
         NSLayoutConstraint.topToTop(
             view:icon,
-            toView:self)
+            toView:self,
+            constant:kMarginTop)
         NSLayoutConstraint.size(
             view:icon,
             constant:kIconSize)
         NSLayoutConstraint.leftToLeft(
             view:icon,
-            toView:self)
+            toView:self,
+            constant:kMarginLeft)
         
         NSLayoutConstraint.topToTop(
             view:labelWidth,
-            toView:self)
+            toView:self,
+            constant:kMarginTop)
         NSLayoutConstraint.height(
             view:labelWidth,
             constant:kLabelsHeight)
@@ -81,7 +86,8 @@ class VDrawProjectMenuSettingsSize:UIView
             constant:kLabelsHeight)
         NSLayoutConstraint.leftToLeft(
             view:labelHeight,
-            toView:self)
+            toView:self,
+            constant:kMarginLeft)
         NSLayoutConstraint.width(
             view:labelHeight,
             constant:kLabelsWidth)

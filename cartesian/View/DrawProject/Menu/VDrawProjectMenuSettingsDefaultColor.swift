@@ -4,19 +4,17 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton, MDrawProjectColorDelegate
 {
     private weak var controller:CDrawProject!
     private weak var viewInner:UIView!
-    private weak var layoutOuterColorWidth:NSLayoutConstraint!
-    private let padding2:CGFloat
-    private let kPadding:CGFloat = 10
     private let kMarginOuter:CGFloat = 1
     private let kLabelRight:CGFloat = -6
-    private let kInitialWidth:CGFloat = 20
+    private let kLabelHeight:CGFloat = 56
+    private let kOuterTop:CGFloat = 18
+    private let kOuterRight:CGFloat = -10
+    private let kOuterSize:CGFloat = 20
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
     init(controller:CDrawProject)
     {
-        padding2 = kPadding + kPadding
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -60,17 +58,17 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton, MDrawProjectColorDelegate
         addSubview(viewInner)
         addSubview(label)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:viewOuter,
             toView:self,
-            margin:kPadding)
+            constant:kOuterTop)
         NSLayoutConstraint.rightToRight(
             view:viewOuter,
             toView:self,
-            constant:-kPadding)
-        layoutOuterColorWidth = NSLayoutConstraint.width(
+            constant:kOuterRight)
+        NSLayoutConstraint.size(
             view:viewOuter,
-            constant:kInitialWidth)
+            constant:kOuterSize)
         
         NSLayoutConstraint.equals(
             view:viewMiddle,
@@ -82,9 +80,12 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton, MDrawProjectColorDelegate
             toView:viewMiddle,
             margin:kMarginOuter)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:self)
+        NSLayoutConstraint.height(
+            view:label,
+            constant:kLabelHeight)
         NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self)
@@ -97,14 +98,6 @@ class VDrawProjectMenuSettingsDefaultColor:UIButton, MDrawProjectColorDelegate
     required init?(coder:NSCoder)
     {
         return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        let height:CGFloat = bounds.maxY
-        layoutOuterColorWidth.constant = height - padding2
-        
-        super.layoutSubviews()
     }
     
     override var isSelected:Bool

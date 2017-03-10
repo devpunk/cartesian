@@ -5,8 +5,10 @@ class VDrawProjectMenuSettingsZoom:UIView
     private weak var controller:CDrawProject!
     private weak var label:UILabel!
     private let kButtonsWidth:CGFloat = 55
-    private let kLabelHeight:CGFloat = 16
-    private let kIconBottom:CGFloat = 8
+    private let kButtonsHeight:CGFloat = 60
+    private let kLabelTop:CGFloat = -12
+    private let kLabelHeight:CGFloat = 18
+    private let kIconHeight:CGFloat = 53
     private let kZoomMultiplier:CGFloat = 100
     
     init(controller:CDrawProject)
@@ -70,20 +72,20 @@ class VDrawProjectMenuSettingsZoom:UIView
         addSubview(buttonMinus)
         addSubview(buttonPlus)
         
-        NSLayoutConstraint.bottomToTop(
-            view:icon,
-            toView:label,
-            constant:kIconBottom)
         NSLayoutConstraint.topToTop(
             view:icon,
             toView:self)
+        NSLayoutConstraint.height(
+            view:icon,
+            constant:kIconHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:icon,
             toView:self)
         
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.topToBottom(
             view:label,
-            toView:self)
+            toView:icon,
+            constant:kLabelTop)
         NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
@@ -91,9 +93,12 @@ class VDrawProjectMenuSettingsZoom:UIView
             view:label,
             toView:self)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:buttonMinus,
             toView:self)
+        NSLayoutConstraint.height(
+            view:buttonMinus,
+            constant:kButtonsHeight)
         NSLayoutConstraint.width(
             view:buttonMinus,
             constant:kButtonsWidth)
@@ -101,9 +106,12 @@ class VDrawProjectMenuSettingsZoom:UIView
             view:buttonMinus,
             toView:self)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:buttonPlus,
             toView:self)
+        NSLayoutConstraint.height(
+            view:buttonPlus,
+            constant:kButtonsHeight)
         NSLayoutConstraint.width(
             view:buttonPlus,
             constant:kButtonsWidth)
