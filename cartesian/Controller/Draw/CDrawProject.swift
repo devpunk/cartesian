@@ -164,6 +164,7 @@ class CDrawProject:CController
         editingNode?.endEffect()
         editingNode = nil
         
+        modelState.stateStand(controller:self)
         viewProject.viewMenu.viewBar.modeNormal()
     }
     
