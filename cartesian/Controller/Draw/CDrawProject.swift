@@ -181,6 +181,11 @@ class CDrawProject:CController
         viewProject.viewMenu.viewBar.modeMove()
     }
     
+    func startRotating()
+    {
+
+    }
+    
     func endMoving()
     {
         modelState.stateStand(controller:self)
