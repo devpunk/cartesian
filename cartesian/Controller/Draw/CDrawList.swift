@@ -50,4 +50,12 @@ class CDrawList:CController
             controller:controllerProject,
             horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func openDraw(project:DProject)
+    {
+        let controllerProject:CDrawProject = CDrawProject(model:project)
+        parentController.push(
+            controller:controllerProject,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }

@@ -7,7 +7,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private let kHeaderHeight:CGFloat = 160
     private let kCellHeight:CGFloat = 90
     private let kCollectionBottom:CGFloat = 20
-    private let kDeselectTime:CGFloat = 0.2
+    private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)
     {
@@ -119,9 +119,10 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     {
         collectionView.isUserInteractionEnabled = false
         let item:MDrawListItem = modelAtIndex(index:indexPath)
+        controller.openDraw(project:item.project)
         
         DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now())
+            deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
             
             collectionView?.selectItem(

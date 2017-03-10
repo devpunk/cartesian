@@ -117,6 +117,7 @@ class CDrawProject:CController
             node.width = initialSize
             node.height = initialSize
             node.colorWithColor(color:color)
+            DManager.sharedInstance?.save()
             
             self?.reDraw()
         }
