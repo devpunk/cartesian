@@ -36,6 +36,12 @@ class VDrawProjectMenu:UIView
         viewEdit.isHidden = true
         self.viewEdit = viewEdit
         
+        let background:UIView = UIView()
+        background.isUserInteractionEnabled = false
+        background.backgroundColor = UIColor.white
+        background.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(background)
         addSubview(viewBar)
         addSubview(viewSettings)
         addSubview(viewNodes)
@@ -51,6 +57,7 @@ class VDrawProjectMenu:UIView
             view:viewBar,
             toView:self)
         
+        layoutView(view:background)
         layoutView(view:viewSettings)
         layoutView(view:viewNodes)
         layoutView(view:viewEdit)
@@ -80,9 +87,9 @@ class VDrawProjectMenu:UIView
     
     func displayNothing()
     {
-        viewSettings.isHidden = false
-        viewNodes.isHidden = false
-        viewEdit.isHidden = false
+        viewSettings.isHidden = true
+        viewNodes.isHidden = true
+        viewEdit.isHidden = true
         viewBar.selectNothing()
     }
     
