@@ -16,6 +16,7 @@
 "VDrawProjectSizeDimension_placeholder"="0";
 "VDrawProjectMenuBarMove_labelTitle"="Drag and drop nodes";
 "VDrawProjectMenuBarMove_button"="Done";
+"VDrawProjectMenuSettingsTitle_labelTitle"="Project";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

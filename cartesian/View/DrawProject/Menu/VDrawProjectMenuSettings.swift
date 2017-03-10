@@ -3,6 +3,7 @@ import UIKit
 class VDrawProjectMenuSettings:UIView
 {
     private weak var controller:CDrawProject!
+    private(set) weak var viewTitle:VDrawProjectMenuSettingsTitle!
     private(set) weak var viewSize:VDrawProjectMenuSettingsSize!
     private(set) weak var viewZoom:VDrawProjectMenuSettingsZoom!
     private(set) weak var viewDefaultColor:VDrawProjectMenuSettingsDefaultColor!
@@ -11,6 +12,7 @@ class VDrawProjectMenuSettings:UIView
     private let kSizeHeight:CGFloat = 55
     private let kZoomWidth:CGFloat = 115
     private let kZoomHeight:CGFloat = 50
+    private let kTitleHeight:CGFloat = 40
     private let kDefaultColorTop:CGFloat = 18
     private let kDefaultColorHeight:CGFloat = 36
     private let kDefaultColorWidth:CGFloat = 80
@@ -22,6 +24,10 @@ class VDrawProjectMenuSettings:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let viewTitle:VDrawProjectMenuSettingsTitle = VDrawProjectMenuSettingsTitle(
+            controller:controller)
+        self.viewTitle = viewTitle
         
         let viewSize:VDrawProjectMenuSettingsSize = VDrawProjectMenuSettingsSize(
             controller:controller)
@@ -35,13 +41,24 @@ class VDrawProjectMenuSettings:UIView
             controller:controller)
         self.viewDefaultColor = viewDefaultColor
         
+        addSubview(viewTitle)
         addSubview(viewSize)
         addSubview(viewZoom)
         addSubview(viewDefaultColor)
         
         NSLayoutConstraint.topToTop(
+            view:viewTitle,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewTitle,
+            constant:kTitleHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewTitle,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
             view:viewSize,
-            toView:self,
+            toView:viewTitle,
             constant:kSizeMargin)
         NSLayoutConstraint.height(
             view:viewSize,
@@ -54,9 +71,9 @@ class VDrawProjectMenuSettings:UIView
             view:viewSize,
             constant:kSizeWidth)
         
-        NSLayoutConstraint.topToTop(
+        NSLayoutConstraint.topToBottom(
             view:viewZoom,
-            toView:self)
+            toView:viewTitle)
         NSLayoutConstraint.height(
             view:viewZoom,
             constant:kZoomHeight)

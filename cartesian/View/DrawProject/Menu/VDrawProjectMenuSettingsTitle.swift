@@ -5,9 +5,31 @@ class VDrawProjectMenuSettingsTitle:UIView
     private weak var controller:CDrawProject!
     private weak var labelName:UILabel!
     private let kLabelLeft:CGFloat = 10
+    private let kMaxWidth:CGFloat = 200
+    private let kMaxHeight:CGFloat = 25
+    private let kTitleMargin:CGFloat = 5
     
     init(controller:CDrawProject)
     {
+        let attributesTitle:[String:AnyObject] = [
+            NSFontAttributeName:UIFont.bold(size:15),
+            NSForegroundColorAttributeName:UIColor.black]
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("VDrawProjectMenuSettingsTitle_labelTitle", comment:""),
+            attributes:attributesTitle)
+        let titleMaxSize:CGSize = CGSize(
+            width:kMaxWidth,
+            height:kMaxHeight)
+        let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesFontLeading,
+            NSStringDrawingOptions.usesLineFragmentOrigin])
+        let titleRect:CGRect = stringTitle.boundingRect(
+            with:titleMaxSize,
+            options:drawingOptions,
+            context:nil)
+        let titleWidth:CGFloat = ceil(titleRect.size.width)
+        let titleWidthMargin:CGFloat = titleWidth + kTitleMargin
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -37,7 +59,8 @@ class VDrawProjectMenuSettingsTitle:UIView
             toView:self,
             constant:kLabelLeft)
         NSLayoutConstraint.width(
-            view:labelTitle)
+            view:labelTitle,
+            constant:titleWidthMargin)
         
         NSLayoutConstraint.equalsVertical(
             view:labelName,
