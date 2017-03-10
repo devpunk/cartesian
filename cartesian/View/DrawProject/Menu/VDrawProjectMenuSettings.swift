@@ -7,14 +7,11 @@ class VDrawProjectMenuSettings:UIView
     private(set) weak var viewSize:VDrawProjectMenuSettingsSize!
     private(set) weak var viewZoom:VDrawProjectMenuSettingsZoom!
     private(set) weak var viewDefaultColor:VDrawProjectMenuSettingsDefaultColor!
+    private let kTitleHeight:CGFloat = 55
     private let kSizeMargin:CGFloat = 10
     private let kSizeWidth:CGFloat = 110
-    private let kSizeHeight:CGFloat = 55
     private let kZoomWidth:CGFloat = 115
-    private let kZoomHeight:CGFloat = 50
-    private let kTitleHeight:CGFloat = 55
     private let kDefaultColorTop:CGFloat = 18
-    private let kDefaultColorHeight:CGFloat = 36
     private let kDefaultColorWidth:CGFloat = 80
     
     init(controller:CDrawProject)
@@ -60,9 +57,9 @@ class VDrawProjectMenuSettings:UIView
             view:viewSize,
             toView:viewTitle,
             constant:kSizeMargin)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.bottomToBottom(
             view:viewSize,
-            constant:kSizeHeight)
+            toView:self)
         NSLayoutConstraint.leftToLeft(
             view:viewSize,
             toView:self,
@@ -74,26 +71,26 @@ class VDrawProjectMenuSettings:UIView
         NSLayoutConstraint.topToBottom(
             view:viewZoom,
             toView:viewTitle)
-        NSLayoutConstraint.height(
-            view:viewZoom,
-            constant:kZoomHeight)
-        NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.bottomToBottom(
             view:viewZoom,
             toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:viewZoom,
+            toView:viewSize)
         NSLayoutConstraint.width(
             view:viewZoom,
             constant:kZoomWidth)
         
         NSLayoutConstraint.topToBottom(
             view:viewDefaultColor,
-            toView:viewSize,
+            toView:viewTitle,
             constant:kDefaultColorTop)
-        NSLayoutConstraint.height(
-            view:viewDefaultColor,
-            constant:kDefaultColorHeight)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.bottomToBottom(
             view:viewDefaultColor,
             toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:viewDefaultColor,
+            toView:viewZoom)
         NSLayoutConstraint.width(
             view:viewDefaultColor,
             constant:kDefaultColorWidth)
