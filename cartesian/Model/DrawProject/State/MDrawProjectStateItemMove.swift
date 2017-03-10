@@ -58,10 +58,21 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
     
     override func touchFinished()
     {
+        guard
+            
+            let movingNode:VDrawProjectCanvasNode = self.movingNode
+            
+        else
+        {
+            return
+        }
+        
+        self.movingNode = nil
         controller.viewProject.viewScroll.isScrollEnabled = true
-        movingNode?.stopMoving()
-        movingNode = nil
+        movingNode.stopMoving()
         deltaX = nil
         deltaY = nil
+        
+        DManager.sharedInstance?.save()
     }
 }
