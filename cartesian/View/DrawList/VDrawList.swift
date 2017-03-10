@@ -7,6 +7,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private let kHeaderHeight:CGFloat = 160
     private let kCellHeight:CGFloat = 90
     private let kCollectionBottom:CGFloat = 20
+    private let kDeselectTime:CGFloat = 0.2
     
     override init(controller:CController)
     {
@@ -14,6 +15,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         self.controller = controller as? CDrawList
         
         let collectionView:VCollection = VCollection()
+        collectionView.isHidden = true
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -50,7 +52,32 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         super.layoutSubviews()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MDrawListItem
+    {
+        let item:MDrawListItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.isHidden = false
+        collectionView.reloadData()
+    }
+    
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -59,7 +86,9 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = controller.model.items.count
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
@@ -76,6 +105,30 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        return VDrawListCell()
+        let item:MDrawListItem = modelAtIndex(index:indexPath)
+        let cell:VDrawListCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VDrawListCell.reusableIdentifier,
+            for:indexPath) as! VDrawListCell
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        let item:MDrawListItem = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now())
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
+        }
     }
 }

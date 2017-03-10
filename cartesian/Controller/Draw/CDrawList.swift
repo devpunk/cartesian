@@ -2,7 +2,21 @@ import UIKit
 
 class CDrawList:CController
 {
+    let model:MDrawList
     private weak var viewList:VDrawList!
+    
+    override init()
+    {
+        model = MDrawList()
+        super.init()
+        
+        model.controller = self
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
     
     override func loadView()
     {
@@ -11,12 +25,23 @@ class CDrawList:CController
         view = viewList
     }
     
-    override func viewDidLoad()
+    override func viewDidAppear(_ animated:Bool)
     {
-        super.viewDidLoad()
+        super.viewDidAppear(animated)
+        
+        model.update()
     }
     
     //MARK: public
+
+    func listLoaded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewList.refresh()
+        }
+    }
     
     func newDraw()
     {
