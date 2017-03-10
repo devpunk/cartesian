@@ -14,7 +14,7 @@ class VDrawProjectMenuSettingsTitle:UIView
     {
         let attributesTitle:[String:AnyObject] = [
             NSFontAttributeName:UIFont.bold(size:14),
-            NSForegroundColorAttributeName:UIColor(white:0.6, alpha:1)]
+            NSForegroundColorAttributeName:UIColor(white:0.7, alpha:1)]
         let stringTitle:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VDrawProjectMenuSettingsTitle_labelTitle", comment:""),
             attributes:attributesTitle)
@@ -35,6 +35,7 @@ class VDrawProjectMenuSettingsTitle:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
@@ -91,5 +92,12 @@ class VDrawProjectMenuSettingsTitle:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: public
+    
+    func updateTitle()
+    {
+        labelName.text = controller.model?.projectName()
     }
 }

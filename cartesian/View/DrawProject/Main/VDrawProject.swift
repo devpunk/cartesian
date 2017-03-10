@@ -64,6 +64,7 @@ class VDrawProject:VView
     {
         viewMenu.viewBar.selectSettings()
         viewMenu.viewSettings.viewSize.update()
+        viewMenu.viewSettings.viewTitle.updateTitle()
         viewScroll.viewCanvas.draw()
     }
     

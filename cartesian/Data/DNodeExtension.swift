@@ -2,7 +2,9 @@ import UIKit
 import CoreData
 
 extension DNode
-{   
+{
+    //MARK: public
+    
     func centerAt(center:CGPoint)
     {
         centerX = Float(center.x)
