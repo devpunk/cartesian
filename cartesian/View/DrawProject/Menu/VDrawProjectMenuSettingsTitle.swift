@@ -8,12 +8,13 @@ class VDrawProjectMenuSettingsTitle:UIView
     private let kMaxWidth:CGFloat = 200
     private let kMaxHeight:CGFloat = 25
     private let kTitleMargin:CGFloat = 5
+    private let kBorderHeight:CGFloat = 1
     
     init(controller:CDrawProject)
     {
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:15),
-            NSForegroundColorAttributeName:UIColor.black]
+            NSFontAttributeName:UIFont.bold(size:14),
+            NSForegroundColorAttributeName:UIColor(white:0.6, alpha:1)]
         let stringTitle:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VDrawProjectMenuSettingsTitle_labelTitle", comment:""),
             attributes:attributesTitle)
@@ -35,21 +36,35 @@ class VDrawProjectMenuSettingsTitle:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.isUserInteractionEnabled = false
+        labelTitle.attributedText = stringTitle
         
         let labelName:UILabel = UILabel()
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clear
         labelName.isUserInteractionEnabled = false
-        labelName.font = UIFont.regular(size:18)
-        labelName.textColor = UIColor(white:0, alpha:0.8)
+        labelName.font = UIFont.regular(size:14)
+        labelName.textColor = UIColor.black
         self.labelName = labelName
         
+        addSubview(border)
         addSubview(labelTitle)
         addSubview(labelName)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
         
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,
