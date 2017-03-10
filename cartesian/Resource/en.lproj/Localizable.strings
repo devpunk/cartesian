@@ -24,5 +24,6 @@
 "MDrawProjectMenuEditBarItemResize_title"="Resize";
 "MDrawProjectMenuEditBarItemResize_defaultSize"="Node size";
 "MDrawProjectMenuEditBarItemMove_title"="Move";
+"MDrawProjectMenuEditBarItemRotate_title"="Rotate";
 
 "DProject_defaultTitle"="Unamed project";
