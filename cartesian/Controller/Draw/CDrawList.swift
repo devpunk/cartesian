@@ -11,6 +11,11 @@ class CDrawList:CController
         view = viewList
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+    }
+    
     //MARK: public
     
     func newDraw()

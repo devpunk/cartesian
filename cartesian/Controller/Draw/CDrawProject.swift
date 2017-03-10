@@ -72,6 +72,8 @@ class CDrawProject:CController
         { [weak self] (data) in
             
             self?.model = data as? DProject
+            
+            DManager.sharedInstance?.save()
         }
     }
     
