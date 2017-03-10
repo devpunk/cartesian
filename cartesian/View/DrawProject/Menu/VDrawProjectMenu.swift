@@ -78,6 +78,14 @@ class VDrawProjectMenu:UIView
     
     //MARK: public
     
+    func displayNothing()
+    {
+        viewSettings.isHidden = false
+        viewNodes.isHidden = false
+        viewEdit.isHidden = false
+        viewBar.modeNormal()
+    }
+    
     func displayNode(model:DNode)
     {
         viewSettings.isHidden = true
