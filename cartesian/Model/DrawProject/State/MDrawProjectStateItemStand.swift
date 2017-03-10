@@ -2,7 +2,7 @@ import UIKit
 
 class MDrawProjectStateItemStand:MDrawProjectStateItem
 {
-    override func canvasScrollDidScroll(scrollView:UIScrollView)
+    override func canvasStartDragging(scrollView:UIScrollView)
     {
         controller.modelMenuState.current?.hide()
     }

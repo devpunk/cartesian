@@ -25,6 +25,8 @@ class MDrawProjectMenuStateItemShown:MDrawProjectMenuStateItem
             return
         }
         
+        controller.viewProject.viewMenu.layoutBottom.constant = newBottom
+        
         UIView.animate(withDuration:kAnimationDuration)
         { [weak controller] in
             

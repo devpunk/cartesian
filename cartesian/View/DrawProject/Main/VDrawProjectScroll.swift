@@ -40,10 +40,15 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
         return nil
     }
     
+    func scrollViewWillBeginDragging(_ scrollView:UIScrollView)
+    {
+        controller.modelState.current?.canvasStartDragging(
+            scrollView:scrollView)
+    }
+    
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
         viewRules.scrollDidScroll(offset:scrollView.contentOffset)
-        controller.modelState.current?.canvasScrollDidScroll(scrollView:scrollView)
     }
     
     //MARK: private

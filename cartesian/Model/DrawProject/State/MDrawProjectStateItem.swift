@@ -11,7 +11,7 @@ class MDrawProjectStateItem
     
     //MARK: public
     
-    func canvasScrollDidScroll(scrollView:UIScrollView)
+    func canvasStartDragging(scrollView:UIScrollView)
     {
     }
     
