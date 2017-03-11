@@ -223,6 +223,8 @@ class VDrawProjectRotate:UIView
             })
         { [weak self] (done:Bool) in
             
+            DManager.sharedInstance?.save()
+            self?.node?.notifyDraw()
             self?.removeFromSuperview()
         }
     }
