@@ -4,6 +4,7 @@ class VDrawProjectRotate:UIView
 {
     private weak var controller:CDrawProject!
     private weak var node:DNode?
+    private weak var viewCircle:VDrawProjectRotateCircle!
     private weak var slider:UISlider!
     private weak var label:UILabel!
     private weak var layoutDoneLeft:NSLayoutConstraint!
@@ -91,7 +92,11 @@ class VDrawProjectRotate:UIView
         label.textColor = UIColor.black
         self.label = label
         
+        let viewCircle:VDrawProjectRotateCircle = VDrawProjectRotateCircle()
+        self.viewCircle = viewCircle
+        
         addSubview(blur)
+        addSubview(viewCircle)
         addSubview(label)
         addSubview(buttonDone)
         addSubview(buttonReset)
@@ -147,6 +152,16 @@ class VDrawProjectRotate:UIView
             constant:kLabelHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:label,
+            toView:self)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:viewCircle,
+            toView:label)
+        NSLayoutConstraint.topToTop(
+            view:viewCircle,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewCircle,
             toView:self)
         
         updateLabel()
