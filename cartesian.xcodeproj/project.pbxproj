@@ -92,6 +92,7 @@
 		DAA94A831E706273004EB390 /* MDrawProjectMenuEditBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA94A821E706273004EB390 /* MDrawProjectMenuEditBarItem.swift */; };
 		DAA94A851E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA94A841E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift */; };
 		DAA94A871E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA94A861E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift */; };
+		DAADC1641E74A75D00533BA1 /* VDrawProjectRotateCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADC1631E74A75D00533BA1 /* VDrawProjectRotateCircle.swift */; };
 		DABAACE41E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABAACE31E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift */; };
 		DABAACEA1E71E26F00735972 /* VDrawProjectMenuBarEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABAACE91E71E26F00735972 /* VDrawProjectMenuBarEdit.swift */; };
 		DABAACEC1E71E2C600735972 /* VDrawProjectMenuBarMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABAACEB1E71E2C600735972 /* VDrawProjectMenuBarMove.swift */; };
@@ -205,6 +206,7 @@
 		DAA94A821E706273004EB390 /* MDrawProjectMenuEditBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItem.swift; sourceTree = "<group>"; };
 		DAA94A841E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemTrash.swift; sourceTree = "<group>"; };
 		DAA94A861E706B0C004EB390 /* MDrawProjectMenuEditBarItemColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemColor.swift; sourceTree = "<group>"; };
+		DAADC1631E74A75D00533BA1 /* VDrawProjectRotateCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectRotateCircle.swift; sourceTree = "<group>"; };
 		DABAACE31E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemMove.swift; sourceTree = "<group>"; };
 		DABAACE91E71E26F00735972 /* VDrawProjectMenuBarEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuBarEdit.swift; sourceTree = "<group>"; };
 		DABAACEB1E71E2C600735972 /* VDrawProjectMenuBarMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuBarMove.swift; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC13B591E73573C009A8D94 /* VDrawProjectRotate.swift */,
+				DAADC1631E74A75D00533BA1 /* VDrawProjectRotateCircle.swift */,
 			);
 			path = Rotate;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				DA630B661E6B84D40004245A /* CController.swift in Sources */,
 				DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */,
 				DABAACEC1E71E2C600735972 /* VDrawProjectMenuBarMove.swift in Sources */,
+				DAADC1641E74A75D00533BA1 /* VDrawProjectRotateCircle.swift in Sources */,
 				DAC13B571E73549D009A8D94 /* MDrawProjectMenuEditBarItemRotate.swift in Sources */,
 				DA5CA1211E70C8AA00FD2340 /* VDrawProjectSizeDimension.swift in Sources */,
 				DA2772551E720B6B00AC2EE7 /* MDrawProjectMenuStateItem.swift in Sources */,
