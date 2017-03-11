@@ -30,6 +30,14 @@ extension DNode
         colorAlpha = Float(alpha)
     }
     
+    final func radians() -> CGFloat
+    {
+        let degrees:CGFloat = CGFloat(rotation)
+        let rads:CGFloat = degrees * CGFloat(M_PI) / 180.0
+        
+        return rads
+    }
+    
     final func draw(
         rect:CGRect,
         context:CGContext,
@@ -40,6 +48,9 @@ extension DNode
         let green:CGFloat = CGFloat(colorGreen)
         let blue:CGFloat = CGFloat(colorBlue)
         let alpha:CGFloat = CGFloat(colorAlpha)
+        let rads:CGFloat = radians()
+        let midX:CGFloat = rect.midX
+        let midY:CGFloat = rect.midY
         
         if selected
         {
@@ -56,6 +67,10 @@ extension DNode
             green:green,
             blue:blue,
             alpha:alpha)
+        
+        context.translateBy(x:midX, y:midY)
+        context.rotate(by:rads)
+        context.translateBy(x:-midX, y:-midY)
         
         drawPaths(
             rect:rect,

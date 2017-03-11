@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectRotateCircle:UIView
 {
+    private weak var node:DNode?
     private let kDeg2_5:CGFloat = 0.03926991
     private let kDeg0_5:CGFloat = 0.00872665
     private let kDeg0_25:CGFloat = 0.004363323503980034469
@@ -9,14 +10,17 @@ class VDrawProjectRotateCircle:UIView
     private let kLineWidth:CGFloat = 6
     private let kPi_2:CGFloat = CGFloat(M_PI_2)
     private let kPi_3_4:CGFloat = CGFloat(M_PI_2 + M_PI)
+    private let kZoom:CGFloat = 1
+    private let kSelected:Bool = false
     
-    init()
+    init(node:DNode)
     {
         super.init(frame:CGRect.zero)
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
+        self.node = node
     }
     
     required init?(coder:NSCoder)
@@ -34,10 +38,19 @@ class VDrawProjectRotateCircle:UIView
         let minSide:CGFloat = min(width, height)
         let minSide_2:CGFloat = minSide / 2.0
         let radius:CGFloat = minSide_2 - kMargin
+        let diameter:CGFloat = radius + radius
+        let originX:CGFloat = width_2 - radius
+        let originY:CGFloat = height_2 - radius
+        let newRect:CGRect = CGRect(
+            x:originX,
+            y:originY,
+            width:diameter,
+            height:diameter)
         
         guard
         
-            let context:CGContext = UIGraphicsGetCurrentContext()
+            let context:CGContext = UIGraphicsGetCurrentContext(),
+            let node:DNode = self.node
         
         else
         {
@@ -81,5 +94,11 @@ class VDrawProjectRotateCircle:UIView
             
             currentAngle -= deltaAngle
         }
+        
+        node.draw(
+            rect:newRect,
+            context:context,
+            zoom:kZoom,
+            selected:kSelected)
     }
 }

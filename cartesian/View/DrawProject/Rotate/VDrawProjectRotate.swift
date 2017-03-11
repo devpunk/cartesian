@@ -93,7 +93,8 @@ class VDrawProjectRotate:UIView
         label.textColor = UIColor.black
         self.label = label
         
-        let viewCircle:VDrawProjectRotateCircle = VDrawProjectRotateCircle()
+        let viewCircle:VDrawProjectRotateCircle = VDrawProjectRotateCircle(
+            node:node)
         self.viewCircle = viewCircle
         
         addSubview(blur)
@@ -194,6 +195,7 @@ class VDrawProjectRotate:UIView
     func actionSlider(sender slider:UISlider)
     {
         updateLabel()
+        viewCircle.setNeedsDisplay()
     }
     
     func actionDone(sender button:UIButton)
@@ -205,6 +207,7 @@ class VDrawProjectRotate:UIView
     {
         slider.value = 0
         updateLabel()
+        viewCircle.setNeedsDisplay()
     }
     
     //MARK: private
@@ -226,9 +229,11 @@ class VDrawProjectRotate:UIView
     
     private func updateLabel()
     {
-        let value:Int = Int(slider.value)
-        let degrees:String = "\(value)º"
+        let value:Float = slider.value
+        let valueInt:Int = Int(value)
+        let degrees:String = "\(valueInt)º"
         label.text = degrees
+        node?.rotation = value
     }
     
     //MARK: public
