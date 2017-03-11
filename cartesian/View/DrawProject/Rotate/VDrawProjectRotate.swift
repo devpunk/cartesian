@@ -16,6 +16,7 @@ class VDrawProjectRotate:UIView
     private let kSliderMargin:CGFloat = 15
     private let kSliderHeight:CGFloat = 55
     private let kLabelHeight:CGFloat = 40
+    private let kLabelLeft:CGFloat = 12
     private let kMaxValue:Float = 180
     
     init(
@@ -150,7 +151,11 @@ class VDrawProjectRotate:UIView
         NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:self,
+            constant:kLabelLeft)
+        NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
         
@@ -179,6 +184,7 @@ class VDrawProjectRotate:UIView
         let buttonMargin:CGFloat = buttonRemain / 2.0
         layoutDoneLeft.constant = buttonMargin
         layoutResetLeft.constant = buttonMargin
+        viewCircle.setNeedsDisplay()
         
         super.layoutSubviews()
     }

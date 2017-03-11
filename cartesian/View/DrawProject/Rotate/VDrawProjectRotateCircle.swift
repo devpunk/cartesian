@@ -2,14 +2,21 @@ import UIKit
 
 class VDrawProjectRotateCircle:UIView
 {
-    private let kDeg4_5:CGFloat = 0.0785398
-    private let kDeg1:CGFloat = 0.0174533
+    private let kDeg2_5:CGFloat = 0.03926991
+    private let kDeg0_5:CGFloat = 0.00872665
+    private let kDeg0_25:CGFloat = 0.004363323503980034469
     private let kMargin:CGFloat = 20
-    private let kLineWidth:CGFloat = 10
+    private let kLineWidth:CGFloat = 6
+    private let kPi_2:CGFloat = CGFloat(M_PI_2)
+    private let kPi_3_4:CGFloat = CGFloat(M_PI_2 + M_PI)
     
     init()
     {
         super.init(frame:CGRect.zero)
+        translatesAutoresizingMaskIntoConstraints = false
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
     }
     
     required init?(coder:NSCoder)
@@ -39,12 +46,40 @@ class VDrawProjectRotateCircle:UIView
         
         context.setLineWidth(kLineWidth)
         context.setStrokeColor(UIColor.cartesianBlue.cgColor)
-        context.addArc(
-            center:center,
-            radius:radius,
-            startAngle:0.0001,
-            endAngle:0,
-            clockwise:true)
-        context.drawPath(using:CGPathDrawingMode.stroke)
+        
+        let deltaAngle:CGFloat = kDeg0_5 + kDeg2_5
+        var currentAngle:CGFloat = -(kPi_2 + kDeg0_25)
+        
+        while currentAngle <= kPi_2
+        {
+            let endAngle:CGFloat = currentAngle + kDeg0_5
+            
+            context.addArc(
+                center:center,
+                radius:radius,
+                startAngle:currentAngle,
+                endAngle:endAngle,
+                clockwise:false)
+            context.drawPath(using:CGPathDrawingMode.stroke)
+            
+            currentAngle += deltaAngle
+        }
+        
+        currentAngle = -kPi_2 + kDeg0_25
+        
+        while currentAngle >= -kPi_3_4
+        {
+            let endAngle:CGFloat = currentAngle - kDeg0_5
+            
+            context.addArc(
+                center:center,
+                radius:radius,
+                startAngle:currentAngle,
+                endAngle:endAngle,
+                clockwise:true)
+            context.drawPath(using:CGPathDrawingMode.stroke)
+            
+            currentAngle -= deltaAngle
+        }
     }
 }
