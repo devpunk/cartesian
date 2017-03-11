@@ -7,6 +7,7 @@ class VDrawProject:VView
     private(set) weak var viewScroll:VDrawProjectScroll!
     private(set) weak var viewColor:VDrawProjectColor?
     private(set) weak var viewSize:VDrawProjectSize?
+    private(set) weak var viewRotate:VDrawProjectRotate?
     
     override init(controller:CController)
     {
@@ -89,6 +90,26 @@ class VDrawProject:VView
     }
     
     func showSize(title:String, delegate:MDrawProjectSizeDelegate)
+    {
+        self.viewSize?.removeFromSuperview()
+        
+        let viewSize:VDrawProjectSize = VDrawProjectSize(
+            controller:controller,
+            delegate:delegate)
+        viewSize.viewBar.labelTitle.text = title
+        self.viewSize = viewSize
+        
+        addSubview(viewSize)
+        
+        NSLayoutConstraint.equals(
+            view:viewSize,
+            toView:self)
+        
+        layoutIfNeeded()
+        viewSize.animateShow()
+    }
+    
+    func showRotate(project:DProject)
     {
         self.viewSize?.removeFromSuperview()
         
