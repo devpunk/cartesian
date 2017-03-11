@@ -5,6 +5,7 @@ class VDrawProjectRotate:UIView
     private weak var controller:CDrawProject!
     private weak var node:DNode?
     private weak var slider:UISlider!
+    private weak var label:UILabel!
     private weak var layoutDoneLeft:NSLayoutConstraint!
     private weak var layoutResetLeft:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.3
@@ -12,7 +13,8 @@ class VDrawProjectRotate:UIView
     private let kButtonHeight:CGFloat = 36
     private let kButtonBottom:CGFloat = -20
     private let kSliderMargin:CGFloat = 15
-    private let kSliderHeight:CGFloat = 50
+    private let kSliderHeight:CGFloat = 55
+    private let kLabelHeight:CGFloat = 40
     private let kMaxValue:Float = 180
     
     init(
@@ -23,10 +25,11 @@ class VDrawProjectRotate:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        alpha = 0
         self.controller = controller
         self.node = node
         
-        let blur:VBlur = VBlur.light()
+        let blur:VBlur = VBlur.extraLight()
         
         let buttonReset:UIButton = UIButton()
         buttonReset.translatesAutoresizingMaskIntoConstraints = false
@@ -73,9 +76,23 @@ class VDrawProjectRotate:UIView
         slider.maximumValue = kMaxValue
         slider.isContinuous = true
         slider.value = node.rotation
+        slider.addTarget(
+            self,
+            action:#selector(actionSlider(sender:)),
+            for:UIControlEvents.valueChanged)
         self.slider = slider
         
+        let label:UILabel = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = NSTextAlignment.center
+        label.font = UIFont.numeric(size:30)
+        label.textColor = UIColor.black
+        self.label = label
+        
         addSubview(blur)
+        addSubview(label)
         addSubview(buttonDone)
         addSubview(buttonReset)
         addSubview(slider)
@@ -121,6 +138,18 @@ class VDrawProjectRotate:UIView
             view:slider,
             toView:self,
             margin:kSliderMargin)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:label,
+            toView:slider)
+        NSLayoutConstraint.height(
+            view:label,
+            constant:kLabelHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:label,
+            toView:self)
+        
+        updateLabel()
     }
     
     required init?(coder:NSCoder)
@@ -141,6 +170,11 @@ class VDrawProjectRotate:UIView
     
     //MARK: actions
     
+    func actionSlider(sender slider:UISlider)
+    {
+        updateLabel()
+    }
+    
     func actionDone(sender button:UIButton)
     {
         animateHide()
@@ -149,6 +183,7 @@ class VDrawProjectRotate:UIView
     func actionReset(sender button:UIButton)
     {
         slider.value = 0
+        updateLabel()
     }
     
     //MARK: private
@@ -166,6 +201,13 @@ class VDrawProjectRotate:UIView
             
             self?.removeFromSuperview()
         }
+    }
+    
+    private func updateLabel()
+    {
+        let value:Int = Int(slider.value)
+        let degrees:String = "\(value)º"
+        label.text = degrees
     }
     
     //MARK: public
