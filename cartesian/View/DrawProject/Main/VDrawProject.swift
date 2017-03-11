@@ -109,24 +109,23 @@ class VDrawProject:VView
         viewSize.animateShow()
     }
     
-    func showRotate(project:DProject)
+    func showRotate(node:DNode)
     {
-        self.viewSize?.removeFromSuperview()
+        self.viewRotate?.removeFromSuperview()
         
-        let viewSize:VDrawProjectSize = VDrawProjectSize(
+        let viewRotate:VDrawProjectRotate = VDrawProjectRotate(
             controller:controller,
-            delegate:delegate)
-        viewSize.viewBar.labelTitle.text = title
-        self.viewSize = viewSize
+            node:node)
+        self.viewRotate = viewRotate
         
-        addSubview(viewSize)
+        addSubview(viewRotate)
         
         NSLayoutConstraint.equals(
-            view:viewSize,
+            view:viewRotate,
             toView:self)
         
         layoutIfNeeded()
-        viewSize.animateShow()
+        viewRotate.animateShow()
     }
     
     func refresh()

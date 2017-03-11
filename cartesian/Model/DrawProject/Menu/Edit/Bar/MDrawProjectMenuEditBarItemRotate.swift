@@ -13,6 +13,15 @@ class MDrawProjectMenuEditBarItemRotate:MDrawProjectMenuEditBarItem
     
     override func selected(controller:CDrawProject)
     {
-        controller.startRotating()
+        guard
+            
+            let node:DNode = controller.editingNode?.viewSpatial.model
+        
+        else
+        {
+            return
+        }
+        
+        controller.viewProject.showRotate(node:node)
     }
 }

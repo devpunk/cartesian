@@ -3,15 +3,19 @@ import UIKit
 class VDrawProjectRotate:UIView
 {
     private weak var controller:CDrawProject!
+    private weak var node:DNode?
     private let kAnimationDuration:TimeInterval = 0.3
     
-    init(controller:CDrawProject)
+    init(
+        controller:CDrawProject,
+        node:DNode)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        self.node = node
         
         let blur:VBlur = VBlur.light()
         
