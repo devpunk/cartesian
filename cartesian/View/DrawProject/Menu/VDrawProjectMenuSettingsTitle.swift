@@ -53,9 +53,18 @@ class VDrawProjectMenuSettingsTitle:UIView
         labelName.textColor = UIColor.black
         self.labelName = labelName
         
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.clear
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(border)
         addSubview(labelTitle)
         addSubview(labelName)
+        addSubview(button)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -92,6 +101,13 @@ class VDrawProjectMenuSettingsTitle:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        
     }
     
     //MARK: public
