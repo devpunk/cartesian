@@ -10,4 +10,16 @@ class MDrawProjectMenuEditBarItemTrash:MDrawProjectMenuEditBarItem
             title:title,
             image:#imageLiteral(resourceName: "assetGenericTrash"))
     }
+    
+    override func selected(controller:CDrawProject)
+    {
+        
+    }
+    
+    //MARK: private
+    
+    private func confirmDelete(node:DNode)
+    {
+        
+    }
 }
