@@ -27,5 +27,8 @@
 "MDrawProjectMenuEditBarItemResize_defaultSize"="Node size";
 "MDrawProjectMenuEditBarItemMove_title"="Move";
 "MDrawProjectMenuEditBarItemRotate_title"="Rotate";
+"MDrawProjectMenuEditBarItemTrash_alertTitle"="Delete node?";
+"MDrawProjectMenuEditBarItemTrash_alertCancel"="Cancel";
+"MDrawProjectMenuEditBarItemTrash_alertDelete"="Delete";
 
 "DProject_defaultTitle"="Unamed project";
