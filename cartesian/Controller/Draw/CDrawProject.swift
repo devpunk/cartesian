@@ -148,6 +148,20 @@ class CDrawProject:CController
         }
     }
     
+    func trashEditingNode()
+    {
+        guard
+            
+            let editingNode:VDrawProjectCanvasNode = self.editingNode
+            
+        else
+        {
+            return
+        }
+        
+        editingNode.endEffect()
+    }
+    
     func centerOnEditing()
     {
         guard

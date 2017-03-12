@@ -31,22 +31,9 @@ class MDrawProjectMenuEditBarItemTrash:MDrawProjectMenuEditBarItem
             NSLocalizedString("MDrawProjectMenuEditBarItemTrash_alertDelete", comment:""),
             style:
             UIAlertActionStyle.destructive)
-        { (action:UIAlertAction) in
+        { [weak controller] (action:UIAlertAction) in
             
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self, weak controller] in
-                
-                guard
-                
-                    let node:DNode = controller?.editingNode?.viewSpatial.model
-                
-                else
-                {
-                    return
-                }
-                
-                self?.confirmDelete(node:node)
-            }
+            controller?.trashEditingNode()
         }
         
         alert.addAction(actionDelete)
@@ -60,12 +47,5 @@ class MDrawProjectMenuEditBarItemTrash:MDrawProjectMenuEditBarItem
         }
         
         controller.present(alert, animated:true, completion:nil)
-    }
-    
-    //MARK: private
-    
-    private func confirmDelete(node:DNode)
-    {
-        
     }
 }
