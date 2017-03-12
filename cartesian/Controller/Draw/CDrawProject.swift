@@ -77,6 +77,13 @@ class CDrawProject:CController
         }
     }
     
+    private func standNormalAndDraw()
+    {
+        modelState.stateStand(controller:self)
+        viewProject.viewMenu.viewBar.modeNormal()
+        reDraw()
+    }
+    
     private func reDraw()
     {
         DispatchQueue.main.async
@@ -160,6 +167,31 @@ class CDrawProject:CController
         }
         
         editingNode.endEffect()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+            
+                let nodeModel:DNode = self?.editingNode?.viewSpatial.model
+            
+            else
+            {
+                return
+            }
+            
+            DManager.sharedInstance?.delete(data:nodeModel)
+            {
+                DManager.sharedInstance?.save
+                {
+                    DispatchQueue.main.async
+                    { [weak self] in
+                        
+                        self?.standNormalAndDraw()
+                    }
+                }
+            }
+        }
     }
     
     func centerOnEditing()
