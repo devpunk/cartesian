@@ -9,14 +9,9 @@ class VDrawProjectMenuBar:UIView
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
-    private weak var layoutTextTop:NSLayoutConstraint!
-    private weak var layoutTextWidth:NSLayoutConstraint!
+    private weak var layoutTextLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
-    private let kTextHeight:CGFloat = 34
-    private let kTextMinWidth:CGFloat = 10
-    private let kTextMaxWidth:CGFloat = 150
-    private let kTextRight:CGFloat = -10
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject)
@@ -65,7 +60,6 @@ class VDrawProjectMenuBar:UIView
         
         let viewText:VDrawProjectMenuBarText = VDrawProjectMenuBarText(
             controller:controller)
-        viewText.layer.cornerRadius = kTextHeight / 2.0
         viewText.alpha = 0
         self.viewText = viewText
         
@@ -130,19 +124,15 @@ class VDrawProjectMenuBar:UIView
             view:viewMove,
             toView:self)
         
-         layoutTextTop = NSLayoutConstraint.topToTop(
+         NSLayoutConstraint.equalsVertical(
             view:viewText,
             toView:self)
-        NSLayoutConstraint.height(
+        NSLayoutConstraint.width(
             view:viewText,
-            constant:kTextHeight)
-        NSLayoutConstraint.rightToRight(
+            toView:self)
+        layoutTextLeft = NSLayoutConstraint.leftToRight(
             view:viewText,
-            toView:self,
-            constant:kTextRight)
-        layoutTextWidth = NSLayoutConstraint.width(
-            view:viewText,
-            constant:kTextMinWidth)
+            toView:self)
     }
     
     required init?(coder:NSCoder)
