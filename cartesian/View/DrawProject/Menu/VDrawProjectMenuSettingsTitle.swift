@@ -127,4 +127,29 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
     {
         textField.text = controller.model?.projectName()
     }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField:UITextField)
+    {
+        guard
+        
+            let text:String = textField.text
+        
+        else
+        {
+            return
+        }
+        
+        controller.model?.title = text
+        DManager.sharedInstance?.save()
+        
+        controller.endText()
+        updateTitle()
+    }
 }
