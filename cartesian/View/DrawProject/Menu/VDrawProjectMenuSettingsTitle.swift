@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuSettingsTitle:UIView, UITextViewDelegate
+class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
 {
     private weak var controller:CDrawProject!
     private weak var labelName:UILabel!
@@ -121,10 +121,10 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextViewDelegate
         labelName.text = controller.model?.projectName()
     }
     
-    //MARK: textView delegate
+    //MARK: textField delegate
     
-    func textViewDidBeginEditing(_ textView:UITextView)
+    func textFieldDidBeginEditing(_ textField:UITextField)
     {
-        textView.text = controller.model?.projectName()
+        textField.text = controller.model?.projectName()
     }
 }

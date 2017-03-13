@@ -11,7 +11,7 @@ class VDrawProjectMenuBarText:UIView
     private let kContentHeight:CGFloat = 34
     private let kBaseLeft:CGFloat = 10
     private let kButtonWidth:CGFloat = 50
-    private let kInsets:CGFloat = 5
+    private let kInsets:CGFloat = 10
     
     init(controller:CDrawProject)
     {
@@ -42,6 +42,10 @@ class VDrawProjectMenuBarText:UIView
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center
         button.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        button.addTarget(
+            self,
+            action:#selector(actionSender(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let textField:UITextField = UITextField()
         textField.borderStyle = UITextBorderStyle.none
@@ -91,9 +95,13 @@ class VDrawProjectMenuBarText:UIView
             view:button,
             constant:kButtonWidth)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsVertical(
             view:textField,
             toView:viewBase)
+        NSLayoutConstraint.equalsHorizontal(
+            view:textField,
+            toView:viewBase,
+            margin:kInsets)
     }
     
     required init?(coder:NSCoder)
@@ -110,5 +118,12 @@ class VDrawProjectMenuBarText:UIView
         layoutBaseTop.constant = marginTop
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionSender(sender button:UIButton)
+    {
+        UIApplication.shared.keyWindow!.endEditing(true)
     }
 }

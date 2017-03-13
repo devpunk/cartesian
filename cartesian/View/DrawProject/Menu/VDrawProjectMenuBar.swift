@@ -14,6 +14,7 @@ class VDrawProjectMenuBar:UIView
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kAfterKeyboardAppear:TimeInterval = 0.1
     
     init(controller:CDrawProject)
     {
@@ -258,12 +259,18 @@ class VDrawProjectMenuBar:UIView
         }
     }
     
-    func modeText(delegate:UITextViewDelegate)
+    func modeText(delegate:UITextFieldDelegate)
     {
         showingText = true
         hideButtons()
-        viewText.textView.delegate = delegate
-        viewText.textView.becomeFirstResponder()
+        viewText.textField.delegate = delegate
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAfterKeyboardAppear)
+        { [weak self] in
+            
+            self?.viewText.textField.becomeFirstResponder()
+        }
     }
     
     func modeNormal()

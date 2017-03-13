@@ -234,7 +234,7 @@ class CDrawProject:CController
         viewProject.viewMenu.viewBar.modeNormal()
     }
     
-    func startText(delegate:UITextViewDelegate)
+    func startText(delegate:UITextFieldDelegate)
     {
         modelState.stateText(controller:self)
         modelMenuState.current?.hide()
