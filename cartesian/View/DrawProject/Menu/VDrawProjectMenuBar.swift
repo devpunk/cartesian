@@ -4,12 +4,19 @@ class VDrawProjectMenuBar:UIView
 {
     private(set) weak var viewEdit:VDrawProjectMenuBarEdit!
     private(set) weak var viewMove:VDrawProjectMenuBarMove!
+    private(set) weak var viewText:VDrawProjectMenuBarText!
     private weak var controller:CDrawProject!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
+    private weak var layoutTextTop:NSLayoutConstraint!
+    private weak var layoutTextWidth:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
+    private let kTextHeight:CGFloat = 34
+    private let kTextMinWidth:CGFloat = 10
+    private let kTextMaxWidth:CGFloat = 150
+    private let kTextRight:CGFloat = -10
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject)
@@ -56,6 +63,12 @@ class VDrawProjectMenuBar:UIView
         viewMove.alpha = 0
         self.viewMove = viewMove
         
+        let viewText:VDrawProjectMenuBarText = VDrawProjectMenuBarText(
+            controller:controller)
+        viewText.layer.cornerRadius = kTextHeight / 2.0
+        viewText.alpha = 0
+        self.viewText = viewText
+        
         addSubview(blur)
         addSubview(border)
         addSubview(buttonBack)
@@ -63,6 +76,7 @@ class VDrawProjectMenuBar:UIView
         addSubview(buttonNodes)
         addSubview(viewEdit)
         addSubview(viewMove)
+        addSubview(viewText)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -115,6 +129,20 @@ class VDrawProjectMenuBar:UIView
         NSLayoutConstraint.equals(
             view:viewMove,
             toView:self)
+        
+         layoutTextTop = NSLayoutConstraint.topToTop(
+            view:viewText,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewText,
+            constant:kTextHeight)
+        NSLayoutConstraint.rightToRight(
+            view:viewText,
+            toView:self,
+            constant:kTextRight)
+        layoutTextWidth = NSLayoutConstraint.width(
+            view:viewText,
+            constant:kTextMinWidth)
     }
     
     required init?(coder:NSCoder)
