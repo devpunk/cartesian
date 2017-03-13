@@ -8,9 +8,9 @@ class VDrawProjectMenuBarText:UIView
     private weak var layoutButtonTop:NSLayoutConstraint!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 1
-    private let kContentHeight:CGFloat = 32
-    private let kBaseWidth:CGFloat = 200
-    private let kButtonWidth:CGFloat = 60
+    private let kContentHeight:CGFloat = 36
+    private let kBaseLeft:CGFloat = 10
+    private let kButtonWidth:CGFloat = 50
     private let kInsets:CGFloat = 5
     
     init(controller:CDrawProject)
@@ -58,9 +58,9 @@ class VDrawProjectMenuBarText:UIView
         textView.autocapitalizationType = UITextAutocapitalizationType.none
         textView.keyboardType = UIKeyboardType.alphabet
         textView.contentInset = UIEdgeInsets.zero
-        textView.font = UIFont.medium(size:18)
+        textView.font = UIFont.medium(size:14)
         textView.textContainerInset = UIEdgeInsets(
-            top:0,
+            top:kInsets,
             left:kInsets,
             bottom:0,
             right:kInsets)
@@ -79,9 +79,10 @@ class VDrawProjectMenuBarText:UIView
         NSLayoutConstraint.rightToLeft(
             view:viewBase,
             toView:button)
-        NSLayoutConstraint.width(
+        NSLayoutConstraint.leftToLeft(
             view:viewBase,
-            constant:kBaseWidth)
+            toView:self,
+            constant:kBaseLeft)
         
         layoutButtonTop = NSLayoutConstraint.topToTop(
             view:button,

@@ -9,6 +9,7 @@ class VDrawProjectMenu:UIView
     private(set) weak var viewNodes:VDrawProjectMenuNodes!
     private(set) weak var viewEdit:VDrawProjectMenuEdit!
     private let kBarHeight:CGFloat = 51
+    private let kKeyboardAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject)
     {
@@ -61,11 +62,60 @@ class VDrawProjectMenu:UIView
         layoutView(view:viewSettings)
         layoutView(view:viewNodes)
         layoutView(view:viewEdit)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedKeyboardChanged(sender:)),
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notifications
+    
+    func notifiedKeyboardChanged(sender notification:Notification)
+    {
+        guard
+            
+            let userInfo:[AnyHashable:Any] = notification.userInfo,
+            let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
+            let menuBottom:CGFloat = controller.modelMenuState.current?.bottom
+            
+        else
+        {
+            return
+        }
+        
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
+        let yOrigin = keyRect.origin.y
+        let height:CGFloat = UIScreen.main.bounds.maxY
+        let keyboardHeight:CGFloat
+        
+        if yOrigin < height
+        {
+            keyboardHeight = -height + yOrigin + menuBottom
+        }
+        else
+        {
+            keyboardHeight = menuBottom
+        }
+        
+        layoutBottom.constant = keyboardHeight
+        
+        UIView.animate(withDuration:kKeyboardAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     //MARK: private
