@@ -6,11 +6,9 @@ class VDrawProjectMenuBarText:UIView
     private weak var viewBase:UIView!
     private weak var layoutButtonTop:NSLayoutConstraint!
     private weak var layoutBaseTop:NSLayoutConstraint!
-    private weak var layoutBaseWidth:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 1
     private let kContentHeight:CGFloat = 34
-    private let kBaseMinWidth:CGFloat = 30
-    private let kBaseMaxWidth:CGFloat = 160
+    private let kBaseWidth:CGFloat = 180
     private let kButtonWidth:CGFloat = 60
     private let kButtonRight:CGFloat = -10
     private let kBaseRight:CGFloat = -10
@@ -28,7 +26,7 @@ class VDrawProjectMenuBarText:UIView
         viewBase.clipsToBounds = true
         viewBase.backgroundColor = UIColor.white
         viewBase.layer.borderWidth = kBorderWidth
-        viewBase.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
+        viewBase.layer.borderColor = UIColor(white:0, alpha:0.4).cgColor
         viewBase.layer.cornerRadius = kContentHeight / 2.0
         self.viewBase = viewBase
         
@@ -61,9 +59,9 @@ class VDrawProjectMenuBarText:UIView
             view:viewBase,
             toView:button,
             constant:kBaseRight)
-        layoutBaseWidth = NSLayoutConstraint.width(
+        NSLayoutConstraint.width(
             view:viewBase,
-            constant:kBaseMinWidth)
+            constant:kBaseWidth)
         
         layoutButtonTop = NSLayoutConstraint.topToTop(
             view:button,

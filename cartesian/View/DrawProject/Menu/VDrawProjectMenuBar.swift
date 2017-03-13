@@ -60,7 +60,6 @@ class VDrawProjectMenuBar:UIView
         
         let viewText:VDrawProjectMenuBarText = VDrawProjectMenuBarText(
             controller:controller)
-        viewText.alpha = 0
         self.viewText = viewText
         
         addSubview(blur)
@@ -237,6 +236,14 @@ class VDrawProjectMenuBar:UIView
             self?.viewEdit.alpha = 0
             self?.viewMove.alpha = 1
         }
+    }
+    
+    func modeText()
+    {
+        let width:CGFloat = bounds.maxX
+        
+        layoutTextLeft.constant = -width
+        hideButtons()
     }
     
     func modeNormal()

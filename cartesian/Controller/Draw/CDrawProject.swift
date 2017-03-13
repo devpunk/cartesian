@@ -234,6 +234,16 @@ class CDrawProject:CController
         viewProject.viewMenu.viewBar.modeNormal()
     }
     
+    func startText()
+    {
+        modelState.stateText(controller:self)
+    }
+    
+    func endText()
+    {
+        
+    }
+    
     func increaseZoom()
     {
         modelZoom.increase()

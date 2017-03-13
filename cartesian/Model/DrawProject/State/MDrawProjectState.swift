@@ -23,4 +23,10 @@ class MDrawProjectState
         current = MDrawProjectStateItemStand(
             controller:controller)
     }
+    
+    func stateText(controller:CDrawProject)
+    {
+        current = MDrawProjectStateItemText(
+            controller:controller)
+    }
 }

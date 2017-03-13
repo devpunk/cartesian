@@ -96,6 +96,10 @@ class VDrawProjectMenuSettingsTitle:UIView
         NSLayoutConstraint.rightToRight(
             view:labelName,
             toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:button,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -107,7 +111,7 @@ class VDrawProjectMenuSettingsTitle:UIView
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller.viewProject.viewMenu.viewBar.modeText()
     }
     
     //MARK: public
