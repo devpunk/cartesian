@@ -10,12 +10,15 @@ class VDrawProjectMenuBar:UIView
     private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
     private weak var layoutTextLeft:NSLayoutConstraint!
+    private var showingText:Bool
     private let kButtonWidth:CGFloat = 60
     private let kBorderHeight:CGFloat = 1
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(controller:CDrawProject)
     {
+        showingText = false
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -139,6 +142,21 @@ class VDrawProjectMenuBar:UIView
         return nil
     }
     
+    override func layoutSubviews()
+    {
+        if showingText
+        {
+            let width:CGFloat = bounds.maxX
+            layoutTextLeft.constant = -width
+        }
+        else
+        {
+            layoutTextLeft.constant = 0
+        }
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: actions
     
     func actionBack(sender button:UIButton)
@@ -216,6 +234,7 @@ class VDrawProjectMenuBar:UIView
     
     func modeEdit()
     {
+        showingText = false
         hideButtons()
         
         UIView.animate(withDuration:kAnimationDuration)
@@ -228,6 +247,7 @@ class VDrawProjectMenuBar:UIView
     
     func modeMove()
     {
+        showingText = false
         hideButtons()
         
         UIView.animate(withDuration:kAnimationDuration)
@@ -238,16 +258,17 @@ class VDrawProjectMenuBar:UIView
         }
     }
     
-    func modeText()
+    func modeText(delegate:UITextViewDelegate)
     {
-        let width:CGFloat = bounds.maxX
-        
-        layoutTextLeft.constant = -width
+        showingText = true
         hideButtons()
+        viewText.textView.delegate = delegate
+        viewText.textView.becomeFirstResponder()
     }
     
     func modeNormal()
     {
+        showingText = false
         showButtons()
         selectNodes()
         

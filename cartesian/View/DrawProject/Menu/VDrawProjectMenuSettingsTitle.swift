@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuSettingsTitle:UIView
+class VDrawProjectMenuSettingsTitle:UIView, UITextViewDelegate
 {
     private weak var controller:CDrawProject!
     private weak var labelName:UILabel!
@@ -111,7 +111,7 @@ class VDrawProjectMenuSettingsTitle:UIView
     
     func actionButton(sender button:UIButton)
     {
-        controller.viewProject.viewMenu.viewBar.modeText()
+        controller.startText(delegate:self)
     }
     
     //MARK: public
@@ -119,5 +119,12 @@ class VDrawProjectMenuSettingsTitle:UIView
     func updateTitle()
     {
         labelName.text = controller.model?.projectName()
+    }
+    
+    //MARK: textView delegate
+    
+    func textViewDidBeginEditing(_ textView:UITextView)
+    {
+        textView.text = controller.model?.projectName()
     }
 }
