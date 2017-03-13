@@ -16,12 +16,14 @@
         <attribute name="colorRed" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="height" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rotation" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shouldAutoEdit" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
     </entity>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeText" representedClassName="DNodeText" parentEntity="DNode" syncable="YES" codeGenerationType="class">
+        <attribute name="fontName" attributeType="String" syncable="YES"/>
         <attribute name="fontSize" attributeType="Integer 16" defaultValueString="15" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -32,10 +34,10 @@
     </entity>
     <elements>
         <element name="DColor" positionX="-54" positionY="72" width="128" height="120"/>
-        <element name="DNode" positionX="-54" positionY="0" width="128" height="195"/>
+        <element name="DNode" positionX="-54" positionY="0" width="128" height="210"/>
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="DNodeText" positionX="-63" positionY="72" width="128" height="75"/>
+        <element name="DNodeText" positionX="-63" positionY="72" width="128" height="90"/>
     </elements>
 </model>
