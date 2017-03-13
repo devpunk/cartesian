@@ -6,10 +6,12 @@ class MDrawProjectMenuNodes
     
     init()
     {
+        let itemText:MDrawProjectMenuNodesItemText = MDrawProjectMenuNodesItemText()
         let itemOval:MDrawProjectMenuNodesItemOval = MDrawProjectMenuNodesItemOval()
         let itemRect:MDrawProjectMenuNodesItemRect = MDrawProjectMenuNodesItemRect()
         
         items = [
+            itemText,
             itemOval,
             itemRect]
     }
