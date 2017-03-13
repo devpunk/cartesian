@@ -3,13 +3,6 @@ import CoreData
 
 extension DNode
 {
-    //MARK: properties
-    
-    func shouldAutoEdit() -> Bool
-    {
-        return false
-    }
-    
     //MARK: final
     
     final func radians() -> CGFloat

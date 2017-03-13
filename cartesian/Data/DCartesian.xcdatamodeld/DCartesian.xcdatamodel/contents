@@ -7,6 +7,18 @@
         <attribute name="green" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="red" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="DLabel" representedClassName="DLabel" syncable="YES" codeGenerationType="class">
+        <attribute name="centerX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="centerY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorAlpha" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorBlue" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorGreen" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorRed" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fontName" attributeType="String" syncable="YES"/>
+        <attribute name="fontSize" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="labels" inverseEntity="DProject" syncable="YES"/>
+    </entity>
     <entity name="DNode" representedClassName="DNode" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="centerX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="centerY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -21,14 +33,10 @@
     </entity>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
-    <entity name="DNodeText" representedClassName="DNodeText" parentEntity="DNode" syncable="YES" codeGenerationType="class">
-        <attribute name="fontName" attributeType="String" syncable="YES"/>
-        <attribute name="fontSize" attributeType="Integer 16" defaultValueString="15" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DLabel" inverseName="project" inverseEntity="DLabel" syncable="YES"/>
         <relationship name="nodes" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DNode" inverseName="project" inverseEntity="DNode" syncable="YES"/>
     </entity>
     <elements>
@@ -36,7 +44,7 @@
         <element name="DNode" positionX="-54" positionY="0" width="128" height="195"/>
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
-        <element name="DProject" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="DNodeText" positionX="-63" positionY="72" width="128" height="90"/>
+        <element name="DProject" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="DLabel" positionX="-54" positionY="81" width="128" height="195"/>
     </elements>
 </model>
