@@ -21,6 +21,10 @@
     </entity>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeText" representedClassName="DNodeText" parentEntity="DNode" syncable="YES" codeGenerationType="class">
+        <attribute name="fontSize" attributeType="Integer 16" defaultValueString="15" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,5 +36,6 @@
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="DNodeText" positionX="-63" positionY="72" width="128" height="75"/>
     </elements>
 </model>

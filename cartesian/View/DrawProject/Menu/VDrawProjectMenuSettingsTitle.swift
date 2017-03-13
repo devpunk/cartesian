@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
+class VDrawProjectMenuSettingsTitle:UIButton, UITextFieldDelegate
 {
     private weak var controller:CDrawProject!
     private weak var labelName:UILabel!
@@ -9,6 +9,8 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
     private let kMaxHeight:CGFloat = 25
     private let kTitleMargin:CGFloat = 5
     private let kBorderHeight:CGFloat = 1
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
     
     init(controller:CDrawProject)
     {
@@ -35,6 +37,10 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.controller = controller
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
@@ -53,18 +59,9 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
         labelName.textColor = UIColor.black
         self.labelName = labelName
         
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.clear
-        button.addTarget(
-            self,
-            action:#selector(actionButton(sender:)),
-            for:UIControlEvents.touchUpInside)
-        
         addSubview(border)
         addSubview(labelTitle)
         addSubview(labelName)
-        addSubview(button)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -96,10 +93,6 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
         NSLayoutConstraint.rightToRight(
             view:labelName,
             toView:self)
-        
-        NSLayoutConstraint.equals(
-            view:button,
-            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -107,11 +100,41 @@ class VDrawProjectMenuSettingsTitle:UIView, UITextFieldDelegate
         return nil
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
     //MARK: actions
     
     func actionButton(sender button:UIButton)
     {
         controller.startText(delegate:self)
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+        }
     }
     
     //MARK: public
