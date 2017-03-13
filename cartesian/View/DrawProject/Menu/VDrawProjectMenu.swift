@@ -110,12 +110,6 @@ class VDrawProjectMenu:UIView
         }
         
         layoutBottom.constant = keyboardHeight
-        
-        UIView.animate(withDuration:kKeyboardAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
-        }
     }
     
     //MARK: private

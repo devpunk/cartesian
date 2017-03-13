@@ -2,13 +2,13 @@ import UIKit
 
 class VDrawProjectMenuBarText:UIView
 {
-    private(set) weak var textView:UITextView!
+    private(set) weak var textField:UITextField!
     private weak var controller:CDrawProject!
     private weak var viewBase:UIView!
     private weak var layoutButtonTop:NSLayoutConstraint!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 1
-    private let kContentHeight:CGFloat = 36
+    private let kContentHeight:CGFloat = 34
     private let kBaseLeft:CGFloat = 10
     private let kButtonWidth:CGFloat = 50
     private let kInsets:CGFloat = 5
@@ -26,7 +26,7 @@ class VDrawProjectMenuBarText:UIView
         viewBase.clipsToBounds = true
         viewBase.backgroundColor = UIColor.white
         viewBase.layer.borderWidth = kBorderWidth
-        viewBase.layer.borderColor = UIColor(white:0, alpha:0.4).cgColor
+        viewBase.layer.borderColor = UIColor.black.cgColor
         viewBase.layer.cornerRadius = kContentHeight / 2.0
         self.viewBase = viewBase
         
@@ -43,30 +43,24 @@ class VDrawProjectMenuBarText:UIView
         button.imageView!.contentMode = UIViewContentMode.center
         button.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         
-        let textView:UITextView = UITextView()
-        textView.clipsToBounds = true
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.backgroundColor = UIColor.clear
-        textView.textColor = UIColor.black
-        textView.tintColor = UIColor.black
-        textView.bounces = true
-        textView.isScrollEnabled = true
-        textView.returnKeyType = UIReturnKeyType.default
-        textView.keyboardAppearance = UIKeyboardAppearance.light
-        textView.autocorrectionType = UITextAutocorrectionType.no
-        textView.spellCheckingType = UITextSpellCheckingType.no
-        textView.autocapitalizationType = UITextAutocapitalizationType.none
-        textView.keyboardType = UIKeyboardType.alphabet
-        textView.contentInset = UIEdgeInsets.zero
-        textView.font = UIFont.medium(size:14)
-        textView.textContainerInset = UIEdgeInsets(
-            top:kInsets,
-            left:kInsets,
-            bottom:0,
-            right:kInsets)
-        self.textView = textView
+        let textField:UITextField = UITextField()
+        textField.borderStyle = UITextBorderStyle.none
+        textField.clearButtonMode = UITextFieldViewMode.never
+        textField.clipsToBounds = true
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = UIColor.clear
+        textField.textColor = UIColor.black
+        textField.tintColor = UIColor.black
+        textField.returnKeyType = UIReturnKeyType.default
+        textField.keyboardAppearance = UIKeyboardAppearance.light
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        textField.spellCheckingType = UITextSpellCheckingType.no
+        textField.autocapitalizationType = UITextAutocapitalizationType.none
+        textField.keyboardType = UIKeyboardType.alphabet
+        textField.font = UIFont.medium(size:15)
+        self.textField = textField
         
-        viewBase.addSubview(textView)
+        viewBase.addSubview(textField)
         addSubview(viewBase)
         addSubview(button)
         
@@ -98,7 +92,7 @@ class VDrawProjectMenuBarText:UIView
             constant:kButtonWidth)
         
         NSLayoutConstraint.equals(
-            view:textView,
+            view:textField,
             toView:viewBase)
     }
     
