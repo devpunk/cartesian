@@ -259,7 +259,7 @@ class VDrawProjectMenuBar:UIView
         buttonSettings.isSelected = false
         buttonNodes.isSelected = false
         buttonLabels.isSelected = true
-        controller.viewProject.viewMenu.displayNodes()
+        controller.viewProject.viewMenu.displayLabels()
         controller.modelMenuState.current?.show()
     }
     
