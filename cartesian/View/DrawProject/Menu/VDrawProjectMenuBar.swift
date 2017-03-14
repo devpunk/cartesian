@@ -203,7 +203,10 @@ class VDrawProjectMenuBar:UIView
     
     func actionLabels(sender button:UIButton)
     {
-        
+        if !buttonLabels.isSelected
+        {
+            selectLabels()
+        }
     }
     
     //MARK: private
@@ -237,6 +240,7 @@ class VDrawProjectMenuBar:UIView
     {
         buttonSettings.isSelected = true
         buttonNodes.isSelected = false
+        buttonLabels.isSelected = false
         controller.viewProject.viewMenu.displaySettings()
         controller.modelMenuState.current?.show()
     }
@@ -245,6 +249,16 @@ class VDrawProjectMenuBar:UIView
     {
         buttonSettings.isSelected = false
         buttonNodes.isSelected = true
+        buttonLabels.isSelected = false
+        controller.viewProject.viewMenu.displayNodes()
+        controller.modelMenuState.current?.show()
+    }
+    
+    func selectLabels()
+    {
+        buttonSettings.isSelected = false
+        buttonNodes.isSelected = false
+        buttonLabels.isSelected = true
         controller.viewProject.viewMenu.displayNodes()
         controller.modelMenuState.current?.show()
     }
@@ -253,6 +267,7 @@ class VDrawProjectMenuBar:UIView
     {
         buttonSettings.isSelected = false
         buttonNodes.isSelected = false
+        buttonLabels.isSelected = false
         showButtons()
         viewEdit.alpha = 0
         viewMove.alpha = 0
