@@ -7,6 +7,7 @@ class VDrawProjectMenu:UIView
     private(set) weak var viewBar:VDrawProjectMenuBar!
     private(set) weak var viewSettings:VDrawProjectMenuSettings!
     private(set) weak var viewNodes:VDrawProjectMenuNodes!
+    private(set) weak var viewLabels:VDrawProjectMenuLabels!
     private(set) weak var viewEdit:VDrawProjectMenuEdit!
     private let kBarHeight:CGFloat = 51
     private let kKeyboardAnimationDuration:TimeInterval = 0.3
@@ -37,6 +38,11 @@ class VDrawProjectMenu:UIView
         viewEdit.isHidden = true
         self.viewEdit = viewEdit
         
+        let viewLabels:VDrawProjectMenuLabels = VDrawProjectMenuLabels(
+            controller:controller)
+        viewLabels.isHidden = true
+        self.viewLabels = viewLabels
+        
         let background:UIView = UIView()
         background.isUserInteractionEnabled = false
         background.backgroundColor = UIColor.white
@@ -61,6 +67,7 @@ class VDrawProjectMenu:UIView
         layoutView(view:background)
         layoutView(view:viewSettings)
         layoutView(view:viewNodes)
+        layoutView(view:viewLabels)
         layoutView(view:viewEdit)
         
         NotificationCenter.default.addObserver(
@@ -139,6 +146,7 @@ class VDrawProjectMenu:UIView
     {
         viewSettings.isHidden = true
         viewNodes.isHidden = true
+        viewLabels.isHidden = true
         viewEdit.isHidden = true
         viewBar.selectNothing()
     }
@@ -147,6 +155,7 @@ class VDrawProjectMenu:UIView
     {
         viewSettings.isHidden = true
         viewNodes.isHidden = true
+        viewLabels.isHidden = true
         viewEdit.isHidden = false
         
         viewEdit.loadNode(model:model)
@@ -157,6 +166,7 @@ class VDrawProjectMenu:UIView
     {
         viewSettings.isHidden = false
         viewNodes.isHidden = true
+        viewLabels.isHidden = true
         viewEdit.isHidden = true
     }
     
@@ -164,6 +174,7 @@ class VDrawProjectMenu:UIView
     {
         viewSettings.isHidden = true
         viewNodes.isHidden = false
+        viewLabels.isHidden = true
         viewEdit.isHidden = true
     }
     
@@ -171,6 +182,7 @@ class VDrawProjectMenu:UIView
     {
         viewSettings.isHidden = true
         viewNodes.isHidden = true
+        viewLabels.isHidden = false
         viewEdit.isHidden = true
     }
 }
