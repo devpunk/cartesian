@@ -31,7 +31,7 @@ class VDrawProjectMenuLabelsAdd:UIButton
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:14)
+        label.font = UIFont.bold(size:15)
         label.textColor = UIColor.black
         label.text = NSLocalizedString("VDrawProjectMenuLabelsAdd_label", comment:"")
         

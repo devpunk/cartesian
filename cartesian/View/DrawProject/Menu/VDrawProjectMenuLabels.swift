@@ -6,7 +6,7 @@ class VDrawProjectMenuLabels:UIView
     private weak var viewAdd:VDrawProjectMenuLabelsAdd!
     private weak var viewFontSize:VDrawProjectMenuLabelsFontSize!
     private let kAddWidth:CGFloat = 105
-    private let kAddHeight:CGFloat = 50
+    private let kAddHeight:CGFloat = 60
     
     init(controller:CDrawProject)
     {

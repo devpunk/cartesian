@@ -20,6 +20,7 @@
 "VDrawProjectRotate_buttonDone"="Done";
 "VDrawProjectRotate_buttonReset"="Reset";
 "VDrawProjectMenuLabelsAdd_label"="Add text";
+"VDrawProjectMenuLabelsFontSize_labelTitle"="Size  ";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

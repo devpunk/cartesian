@@ -55,7 +55,7 @@ class VDrawProjectMenuSettingsTitle:UIButton, UITextFieldDelegate
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clear
         labelName.isUserInteractionEnabled = false
-        labelName.font = UIFont.regular(size:14)
+        labelName.font = UIFont.bold(size:15)
         labelName.textColor = UIColor.black
         self.labelName = labelName
         
