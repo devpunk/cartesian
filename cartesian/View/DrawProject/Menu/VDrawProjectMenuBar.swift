@@ -8,6 +8,7 @@ class VDrawProjectMenuBar:UIView
     private weak var controller:CDrawProject!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
+    private weak var buttonLabels:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
     private weak var layoutTextLeft:NSLayoutConstraint!
     private var showingText:Bool
@@ -52,6 +53,14 @@ class VDrawProjectMenuBar:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonNodes = buttonNodes
         
+        let buttonLabels:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
+            image:#imageLiteral(resourceName: "assetGenericLabels"))
+        buttonLabels.addTarget(
+            self,
+            action:#selector(actionLabels(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonLabels = buttonLabels
+        
         let viewEdit:VDrawProjectMenuBarEdit = VDrawProjectMenuBarEdit(
             controller:controller)
         viewEdit.alpha = 0
@@ -71,6 +80,7 @@ class VDrawProjectMenuBar:UIView
         addSubview(buttonBack)
         addSubview(buttonSettings)
         addSubview(buttonNodes)
+        addSubview(buttonLabels)
         addSubview(viewEdit)
         addSubview(viewMove)
         addSubview(viewText)
@@ -117,6 +127,16 @@ class VDrawProjectMenuBar:UIView
             toView:buttonSettings)
         NSLayoutConstraint.width(
             view:buttonNodes,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonLabels,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonLabels,
+            toView:buttonNodes)
+        NSLayoutConstraint.width(
+            view:buttonLabels,
             constant:kButtonWidth)
         
         NSLayoutConstraint.equals(
@@ -179,6 +199,11 @@ class VDrawProjectMenuBar:UIView
         {
             selectNodes()
         }
+    }
+    
+    func actionLabels(sender button:UIButton)
+    {
+        
     }
     
     //MARK: private
