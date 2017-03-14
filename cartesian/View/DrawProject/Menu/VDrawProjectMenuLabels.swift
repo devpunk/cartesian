@@ -8,6 +8,7 @@ class VDrawProjectMenuLabels:UIView
     private weak var viewFontName:VDrawProjectMenuLabelsFontName!
     private let kAddWidth:CGFloat = 105
     private let kAddHeight:CGFloat = 60
+    private let kFontNameHeight:CGFloat = 50
     
     init(controller:CDrawProject)
     {
@@ -59,9 +60,9 @@ class VDrawProjectMenuLabels:UIView
             view:viewFontSize,
             toView:viewAdd)
         
-        NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.height(
             view:viewFontName,
-            toView:viewAdd)
+            constant:kFontNameHeight)
         NSLayoutConstraint.bottomToBottom(
             view:viewFontName,
             toView:self)
