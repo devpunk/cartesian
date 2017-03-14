@@ -5,6 +5,7 @@ class VDrawProjectMenuLabels:UIView
     private weak var controller:CDrawProject!
     private weak var viewAdd:VDrawProjectMenuLabelsAdd!
     private weak var viewFontSize:VDrawProjectMenuLabelsFontSize!
+    private weak var viewFontName:VDrawProjectMenuLabelsFontName!
     private let kAddWidth:CGFloat = 105
     private let kAddHeight:CGFloat = 60
     
@@ -24,8 +25,13 @@ class VDrawProjectMenuLabels:UIView
             controller:controller)
         self.viewFontSize = viewFontSize
         
+        let viewFontName:VDrawProjectMenuLabelsFontName = VDrawProjectMenuLabelsFontName(
+            controller:controller)
+        self.viewFontName = viewFontName
+        
         addSubview(viewAdd)
         addSubview(viewFontSize)
+        addSubview(viewFontName)
         
         NSLayoutConstraint.topToTop(
             view:viewAdd,
@@ -52,6 +58,16 @@ class VDrawProjectMenuLabels:UIView
         NSLayoutConstraint.leftToRight(
             view:viewFontSize,
             toView:viewAdd)
+        
+        NSLayoutConstraint.topToBottom(
+            view:viewFontName,
+            toView:viewAdd)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewFontName,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewFontName,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

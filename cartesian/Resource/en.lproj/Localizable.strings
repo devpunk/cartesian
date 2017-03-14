@@ -21,6 +21,7 @@
 "VDrawProjectRotate_buttonReset"="Reset";
 "VDrawProjectMenuLabelsAdd_label"="Add text";
 "VDrawProjectMenuLabelsFontSize_labelTitle"="Size  ";
+"VDrawProjectMenuLabelsFontName_labelTitle"="Font";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";
