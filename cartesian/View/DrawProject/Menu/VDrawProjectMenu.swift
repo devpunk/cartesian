@@ -52,6 +52,7 @@ class VDrawProjectMenu:UIView
         addSubview(viewBar)
         addSubview(viewSettings)
         addSubview(viewNodes)
+        addSubview(viewLabels)
         addSubview(viewEdit)
         
         NSLayoutConstraint.topToTop(
