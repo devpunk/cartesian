@@ -166,4 +166,11 @@ class VDrawProjectMenu:UIView
         viewNodes.isHidden = false
         viewEdit.isHidden = true
     }
+    
+    func displayLabels()
+    {
+        viewSettings.isHidden = true
+        viewNodes.isHidden = true
+        viewEdit.isHidden = true
+    }
 }
