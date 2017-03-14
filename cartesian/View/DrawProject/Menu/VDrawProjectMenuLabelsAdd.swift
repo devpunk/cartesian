@@ -64,7 +64,7 @@ class VDrawProjectMenuLabelsAdd:UIButton
     }
     
     override var isSelected:Bool
-    {
+        {
         didSet
         {
             hover()
@@ -72,7 +72,7 @@ class VDrawProjectMenuLabelsAdd:UIButton
     }
     
     override var isHighlighted:Bool
-    {
+        {
         didSet
         {
             hover()

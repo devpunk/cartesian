@@ -3,6 +3,7 @@ import UIKit
 class VDrawProjectMenuLabels:UIView
 {
     private weak var controller:CDrawProject!
+    private weak var viewAdd:
     
     init(controller:CDrawProject)
     {

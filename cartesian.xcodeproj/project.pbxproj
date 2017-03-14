@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */; };
 		DA007DB31E6B967E005684F6 /* VDrawListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB21E6B967E005684F6 /* VDrawListCell.swift */; };
-		DA0158EC1E784038005DADC7 /* VDrawProjectMemuLabelsAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158EB1E784038005DADC7 /* VDrawProjectMemuLabelsAdd.swift */; };
+		DA0158EE1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -126,7 +126,7 @@
 /* Begin PBXFileReference section */
 		DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListHeader.swift; sourceTree = "<group>"; };
 		DA007DB21E6B967E005684F6 /* VDrawListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListCell.swift; sourceTree = "<group>"; };
-		DA0158EB1E784038005DADC7 /* VDrawProjectMemuLabelsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMemuLabelsAdd.swift; sourceTree = "<group>"; };
+		DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabelsAdd.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -648,7 +648,7 @@
 				DAA94A7C1E705E4E004EB390 /* VDrawProjectMenuEditBarCell.swift */,
 				DAA94A7A1E7052DF004EB390 /* VDrawProjectMenuEditInfo.swift */,
 				DADA76B21E77763100B9EFDA /* VDrawProjectMenuLabels.swift */,
-				DA0158EB1E784038005DADC7 /* VDrawProjectMemuLabelsAdd.swift */,
+				DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -739,6 +739,7 @@
 			files = (
 				DAC13B531E730D15009A8D94 /* MDrawListItem.swift in Sources */,
 				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
+				DA0158EE1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift in Sources */,
 				DA8FF2A11E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift in Sources */,
 				DA9443761E6DE0EB00CD5993 /* MDrawProjectMenuNodesItem.swift in Sources */,
 				DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */,
@@ -832,7 +833,6 @@
 				DAED2DAB1E6CA6820064C837 /* VDrawProjectMenuBar.swift in Sources */,
 				DA2772531E720B5D00AC2EE7 /* MDrawProjectMenuState.swift in Sources */,
 				DADA76B31E77763100B9EFDA /* VDrawProjectMenuLabels.swift in Sources */,
-				DA0158EC1E784038005DADC7 /* VDrawProjectMemuLabelsAdd.swift in Sources */,
 				DAE70D631E6F7071009FAA27 /* VDrawProjectCanvasNodeSpatial.swift in Sources */,
 				DA630B6C1E6B84D40004245A /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA630B711E6B84D40004245A /* MSession.swift in Sources */,
