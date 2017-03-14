@@ -3,7 +3,8 @@ import UIKit
 class VDrawProjectMenuLabelsAdd:UIButton
 {
     private weak var controller:CDrawProject!
-    private let kIconWidth:CGFloat = 60
+    private let kIconLeft:CGFloat = 4
+    private let kIconWidth:CGFloat = 27
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -42,7 +43,8 @@ class VDrawProjectMenuLabelsAdd:UIButton
             toView:self)
         NSLayoutConstraint.leftToLeft(
             view:icon,
-            toView:self)
+            toView:self,
+            constant:kIconLeft)
         NSLayoutConstraint.width(
             view:icon,
             constant:kIconWidth)
@@ -52,8 +54,8 @@ class VDrawProjectMenuLabelsAdd:UIButton
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:label,
-            toView:self)
-        NSLayoutConstraint.rightToLeft(
+            toView:icon)
+        NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
     }
