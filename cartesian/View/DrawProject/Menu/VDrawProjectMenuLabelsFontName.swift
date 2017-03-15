@@ -68,7 +68,8 @@ class VDrawProjectMenuLabelsFontName:UIButton
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:labelFont,
-            toView:titleBase)
+            toView:titleBase,
+            constant:kFontLeft)
         NSLayoutConstraint.rightToRight(
             view:labelFont,
             toView:self)
@@ -124,7 +125,7 @@ class VDrawProjectMenuLabelsFontName:UIButton
         {
             if let currentType:String = font.currentType
             {
-                labelFont.font = UIFont(name:currentType, size:24)
+                labelFont.font = UIFont(name:currentType, size:15)
                 labelFont.text = font.displayName()
             }
         }

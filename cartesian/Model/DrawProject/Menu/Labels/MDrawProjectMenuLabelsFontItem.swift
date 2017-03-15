@@ -47,6 +47,30 @@ class MDrawProjectMenuLabelsFontItem
     
     func displayName() -> String?
     {
+        guard
         
+            let currentType:String = self.currentType
+        
+        else
+        {
+            return nil
+        }
+        
+        var name:String = self.name
+        
+        if currentType == typeRegular
+        {
+            name.append(NSLocalizedString("MDrawProjectMenuLabelsFontItem_typeRegular", comment:""))
+        }
+        else if currentType == typeBold
+        {
+            name.append(NSLocalizedString("MDrawProjectMenuLabelsFontItem_typeBold", comment:""))
+        }
+        else if currentType == typeItalic
+        {
+            name.append(NSLocalizedString("MDrawProjectMenuLabelsFontItem_typeItalic", comment:""))
+        }
+        
+        return name
     }
 }

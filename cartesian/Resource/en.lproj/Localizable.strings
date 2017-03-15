@@ -34,5 +34,8 @@
 "MDrawProjectMenuEditBarItemTrash_alertCancel"="Cancel";
 "MDrawProjectMenuEditBarItemTrash_alertDelete"="Delete";
 "MDrawProjectMenuLabelsFontItem_noName"="Font no name";
+"MDrawProjectMenuLabelsFontItem_typeRegular"=" Regular";
+"MDrawProjectMenuLabelsFontItem_typeBold"=" Bold";
+"MDrawProjectMenuLabelsFontItem_typeItalic"=" Italic";
 
 "DProject_defaultTitle"="Unamed project";
