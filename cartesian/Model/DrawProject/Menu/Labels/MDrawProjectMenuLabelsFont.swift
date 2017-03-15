@@ -15,7 +15,7 @@ class MDrawProjectMenuLabelsFont
                 withExtension:kResourceExtension),
             let fontArray:NSArray = NSArray(
                 contentsOf:resourceFont),
-            let fontList:[AnyObject] = fontArray as? [AnyObject]
+            let fontList:[[String:AnyObject]] = fontArray as? [[String:AnyObject]]
             
         else
         {
@@ -26,9 +26,11 @@ class MDrawProjectMenuLabelsFont
         
         var items:[MDrawProjectMenuLabelsFontItem] = []
         
-        for font:AnyObject in fontList
+        for font:[String:AnyObject] in fontList
         {
-            
+            let item:MDrawProjectMenuLabelsFontItem = MDrawProjectMenuLabelsFontItem(
+                raw:font)
+            items.append(item)
         }
         
         self.items = items

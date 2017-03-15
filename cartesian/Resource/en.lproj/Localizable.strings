@@ -33,5 +33,6 @@
 "MDrawProjectMenuEditBarItemTrash_alertTitle"="Delete node?";
 "MDrawProjectMenuEditBarItemTrash_alertCancel"="Cancel";
 "MDrawProjectMenuEditBarItemTrash_alertDelete"="Delete";
+"MDrawProjectMenuLabelsFontItem_noName"="Font no name";
 
 "DProject_defaultTitle"="Unamed project";
