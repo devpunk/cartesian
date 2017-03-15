@@ -54,5 +54,31 @@
             <string>Futura-MediumItalic</string>
         </dict>
     </dict>
+    <dict>
+        <key>name</key>
+        <string>Avenir Next</string>
+        <key>type</key>
+        <dict>
+            <key>regular</key>
+            <string>AvenirNext-Regular</string>
+            <key>bold</key>
+            <string>AvenirNext-Bold</string>
+            <key>italic</key>
+            <string>AvenirNext-Italic</string>
+        </dict>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>Arial</string>
+        <key>type</key>
+        <dict>
+            <key>regular</key>
+            <string>ArialMT</string>
+            <key>bold</key>
+            <string>Arial-BoldMT</string>
+            <key>italic</key>
+            <string>Arial-ItalicMT</string>
+        </dict>
+    </dict>
 </array>
 </plist>
