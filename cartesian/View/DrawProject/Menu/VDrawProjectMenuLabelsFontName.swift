@@ -4,7 +4,9 @@ class VDrawProjectMenuLabelsFontName:UIButton
 {
     let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
+    private weak var labelFont:UILabel!
     private let kTitleBaseWidth:CGFloat = 60
+    private let kFontLeft:CGFloat = 10
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -36,8 +38,16 @@ class VDrawProjectMenuLabelsFontName:UIButton
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.text = NSLocalizedString("VDrawProjectMenuLabelsFontName_labelTitle", comment:"")
         
+        let labelFont:UILabel = UILabel()
+        labelFont.translatesAutoresizingMaskIntoConstraints = false
+        labelFont.isUserInteractionEnabled = false
+        labelFont.backgroundColor = UIColor.clear
+        labelFont.textColor = UIColor.black
+        self.labelFont = labelFont
+        
         titleBase.addSubview(labelTitle)
         addSubview(titleBase)
+        addSubview(labelFont)
         
         NSLayoutConstraint.equalsVertical(
             view:titleBase,
@@ -52,6 +62,18 @@ class VDrawProjectMenuLabelsFontName:UIButton
         NSLayoutConstraint.equals(
             view:labelTitle,
             toView:titleBase)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:labelFont,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:labelFont,
+            toView:titleBase)
+        NSLayoutConstraint.rightToRight(
+            view:labelFont,
+            toView:self)
+        
+        updateFont()
     }
     
     required init?(coder:NSCoder)
@@ -93,6 +115,18 @@ class VDrawProjectMenuLabelsFontName:UIButton
         else
         {
             alpha = kAlphaNotSelected
+        }
+    }
+    
+    private func updateFont()
+    {
+        if let font:MDrawProjectMenuLabelsFontItem = model.currentFont
+        {
+            if let currentType:String = font.currentType
+            {
+                labelFont.font = UIFont(name:currentType, size:24)
+                labelFont.text = font.displayName()
+            }
         }
     }
 }

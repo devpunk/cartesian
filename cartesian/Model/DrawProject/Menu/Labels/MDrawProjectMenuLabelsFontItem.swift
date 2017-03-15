@@ -42,4 +42,11 @@ class MDrawProjectMenuLabelsFontItem
             currentType = typeItalic
         }
     }
+    
+    //MARK: public
+    
+    func displayName() -> String?
+    {
+        
+    }
 }
