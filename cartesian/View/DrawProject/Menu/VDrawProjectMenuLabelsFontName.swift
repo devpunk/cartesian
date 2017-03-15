@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectMenuLabelsFontName:UIButton
 {
+    let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
     private let kTitleBaseWidth:CGFloat = 60
     private let kAlphaSelected:CGFloat = 0.2
@@ -9,6 +10,8 @@ class VDrawProjectMenuLabelsFontName:UIButton
     
     init(controller:CDrawProject)
     {
+        model = MDrawProjectMenuLabelsFont()
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
