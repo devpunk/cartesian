@@ -108,6 +108,7 @@
 		DAC13B551E734A47009A8D94 /* DNodeOvalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13B541E734A47009A8D94 /* DNodeOvalExtension.swift */; };
 		DAC13B571E73549D009A8D94 /* MDrawProjectMenuEditBarItemRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13B561E73549D009A8D94 /* MDrawProjectMenuEditBarItemRotate.swift */; };
 		DAC13B5A1E73573C009A8D94 /* VDrawProjectRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13B591E73573C009A8D94 /* VDrawProjectRotate.swift */; };
+		DAD22FA71E79A23C00B94AFE /* ResourceFont.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAD22FA61E79A23C00B94AFE /* ResourceFont.plist */; };
 		DADA76B11E7763B700B9EFDA /* DLabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA76B01E7763B700B9EFDA /* DLabelExtension.swift */; };
 		DADA76B31E77763100B9EFDA /* VDrawProjectMenuLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA76B21E77763100B9EFDA /* VDrawProjectMenuLabels.swift */; };
 		DAE70D551E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */; };
@@ -229,6 +230,7 @@
 		DAC13B541E734A47009A8D94 /* DNodeOvalExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeOvalExtension.swift; sourceTree = "<group>"; };
 		DAC13B561E73549D009A8D94 /* MDrawProjectMenuEditBarItemRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemRotate.swift; sourceTree = "<group>"; };
 		DAC13B591E73573C009A8D94 /* VDrawProjectRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectRotate.swift; sourceTree = "<group>"; };
+		DAD22FA61E79A23C00B94AFE /* ResourceFont.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ResourceFont.plist; sourceTree = "<group>"; };
 		DADA76B01E7763B700B9EFDA /* DLabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLabelExtension.swift; sourceTree = "<group>"; };
 		DADA76B21E77763100B9EFDA /* VDrawProjectMenuLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabels.swift; sourceTree = "<group>"; };
 		DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuEdit.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			children = (
 				DA630B501E6B84D40004245A /* Localizable.strings */,
 				DA630B521E6B84D40004245A /* ResourceUrl.plist */,
+				DAD22FA61E79A23C00B94AFE /* ResourceFont.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				DA94437C1E6DE23700CD5993 /* node.xcassets in Resources */,
 				DA630B721E6B84D40004245A /* Localizable.strings in Resources */,
 				DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */,
+				DAD22FA71E79A23C00B94AFE /* ResourceFont.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
