@@ -5,8 +5,9 @@ class VDrawProjectMenuLabelsFontName:UIButton
     let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
     private weak var labelFont:UILabel!
-    private let kTitleBaseWidth:CGFloat = 60
+    private let kTitleBaseWidth:CGFloat = 62
     private let kFontLeft:CGFloat = 10
+    private let kBorderHeight:CGFloat = 1
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -23,6 +24,8 @@ class VDrawProjectMenuLabelsFontName:UIButton
             action:#selector(actionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         self.controller = controller
+        
+        let border:VBorder = VBorder(color:UIColor.cartesianBlue)
         
         let titleBase:UIView = UIView()
         titleBase.isUserInteractionEnabled = false
@@ -46,6 +49,7 @@ class VDrawProjectMenuLabelsFontName:UIButton
         self.labelFont = labelFont
         
         titleBase.addSubview(labelTitle)
+        addSubview(border)
         addSubview(titleBase)
         addSubview(labelFont)
         
@@ -72,6 +76,16 @@ class VDrawProjectMenuLabelsFontName:UIButton
             constant:kFontLeft)
         NSLayoutConstraint.rightToRight(
             view:labelFont,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
             toView:self)
         
         updateFont()
@@ -125,7 +139,7 @@ class VDrawProjectMenuLabelsFontName:UIButton
         {
             if let currentType:String = font.currentType
             {
-                labelFont.font = UIFont(name:currentType, size:15)
+                labelFont.font = UIFont(name:currentType, size:13)
                 labelFont.text = font.displayName()
             }
         }

@@ -20,7 +20,7 @@ class VDrawProjectMenuLabelsFontSize:UIView
             NSFontAttributeName:UIFont.bold(size:15),
             NSForegroundColorAttributeName:UIColor.cartesianBlue]
         attributesNumber = [
-            NSFontAttributeName:UIFont.numeric(size:20),
+            NSFontAttributeName:UIFont.numeric(size:15),
             NSForegroundColorAttributeName:UIColor.black]
         stringTitle = NSAttributedString(
             string:NSLocalizedString("VDrawProjectMenuLabelsFontSize_labelTitle", comment:""),
