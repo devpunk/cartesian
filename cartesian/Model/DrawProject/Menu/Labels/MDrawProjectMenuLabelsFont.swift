@@ -3,7 +3,7 @@ import Foundation
 class MDrawProjectMenuLabelsFont
 {
     let items:[MDrawProjectMenuLabelsFontItem]
-    var currentFont:String?
+    var currentFont:MDrawProjectMenuLabelsFontItem?
     private let kResourceName:String = "ResourceFont"
     private let kResourceExtension:String = "plist"
     
@@ -53,7 +53,7 @@ class MDrawProjectMenuLabelsFont
             }
         }
         
-        currentFont = items.first?.typeRegular
+        currentFont = items.first
         self.items = items
     }
 }

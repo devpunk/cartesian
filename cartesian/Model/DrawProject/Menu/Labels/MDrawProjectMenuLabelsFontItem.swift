@@ -6,6 +6,7 @@ class MDrawProjectMenuLabelsFontItem
     let typeRegular:String?
     let typeBold:String?
     let typeItalic:String?
+    var currentType:String?
     private let kKeyName:String = "name"
     private let kKeyType:String = "type"
     private let kKeyTypeRegular:String = "regular"
@@ -27,5 +28,18 @@ class MDrawProjectMenuLabelsFontItem
         typeRegular = type?[kKeyTypeRegular]
         typeBold = type?[kKeyTypeBold]
         typeItalic = type?[kKeyTypeItalic]
+        
+        if let typeRegular = typeRegular
+        {
+            currentType = typeRegular
+        }
+        else if let typeBold = typeBold
+        {
+            currentType = typeBold
+        }
+        else if let typeItalic = typeItalic
+        {
+            currentType = typeItalic
+        }
     }
 }
