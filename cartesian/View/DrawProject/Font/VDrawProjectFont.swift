@@ -133,9 +133,9 @@ class VDrawProjectFont:UIView
         animateClose()
     }
     
-    //MARK: private
+    //MARK: public
     
-    private func animateClose()
+    func animateClose()
     {
         layoutBaseTop.constant = 0
         
@@ -152,8 +152,6 @@ class VDrawProjectFont:UIView
             self?.removeFromSuperview()
         }
     }
-    
-    //MARK: public
     
     func fontSelected(item:MDrawProjectMenuLabelsFontItem)
     {

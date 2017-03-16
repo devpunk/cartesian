@@ -7,9 +7,8 @@ class VDrawProjectFontBar:UIView
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
     private let kBorderHeight:CGFloat = 1
-    private let kButtonWidth:CGFloat = 120
-    private let kButtonRight:CGFloat = -10
-    private let kButtonMargin:CGFloat = 6
+    private let kButtonWidth:CGFloat = 90
+    private let kButtonMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 6
     
     init(controller:CDrawProject)
@@ -43,6 +42,10 @@ class VDrawProjectFontBar:UIView
             NSLocalizedString("VDrawProjectFontBar_cancel", comment:""),
             for:UIControlState.normal)
         button.titleLabel!.font = UIFont.bold(size:14)
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
@@ -78,7 +81,7 @@ class VDrawProjectFontBar:UIView
         NSLayoutConstraint.rightToRight(
             view:button,
             toView:self,
-            constant:kButtonRight)
+            constant:-kButtonMargin)
         NSLayoutConstraint.width(
             view:button,
             constant:kButtonWidth)
@@ -87,5 +90,12 @@ class VDrawProjectFontBar:UIView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller.viewProject.viewFont?.animateClose()
     }
 }
