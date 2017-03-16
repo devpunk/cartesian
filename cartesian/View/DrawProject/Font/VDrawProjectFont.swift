@@ -80,6 +80,7 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         self.collectionView = collectionView
         
         baseView.addSubview(viewBar)
+        baseView.addSubview(collectionView)
         blurContainer.addSubview(blur)
         addSubview(blurContainer)
         addSubview(button)
@@ -122,10 +123,10 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
             toView:viewBar)
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
-            toView:self)
+            toView:baseView)
         NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
-            toView:self)
+            toView:baseView)
     }
     
     required init?(coder:NSCoder)
