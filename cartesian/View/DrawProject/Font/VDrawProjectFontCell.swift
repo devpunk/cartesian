@@ -8,8 +8,8 @@ class VDrawProjectFontCell:UICollectionViewCell
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
     private let kLabelMargin:CGFloat = 10
-    private let kLabelHeight:CGFloat = 23
-    private let kFontSize:CGFloat = 19
+    private let kLabelHeight:CGFloat = 24
+    private let kFontSize:CGFloat = 20
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.5
     

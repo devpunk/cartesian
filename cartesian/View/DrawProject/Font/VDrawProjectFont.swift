@@ -3,7 +3,7 @@ import UIKit
 class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
     private let model:MDrawProjectMenuLabelsFont
-    private let indexPath:IndexPath?
+    private var indexPath:IndexPath?
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private(set) weak var viewBar:VDrawProjectFontBar!
@@ -156,9 +156,7 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         return item
     }
     
-    //MARK: public
-    
-    func animateClose()
+    private func animateClose()
     {
         layoutBaseTop.constant = 0
         
@@ -176,9 +174,22 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
-    func fontSelected(item:MDrawProjectMenuLabelsFontItem)
+    //MARK: public
+    
+    func fontSelected()
     {
         animateClose()
+        
+        guard
+            
+            let indexPath:IndexPath = self.indexPath
+        
+        else
+        {
+            return
+        }
+        
+        let item:MDrawProjectMenuLabelsFontItem = modelAtIndex(index:indexPath)
         delegate?.fontSelected(model:item)
     }
     
@@ -247,5 +258,10 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
             model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        self.indexPath = indexPath
     }
 }

@@ -96,6 +96,6 @@ class VDrawProjectFontBar:UIView
     
     func actionButton(sender button:UIButton)
     {
-        controller.viewProject.viewFont?.animateClose()
+        controller.viewProject.viewFont?.fontSelected()
     }
 }
