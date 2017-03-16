@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectFontCell:UICollectionViewCell
+class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CDrawProject?
     private weak var model:MDrawProjectMenuLabelsFontItem?
@@ -109,4 +109,8 @@ class VDrawProjectFontCell:UICollectionViewCell
         
         hover()
     }
+    
+    //MARK: collectionView delegate
+    
+    
 }

@@ -1,9 +1,23 @@
-//
-//  VDrawProjectFontCellType.swift
-//  cartesian
-//
-//  Created by zero on 3/15/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VDrawProjectFontCellType:UICollectionViewCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
+    //MARK: config
+    
+    func config()
+    {
+        
+    }
+}
