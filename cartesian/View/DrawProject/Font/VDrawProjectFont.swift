@@ -3,7 +3,7 @@ import UIKit
 class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
     private let model:MDrawProjectMenuLabelsFont
-    private var indexPath:IndexPath?
+    private let indexPath:IndexPath?
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private(set) weak var viewBar:VDrawProjectFontBar!
@@ -182,14 +182,13 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
         
         guard
             
-            let indexPath:IndexPath = self.indexPath
+            let item:MDrawProjectMenuLabelsFontItem = model.currentFont
         
         else
         {
             return
         }
         
-        let item:MDrawProjectMenuLabelsFontItem = modelAtIndex(index:indexPath)
         delegate?.fontSelected(model:item)
     }
     
@@ -262,6 +261,12 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        self.indexPath = indexPath
+        let item:MDrawProjectMenuLabelsFontItem = modelAtIndex(index:indexPath)
+        model.currentFont = item
+        
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.top,
+            animated:true)
     }
 }

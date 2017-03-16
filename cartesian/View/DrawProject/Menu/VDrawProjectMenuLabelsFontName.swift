@@ -149,7 +149,7 @@ class VDrawProjectMenuLabelsFontName:UIButton, MDrawProjectFontDelegate
     
     func fontSelected(model:MDrawProjectMenuLabelsFontItem)
     {
-        
+        updateFont()
     }
     
     func fontModel() -> MDrawProjectMenuLabelsFont?
