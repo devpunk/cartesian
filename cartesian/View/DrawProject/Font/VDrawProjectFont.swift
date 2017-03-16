@@ -4,8 +4,13 @@ class VDrawProjectFont:UIView
 {
     private let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
+    private weak var collectionView:VCollection!
+    private(set) weak var viewBar:VDrawProjectFontBar!
     private weak var blurContainer:UIView!
+    private weak var layoutBaseTop:NSLayoutConstraint!
     private weak var delegate:MDrawProjectFontDelegate?
+    private let kBaseHeight:CGFloat = 300
+    private let kBarHeight:CGFloat = 50
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(
@@ -57,9 +62,24 @@ class VDrawProjectFont:UIView
             action:#selector(actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let baseView:UIView = UIView()
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.clipsToBounds = true
+        baseView.backgroundColor = UIColor.white
+        
+        let viewBar:VDrawProjectFontBar = VDrawProjectFontBar(
+            controller:controller)
+        self.viewBar = viewBar
+        
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceVertical = true
+        self.collectionView = collectionView
+        
+        baseView.addSubview(viewBar)
         blurContainer.addSubview(blur)
         addSubview(blurContainer)
         addSubview(button)
+        addSubview(baseView)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -72,6 +92,26 @@ class VDrawProjectFont:UIView
         NSLayoutConstraint.equals(
             view:button,
             toView:self)
+        
+        layoutBaseTop = NSLayoutConstraint.topToBottom(
+            view:baseView,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:baseView,
+            constant:kBaseHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:baseView,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:baseView)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
+            toView:baseView)
     }
     
     required init?(coder:NSCoder)
@@ -81,7 +121,7 @@ class VDrawProjectFont:UIView
     
     override func layoutSubviews()
     {
-        
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }
@@ -97,7 +137,7 @@ class VDrawProjectFont:UIView
     
     private func animateClose()
     {
-        UIApplication.shared.keyWindow!.endEditing(true)
+        layoutBaseTop.constant = 0
         
         UIView.animate(
             withDuration:kAnimationDuration,
@@ -105,6 +145,7 @@ class VDrawProjectFont:UIView
             { [weak self] in
                 
                 self?.alpha = 0
+                self?.layoutIfNeeded()
             })
         { [weak self] (done:Bool) in
             
@@ -122,6 +163,8 @@ class VDrawProjectFont:UIView
     
     func animateShow()
     {
+        layoutBaseTop.constant = -kBaseHeight
+        
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             
