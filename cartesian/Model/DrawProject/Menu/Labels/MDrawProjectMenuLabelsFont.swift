@@ -86,4 +86,9 @@ class MDrawProjectMenuLabelsFont
         
         return indexPath
     }
+    
+    func indexForName(name:String) -> IndexPath?
+    {
+        return nil
+    }
 }

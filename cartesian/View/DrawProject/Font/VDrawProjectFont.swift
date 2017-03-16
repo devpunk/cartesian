@@ -12,13 +12,25 @@ class VDrawProjectFont:UIView
         controller:CDrawProject,
         delegate:MDrawProjectFontDelegate)
     {
+        let indexPath:IndexPath?
+        
         if let model:MDrawProjectMenuLabelsFont = delegate.fontModel()
         {
             self.model = model
+            indexPath = model.selectedIndex()
         }
         else
         {
             model = MDrawProjectMenuLabelsFont()
+            
+            if let stringSelected:String = delegate.fontCurrent()
+            {
+                indexPath = model.indexForName(name:stringSelected)
+            }
+            else
+            {
+                indexPath = nil
+            }
         }
         
         super.init(frame:CGRect.zero)
