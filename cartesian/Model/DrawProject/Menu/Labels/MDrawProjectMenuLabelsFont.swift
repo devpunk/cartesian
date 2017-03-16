@@ -89,6 +89,29 @@ class MDrawProjectMenuLabelsFont
     
     func indexForName(name:String) -> IndexPath?
     {
-        return nil
+        let indexPath:IndexPath?
+        var foundIndex:Int?
+        var index:Int = 0
+        
+        for item:MDrawProjectMenuLabelsFontItem in items
+        {
+            if item === currentFont
+            {
+                foundIndex = index
+                
+                break
+            }
+            
+            index += 1
+        }
+        
+        if let foundIndex:Int = foundIndex
+        {
+            indexPath = IndexPath(
+                item:foundIndex,
+                section:0)
+        }
+        
+        return indexPath
     }
 }

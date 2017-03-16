@@ -73,4 +73,9 @@ class MDrawProjectMenuLabelsFontItem
         
         return name
     }
+    
+    func equalsName(name:String) -> Bool
+    {
+        
+    }
 }
