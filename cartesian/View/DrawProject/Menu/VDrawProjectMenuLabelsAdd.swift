@@ -1,12 +1,13 @@
 import UIKit
 
-class VDrawProjectMenuLabelsAdd:UIButton
+class VDrawProjectMenuLabelsAdd:UIButton, UITextFieldDelegate
 {
     private weak var controller:CDrawProject!
     private let kIconLeft:CGFloat = 4
     private let kIconWidth:CGFloat = 27
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
+    private let kEmpty:String = ""
     
     init(controller:CDrawProject)
     {
@@ -85,7 +86,7 @@ class VDrawProjectMenuLabelsAdd:UIButton
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller.startText(delegate:self)
     }
     
     //MARK: private
@@ -100,5 +101,33 @@ class VDrawProjectMenuLabelsAdd:UIButton
         {
             alpha = kAlphaNotSelected
         }
+    }
+    
+    //MARK: textField delegate
+    
+    func textFieldDidBeginEditing(_ textField:UITextField)
+    {
+        textField.text = kEmpty
+    }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField:UITextField)
+    {
+        guard
+            
+            let text:String = textField.text
+            
+        else
+        {
+            return
+        }
+        
+        print("text \(text)")
     }
 }

@@ -6,10 +6,10 @@ class VDrawProjectMenuBarText:UIView
     private weak var controller:CDrawProject!
     private weak var viewBase:UIView!
     private weak var layoutButtonTop:NSLayoutConstraint!
+    private weak var layoutButtonCloseTop:NSLayoutConstraint!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBorderWidth:CGFloat = 1
     private let kContentHeight:CGFloat = 34
-    private let kBaseLeft:CGFloat = 10
     private let kButtonWidth:CGFloat = 50
     private let kInsets:CGFloat = 10
     
@@ -47,6 +47,23 @@ class VDrawProjectMenuBarText:UIView
             action:#selector(actionSender(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonClose:UIButton = UIButton()
+        buttonClose.translatesAutoresizingMaskIntoConstraints = false
+        buttonClose.clipsToBounds = true
+        buttonClose.setImage(
+            #imageLiteral(resourceName: "assetGenericClose").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonClose.setImage(
+            #imageLiteral(resourceName: "assetGenericClose").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonClose.imageView!.clipsToBounds = true
+        buttonClose.imageView!.contentMode = UIViewContentMode.center
+        buttonClose.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        buttonClose.addTarget(
+            self,
+            action:#selector(actionClose(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         let textField:UITextField = UITextField()
         textField.borderStyle = UITextBorderStyle.none
         textField.clearButtonMode = UITextFieldViewMode.never
@@ -77,10 +94,9 @@ class VDrawProjectMenuBarText:UIView
         NSLayoutConstraint.rightToLeft(
             view:viewBase,
             toView:button)
-        NSLayoutConstraint.leftToLeft(
+        NSLayoutConstraint.leftToRight(
             view:viewBase,
-            toView:self,
-            constant:kBaseLeft)
+            toView:buttonClose)
         
         layoutButtonTop = NSLayoutConstraint.topToTop(
             view:button,
@@ -93,6 +109,19 @@ class VDrawProjectMenuBarText:UIView
             toView:self)
         NSLayoutConstraint.width(
             view:button,
+            constant:kButtonWidth)
+        
+        layoutButtonCloseTop = NSLayoutConstraint.topToTop(
+            view:buttonClose,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:buttonClose,
+            constant:kContentHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:buttonClose,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:buttonClose,
             constant:kButtonWidth)
         
         NSLayoutConstraint.equalsVertical(
@@ -125,5 +154,12 @@ class VDrawProjectMenuBarText:UIView
     func actionSender(sender button:UIButton)
     {
         UIApplication.shared.keyWindow!.endEditing(true)
+    }
+    
+    func actionClose(sender button:UIButton)
+    {
+        textField.delegate = nil
+        UIApplication.shared.keyWindow!.endEditing(true)
+        controller.endText()
     }
 }
