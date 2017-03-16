@@ -10,7 +10,7 @@ class VDrawProjectFontCell:UICollectionViewCell
     private let kBorderHeight:CGFloat = 1
     private let kLabelMargin:CGFloat = 10
     private let kLabelHeight:CGFloat = 18
-    private let kButtonWidth:CGFloat = 120
+    private let kButtonWidth:CGFloat = 90
     private let kButtonHeight:CGFloat = 32
     private let kCornerRadius:CGFloat = 5
     private let kAlphaSelected:CGFloat = 1
@@ -45,6 +45,7 @@ class VDrawProjectFontCell:UICollectionViewCell
         button.setTitle(
             NSLocalizedString("VDrawProjectFontCell_button", comment:""),
             for:UIControlState.normal)
+        button.titleLabel!.font = UIFont.bold(size:13)
         self.button = button
         
         addSubview(border)
