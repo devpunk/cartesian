@@ -95,7 +95,7 @@ class MDrawProjectMenuLabelsFont
         
         for item:MDrawProjectMenuLabelsFontItem in items
         {
-            if item === currentFont
+            if item.equalsName(name:name)
             {
                 foundIndex = index
                 
@@ -110,6 +110,10 @@ class MDrawProjectMenuLabelsFont
             indexPath = IndexPath(
                 item:foundIndex,
                 section:0)
+        }
+        else
+        {
+            indexPath = nil
         }
         
         return indexPath

@@ -76,6 +76,36 @@ class MDrawProjectMenuLabelsFontItem
     
     func equalsName(name:String) -> Bool
     {
+        if let typeRegular:String = typeRegular
+        {
+            currentType = typeRegular
+            
+            if displayName() == name
+            {
+                return true
+            }
+        }
         
+        if let typeBold:String = typeBold
+        {
+            currentType = typeBold
+            
+            if displayName() == name
+            {
+                return true
+            }
+        }
+       
+        if let typeItalic:String = typeItalic
+        {
+            currentType = typeItalic
+            
+            if displayName() == name
+            {
+                return true
+            }
+        }
+        
+        return false
     }
 }
