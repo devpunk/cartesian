@@ -114,7 +114,7 @@
 		DAD22FB71E7A136300B94AFE /* VDrawProjectFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD22FB61E7A136300B94AFE /* VDrawProjectFont.swift */; };
 		DAD22FB91E7A138200B94AFE /* VDrawProjectFontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD22FB81E7A138200B94AFE /* VDrawProjectFontCell.swift */; };
 		DAD22FBB1E7A13A400B94AFE /* VDrawProjectFontCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD22FBA1E7A13A400B94AFE /* VDrawProjectFontCellType.swift */; };
-		DAD22FBD1E7A1F8700B94AFE /* MDrawProjectMenuLabelsFontDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD22FBC1E7A1F8700B94AFE /* MDrawProjectMenuLabelsFontDelegate.swift */; };
+		DAD22FC01E7A201C00B94AFE /* MDrawProjectFontDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD22FBF1E7A201C00B94AFE /* MDrawProjectFontDelegate.swift */; };
 		DADA76B11E7763B700B9EFDA /* DLabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA76B01E7763B700B9EFDA /* DLabelExtension.swift */; };
 		DADA76B31E77763100B9EFDA /* VDrawProjectMenuLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA76B21E77763100B9EFDA /* VDrawProjectMenuLabels.swift */; };
 		DAE70D551E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */; };
@@ -242,7 +242,7 @@
 		DAD22FB61E7A136300B94AFE /* VDrawProjectFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectFont.swift; sourceTree = "<group>"; };
 		DAD22FB81E7A138200B94AFE /* VDrawProjectFontCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectFontCell.swift; sourceTree = "<group>"; };
 		DAD22FBA1E7A13A400B94AFE /* VDrawProjectFontCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectFontCellType.swift; sourceTree = "<group>"; };
-		DAD22FBC1E7A1F8700B94AFE /* MDrawProjectMenuLabelsFontDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuLabelsFontDelegate.swift; sourceTree = "<group>"; };
+		DAD22FBF1E7A201C00B94AFE /* MDrawProjectFontDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectFontDelegate.swift; sourceTree = "<group>"; };
 		DADA76B01E7763B700B9EFDA /* DLabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLabelExtension.swift; sourceTree = "<group>"; };
 		DADA76B21E77763100B9EFDA /* VDrawProjectMenuLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabels.swift; sourceTree = "<group>"; };
 		DAE70D541E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuEdit.swift; sourceTree = "<group>"; };
@@ -298,6 +298,7 @@
 		DA45C49C1E6DD25200CA6A20 /* DrawProject */ = {
 			isa = PBXGroup;
 			children = (
+				DAD22FBE1E7A201000B94AFE /* Font */,
 				DA2772461E72021D00AC2EE7 /* State */,
 				DAE70D5A1E6F56CB009FAA27 /* Canvas */,
 				DA45C49D1E6DD25200CA6A20 /* Menu */,
@@ -610,7 +611,6 @@
 			children = (
 				DAD22FA91E79A7AF00B94AFE /* MDrawProjectMenuLabelsFont.swift */,
 				DAD22FAB1E79A7C600B94AFE /* MDrawProjectMenuLabelsFontItem.swift */,
-				DAD22FBC1E7A1F8700B94AFE /* MDrawProjectMenuLabelsFontDelegate.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -621,6 +621,14 @@
 				DAD22FB61E7A136300B94AFE /* VDrawProjectFont.swift */,
 				DAD22FB81E7A138200B94AFE /* VDrawProjectFontCell.swift */,
 				DAD22FBA1E7A13A400B94AFE /* VDrawProjectFontCellType.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DAD22FBE1E7A201000B94AFE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DAD22FBF1E7A201C00B94AFE /* MDrawProjectFontDelegate.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -792,7 +800,6 @@
 				DAE70D671E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift in Sources */,
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DAE70D651E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift in Sources */,
-				DAD22FBD1E7A1F8700B94AFE /* MDrawProjectMenuLabelsFontDelegate.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DAE70D551E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
@@ -838,6 +845,7 @@
 				DA99BE4E1E6E15B000AECF25 /* VDrawProjectMenuSettingsDefaultColor.swift in Sources */,
 				DA630B661E6B84D40004245A /* CController.swift in Sources */,
 				DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */,
+				DAD22FC01E7A201C00B94AFE /* MDrawProjectFontDelegate.swift in Sources */,
 				DABAACEC1E71E2C600735972 /* VDrawProjectMenuBarMove.swift in Sources */,
 				DAD22FAA1E79A7AF00B94AFE /* MDrawProjectMenuLabelsFont.swift in Sources */,
 				DAADC1641E74A75D00533BA1 /* VDrawProjectRotateCircle.swift in Sources */,
