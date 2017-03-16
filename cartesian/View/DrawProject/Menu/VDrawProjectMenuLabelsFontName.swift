@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuLabelsFontName:UIButton
+class VDrawProjectMenuLabelsFontName:UIButton, MDrawProjectFontDelegate
 {
     let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
@@ -106,7 +106,7 @@ class VDrawProjectMenuLabelsFontName:UIButton
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller.viewProject.showFont(title: <#T##String#>, delegate: <#T##MDrawProjectFontDelegate#>)
     }
     
     //MARK: private
@@ -133,5 +133,16 @@ class VDrawProjectMenuLabelsFontName:UIButton
                 labelFont.text = font.displayName()
             }
         }
+    }
+    
+    //MARK: font delegate
+    
+    func fontCurrent() -> String?
+    {
+    }
+    
+    func fontSelected(model:MDrawProjectMenuLabelsFontItem)
+    {
+        
     }
 }

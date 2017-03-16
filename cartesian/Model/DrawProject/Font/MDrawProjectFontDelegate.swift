@@ -2,6 +2,6 @@ import Foundation
 
 protocol MDrawProjectFontDelegate:class
 {
-    func fontSelected(fontName:String)
+    func fontSelected(model:MDrawProjectMenuLabelsFontItem)
     func fontCurrent() -> String?
 }
