@@ -16,7 +16,7 @@ class VDrawProjectFontCellType:UICollectionViewCell
     
     //MARK: config
     
-    func config()
+    func config(model:MDrawProjectFontTypeItem)
     {
         
     }
