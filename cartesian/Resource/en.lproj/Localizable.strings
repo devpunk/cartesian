@@ -39,5 +39,8 @@
 "MDrawProjectMenuLabelsFontItem_typeRegular"=" Regular";
 "MDrawProjectMenuLabelsFontItem_typeBold"=" Bold";
 "MDrawProjectMenuLabelsFontItem_typeItalic"=" Italic";
+"MDrawProjectFontTypeItemRegular_name"="Regular";
+"MDrawProjectFontTypeItemBold_name"="Bold";
+"MDrawProjectFontTypeItemItalic_name"="Italic";
 
 "DProject_defaultTitle"="Unamed project";

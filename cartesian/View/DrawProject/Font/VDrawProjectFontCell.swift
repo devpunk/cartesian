@@ -124,16 +124,20 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
         return item
     }
     
-    //MARK: public
-    
-    func config(controller:CDrawProject, model:MDrawProjectMenuLabelsFontItem)
+    private func updateLabel()
     {
-        self.controller = controller
-        self.model = model
-        modelTypes = MDrawProjectFontType(model:model)
+        guard
+            
+            let model:MDrawProjectMenuLabelsFontItem = self.model
+        
+        else
+        {
+            return
+        }
+        
         label.text = model.name
         label.font = UIFont.systemFont(ofSize:kFontSize)
-    
+        
         if let currentType:String = model.currentType
         {
             if let font:UIFont = UIFont(name:currentType, size:kFontSize)
@@ -141,9 +145,28 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
                 label.font = font
             }
         }
+    }
+    
+    //MARK: public
+    
+    func config(controller:CDrawProject, model:MDrawProjectMenuLabelsFontItem)
+    {
+        self.controller = controller
+        self.model = model
+        modelTypes = MDrawProjectFontType(model:model)
         
-        hover()
         collectionView.reloadData()
+        
+        if let indexSelected:IndexPath = modelTypes?.indexPath
+        {
+            collectionView.selectItem(
+                at:indexSelected,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
+        
+        updateLabel()
+        hover()
     }
     
     //MARK: collectionView delegate
@@ -177,5 +200,21 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        guard
+            
+            let model:MDrawProjectMenuLabelsFontItem = self.model
+        
+        else
+        {
+            return
+        }
+        
+        let item:MDrawProjectFontTypeItem = modelAtIndex(index:indexPath)
+        item.selected(model:model)
+        updateLabel()
     }
 }
