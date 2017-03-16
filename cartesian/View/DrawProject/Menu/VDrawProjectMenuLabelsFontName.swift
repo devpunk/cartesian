@@ -5,8 +5,8 @@ class VDrawProjectMenuLabelsFontName:UIButton
     let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
     private weak var labelFont:UILabel!
-    private let kTitleBaseWidth:CGFloat = 62
-    private let kFontLeft:CGFloat = 10
+    private let kTitleLeft:CGFloat = 10
+    private let kTitleWidth:CGFloat = 64
     private let kBorderHeight:CGFloat = 1
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
@@ -25,19 +25,14 @@ class VDrawProjectMenuLabelsFontName:UIButton
             for:UIControlEvents.touchUpInside)
         self.controller = controller
         
-        let border:VBorder = VBorder(color:UIColor.cartesianBlue)
-        
-        let titleBase:UIView = UIView()
-        titleBase.isUserInteractionEnabled = false
-        titleBase.translatesAutoresizingMaskIntoConstraints = false
-        titleBase.backgroundColor = UIColor.cartesianBlue
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.bold(size:15)
-        labelTitle.textColor = UIColor.white
+        labelTitle.font = UIFont.bolder(size:15)
+        labelTitle.textColor = UIColor.cartesianBlue
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.text = NSLocalizedString("VDrawProjectMenuLabelsFontName_labelTitle", comment:"")
         
@@ -48,32 +43,27 @@ class VDrawProjectMenuLabelsFontName:UIButton
         labelFont.textColor = UIColor.black
         self.labelFont = labelFont
         
-        titleBase.addSubview(labelTitle)
         addSubview(border)
-        addSubview(titleBase)
+        addSubview(labelTitle)
         addSubview(labelFont)
         
         NSLayoutConstraint.equalsVertical(
-            view:titleBase,
+            view:labelTitle,
             toView:self)
         NSLayoutConstraint.leftToLeft(
-            view:titleBase,
-            toView:self)
-        NSLayoutConstraint.width(
-            view:titleBase,
-            constant:kTitleBaseWidth)
-        
-        NSLayoutConstraint.equals(
             view:labelTitle,
-            toView:titleBase)
+            toView:self,
+            constant:kTitleLeft)
+        NSLayoutConstraint.width(
+            view:labelTitle,
+            constant:kTitleWidth)
         
         NSLayoutConstraint.equalsVertical(
             view:labelFont,
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:labelFont,
-            toView:titleBase,
-            constant:kFontLeft)
+            toView:labelTitle)
         NSLayoutConstraint.rightToRight(
             view:labelFont,
             toView:self)
