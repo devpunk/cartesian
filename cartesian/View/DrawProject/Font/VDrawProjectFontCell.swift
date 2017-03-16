@@ -10,17 +10,16 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
     private let kCellWidth:CGFloat = 100
     private let kBorderHeight:CGFloat = 1
     private let kLabelMargin:CGFloat = 10
-    private let kLabelHeight:CGFloat = 42
+    private let kLabelHeight:CGFloat = 54
     private let kFontSize:CGFloat = 20
     private let kAlphaSelected:CGFloat = 1
-    private let kAlphaNotSelected:CGFloat = 0.5
+    private let kAlphaNotSelected:CGFloat = 0.3
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         
-        let borderTop:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         let borderBottom:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         let label:UILabel = UILabel()
@@ -43,20 +42,9 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         }
         
-        addSubview(borderTop)
         addSubview(borderBottom)
         addSubview(label)
         addSubview(collectionView)
-        
-        NSLayoutConstraint.topToBottom(
-            view:borderTop,
-            toView:label)
-        NSLayoutConstraint.height(
-            view:borderTop,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:borderTop,
-            toView:self)
         
         NSLayoutConstraint.bottomToBottom(
             view:borderBottom,
@@ -78,6 +66,16 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
             view:label,
             toView:self,
             margin:kLabelMargin)
+        
+        NSLayoutConstraint.topToBottom(
+            view:collectionView,
+            toView:label)
+        NSLayoutConstraint.bottomToTop(
+            view:collectionView,
+            toView:borderBottom)
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -109,11 +107,13 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
         {
             alpha = kAlphaSelected
             backgroundColor = UIColor.clear
+            collectionView.isUserInteractionEnabled = true
         }
         else
         {
             alpha = kAlphaNotSelected
-            backgroundColor = UIColor(white:0.93, alpha:1)
+            backgroundColor = UIColor(white:0.9, alpha:1)
+            collectionView.isUserInteractionEnabled = false
         }
     }
     
@@ -170,6 +170,14 @@ class VDrawProjectFontCell:UICollectionViewCell, UICollectionViewDelegate, UICol
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
