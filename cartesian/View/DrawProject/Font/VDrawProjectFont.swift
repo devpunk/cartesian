@@ -4,15 +4,19 @@ class VDrawProjectFont:UIView
 {
     private weak var controller:CDrawProject!
     private weak var blurContainer:UIView!
+    private weak var delegate:MDrawProjectFontDelegate?
     private let kAnimationDuration:TimeInterval = 0.3
     
-    init(controller:CDrawProject)
+    init(
+        controller:CDrawProject,
+        delegate:MDrawProjectFontDelegate)
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
         self.controller = controller
+        self.delegate = delegate
         
         let blur:VBlur = VBlur.dark()
         
@@ -67,9 +71,9 @@ class VDrawProjectFont:UIView
         animateClose()
     }
     
-    //MARK: public
+    //MARK: private
     
-    func animateClose()
+    private func animateClose()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
         
@@ -82,15 +86,20 @@ class VDrawProjectFont:UIView
             })
         { [weak self] (done:Bool) in
             
-            self?.postChanges()
             self?.removeFromSuperview()
         }
     }
     
+    //MARK: public
+    
+    func fontSelected(fontName:String)
+    {
+        animateClose()
+        delegate?.fontSelected(fontName:fontName)
+    }
+    
     func animateShow()
     {
-        layoutBaseTop.constant = 0
-        
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             

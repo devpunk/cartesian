@@ -8,6 +8,7 @@ class VDrawProject:VView
     private(set) weak var viewColor:VDrawProjectColor?
     private(set) weak var viewSize:VDrawProjectSize?
     private(set) weak var viewRotate:VDrawProjectRotate?
+    private(set) weak var viewFont:VDrawProjectFont?
     
     override init(controller:CController)
     {
@@ -126,6 +127,25 @@ class VDrawProject:VView
         
         layoutIfNeeded()
         viewRotate.animateShow()
+    }
+    
+    func showFont(title:String, delegate:MDrawProjectFontDelegate)
+    {
+        self.viewFont?.removeFromSuperview()
+        
+        let viewFont:VDrawProjectFont = VDrawProjectFont(
+            controller:controller,
+            delegate:delegate)
+        self.viewFont = viewFont
+        
+        addSubview(viewFont)
+        
+        NSLayoutConstraint.equals(
+            view:viewFont,
+            toView:self)
+        
+        layoutIfNeeded()
+        viewFont.animateShow()
     }
     
     func refresh()
