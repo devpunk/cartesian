@@ -7,6 +7,10 @@ class VDrawProjectFontBar:UIView
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
     private let kBorderHeight:CGFloat = 1
+    private let kButtonWidth:CGFloat = 120
+    private let kButtonRight:CGFloat = -10
+    private let kButtonMargin:CGFloat = 6
+    private let kCornerRadius:CGFloat = 6
     
     init(controller:CDrawProject)
     {
@@ -20,14 +24,31 @@ class VDrawProjectFontBar:UIView
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.bold(size:15)
-        labelTitle.textColor = UIColor(white:0, alpha:0.4)
+        labelTitle.font = UIFont.bold(size:14)
+        labelTitle.textColor = UIColor(white:0, alpha:0.7)
         self.labelTitle = labelTitle
+        
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.clipsToBounds = true
+        button.backgroundColor = UIColor.cartesianOrange
+        button.layer.cornerRadius = kCornerRadius
+        button.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        button.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        button.setTitle(
+            NSLocalizedString("VDrawProjectFontBar_cancel", comment:""),
+            for:UIControlState.normal)
+        button.titleLabel!.font = UIFont.bold(size:14)
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(border)
         addSubview(labelTitle)
+        addSubview(button)
         
         NSLayoutConstraint.equalsVertical(
             view:labelTitle,
@@ -49,6 +70,18 @@ class VDrawProjectFontBar:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:border,
             toView:self)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:button,
+            toView:self,
+            margin:kButtonMargin)
+        NSLayoutConstraint.rightToRight(
+            view:button,
+            toView:self,
+            constant:kButtonRight)
+        NSLayoutConstraint.width(
+            view:button,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
