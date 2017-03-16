@@ -23,8 +23,7 @@
 "VDrawProjectMenuLabelsFontSize_labelTitle"="Size  ";
 "VDrawProjectMenuLabelsFontName_labelTitle"="Font";
 "VDrawProjectMenuLabelsFontName_fontTitle"="Select default font";
-"VDrawProjectFontBar_cancel"="Cancel";
-"VDrawProjectFontCell_button"="Select";
+"VDrawProjectFontBar_accept"="Accept";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

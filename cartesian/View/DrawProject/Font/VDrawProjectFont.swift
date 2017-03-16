@@ -3,6 +3,7 @@ import UIKit
 class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
     private let model:MDrawProjectMenuLabelsFont
+    private let indexPath:IndexPath?
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private(set) weak var viewBar:VDrawProjectFontBar!
@@ -12,14 +13,12 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     private let kBaseHeight:CGFloat = 300
     private let kBarHeight:CGFloat = 50
     private let kAnimationDuration:TimeInterval = 0.3
-    private let kCellHeight:CGFloat = 90
+    private let kCellHeight:CGFloat = 95
     
     init(
         controller:CDrawProject,
         delegate:MDrawProjectFontDelegate)
     {
-        let indexPath:IndexPath?
-        
         if let model:MDrawProjectMenuLabelsFont = delegate.fontModel()
         {
             self.model = model
@@ -187,11 +186,30 @@ class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSou
     {
         layoutBaseTop.constant = -kBaseHeight
         
-        UIView.animate(withDuration:kAnimationDuration)
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
         { [weak self] in
             
             self?.blurContainer.alpha = 0.95
             self?.layoutIfNeeded()
+            
+        })
+        { [weak self] (done:Bool) in
+            
+            guard
+            
+                let indexPath:IndexPath = self?.indexPath
+            
+            else
+            {
+                return
+            }
+            
+            self?.collectionView.selectItem(
+                at:indexPath,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition.top)
         }
     }
     

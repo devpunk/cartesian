@@ -7,7 +7,7 @@ class VDrawProjectFontBar:UIView
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
     private let kBorderHeight:CGFloat = 1
-    private let kButtonWidth:CGFloat = 90
+    private let kButtonWidth:CGFloat = 100
     private let kButtonMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 6
     
@@ -30,7 +30,7 @@ class VDrawProjectFontBar:UIView
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
-        button.backgroundColor = UIColor.cartesianOrange
+        button.backgroundColor = UIColor.cartesianBlue
         button.layer.cornerRadius = kCornerRadius
         button.setTitleColor(
             UIColor.white,
@@ -39,9 +39,9 @@ class VDrawProjectFontBar:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         button.setTitle(
-            NSLocalizedString("VDrawProjectFontBar_cancel", comment:""),
+            NSLocalizedString("VDrawProjectFontBar_accept", comment:""),
             for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.bold(size:14)
+        button.titleLabel!.font = UIFont.bolder(size:14)
         button.addTarget(
             self,
             action:#selector(actionButton(sender:)),

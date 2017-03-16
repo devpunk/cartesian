@@ -5,14 +5,11 @@ class VDrawProjectFontCell:UICollectionViewCell
     private weak var controller:CDrawProject?
     private weak var model:MDrawProjectMenuLabelsFontItem?
     private weak var label:UILabel!
-    private weak var button:UIButton!
     private weak var collectionView:VCollection!
     private let kBorderHeight:CGFloat = 1
     private let kLabelMargin:CGFloat = 10
-    private let kLabelHeight:CGFloat = 18
-    private let kButtonWidth:CGFloat = 90
-    private let kButtonHeight:CGFloat = 32
-    private let kCornerRadius:CGFloat = 5
+    private let kLabelHeight:CGFloat = 23
+    private let kFontSize:CGFloat = 19
     private let kAlphaSelected:CGFloat = 1
     private let kAlphaNotSelected:CGFloat = 0.5
     
@@ -27,30 +24,11 @@ class VDrawProjectFontCell:UICollectionViewCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:15)
         label.textColor = UIColor.black
         self.label = label
         
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        button.backgroundColor = UIColor.cartesianBlue
-        button.layer.cornerRadius = kCornerRadius
-        button.setTitleColor(
-            UIColor.white,
-            for:UIControlState.normal)
-        button.setTitleColor(
-            UIColor(white:1, alpha:0.2),
-            for:UIControlState.highlighted)
-        button.setTitle(
-            NSLocalizedString("VDrawProjectFontCell_button", comment:""),
-            for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.bold(size:13)
-        self.button = button
-        
         addSubview(border)
         addSubview(label)
-        addSubview(button)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -73,21 +51,6 @@ class VDrawProjectFontCell:UICollectionViewCell
             view:label,
             toView:self,
             margin:kLabelMargin)
-        
-        NSLayoutConstraint.topToTop(
-            view:button,
-            toView:self,
-            constant:kLabelMargin)
-        NSLayoutConstraint.height(
-            view:button,
-            constant:kButtonHeight)
-        NSLayoutConstraint.rightToRight(
-            view:button,
-            toView:self,
-            constant:-kLabelMargin)
-        NSLayoutConstraint.width(
-            view:button,
-            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
@@ -119,13 +82,11 @@ class VDrawProjectFontCell:UICollectionViewCell
         {
             alpha = kAlphaSelected
             backgroundColor = UIColor.clear
-            button.alpha = 1
         }
         else
         {
             alpha = kAlphaNotSelected
             backgroundColor = UIColor(white:0.93, alpha:1)
-            button.alpha = 0
         }
     }
     
@@ -136,6 +97,15 @@ class VDrawProjectFontCell:UICollectionViewCell
         self.controller = controller
         self.model = model
         label.text = model.name
+        label.font = UIFont.systemFont(ofSize:kFontSize)
+    
+        if let currentType:String = model.currentType
+        {
+            if let font:UIFont = UIFont(name:currentType, size:kFontSize)
+            {
+                label.font = font
+            }
+        }
         
         hover()
     }
