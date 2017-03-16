@@ -56,4 +56,34 @@ class MDrawProjectMenuLabelsFont
         currentFont = items.first
         self.items = items
     }
+    
+    //MARK: public
+    
+    func selectedIndex() -> IndexPath?
+    {
+        guard
+            
+            let currentFont:MDrawProjectMenuLabelsFontItem = self.currentFont
+        
+        else
+        {
+            return nil
+        }
+        
+        var index:Int = 0
+        
+        for item:MDrawProjectMenuLabelsFontItem in items
+        {
+            if item === currentFont
+            {
+                break
+            }
+            
+            index += 1
+        }
+        
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        
+        return indexPath
+    }
 }
