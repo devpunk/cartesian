@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectFont:UIView
+class VDrawProjectFont:UIView, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
     private let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
@@ -12,6 +12,7 @@ class VDrawProjectFont:UIView
     private let kBaseHeight:CGFloat = 300
     private let kBarHeight:CGFloat = 50
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kCellHeight:CGFloat = 90
     
     init(
         controller:CDrawProject,
@@ -73,6 +74,9 @@ class VDrawProjectFont:UIView
         
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VDrawProjectFontCell.self)
         self.collectionView = collectionView
         
         baseView.addSubview(viewBar)
@@ -112,6 +116,16 @@ class VDrawProjectFont:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
             toView:baseView)
+        
+        NSLayoutConstraint.topToBottom(
+            view:collectionView,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -121,7 +135,7 @@ class VDrawProjectFont:UIView
     
     override func layoutSubviews()
     {
-//        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }
@@ -131,6 +145,15 @@ class VDrawProjectFont:UIView
     func actionClose(sender button:UIButton)
     {
         animateClose()
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MDrawProjectMenuLabelsFontItem
+    {
+        let item:MDrawProjectMenuLabelsFontItem = model.items[index.item]
+        
+        return item
     }
     
     //MARK: public
@@ -169,5 +192,41 @@ class VDrawProjectFont:UIView
             self?.blurContainer.alpha = 0.95
             self?.layoutIfNeeded()
         }
+    }
+    
+    //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MDrawProjectMenuLabelsFontItem = modelAtIndex(index:indexPath)
+        let cell:VDrawProjectFontCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VDrawProjectFontCell.reusableIdentifier,
+            for:indexPath) as! VDrawProjectFontCell
+        cell.config(
+            controller:controller,
+            model:item)
+        
+        return cell
     }
 }
