@@ -106,7 +106,10 @@ class VDrawProjectMenuLabelsFontName:UIButton, MDrawProjectFontDelegate
     
     func actionButton(sender button:UIButton)
     {
-        controller.viewProject.showFont(title: <#T##String#>, delegate: <#T##MDrawProjectFontDelegate#>)
+        let titleFont:String = NSLocalizedString("VDrawProjectMenuLabelsFontName_fontTitle", comment:"")
+        controller.viewProject.showFont(
+            title:titleFont,
+            delegate:self)
     }
     
     //MARK: private
@@ -139,10 +142,18 @@ class VDrawProjectMenuLabelsFontName:UIButton, MDrawProjectFontDelegate
     
     func fontCurrent() -> String?
     {
+        let currentFont:String? = model.currentFont?.displayName()
+        
+        return currentFont
     }
     
     func fontSelected(model:MDrawProjectMenuLabelsFontItem)
     {
         
+    }
+    
+    func fontModel() -> MDrawProjectMenuLabelsFont?
+    {
+        return model
     }
 }

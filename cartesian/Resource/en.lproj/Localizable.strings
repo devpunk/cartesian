@@ -22,6 +22,7 @@
 "VDrawProjectMenuLabelsAdd_label"="Add text";
 "VDrawProjectMenuLabelsFontSize_labelTitle"="Size  ";
 "VDrawProjectMenuLabelsFontName_labelTitle"="Font";
+"VDrawProjectMenuLabelsFontName_fontTitle"="Select default font";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

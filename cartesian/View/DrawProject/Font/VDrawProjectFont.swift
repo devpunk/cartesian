@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectFont:UIView
 {
+    private let model:MDrawProjectMenuLabelsFont
     private weak var controller:CDrawProject!
     private weak var blurContainer:UIView!
     private weak var delegate:MDrawProjectFontDelegate?
@@ -11,6 +12,15 @@ class VDrawProjectFont:UIView
         controller:CDrawProject,
         delegate:MDrawProjectFontDelegate)
     {
+        if let model:MDrawProjectMenuLabelsFont = delegate.fontModel()
+        {
+            self.model = model
+        }
+        else
+        {
+            model = MDrawProjectMenuLabelsFont()
+        }
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
@@ -92,10 +102,10 @@ class VDrawProjectFont:UIView
     
     //MARK: public
     
-    func fontSelected(fontName:String)
+    func fontSelected(item:MDrawProjectMenuLabelsFontItem)
     {
         animateClose()
-        delegate?.fontSelected(fontName:fontName)
+        delegate?.fontSelected(model:item)
     }
     
     func animateShow()
