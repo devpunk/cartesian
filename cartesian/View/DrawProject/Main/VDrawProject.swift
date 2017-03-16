@@ -136,6 +136,7 @@ class VDrawProject:VView
         let viewFont:VDrawProjectFont = VDrawProjectFont(
             controller:controller,
             delegate:delegate)
+        viewFont.viewBar.labelTitle.text = title
         self.viewFont = viewFont
         
         addSubview(viewFont)

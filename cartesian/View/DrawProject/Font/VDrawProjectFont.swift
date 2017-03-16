@@ -121,7 +121,7 @@ class VDrawProjectFont:UIView
     
     override func layoutSubviews()
     {
-        collectionView.collectionViewLayout.invalidateLayout()
+//        collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
     }
