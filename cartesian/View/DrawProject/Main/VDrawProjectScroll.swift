@@ -103,10 +103,10 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
         let width:CGFloat = bounds.size.width
         let height:CGFloat = bounds.size.height
         let width_2:CGFloat = width / 2.0
-        let height_3:CGFloat = height / 3.0
+        let height_4:CGFloat = height / 4.0
         let rect:CGRect = CGRect(
             x:point.x - width_2,
-            y:point.y - height_3,
+            y:point.y - height_4,
             width:width,
             height:height)
         

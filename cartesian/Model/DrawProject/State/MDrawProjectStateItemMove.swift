@@ -5,7 +5,6 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
     private(set) var movingNode:VDrawProjectCanvasNode?
     private(set) var deltaX:CGFloat?
     private(set) var deltaY:CGFloat?
-
     private let kScrollEnabled:Bool = true
     
     init(controller:CDrawProject)

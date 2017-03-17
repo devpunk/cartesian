@@ -22,10 +22,6 @@ class CDrawProject:CController
         
         super.init()
         
-        modelState.stateStand(controller:self)
-        modelMenuState.stateHidden(
-            controller:self)
-        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
@@ -46,6 +42,14 @@ class CDrawProject:CController
         let viewProject:VDrawProject = VDrawProject(controller:self)
         self.viewProject = viewProject
         view = viewProject
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        modelState.stateStand(controller:self)
+        modelMenuState.stateHidden(
+            controller:self)
     }
     
     override func viewDidAppear(_ animated:Bool)
