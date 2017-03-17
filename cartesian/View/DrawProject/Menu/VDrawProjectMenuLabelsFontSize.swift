@@ -4,7 +4,7 @@ class VDrawProjectMenuLabelsFontSize:UIView
 {
     private weak var controller:CDrawProject!
     private weak var label:UILabel!
-    private weak var stepper:UIStepper!
+    private(set) weak var stepper:UIStepper!
     private let attributesNumber:[String:AnyObject]
     private let stringTitle:NSAttributedString
     private let kStepperTop:CGFloat = 15

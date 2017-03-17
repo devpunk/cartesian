@@ -121,13 +121,23 @@ class VDrawProjectMenuLabelsAdd:UIButton, UITextFieldDelegate
     {
         guard
             
-            let text:String = textField.text
+            let text:String = textField.text,
+            let fontName:String = controller.viewProject.viewMenu.viewLabels.viewFontName.model.currentFont?.currentType
             
         else
         {
             return
         }
         
-        print("text \(text)")
+        let fontColor:UIColor = UIColor.black
+        let fontSize:Double = controller.viewProject.viewMenu.viewLabels.viewFontSize.stepper.value
+        let intFontSize:Int16 = Int16(fontSize)
+        
+        controller.endText()
+        controller.addLabel(
+            text:text,
+            fontName:fontName,
+            fontSize:intFontSize,
+            color:fontColor)
     }
 }

@@ -3,9 +3,9 @@ import UIKit
 class VDrawProjectMenuLabels:UIView
 {
     private weak var controller:CDrawProject!
-    private weak var viewAdd:VDrawProjectMenuLabelsAdd!
-    private weak var viewFontSize:VDrawProjectMenuLabelsFontSize!
-    private weak var viewFontName:VDrawProjectMenuLabelsFontName!
+    private(set) weak var viewAdd:VDrawProjectMenuLabelsAdd!
+    private(set) weak var viewFontSize:VDrawProjectMenuLabelsFontSize!
+    private(set) weak var viewFontName:VDrawProjectMenuLabelsFontName!
     private let kAddWidth:CGFloat = 105
     private let kAddHeight:CGFloat = 60
     private let kFontNameHeight:CGFloat = 50
