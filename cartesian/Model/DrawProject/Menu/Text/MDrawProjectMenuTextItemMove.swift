@@ -1,9 +1,18 @@
-//
-//  MDrawProjectMenuTextItemMove.swift
-//  cartesian
-//
-//  Created by zero on 3/17/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MDrawProjectMenuTextItemMove:MDrawProjectMenuTextItem
+{
+    init()
+    {
+        let title:String = NSLocalizedString("MDrawProjectMenuTextItemMove_title", comment:"")
+        
+        super.init(
+            title:title,
+            image:#imageLiteral(resourceName: "assetGenericMove"))
+    }
+    
+    override func selected(controller:CDrawProject)
+    {
+        controller.startMoving()
+    }
+}
