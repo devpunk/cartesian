@@ -21,7 +21,7 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         controller.viewProject.viewScroll.viewCanvas.bringSubview(toFront:node)
         controller.viewProject.viewScroll.isScrollEnabled = false
         
-        node.startMoving()
+        node.startEditing()
         
         let modelX:CGFloat = CGFloat(model.centerX)
         let modelY:CGFloat = CGFloat(model.centerY)
@@ -69,7 +69,7 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         
         self.movingNode = nil
         controller.viewProject.viewScroll.isScrollEnabled = true
-        movingNode.stopMoving()
+        movingNode.stopEditing()
         deltaX = nil
         deltaY = nil
         

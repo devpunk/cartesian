@@ -196,7 +196,7 @@ class CDrawProject:CController
         if editingLabel != self.editingLabel
         {
             self.editingLabel = editingLabel
-            
+            editingLabel.startEditing()
             viewProject.viewScroll.centerOn(
                 point:editingLabel.center)
             

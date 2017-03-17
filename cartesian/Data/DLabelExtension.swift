@@ -5,6 +5,9 @@ extension DLabel
 {
     private static let kMaxWidth:CGFloat = 300
     private static let kMaxHeight:CGFloat = 1200
+    private static let kDrawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
+        NSStringDrawingOptions.usesLineFragmentOrigin,
+        NSStringDrawingOptions.usesFontLeading])
     
     //MARK: private
     
@@ -83,12 +86,9 @@ extension DLabel
         let maxSize:CGSize = CGSize(
             width:DLabel.kMaxWidth,
             height:DLabel.kMaxHeight)
-        let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
-            NSStringDrawingOptions.usesLineFragmentOrigin,
-            NSStringDrawingOptions.usesFontLeading])
         let stringRect:CGRect = attribuedString.boundingRect(
             with:maxSize,
-            options:drawingOptions,
+            options:DLabel.kDrawingOptions,
             context:nil)
         
         width = Float(stringRect.size.width)
@@ -117,13 +117,9 @@ extension DLabel
             context.drawPath(using:CGPathDrawingMode.stroke)
         }
         
-        let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
-            NSStringDrawingOptions.usesLineFragmentOrigin,
-            NSStringDrawingOptions.usesFontLeading])
-        
         attributedString.draw(
             with:rect,
-            options:drawingOptions,
+            options:DLabel.kDrawingOptions,
             context:nil)
     }
 }
