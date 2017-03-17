@@ -6,6 +6,40 @@ extension DLabel
     private static let kMaxWidth:CGFloat = 300
     private static let kMaxHeight:CGFloat = 1200
     
+    //MARK: private
+    
+    private func displayableString() -> NSAttributedString?
+    {
+        let fontSize:CGFloat = CGFloat(self.fontSize)
+        
+        guard
+            
+            let text:String = self.text,
+            let fontName:String = self.fontName,
+            let font:UIFont = UIFont(name:fontName, size:fontSize)
+            
+        else
+        {
+            return nil
+        }
+        
+        let red:CGFloat = CGFloat(colorRed)
+        let green:CGFloat = CGFloat(colorGreen)
+        let blue:CGFloat = CGFloat(colorBlue)
+        let alpha:CGFloat = CGFloat(colorAlpha)
+        let color:UIColor = UIColor(red:red, green:green, blue:blue, alpha:alpha)
+        
+        let attributes:[String:AnyObject] = [
+            NSFontAttributeName:font,
+            NSForegroundColorAttributeName:color]
+        
+        let attributedString:NSAttributedString = NSAttributedString(
+            string:text,
+            attributes:attributes)
+        
+        return attributedString
+    }
+    
     //MARK: public
     
     func centerAt(center:CGPoint)
@@ -61,67 +95,35 @@ extension DLabel
         height = Float(stringRect.size.height)
     }
     
-    func displayableString() -> NSAttributedString?
-    {
-        let fontSize:CGFloat = CGFloat(self.fontSize)
-        
-        guard
-        
-            let text:String = self.text,
-            let fontName:String = self.fontName,
-            let font:UIFont = UIFont(name:fontName, size:fontSize)
-        
-        else
-        {
-            return nil
-        }
-        
-        let attributes:[String:AnyObject] = [
-            NSFontAttributeName:font]
-        
-        let attributedString:NSAttributedString = NSAttributedString(
-            string:text,
-            attributes:attributes)
-        
-        return attributedString
-    }
-    
     func draw(
         rect:CGRect,
         context:CGContext,
         selected:Bool)
     {
-        let red:CGFloat = CGFloat(colorRed)
-        let green:CGFloat = CGFloat(colorGreen)
-        let blue:CGFloat = CGFloat(colorBlue)
-        let alpha:CGFloat = CGFloat(colorAlpha)
-        let rads:CGFloat = radians()
-        let midX:CGFloat = rect.midX
-        let midY:CGFloat = rect.midY
+        guard
+            
+            let attributedString:NSAttributedString = displayableString()
         
+        else
+        {
+            return
+        }
+
         if selected
         {
             context.setLineWidth(5)
             context.setStrokeColor(UIColor(white:0, alpha:0.2).cgColor)
-        }
-        else
-        {
-            context.setLineWidth(0)
+            context.addRect(rect)
+            context.drawPath(using:CGPathDrawingMode.stroke)
         }
         
-        context.setFillColor(
-            red:red,
-            green:green,
-            blue:blue,
-            alpha:alpha)
+        let drawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesLineFragmentOrigin,
+            NSStringDrawingOptions.usesFontLeading])
         
-        context.translateBy(x:midX, y:midY)
-        context.rotate(by:rads)
-        context.translateBy(x:-midX, y:-midY)
-        
-        drawPaths(
-            rect:rect,
-            context:context,
-            zoom:zoom)
+        attributedString.draw(
+            with:rect,
+            options:drawingOptions,
+            context:nil)
     }
 }
