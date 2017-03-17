@@ -97,7 +97,7 @@ class VDrawProjectMenuTextCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MDrawProjectMenuEditBarItem)
+    func config(model:MDrawProjectMenuTextItem)
     {
         imageView.image = model.image
         labelTitle.text = model.title

@@ -1,22 +1,54 @@
 import UIKit
 
-class VDrawProjectMenuText:UIView, UITextFieldDelegate
+class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate
 {
+    private let modelOptions:MDrawProjectMenuText
     private weak var controller:CDrawProject!
+    private weak var collectionView:VCollection!
     private weak var model:DLabel?
+    private let kCellWidth:CGFloat = 85
     
     init(controller:CDrawProject)
     {
+        modelOptions = MDrawProjectMenuText()
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let collectionView:VCollection = VCollection()
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.registerCell(cell:VDrawProjectMenuTextCell.self)
+        self.collectionView = collectionView
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        }
+        
+        addSubview(collectionView)
+        
+        NSLayoutConstraint.equals(
+            view:collectionView,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MDrawProjectMenuTextItem
+    {
+        let item:MDrawProjectMenuTextItem = modelOptions.items[index.item]
+        
+        return item
     }
     
     //MARK: public
@@ -65,5 +97,39 @@ class VDrawProjectMenuText:UIView, UITextFieldDelegate
                 model.notifyDraw()
             }
         }
+    }
+    
+    //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:kCellWidth, height:height)
+        
+        return size
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = modelOptions.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MDrawProjectMenuTextItem = modelAtIndex(index:indexPath)
+        let cell:VDrawProjectMenuTextCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VDrawProjectMenuTextCell.reusableIdentifier,
+            for:indexPath) as! VDrawProjectMenuTextCell
+        cell.config(model:item)
+        
+        return cell
     }
 }
