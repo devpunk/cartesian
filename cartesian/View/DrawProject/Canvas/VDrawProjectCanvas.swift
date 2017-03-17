@@ -79,7 +79,8 @@ class VDrawProjectCanvas:UIView
         
         guard
         
-            let nodes:[DNode] = controller.model?.nodes?.array as? [DNode]
+            let nodes:[DNode] = controller.model?.nodes?.array as? [DNode],
+            let labels:[DLabel] = controller.model?.labels?.array as? [DLabel]
         
         else
         {
@@ -94,6 +95,11 @@ class VDrawProjectCanvas:UIView
             
             addSubview(viewNode)
             viewNode.centerNode()
+        }
+        
+        for label:DLabel in labels
+        {
+            
         }
     }
 }
