@@ -15,7 +15,6 @@ class VDrawProjectCanvasLabel:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
         self.controller = controller
         
