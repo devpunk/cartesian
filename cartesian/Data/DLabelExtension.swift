@@ -113,8 +113,9 @@ extension DLabel
         {
             context.setLineWidth(5)
             context.setStrokeColor(UIColor(white:0, alpha:0.2).cgColor)
+            context.setFillColor(UIColor(white:1, alpha:0.9).cgColor)
             context.addRect(rect)
-            context.drawPath(using:CGPathDrawingMode.stroke)
+            context.drawPath(using:CGPathDrawingMode.fillStroke)
         }
         
         let width:CGFloat = CGFloat(self.width)

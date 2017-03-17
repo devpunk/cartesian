@@ -169,6 +169,9 @@ class CDrawProject:CController
     {
         if editingNode != self.editingNode
         {
+            editingLabel?.stopEditing()
+            editingLabel = nil
+            
             self.editingNode?.endEffect()
             editingNode.startEffect()
             self.editingNode = editingNode
@@ -195,6 +198,10 @@ class CDrawProject:CController
     {
         if editingLabel != self.editingLabel
         {
+            editingNode?.endEffect()
+            editingNode = nil
+            
+            self.editingLabel?.stopEditing()
             self.editingLabel = editingLabel
             editingLabel.startEditing()
             viewProject.viewScroll.centerOn(
@@ -210,7 +217,8 @@ class CDrawProject:CController
             }
             
             modelState.stateEditing(controller:self)
-            modelMenuState.current?.hide()
+            startText(delegate: <#T##UITextFieldDelegate#>)
+            modelMenuState.current?.show()
         }
     }
     
@@ -256,7 +264,9 @@ class CDrawProject:CController
     func stopEdition()
     {
         editingNode?.endEffect()
+        editingLabel?.stopEditing()
         editingNode = nil
+        editingLabel = nil
         
         modelState.stateStand(controller:self)
         viewProject.viewMenu.viewBar.modeNormal()
