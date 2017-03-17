@@ -117,8 +117,20 @@ extension DLabel
             context.drawPath(using:CGPathDrawingMode.stroke)
         }
         
+        let width:CGFloat = CGFloat(self.width)
+        let height:CGFloat = CGFloat(self.height)
+        let remainWidth:CGFloat = rect.size.width - width
+        let remainHeight:CGFloat = rect.size.height - height
+        let left:CGFloat = remainWidth / 2.0
+        let top:CGFloat = remainHeight / 2.0
+        let rectString:CGRect = CGRect(
+            x:left,
+            y:top,
+            width:width,
+            height:height)
+        
         attributedString.draw(
-            with:rect,
+            with:rectString,
             options:DLabel.kDrawingOptions,
             context:nil)
     }
