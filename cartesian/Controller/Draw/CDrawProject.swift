@@ -217,7 +217,7 @@ class CDrawProject:CController
             }
             
             modelState.stateEditing(controller:self)
-            startText(delegate: <#T##UITextFieldDelegate#>)
+            viewProject.viewMenu.displayText(model:labelModel)
             modelMenuState.current?.show()
         }
     }

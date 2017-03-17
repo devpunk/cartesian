@@ -16,4 +16,9 @@ class MDrawProjectMenuState
     {
         current = MDrawProjectMenuStateItemShown(controller:controller)
     }
+    
+    func stateHalf(controller:CDrawProject)
+    {
+        current = MDrawProjectMenuStateItemHalf(controller:controller)
+    }
 }

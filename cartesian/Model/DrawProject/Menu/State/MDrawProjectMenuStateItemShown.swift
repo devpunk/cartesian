@@ -11,26 +11,7 @@ class MDrawProjectMenuStateItemShown:MDrawProjectMenuStateItem
             bottom:kBottom)
     }
     
-    override func hide()
+    override func show()
     {
-        controller.modelMenuState.stateHidden(
-            controller:controller)
-        
-        guard
-            
-            let newBottom:CGFloat = controller.modelMenuState.current?.bottom
-            
-        else
-        {
-            return
-        }
-        
-        controller.viewProject.viewMenu.layoutBottom.constant = newBottom
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak controller] in
-            
-            controller?.viewProject.layoutIfNeeded()
-        }
     }
 }

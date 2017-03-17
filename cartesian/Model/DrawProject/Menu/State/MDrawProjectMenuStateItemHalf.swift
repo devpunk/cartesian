@@ -1,8 +1,8 @@
 import UIKit
 
-class MDrawProjectMenuStateItemHidden:MDrawProjectMenuStateItem
+class MDrawProjectMenuStateItemHalf:MDrawProjectMenuStateItem
 {
-    private let kBottom:CGFloat = 140
+    private let kBottom:CGFloat = 50
     
     init(controller:CDrawProject)
     {
@@ -11,7 +11,7 @@ class MDrawProjectMenuStateItemHidden:MDrawProjectMenuStateItem
             bottom:kBottom)
     }
     
-    override func hide()
+    override func half()
     {
     }
 }
