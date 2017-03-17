@@ -20,11 +20,22 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
         NSLayoutConstraint.equals(
             view:viewSpatial,
             toView:self)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(self.notifiedLabelDraw(sender:)),
+            name:Notification.labelDraw,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func draw(_ rect:CGRect)

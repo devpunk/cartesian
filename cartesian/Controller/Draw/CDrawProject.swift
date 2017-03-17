@@ -301,6 +301,8 @@ class CDrawProject:CController
     
     func endText()
     {
+        editingLabel?.stopEditing()
+        editingLabel = nil
         modelState.stateStand(controller:self)
         modelMenuState.current?.show()
         viewProject.viewMenu.viewBar.modeNormal()

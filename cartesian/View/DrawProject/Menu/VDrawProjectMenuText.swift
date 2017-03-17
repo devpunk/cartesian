@@ -45,22 +45,25 @@ class VDrawProjectMenuText:UIView, UITextFieldDelegate
     {
         guard
             
+            let model:DLabel = self.model,
             let text:String = textField.text
             
         else
         {
             return
         }
-        /*
-        let fontColor:UIColor = UIColor.black
-        let fontSize:Double = controller.viewProject.viewMenu.viewLabels.viewFontSize.stepper.value
-        let intFontSize:Int16 = Int16(fontSize)
         
-        controller.endText()
-        controller.addLabel(
-            text:text,
-            fontName:fontName,
-            fontSize:intFontSize,
-            color:fontColor)*/
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            model.generate(text:text)
+            DManager.sharedInstance?.save()
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.controller.endText()
+                model.notifyDraw()
+            }
+        }
     }
 }

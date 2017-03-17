@@ -135,4 +135,12 @@ extension DLabel
             options:DLabel.kDrawingOptions,
             context:nil)
     }
+    
+    final func notifyDraw()
+    {
+        NotificationCenter.default.post(
+            name:Notification.labelDraw,
+            object:self,
+            userInfo:nil)
+    }
 }
