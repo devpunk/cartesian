@@ -10,15 +10,15 @@ class VDrawProjectCanvasNodeSpatial:UIView
         controller:CDrawProject,
         model:DNode)
     {
-        self.model = model
         selected = false
-        self.controller = controller
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
+        self.model = model
     }
     
     required init?(coder:NSCoder)
