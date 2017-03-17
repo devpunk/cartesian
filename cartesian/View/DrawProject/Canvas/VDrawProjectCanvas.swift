@@ -99,7 +99,12 @@ class VDrawProjectCanvas:UIView
         
         for label:DLabel in labels
         {
+            let viewLabel:VDrawProjectCanvasLabel = VDrawProjectCanvasLabel(
+                controller:controller,
+                model:label)
             
+            addSubview(viewLabel)
+            viewLabel.centerLabel()
         }
     }
 }
