@@ -173,7 +173,8 @@ class CDrawProject:CController
             editingNode.startEffect()
             self.editingNode = editingNode
             
-            centerOnEditing()
+            viewProject.viewScroll.centerOn(
+                point:editingNode.center)
             
             guard
                 
@@ -194,7 +195,22 @@ class CDrawProject:CController
     {
         if editingLabel != self.editingLabel
         {
+            self.editingLabel = editingLabel
             
+            viewProject.viewScroll.centerOn(
+                point:editingLabel.center)
+            
+            guard
+            
+                let labelModel:DLabel = editingLabel.viewSpatial.model
+            
+            else
+            {
+                return
+            }
+            
+            modelState.stateEditing(controller:self)
+            modelMenuState.current?.hide()
         }
     }
     
@@ -235,20 +251,6 @@ class CDrawProject:CController
                 }
             }
         }
-    }
-    
-    func centerOnEditing()
-    {
-        guard
-            
-            let point:CGPoint = editingNode?.center
-        
-        else
-        {
-            return
-        }
-        
-        viewProject.viewScroll.centerOn(point:point)
     }
     
     func stopEdition()

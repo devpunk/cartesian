@@ -29,13 +29,13 @@ class VDrawProjectCanvasView:UIView
     {
     }
     
-    func startMoving()
+    func startEditing()
     {
         selected = true
         setNeedsDisplay()
     }
     
-    func stopMoving()
+    func stopEditing()
     {
         selected = false
         setNeedsDisplay()

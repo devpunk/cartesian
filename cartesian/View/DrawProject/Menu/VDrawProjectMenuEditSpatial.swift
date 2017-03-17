@@ -113,6 +113,16 @@ class VDrawProjectMenuEditSpatial:UIView
     
     func actionButton(sender button:UIButton)
     {
-        controller.centerOnEditing()
+        guard
+            
+            let point:CGPoint = controller.editingNode?.center
+        
+        else
+        {
+            return
+        }
+        
+        controller.viewProject.viewScroll.centerOn(
+            point:point)
     }
 }

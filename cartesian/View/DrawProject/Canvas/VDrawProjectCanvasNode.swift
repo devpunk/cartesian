@@ -133,7 +133,6 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
     
     func startEffect()
     {
-        selected = true
         viewEffect.start()
         
         timer?.invalidate()
@@ -143,14 +142,14 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
             selector:#selector(actionTick(sender:)),
             userInfo:nil,
             repeats:true)
-        setNeedsDisplay()
+        
+        startEditing()
     }
     
     func endEffect()
     {
-        selected = false
         viewEffect.end()
         timer?.invalidate()
-        setNeedsDisplay()
+        stopEditing()
     }
 }
