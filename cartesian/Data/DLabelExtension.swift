@@ -3,7 +3,7 @@ import CoreData
 
 extension DLabel
 {
-    private static let kMaxWidth:CGFloat = 300
+    private static let kMaxWidth:CGFloat = 220
     private static let kMaxHeight:CGFloat = 1200
     private static let kDrawingOptions:NSStringDrawingOptions = NSStringDrawingOptions([
         NSStringDrawingOptions.usesLineFragmentOrigin,
