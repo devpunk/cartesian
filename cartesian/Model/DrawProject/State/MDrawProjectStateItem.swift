@@ -3,10 +3,14 @@ import UIKit
 class MDrawProjectStateItem
 {
     private(set) weak var controller:CDrawProject!
+    let scrollEnabled:Bool
     
-    init(controller:CDrawProject)
+    init(
+        controller:CDrawProject,
+        scrollEnabled:Bool)
     {
         self.controller = controller
+        self.scrollEnabled = scrollEnabled
     }
     
     //MARK: public

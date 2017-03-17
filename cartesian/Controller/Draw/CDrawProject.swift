@@ -204,7 +204,7 @@ class CDrawProject:CController
             self.editingLabel?.stopEditing()
             self.editingLabel = editingLabel
             editingLabel.startEditing()
-            viewProject.viewScroll.centerOn(
+            viewProject.viewScroll.centerTopOn(
                 point:editingLabel.center)
             
             guard
@@ -216,9 +216,8 @@ class CDrawProject:CController
                 return
             }
             
-            modelState.stateEditing(controller:self)
             viewProject.viewMenu.displayText(model:labelModel)
-            modelMenuState.current?.show()
+            modelMenuState.current?.half()
         }
     }
     

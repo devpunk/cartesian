@@ -2,7 +2,7 @@ import UIKit
 
 class MDrawProjectMenuStateItemHalf:MDrawProjectMenuStateItem
 {
-    private let kBottom:CGFloat = 50
+    private let kBottom:CGFloat = 90
     
     init(controller:CDrawProject)
     {
