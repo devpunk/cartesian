@@ -2,14 +2,14 @@ import UIKit
 
 class VDrawProjectCanvasNodeEffect:UIView
 {
-    private weak var controller:CDrawProject!
+    private weak var viewCanvas:VDrawProjectCanvasView!
     private var model:MDrawProjectCanvasEffect?
     private let image:UIImage
     private let imageWidth:CGFloat
     private let imageHeight:CGFloat
     
     init(
-        controller:CDrawProject,
+        viewCanvas:VDrawProjectCanvasView,
         model:DNode)
     {
         image = #imageLiteral(resourceName: "assetNodeEffectStar")
@@ -22,10 +22,10 @@ class VDrawProjectCanvasNodeEffect:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
-        self.controller = controller
+        self.viewCanvas = viewCanvas
         
         let viewMask:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
-            controller:controller,
+            viewCanvas:viewCanvas,
             model:model)
         mask = viewMask
     }

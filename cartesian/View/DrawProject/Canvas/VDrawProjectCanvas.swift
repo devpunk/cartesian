@@ -94,7 +94,7 @@ class VDrawProjectCanvas:UIView
                 model:node)
             
             addSubview(viewNode)
-            viewNode.centerNode()
+            viewNode.positionCenter()
         }
         
         for label:DLabel in labels
@@ -104,7 +104,7 @@ class VDrawProjectCanvas:UIView
                 model:label)
             
             addSubview(viewLabel)
-            viewLabel.centerLabel()
+            viewLabel.positionCenter()
         }
     }
 }

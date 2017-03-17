@@ -3,21 +3,18 @@ import UIKit
 class VDrawProjectCanvasNodeSpatial:UIView
 {
     private(set) weak var model:DNode?
-    private weak var controller:CDrawProject!
-    var selected:Bool
+    private weak var viewCanvas:VDrawProjectCanvasView!
     
     init(
-        controller:CDrawProject,
+        viewCanvas:VDrawProjectCanvasView,
         model:DNode)
     {
-        selected = false
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        self.controller = controller
+        self.viewCanvas = viewCanvas
         self.model = model
     }
     
@@ -38,12 +35,12 @@ class VDrawProjectCanvasNodeSpatial:UIView
             return
         }
         
-        let zoom:CGFloat = controller.modelZoom.currentZoom()
+        let zoom:CGFloat = viewCanvas.controller.modelZoom.currentZoom()
         
         model.draw(
             rect:rect,
             context:context,
             zoom:zoom,
-            selected:selected)
+            selected:viewCanvas.selected)
     }
 }

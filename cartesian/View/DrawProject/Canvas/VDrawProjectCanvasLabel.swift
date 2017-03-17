@@ -1,25 +1,17 @@
 import UIKit
 
-class VDrawProjectCanvasLabel:UIView
+class VDrawProjectCanvasLabel:VDrawProjectCanvasView
 {
     private(set) weak var viewSpatial:VDrawProjectCanvasLabelSpatial!
-    private weak var controller:CDrawProject!
-    private let margin2:CGFloat
-    private let kMargin:CGFloat = 20
     
     init(
         controller:CDrawProject,
         model:DLabel)
     {
-        margin2 = kMargin + kMargin
-        
-        super.init(frame:CGRect.zero)
-        clipsToBounds = true
-        backgroundColor = UIColor.clear
-        self.controller = controller
+        super.init(controller:controller)
         
         let viewSpatial:VDrawProjectCanvasLabelSpatial = VDrawProjectCanvasLabelSpatial(
-            controller:controller,
+            viewCanvas:self,
             model:model)
         self.viewSpatial = viewSpatial
         
@@ -40,34 +32,11 @@ class VDrawProjectCanvasLabel:UIView
         viewSpatial.setNeedsDisplay()
     }
     
-    //MARK: notifications
-    
-    func notifiedLabelDraw(sender notification:Notification)
+    override func positionCenter()
     {
         guard
             
-            let labelSender:DLabel = notification.object as? DLabel,
-            let currentLabel:DLabel = viewSpatial.model
-            
-        else
-        {
-            return
-        }
-        
-        if currentLabel === labelSender
-        {
-            centerLabel()
-            layoutIfNeeded()
-        }
-    }
-    
-    //MARK: public
-    
-    func centerLabel()
-    {
-        guard
-            
-            let model:DLabel = self.viewSpatial.model
+            let model:DLabel = viewSpatial.model
             
         else
         {
@@ -94,27 +63,24 @@ class VDrawProjectCanvasLabel:UIView
             height:heightExpanded)
     }
     
-    func startSelected()
-    {
-        viewSpatial.selected = true
-        setNeedsDisplay()
-    }
+    //MARK: notifications
     
-    func endSelected()
+    func notifiedLabelDraw(sender notification:Notification)
     {
-        viewSpatial.selected = false
-        setNeedsDisplay()
-    }
-    
-    func startMoving()
-    {
-        viewSpatial.selected = true
-        setNeedsDisplay()
-    }
-    
-    func stopMoving()
-    {
-        viewSpatial.selected = false
-        setNeedsDisplay()
+        guard
+            
+            let labelSender:DLabel = notification.object as? DLabel,
+            let currentLabel:DLabel = viewSpatial.model
+            
+        else
+        {
+            return
+        }
+        
+        if currentLabel === labelSender
+        {
+            positionCenter()
+            layoutIfNeeded()
+        }
     }
 }

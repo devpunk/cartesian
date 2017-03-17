@@ -1,33 +1,25 @@
 import UIKit
 
-class VDrawProjectCanvasNode:UIView
+class VDrawProjectCanvasNode:VDrawProjectCanvasView
 {
     private(set) weak var viewSpatial:VDrawProjectCanvasNodeSpatial!
-    private weak var controller:CDrawProject!
     private weak var timer:Timer?
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
-    private let margin2:CGFloat
-    private let kMargin:CGFloat = 20
     private let kTimerInterval:TimeInterval = 0.05
     
     init(
         controller:CDrawProject,
         model:DNode)
     {
-        margin2 = kMargin + kMargin
-        
-        super.init(frame:CGRect.zero)
-        clipsToBounds = true
-        backgroundColor = UIColor.clear
-        self.controller = controller
+        super.init(controller:controller)
         
         let viewSpatial:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
-            controller:controller,
+            viewCanvas:self,
             model:model)
         self.viewSpatial = viewSpatial
         
         let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect(
-            controller:controller,
+            viewCanvas:self,
             model:model)
         self.viewEffect = viewEffect
         
@@ -64,51 +56,12 @@ class VDrawProjectCanvasNode:UIView
         viewSpatial.setNeedsDisplay()
     }
     
-    //MARK: notifications
-    
-    func notifiedNodeDraw(sender notification:Notification)
-    {
-        guard
-        
-            let nodeSender:DNode = notification.object as? DNode,
-            let currentNode:DNode = viewSpatial.model
-        
-        else
-        {
-            return
-        }
-        
-        if currentNode === nodeSender
-        {
-            centerNode()
-            layoutIfNeeded()
-            
-            if timer == nil
-            {
-                setNeedsDisplay()
-            }
-            else
-            {
-                startEffect()
-            }
-        }
-    }
-    
-    //MARK: actions
-    
-    func actionTick(sender timer:Timer)
-    {
-        viewEffect.tick()
-    }
-    
-    //MARK: public
-    
-    func centerNode()
+    override func positionCenter()
     {
         guard
             
-            let model:DNode = self.viewSpatial.model
-        
+            let model:DNode = viewSpatial.model
+            
         else
         {
             return
@@ -139,9 +92,48 @@ class VDrawProjectCanvasNode:UIView
             height:heightExpanded)
     }
     
+    //MARK: notifications
+    
+    func notifiedNodeDraw(sender notification:Notification)
+    {
+        guard
+        
+            let nodeSender:DNode = notification.object as? DNode,
+            let currentNode:DNode = viewSpatial.model
+        
+        else
+        {
+            return
+        }
+        
+        if currentNode === nodeSender
+        {
+            positionCenter()
+            layoutIfNeeded()
+            
+            if timer == nil
+            {
+                setNeedsDisplay()
+            }
+            else
+            {
+                startEffect()
+            }
+        }
+    }
+    
+    //MARK: actions
+    
+    func actionTick(sender timer:Timer)
+    {
+        viewEffect.tick()
+    }
+    
+    //MARK: public
+    
     func startEffect()
     {
-        viewSpatial.selected = true
+        selected = true
         viewEffect.start()
         
         timer?.invalidate()
@@ -156,21 +148,9 @@ class VDrawProjectCanvasNode:UIView
     
     func endEffect()
     {
-        viewSpatial.selected = false
+        selected = false
         viewEffect.end()
         timer?.invalidate()
-        setNeedsDisplay()
-    }
-    
-    func startMoving()
-    {
-        viewSpatial.selected = true
-        setNeedsDisplay()
-    }
-    
-    func stopMoving()
-    {
-        viewSpatial.selected = false
         setNeedsDisplay()
     }
 }

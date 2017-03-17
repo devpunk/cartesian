@@ -9,6 +9,7 @@ class CDrawProject:CController
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
     private(set) weak var editingNode:VDrawProjectCanvasNode?
+    private(set) weak var editingLabel:VDrawProjectCanvasLabel?
     private let kInitialSize:Float = 100
     
     init(model:DProject?)
@@ -186,6 +187,14 @@ class CDrawProject:CController
             modelState.stateEditing(controller:self)
             viewProject.viewMenu.displayNode(model:nodeModel)
             modelMenuState.current?.show()
+        }
+    }
+    
+    func editLabel(editingLabel:VDrawProjectCanvasLabel)
+    {
+        if editingLabel != self.editingLabel
+        {
+            
         }
     }
     
