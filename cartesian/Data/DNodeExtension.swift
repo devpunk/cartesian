@@ -61,15 +61,13 @@ extension DNode
             userInfo:nil)
     }
     
-    //MARK: public
-    
-    func centerAt(center:CGPoint)
+    final func centerAt(center:CGPoint)
     {
         centerX = Float(center.x)
         centerY = Float(center.y)
     }
     
-    func colorWithColor(color:UIColor)
+    final func colorWithColor(color:UIColor)
     {
         var red:CGFloat = 0
         var green:CGFloat = 0
@@ -87,6 +85,8 @@ extension DNode
         colorBlue = Float(blue)
         colorAlpha = Float(alpha)
     }
+    
+    //MARK: public
     
     func drawPaths(
         rect:CGRect,

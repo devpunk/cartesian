@@ -26,7 +26,7 @@ class VDrawProjectMenuBarText:UIView
         viewBase.clipsToBounds = true
         viewBase.backgroundColor = UIColor.white
         viewBase.layer.borderWidth = kBorderWidth
-        viewBase.layer.borderColor = UIColor.black.cgColor
+        viewBase.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
         viewBase.layer.cornerRadius = kContentHeight / 2.0
         self.viewBase = viewBase
         
@@ -78,12 +78,13 @@ class VDrawProjectMenuBarText:UIView
         textField.spellCheckingType = UITextSpellCheckingType.no
         textField.autocapitalizationType = UITextAutocapitalizationType.none
         textField.keyboardType = UIKeyboardType.alphabet
-        textField.font = UIFont.medium(size:15)
+        textField.font = UIFont.bold(size:15)
         self.textField = textField
         
         viewBase.addSubview(textField)
         addSubview(viewBase)
         addSubview(button)
+        addSubview(buttonClose)
         
         layoutBaseTop = NSLayoutConstraint.topToTop(
             view:viewBase,
@@ -145,6 +146,7 @@ class VDrawProjectMenuBarText:UIView
         let marginTop:CGFloat = remainContent / 2.0
         layoutButtonTop.constant = marginTop
         layoutBaseTop.constant = marginTop
+        layoutButtonCloseTop.constant = marginTop
         
         super.layoutSubviews()
     }

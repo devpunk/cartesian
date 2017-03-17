@@ -130,6 +130,40 @@ class CDrawProject:CController
         }
     }
     
+    func addLabel(
+        text:String,
+        fontName:String,
+        fontSize:Int16,
+        color:UIColor)
+    {
+        let centerPoint:CGPoint = viewProject.viewScroll.centerPoint()
+        
+        DManager.sharedInstance?.createData(
+            entityName:DLabel.entityName)
+        { [weak self] (data) in
+            
+            guard
+                
+                let label:DLabel = data as? DLabel
+            
+            else
+            {
+                return
+            }
+            
+            label.centerAt(center:centerPoint)
+            label.project = self?.model
+            label.fontName = fontName
+            label.fontSize = fontSize
+            label.colorWithColor(color:color)
+            label.generate(text:text)
+            
+            DManager.sharedInstance?.save()
+            
+            self?.reDraw()
+        }
+    }
+    
     func editNode(editingNode:VDrawProjectCanvasNode)
     {
         if editingNode != self.editingNode
