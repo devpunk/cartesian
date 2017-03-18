@@ -7,6 +7,7 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
     private weak var collectionView:VCollection!
     private weak var model:DLabel?
     private let kCellWidth:CGFloat = 85
+    private let kCellHeight:CGFloat = 60
     
     init(controller:CDrawProject)
     {
@@ -28,11 +29,18 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+            flow.itemSize = CGSize(width:kCellWidth, height:kCellHeight)
         }
         
         addSubview(collectionView)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.topToTop(
+            view:collectionView,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:collectionView,
+            constant:kCellHeight)
+        NSLayoutConstraint.equalsHorizontal(
             view:collectionView,
             toView:self)
     }
@@ -100,14 +108,6 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
     }
     
     //MARK: collectionView delegate
-    
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
-    {
-        let height:CGFloat = collectionView.bounds.maxY
-        let size:CGSize = CGSize(width:kCellWidth, height:height)
-        
-        return size
-    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {

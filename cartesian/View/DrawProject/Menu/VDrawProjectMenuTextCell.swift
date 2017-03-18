@@ -4,10 +4,8 @@ class VDrawProjectMenuTextCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
-    private let kTitleHeight:CGFloat = 15
-    private let kTitleBottom:CGFloat = -18
-    private let kImageTop:CGFloat = 5
-    private let kImageBottom:CGFloat = 20
+    private let kImageBottom:CGFloat = 15
+    private let kTitleHeight:CGFloat = 26
     private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -38,8 +36,7 @@ class VDrawProjectMenuTextCell:UICollectionViewCell
         
         NSLayoutConstraint.topToTop(
             view:imageView,
-            toView:self,
-            constant:kImageTop)
+            toView:self)
         NSLayoutConstraint.bottomToTop(
             view:imageView,
             toView:labelTitle,
@@ -50,8 +47,7 @@ class VDrawProjectMenuTextCell:UICollectionViewCell
         
         NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
-            toView:self,
-            constant:kTitleBottom)
+            toView:self)
         NSLayoutConstraint.height(
             view:labelTitle,
             constant:kTitleHeight)
