@@ -48,6 +48,7 @@
 "MDrawProjectMenuTextItemTrash_title"="Delete";
 "MDrawProjectMenuTextItemTrash_alertTitle"="Delete text?";
 "MDrawProjectMenuTextItemTrash_alertCancel"="Cancel";
-"MDrawProjectMenuTextItemTrash_alertTitle"="Delete";
+"MDrawProjectMenuTextItemTrash_alertDelete"="Delete";
+"MDrawProjectMenuTextItemFont_fontTitle"="Select text font";
 
 "DProject_defaultTitle"="Unamed project";
