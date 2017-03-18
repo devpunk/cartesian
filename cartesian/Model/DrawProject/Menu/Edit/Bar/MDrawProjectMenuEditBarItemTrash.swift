@@ -33,7 +33,7 @@ class MDrawProjectMenuEditBarItemTrash:MDrawProjectMenuEditBarItem
             UIAlertActionStyle.destructive)
         { [weak controller] (action:UIAlertAction) in
             
-            controller?.trashEditingNode()
+            controller?.trashEditing()
         }
         
         alert.addAction(actionDelete)
