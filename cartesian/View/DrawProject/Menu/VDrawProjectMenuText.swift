@@ -8,6 +8,7 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
     private weak var model:DLabel?
     private let kCellWidth:CGFloat = 90
     private let kCellHeight:CGFloat = 60
+    private let kDeselectTime:TimeInterval = 0.2
     
     init(controller:CDrawProject)
     {
@@ -131,5 +132,25 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        UIApplication.shared.keyWindow!.endEditing(true)
+        let item:MDrawProjectMenuTextItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
+        }
     }
 }
