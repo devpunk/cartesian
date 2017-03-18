@@ -2,7 +2,7 @@ import UIKit
 
 class MDrawProjectStateItemMove:MDrawProjectStateItem
 {
-    private(set) var movingNode:VDrawProjectCanvasNode?
+    private(set) var movingView:VDrawProjectCanvasView?
     private(set) var deltaX:CGFloat?
     private(set) var deltaY:CGFloat?
     private let kScrollEnabled:Bool = true
@@ -18,34 +18,63 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
     {
         guard
             
-            let node:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode,
-            let model:DNode = node.viewSpatial.model
+            let view:VDrawProjectCanvasView = touch.view as? VDrawProjectCanvasView
         
         else
         {
             return
         }
         
-        controller.viewProject.viewScroll.viewCanvas.bringSubview(toFront:node)
-        controller.viewProject.viewScroll.isScrollEnabled = false
-        
-        node.startEditing()
-        
-        let modelX:CGFloat = CGFloat(model.centerX)
-        let modelY:CGFloat = CGFloat(model.centerY)
         let touchPoint:CGPoint = touch.location(
             in:controller.viewProject.viewScroll.viewCanvas)
         
-        deltaX = modelX - touchPoint.x
-        deltaY = modelY - touchPoint.y
-        movingNode = node
+        if let viewNode:VDrawProjectCanvasNode = view as? VDrawProjectCanvasNode
+        {
+            guard
+                
+                let model:DNode = viewNode.viewSpatial.model
+                
+            else
+            {
+                return
+            }
+            
+            let modelX:CGFloat = CGFloat(model.centerX)
+            let modelY:CGFloat = CGFloat(model.centerY)
+            
+            deltaX = modelX - touchPoint.x
+            deltaY = modelY - touchPoint.y
+        }
+        else if let viewLabel:VDrawProjectCanvasLabel = view as? VDrawProjectCanvasLabel
+        {
+            guard
+                
+                let model:DLabel = viewLabel.viewSpatial.model
+                
+            else
+            {
+                return
+            }
+            
+            let modelX:CGFloat = CGFloat(model.centerX)
+            let modelY:CGFloat = CGFloat(model.centerY)
+            
+            deltaX = modelX - touchPoint.x
+            deltaY = modelY - touchPoint.y
+        }
+        
+        controller.viewProject.viewScroll.viewCanvas.bringSubview(
+            toFront:view)
+        controller.viewProject.viewScroll.isScrollEnabled = false
+        movingView = view
+        view.startEditing()
     }
     
     override func touchMoved(touch:UITouch)
     {
         guard
             
-            let movingNode:DNode = self.movingNode?.viewSpatial.model,
+            let movingView:VDrawProjectCanvasView = self.movingView,
             let deltaX:CGFloat = self.deltaX,
             let deltaY:CGFloat = self.deltaY
             
@@ -59,25 +88,52 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         let pointX:Float = Float(point.x + deltaX)
         let pointY:Float = Float(point.y + deltaY)
         
-        movingNode.centerX = pointX
-        movingNode.centerY = pointY
-        movingNode.notifyDraw()
+        if let movingNode:VDrawProjectCanvasNode = movingView as? VDrawProjectCanvasNode
+        {
+            guard
+            
+                let movingModel:DNode = movingNode.viewSpatial.model
+            
+            else
+            {
+                return
+            }
+            
+            movingModel.centerX = pointX
+            movingModel.centerY = pointY
+            movingModel.notifyDraw()
+        }
+        else if let movingLabel:VDrawProjectCanvasLabel = movingView as? VDrawProjectCanvasLabel
+        {
+            guard
+                
+                let movingModel:DLabel = movingLabel.viewSpatial.model
+                
+            else
+            {
+                return
+            }
+            
+            movingModel.centerX = pointX
+            movingModel.centerY = pointY
+            movingModel.notifyDraw()
+        }
     }
     
     override func touchFinished()
     {
         guard
             
-            let movingNode:VDrawProjectCanvasNode = self.movingNode
+            let movingView:VDrawProjectCanvasView = self.movingView
             
         else
         {
             return
         }
         
-        self.movingNode = nil
+        self.movingView = nil
         controller.viewProject.viewScroll.isScrollEnabled = true
-        movingNode.stopEditing()
+        movingView.stopEditing()
         deltaX = nil
         deltaY = nil
         
