@@ -42,6 +42,8 @@
 "MDrawProjectFontTypeItemRegular_name"="Regular";
 "MDrawProjectFontTypeItemBold_name"="Bold";
 "MDrawProjectFontTypeItemItalic_name"="Italic";
+"MDrawProjectMenuTextItemFont_title"="Font";
+"MDrawProjectMenuTextItemSize_title"="Size";
 "MDrawProjectMenuTextItemMove_title"="Move";
 "MDrawProjectMenuTextItemTrash_title"="Delete";
 

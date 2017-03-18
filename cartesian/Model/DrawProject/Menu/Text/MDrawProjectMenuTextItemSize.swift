@@ -8,7 +8,7 @@ class MDrawProjectMenuTextItemSize:MDrawProjectMenuTextItem
         
         super.init(
             title:title,
-            image:#imageLiteral(resourceName: "assetGenericMove"))
+            image:#imageLiteral(resourceName: "assetGenericFontSize"))
     }
     
     override func selected(controller:CDrawProject)
