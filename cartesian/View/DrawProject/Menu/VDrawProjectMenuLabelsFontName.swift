@@ -142,9 +142,7 @@ class VDrawProjectMenuLabelsFontName:UIButton, MDrawProjectFontDelegate
     
     func fontCurrent() -> String?
     {
-        let currentFont:String? = model.currentFont?.displayName()
-        
-        return currentFont
+        return nil
     }
     
     func fontSelected(model:MDrawProjectMenuLabelsFontItem)

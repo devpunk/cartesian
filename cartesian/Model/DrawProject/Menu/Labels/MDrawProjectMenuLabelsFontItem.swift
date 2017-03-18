@@ -78,9 +78,7 @@ class MDrawProjectMenuLabelsFontItem
     {
         if let typeRegular:String = typeRegular
         {
-            currentType = typeRegular
-            
-            if displayName() == name
+            if typeRegular == name
             {
                 return true
             }
@@ -88,9 +86,7 @@ class MDrawProjectMenuLabelsFontItem
         
         if let typeBold:String = typeBold
         {
-            currentType = typeBold
-            
-            if displayName() == name
+            if typeBold == name
             {
                 return true
             }
@@ -98,9 +94,7 @@ class MDrawProjectMenuLabelsFontItem
        
         if let typeItalic:String = typeItalic
         {
-            currentType = typeItalic
-            
-            if displayName() == name
+            if typeItalic == name
             {
                 return true
             }
