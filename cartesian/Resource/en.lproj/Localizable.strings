@@ -14,7 +14,7 @@
 "VDrawProjectSize_titleHeight"="height";
 "VDrawProjectSize_default"="0";
 "VDrawProjectSizeDimension_placeholder"="0";
-"VDrawProjectMenuBarMove_labelTitle"="Drag and drop nodes";
+"VDrawProjectMenuBarMove_labelTitle"="Drag nodes and labels";
 "VDrawProjectMenuBarMove_button"="Done";
 "VDrawProjectMenuSettingsTitle_labelTitle"="Project";
 "VDrawProjectRotate_buttonDone"="Done";
