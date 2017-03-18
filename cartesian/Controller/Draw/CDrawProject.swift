@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class CDrawProject:CController
 {
@@ -225,40 +226,42 @@ class CDrawProject:CController
         }
     }
     
-    func trashEditingNode()
+    func trashEditing()
     {
+        let model:NSManagedObject?
+        
+        if let editingNode:VDrawProjectCanvasNode = self.editingNode
+        {
+            editingNode.endEffect()
+            model = editingNode.viewSpatial.model
+        }
+        else if let editingLabel:VDrawProjectCanvasLabel = self.editingLabel
+        {
+            editingLabel.stopEditing()
+            model = editingLabel.viewSpatial.model
+        }
+        else
+        {
+            model = nil
+        }
+        
         guard
             
-            let editingNode:VDrawProjectCanvasNode = self.editingNode
-            
+            let editingModel:NSManagedObject = model
+        
         else
         {
             return
         }
         
-        editingNode.endEffect()
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            guard
-            
-                let nodeModel:DNode = self?.editingNode?.viewSpatial.model
-            
-            else
+        DManager.sharedInstance?.delete(data:editingModel)
+        {
+            DManager.sharedInstance?.save
             {
-                return
-            }
-            
-            DManager.sharedInstance?.delete(data:nodeModel)
-            {
-                DManager.sharedInstance?.save
-                {
-                    DispatchQueue.main.async
-                    { [weak self] in
-                        
-                        self?.standNormalAndDraw()
-                    }
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.standNormalAndDraw()
                 }
             }
         }
