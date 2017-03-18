@@ -92,6 +92,7 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
         {
             positionCenter()
             layoutIfNeeded()
+            setNeedsDisplay()
         }
     }
 }

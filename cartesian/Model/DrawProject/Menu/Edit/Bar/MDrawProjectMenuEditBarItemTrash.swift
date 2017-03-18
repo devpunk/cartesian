@@ -14,6 +14,8 @@ class MDrawProjectMenuEditBarItemTrash:MDrawProjectMenuEditBarItem
     override func selected(controller:CDrawProject)
     {
         UIApplication.shared.keyWindow!.endEditing(true)
+        controller.modelState.stateStand(controller:controller)
+        controller.viewProject.viewMenu.viewBar.modeNormal()
         
         let alert:UIAlertController = UIAlertController(
             title:NSLocalizedString("MDrawProjectMenuEditBarItemTrash_alertTitle", comment:""),

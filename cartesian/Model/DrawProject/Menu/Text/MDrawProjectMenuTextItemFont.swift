@@ -16,6 +16,8 @@ class MDrawProjectMenuTextItemFont:MDrawProjectMenuTextItem, MDrawProjectFontDel
     override func selected(controller:CDrawProject)
     {
         self.controller = controller
+        controller.modelState.stateStand(controller:controller)
+        controller.viewProject.viewMenu.viewBar.modeNormal()
         let titleFont:String = NSLocalizedString("MDrawProjectMenuTextItemFont_fontTitle", comment:"")
         controller.viewProject.showFont(
             title:titleFont,
@@ -40,7 +42,20 @@ class MDrawProjectMenuTextItemFont:MDrawProjectMenuTextItem, MDrawProjectFontDel
     
     func fontSelected(model:MDrawProjectMenuLabelsFontItem)
     {
-        print(model.displayName())
+        guard
+        
+            let modelLabel:DLabel = controller?.editingLabel?.viewSpatial.model,
+            let font:String = model.currentType
+        
+        else
+        {
+            return
+        }
+        
+        controller?.endText()
+        modelLabel.fontName = font
+        DManager.sharedInstance?.save()
+        modelLabel.notifyDraw()
     }
     
     func fontModel() -> MDrawProjectMenuLabelsFont?
