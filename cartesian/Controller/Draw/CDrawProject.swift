@@ -279,6 +279,8 @@ class CDrawProject:CController
     {
         editingNode?.endEffect()
         editingNode = nil
+        editingLabel?.stopEditing()
+        editingLabel = nil
         
         modelState.stateMoving(controller:self)
         modelMenuState.current?.hide()

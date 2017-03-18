@@ -289,6 +289,7 @@ class VDrawProjectMenuBar:UIView
     func modeMove()
     {
         showingText = false
+        setNeedsLayout()
         hideButtons()
         
         UIView.animate(withDuration:kAnimationDuration)
@@ -316,6 +317,7 @@ class VDrawProjectMenuBar:UIView
     func modeNormal()
     {
         showingText = false
+        setNeedsLayout()
         showButtons()
         selectNodes()
         

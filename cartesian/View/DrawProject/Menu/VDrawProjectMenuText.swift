@@ -138,7 +138,9 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
     {
         collectionView.isUserInteractionEnabled = false
         
+        controller.viewProject.viewMenu.viewBar.viewText.textField.delegate = nil
         UIApplication.shared.keyWindow!.endEditing(true)
+        
         let item:MDrawProjectMenuTextItem = modelAtIndex(index:indexPath)
         item.selected(controller:controller)
         
