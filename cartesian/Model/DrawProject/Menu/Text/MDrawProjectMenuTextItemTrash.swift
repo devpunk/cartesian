@@ -1,9 +1,17 @@
-//
-//  MDrawProjectMenuTextItemTrash.swift
-//  cartesian
-//
-//  Created by zero on 3/17/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MDrawProjectMenuTextItemTrash:MDrawProjectMenuTextItem
+{
+    init()
+    {
+        let title:String = NSLocalizedString("MDrawProjectMenuTextItemTrash_title", comment:"")
+        
+        super.init(
+            title:title,
+            image:#imageLiteral(resourceName: "assetGenericTrash"))
+    }
+    
+    override func selected(controller:CDrawProject)
+    {
+    }
+}

@@ -43,5 +43,6 @@
 "MDrawProjectFontTypeItemBold_name"="Bold";
 "MDrawProjectFontTypeItemItalic_name"="Italic";
 "MDrawProjectMenuTextItemMove_title"="Move";
+"MDrawProjectMenuTextItemTrash_title"="Delete";
 
 "DProject_defaultTitle"="Unamed project";

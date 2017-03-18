@@ -7,8 +7,10 @@ class MDrawProjectMenuText
     init()
     {
         let itemMove:MDrawProjectMenuTextItemMove = MDrawProjectMenuTextItemMove()
+        let itemTrash:MDrawProjectMenuTextItemTrash = MDrawProjectMenuTextItemTrash()
         
         items = [
-            itemMove]
+            itemMove,
+            itemTrash]
     }
 }

@@ -6,7 +6,7 @@ class VDrawProjectMenuText:UIView, UICollectionViewDelegate, UICollectionViewDat
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private weak var model:DLabel?
-    private let kCellWidth:CGFloat = 85
+    private let kCellWidth:CGFloat = 90
     private let kCellHeight:CGFloat = 60
     
     init(controller:CDrawProject)

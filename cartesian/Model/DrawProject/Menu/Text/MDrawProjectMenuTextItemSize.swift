@@ -1,10 +1,10 @@
 import UIKit
 
-class MDrawProjectMenuTextItemFont:MDrawProjectMenuTextItem
+class MDrawProjectMenuTextItemSize:MDrawProjectMenuTextItem
 {
     init()
     {
-        let title:String = NSLocalizedString("MDrawProjectMenuTextItemFont_title", comment:"")
+        let title:String = NSLocalizedString("MDrawProjectMenuTextItemSize_title", comment:"")
         
         super.init(
             title:title,
