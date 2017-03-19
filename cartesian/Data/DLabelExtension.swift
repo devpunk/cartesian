@@ -112,7 +112,7 @@ extension DLabel
         if selected
         {
             context.setLineWidth(5)
-            context.setStrokeColor(UIColor(white:0, alpha:0.2).cgColor)
+            context.setStrokeColor(UIColor.cartesianBlue.withAlphaComponent(0.4).cgColor)
             context.setFillColor(UIColor(white:1, alpha:0.9).cgColor)
             context.addRect(rect)
             context.drawPath(using:CGPathDrawingMode.fillStroke)

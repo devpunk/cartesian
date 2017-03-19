@@ -10,4 +10,30 @@ class MDrawProjectStateItemText:MDrawProjectStateItem
             controller:controller,
             scrollEnabled:kScrollEnabled)
     }
+    
+    override func touchBegan(touch:UITouch)
+    {
+        guard
+            
+            let canvasView:VDrawProjectCanvasView = touch.view as? VDrawProjectCanvasView
+            
+        else
+        {
+            return
+        }
+        
+        controller.viewProject.viewMenu.viewBar.viewText.textField.delegate = nil
+        UIApplication.shared.keyWindow!.endEditing(true)
+        controller.viewProject.viewScroll.viewCanvas.bringSubview(
+            toFront:canvasView)
+        
+        if let viewNode:VDrawProjectCanvasNode = canvasView as? VDrawProjectCanvasNode
+        {
+            controller.editNode(editingNode:viewNode)
+        }
+        else if let viewLabel:VDrawProjectCanvasLabel = canvasView as? VDrawProjectCanvasLabel
+        {
+            controller.editLabel(editingLabel:viewLabel)
+        }
+    }
 }
