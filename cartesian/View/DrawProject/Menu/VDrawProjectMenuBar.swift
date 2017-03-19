@@ -276,6 +276,7 @@ class VDrawProjectMenuBar:UIView
     func modeEdit()
     {
         showingText = false
+        setNeedsLayout()
         hideButtons()
         
         UIView.animate(withDuration:kAnimationDuration)
@@ -303,6 +304,7 @@ class VDrawProjectMenuBar:UIView
     func modeText(delegate:UITextFieldDelegate)
     {
         showingText = true
+        setNeedsLayout()
         hideButtons()
         viewText.textField.delegate = delegate
         
@@ -311,6 +313,13 @@ class VDrawProjectMenuBar:UIView
         { [weak self] in
             
             self?.viewText.textField.becomeFirstResponder()
+        }
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewEdit.alpha = 0
+            self?.viewMove.alpha = 0
         }
     }
     
