@@ -7,6 +7,7 @@ class VDrawProjectFontSize:UIView
     private weak var blurContainer:UIView!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBaseHeight:CGFloat = 200
+    private let kAnimationDuration:TimeInterval = 0.3
     
     init(
         controller:CDrawProject,
@@ -79,5 +80,46 @@ class VDrawProjectFontSize:UIView
     func actionClose(sender button:UIButton)
     {
         animateClose()
+    }
+    
+    //MARK: private
+    
+    private func animateClose()
+    {
+        layoutBaseTop.constant = 0
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            { [weak self] in
+                
+                self?.alpha = 0
+                self?.layoutIfNeeded()
+            })
+        { [weak self] (done:Bool) in
+            
+            self?.removeFromSuperview()
+        }
+    }
+    
+    //MARK: public
+    
+    func animateShow()
+    {
+        layoutBaseTop.constant = -kBaseHeight
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            { [weak self] in
+                
+                self?.blurContainer.alpha = 0.95
+                self?.layoutIfNeeded()
+                
+            })
+        { [weak self] (done:Bool) in
+            
+            
+        }
     }
 }
