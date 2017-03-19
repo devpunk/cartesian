@@ -122,8 +122,8 @@ extension DLabel
         let height:CGFloat = CGFloat(self.height)
         let remainWidth:CGFloat = rect.size.width - width
         let remainHeight:CGFloat = rect.size.height - height
-        let left:CGFloat = remainWidth / 2.0
-        let top:CGFloat = remainHeight / 2.0
+        let left:CGFloat = floor(remainWidth / 2.0)
+        let top:CGFloat = floor(remainHeight / 2.0)
         let rectString:CGRect = CGRect(
             x:left,
             y:top,
