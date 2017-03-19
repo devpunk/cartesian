@@ -91,8 +91,8 @@ extension DLabel
             options:DLabel.kDrawingOptions,
             context:nil)
         
-        width = Float(stringRect.size.width)
-        height = Float(stringRect.size.height)
+        width = Float(ceil(stringRect.size.width))
+        height = Float(ceil(stringRect.size.height))
     }
     
     func draw(
