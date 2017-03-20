@@ -61,7 +61,8 @@ class VDrawProjectFontSize:UIView
         
         layoutBaseTop = NSLayoutConstraint.topToBottom(
             view:baseView,
-            toView:self)
+            toView:self,
+            constant:-kBaseHeight)
         NSLayoutConstraint.height(
             view:baseView,
             constant:kBaseHeight)
@@ -86,7 +87,7 @@ class VDrawProjectFontSize:UIView
     
     private func animateClose()
     {
-        layoutBaseTop.constant = 0
+        layoutBaseTop.constant = -kBaseHeight
         
         UIView.animate(
             withDuration:kAnimationDuration,
@@ -106,20 +107,13 @@ class VDrawProjectFontSize:UIView
     
     func animateShow()
     {
-        layoutBaseTop.constant = -kBaseHeight
+        layoutBaseTop.constant = 0
         
-        UIView.animate(
-            withDuration:kAnimationDuration,
-            animations:
-            { [weak self] in
-                
-                self?.blurContainer.alpha = 0.95
-                self?.layoutIfNeeded()
-                
-            })
-        { [weak self] (done:Bool) in
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
             
-            
+            self?.blurContainer.alpha = 0.95
+            self?.layoutIfNeeded()
         }
     }
 }
