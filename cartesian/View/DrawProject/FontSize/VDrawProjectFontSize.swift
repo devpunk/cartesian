@@ -6,7 +6,7 @@ class VDrawProjectFontSize:UIView
     private weak var delegate:MDrawProjectFontSizeDelegate?
     private weak var blurContainer:UIView!
     private weak var layoutBaseTop:NSLayoutConstraint!
-    private let kBaseHeight:CGFloat = 200
+    private let kBaseHeight:CGFloat = 120
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(
@@ -59,7 +59,7 @@ class VDrawProjectFontSize:UIView
             view:button,
             toView:self)
         
-        layoutBaseTop = NSLayoutConstraint.topToBottom(
+        layoutBaseTop = NSLayoutConstraint.topToTop(
             view:baseView,
             toView:self,
             constant:-kBaseHeight)

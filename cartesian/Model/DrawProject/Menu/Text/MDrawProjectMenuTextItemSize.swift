@@ -25,6 +25,26 @@ class MDrawProjectMenuTextItemSize:MDrawProjectMenuTextItem, MDrawProjectFontSiz
     
     func fontSizeSelected(size:Int16)
     {
+        let modelLabel:DLabel? = controller?.editingLabel?.viewSpatial.model
         
+        controller?.endText()
+        modelLabel?.fontSize = size
+        DManager.sharedInstance?.save()
+        
+        modelLabel?.notifyDraw()
+    }
+    
+    func fontCurrentSize() -> Int16?
+    {
+        guard
+        
+            let currentSize:Int16 = controller?.editingLabel?.viewSpatial.model?.fontSize
+        
+        else
+        {
+            return nil
+        }
+        
+        return currentSize
     }
 }
