@@ -24,6 +24,7 @@
 "VDrawProjectMenuLabelsFontName_labelTitle"="Font";
 "VDrawProjectMenuLabelsFontName_fontTitle"="Select default font";
 "VDrawProjectFontBar_accept"="Accept";
+"VDrawProjectFontSize_labelTitle"="Font size";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

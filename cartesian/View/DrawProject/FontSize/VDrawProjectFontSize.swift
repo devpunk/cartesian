@@ -8,8 +8,10 @@ class VDrawProjectFontSize:UIView
     private weak var viewStepper:VDrawProjectFontSizeStepper!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBaseHeight:CGFloat = 120
-    private let kStepperWidth:CGFloat = 180
+    private let kStepperWidth:CGFloat = 200
     private let kStepperHeight:CGFloat = 70
+    private let kLabelLeft:CGFloat = 10
+    private let kLabelWidth:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(
@@ -48,6 +50,15 @@ class VDrawProjectFontSize:UIView
         let viewStepper:VDrawProjectFontSizeStepper = VDrawProjectFontSizeStepper()
         self.viewStepper = viewStepper
         
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.font = UIFont.medium(size:16)
+        label.textColor = UIColor.black
+        label.text = NSLocalizedString("VDrawProjectFontSize_labelTitle", comment:"")
+        
+        baseView.addSubview(label)
         baseView.addSubview(viewStepper)
         blurContainer.addSubview(blur)
         addSubview(blurContainer)
@@ -89,6 +100,20 @@ class VDrawProjectFontSize:UIView
         NSLayoutConstraint.width(
             view:viewStepper,
             constant:kStepperWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:label,
+            toView:baseView)
+        NSLayoutConstraint.height(
+            view:label,
+            constant:kStepperHeight)
+        NSLayoutConstraint.leftToLeft(
+            view:label,
+            toView:baseView,
+            constant:kLabelLeft)
+        NSLayoutConstraint.width(
+            view:label,
+            constant:kLabelWidth)
     }
     
     required init?(coder:NSCoder)
