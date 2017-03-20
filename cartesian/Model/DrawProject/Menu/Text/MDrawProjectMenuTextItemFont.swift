@@ -54,6 +54,7 @@ class MDrawProjectMenuTextItemFont:MDrawProjectMenuTextItem, MDrawProjectFontDel
         
         controller?.endText()
         modelLabel.fontName = font
+        modelLabel.updateGenerated()
         DManager.sharedInstance?.save()
         modelLabel.notifyDraw()
     }

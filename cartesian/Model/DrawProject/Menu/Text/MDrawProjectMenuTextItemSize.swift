@@ -29,6 +29,7 @@ class MDrawProjectMenuTextItemSize:MDrawProjectMenuTextItem, MDrawProjectFontSiz
         
         controller?.endText()
         modelLabel?.fontSize = size
+        modelLabel?.updateGenerated()
         DManager.sharedInstance?.save()
         
         modelLabel?.notifyDraw()

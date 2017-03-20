@@ -70,14 +70,12 @@ extension DLabel
         colorAlpha = Float(alpha)
     }
     
-    func generate(text:String)
+    func updateGenerated()
     {
-        self.text = text
-        
         guard
-        
+            
             let attribuedString:NSAttributedString = displayableString()
-        
+            
         else
         {
             return
@@ -93,6 +91,12 @@ extension DLabel
         
         width = Float(ceil(stringRect.size.width))
         height = Float(ceil(stringRect.size.height))
+    }
+    
+    func generate(text:String)
+    {
+        self.text = text
+        updateGenerated()
     }
     
     func draw(
