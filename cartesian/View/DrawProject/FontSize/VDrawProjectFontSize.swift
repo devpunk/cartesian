@@ -7,9 +7,14 @@ class VDrawProjectFontSize:UIView
     private weak var blurContainer:UIView!
     private weak var viewStepper:VDrawProjectFontSizeStepper!
     private weak var layoutBaseTop:NSLayoutConstraint!
+    private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kBaseHeight:CGFloat = 120
     private let kStepperWidth:CGFloat = 200
     private let kStepperHeight:CGFloat = 70
+    private let kButtonWidth:CGFloat = 100
+    private let kButtonHeight:CGFloat = 34
+    private let kButtonBottom:CGFloat = -8
+    private let kCornerRadius:CGFloat = 8
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
@@ -54,12 +59,33 @@ class VDrawProjectFontSize:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:16)
+        label.font = UIFont.medium(size:17)
         label.textColor = UIColor.black
         label.text = NSLocalizedString("VDrawProjectFontSize_labelTitle", comment:"")
         
+        let buttonDone:UIButton = UIButton()
+        buttonDone.backgroundColor = UIColor.cartesianBlue
+        buttonDone.translatesAutoresizingMaskIntoConstraints = false
+        buttonDone.clipsToBounds = true
+        buttonDone.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonDone.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonDone.setTitle(
+            NSLocalizedString("VDrawProjectFontSize_buttonDone", comment:""),
+            for:UIControlState.normal)
+        buttonDone.titleLabel!.font = UIFont.bold(size:14)
+        buttonDone.layer.cornerRadius = kCornerRadius
+        buttonDone.addTarget(
+            self,
+            action:#selector(actionClose(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         baseView.addSubview(label)
         baseView.addSubview(viewStepper)
+        baseView.addSubview(buttonDone)
         blurContainer.addSubview(blur)
         addSubview(blurContainer)
         addSubview(button)
@@ -114,11 +140,35 @@ class VDrawProjectFontSize:UIView
         NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonDone,
+            toView:baseView,
+            constant:kButtonBottom)
+        NSLayoutConstraint.height(
+            view:buttonDone,
+            constant:kButtonHeight)
+        layoutButtonLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonDone,
+            toView:baseView)
+        NSLayoutConstraint.width(
+            view:buttonDone,
+            constant:kButtonWidth)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainLeft:CGFloat = width - kButtonWidth
+        let left:CGFloat = remainLeft / 2.0
+        layoutButtonLeft.constant = left
+        
+        super.layoutSubviews()
     }
     
     //MARK: actions
