@@ -12,9 +12,9 @@ class VDrawProjectFontSize:UIView
     private let kStepperWidth:CGFloat = 200
     private let kStepperHeight:CGFloat = 70
     private let kButtonWidth:CGFloat = 100
-    private let kButtonHeight:CGFloat = 34
-    private let kButtonBottom:CGFloat = -8
-    private let kCornerRadius:CGFloat = 8
+    private let kButtonHeight:CGFloat = 32
+    private let kButtonBottom:CGFloat = -6
+    private let kCornerRadius:CGFloat = 5
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
