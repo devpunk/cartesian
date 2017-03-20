@@ -5,8 +5,11 @@ class VDrawProjectFontSize:UIView
     private weak var controller:CDrawProject!
     private weak var delegate:MDrawProjectFontSizeDelegate?
     private weak var blurContainer:UIView!
+    private weak var viewStepper:VDrawProjectFontSizeStepper!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBaseHeight:CGFloat = 120
+    private let kStepperWidth:CGFloat = 180
+    private let kStepperHeight:CGFloat = 70
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(
@@ -42,6 +45,10 @@ class VDrawProjectFontSize:UIView
         baseView.clipsToBounds = true
         baseView.backgroundColor = UIColor.white
         
+        let viewStepper:VDrawProjectFontSizeStepper = VDrawProjectFontSizeStepper()
+        self.viewStepper = viewStepper
+        
+        baseView.addSubview(viewStepper)
         blurContainer.addSubview(blur)
         addSubview(blurContainer)
         addSubview(button)
@@ -69,6 +76,19 @@ class VDrawProjectFontSize:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:baseView,
             toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewStepper,
+            toView:baseView)
+        NSLayoutConstraint.height(
+            view:viewStepper,
+            constant:kStepperHeight)
+        NSLayoutConstraint.rightToRight(
+            view:viewStepper,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:viewStepper,
+            constant:kStepperWidth)
     }
     
     required init?(coder:NSCoder)
@@ -87,6 +107,9 @@ class VDrawProjectFontSize:UIView
     
     private func animateClose()
     {
+        let selectedFont:Int16 = viewStepper.selectedFont()
+        delegate?.fontSizeSelected(size:selectedFont)
+        
         layoutBaseTop.constant = -kBaseHeight
         
         UIView.animate(
@@ -107,6 +130,9 @@ class VDrawProjectFontSize:UIView
     
     func animateShow()
     {
+        let currentSize:Int16? = delegate?.fontCurrentSize()
+        viewStepper.updateFont(current:currentSize)
+        
         layoutBaseTop.constant = 0
         
         UIView.animate(withDuration:kAnimationDuration)
