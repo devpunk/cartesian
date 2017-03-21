@@ -3,7 +3,7 @@ import CoreData
 
 extension DLink
 {
-    private static let kMarkerRadius:CGFloat = 8
+    private static let kMarkerRadius:Int16 = 8
     private static let kLineWidth:Int16 = 2
     
     override func notifyDraw()
@@ -30,7 +30,7 @@ extension DLink
             return
         }
         
-        let markerRadius:CGFloat = DLink.kMarkerRadius
+        let markerRadius:CGFloat = CGFloat(self.markerRadius)
         let markerRadius2:CGFloat = markerRadius + markerRadius
         let markerRadius_2:CGFloat = markerRadius / 2.0
         let lineWidth:CGFloat = CGFloat(self.lineWidth)
@@ -200,5 +200,6 @@ extension DLink
         
         colorWithColor(color:defaultColor)
         lineWidth = DLink.kLineWidth
+        markerRadius = DLink.kMarkerRadius
     }
 }
