@@ -301,6 +301,11 @@ class VDrawProjectMenuBar:UIView
         }
     }
     
+    func modeLink()
+    {
+        
+    }
+    
     func modeText(delegate:UITextFieldDelegate)
     {
         showingText = true

@@ -317,6 +317,10 @@ class CDrawProject:CController
     {
         editingLabel?.stopEditing()
         editingLabel = nil
+        
+        modelState.stateLinking(controller:self)
+        modelMenuState.current?.hide()
+        viewProject.viewMenu.viewBar.modeMove()
     }
     
     func stopLinking()

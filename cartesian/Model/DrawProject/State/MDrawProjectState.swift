@@ -32,6 +32,7 @@ class MDrawProjectState
     
     func stateLinking(controller:CDrawProject)
     {
-        
+        current = MDrawProjectStateItemLink(
+            controller:controller)
     }
 }
