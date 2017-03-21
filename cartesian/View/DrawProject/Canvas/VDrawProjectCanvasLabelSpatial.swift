@@ -4,11 +4,9 @@ class VDrawProjectCanvasLabelSpatial:VDrawProjectCanvasViewSpatial
 {
     private(set) weak var model:DLabel?
     
-    init(
-        viewCanvas:VDrawProjectCanvasView,
-        model:DLabel)
+    init(model:DLabel)
     {
-        super.init(viewCanvas:viewCanvas)
+        super.init()
         self.model = model
     }
     

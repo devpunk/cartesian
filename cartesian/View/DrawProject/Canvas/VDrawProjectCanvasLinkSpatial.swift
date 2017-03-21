@@ -4,11 +4,9 @@ class VDrawProjectCanvasLinkSpatial:VDrawProjectCanvasViewSpatial
 {
     private(set) weak var model:DLink?
     
-    init(
-        viewCanvas:VDrawProjectCanvasView,
-        model:DLink)
+    init(model:DLink)
     {
-        super.init(viewCanvas:viewCanvas)
+        super.init()
         self.model = model
     }
     

@@ -3,11 +3,14 @@ import UIKit
 class VDrawProjectCanvasView:UIView
 {
     private(set) weak var controller:CDrawProject!
+    private(set) weak var viewSpatial:VDrawProjectCanvasViewSpatial!
     let margin2:CGFloat
     let kMargin:CGFloat = 20
     var selected:Bool
     
-    init(controller:CDrawProject)
+    init(
+        controller:CDrawProject,
+        viewSpatial:VDrawProjectCanvasViewSpatial)
     {
         margin2 = kMargin + kMargin
         selected = false
@@ -16,6 +19,14 @@ class VDrawProjectCanvasView:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         self.controller = controller
+        self.viewSpatial = viewSpatial
+        viewSpatial.viewCanvas = self
+        
+        addSubview(viewSpatial)
+        
+        NSLayoutConstraint.equals(
+            view:viewSpatial,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

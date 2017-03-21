@@ -4,11 +4,9 @@ class VDrawProjectCanvasNodeSpatial:VDrawProjectCanvasViewSpatial
 {
     private(set) weak var model:DNode?
     
-    init(
-        viewCanvas:VDrawProjectCanvasView,
-        model:DNode)
+    init(model:DNode)
     {
-        super.init(viewCanvas:viewCanvas)
+        super.init()
         self.model = model
     }
     

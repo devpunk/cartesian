@@ -2,7 +2,7 @@ import UIKit
 
 class VDrawProjectCanvasLink:VDrawProjectCanvasView
 {
-    private(set) weak var viewSpatial:VDrawProjectCanvasLabelSpatial!
+    private(set) weak var viewSpatial:VDrawProjectCanvasLSpatial!
     
     init(
         controller:CDrawProject,

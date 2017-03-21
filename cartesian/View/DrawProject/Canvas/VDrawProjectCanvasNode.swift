@@ -2,7 +2,6 @@ import UIKit
 
 class VDrawProjectCanvasNode:VDrawProjectCanvasView
 {
-    private(set) weak var viewSpatial:VDrawProjectCanvasNodeSpatial!
     private weak var timer:Timer?
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let kTimerInterval:TimeInterval = 0.05
@@ -11,24 +10,20 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
         controller:CDrawProject,
         model:DNode)
     {
-        super.init(controller:controller)
-        
         let viewSpatial:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
-            viewCanvas:self,
             model:model)
-        self.viewSpatial = viewSpatial
+        
+        super.init(
+            controller:controller,
+            viewSpatial:viewSpatial)
         
         let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect(
             viewCanvas:self,
             model:model)
         self.viewEffect = viewEffect
         
-        addSubview(viewSpatial)
         addSubview(viewEffect)
         
-        NSLayoutConstraint.equals(
-            view:viewSpatial,
-            toView:self)
         NSLayoutConstraint.equals(
             view:viewEffect,
             toView:self)

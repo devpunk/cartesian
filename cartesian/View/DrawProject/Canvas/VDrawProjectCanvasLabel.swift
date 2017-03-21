@@ -2,24 +2,16 @@ import UIKit
 
 class VDrawProjectCanvasLabel:VDrawProjectCanvasView
 {
-    private(set) weak var viewSpatial:VDrawProjectCanvasLabelSpatial!
-    
     init(
         controller:CDrawProject,
         model:DLabel)
     {
-        super.init(controller:controller)
-        
         let viewSpatial:VDrawProjectCanvasLabelSpatial = VDrawProjectCanvasLabelSpatial(
-            viewCanvas:self,
             model:model)
-        self.viewSpatial = viewSpatial
         
-        addSubview(viewSpatial)
-        
-        NSLayoutConstraint.equals(
-            view:viewSpatial,
-            toView:self)
+        super.init(
+            controller:controller,
+            viewSpatial:viewSpatial)
         
         NotificationCenter.default.addObserver(
             self,
