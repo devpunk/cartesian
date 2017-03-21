@@ -25,6 +25,7 @@
     </entity>
     <entity name="DLink" representedClassName="DLink" parentEntity="DDrawable" syncable="YES" codeGenerationType="class">
         <attribute name="lineWidth" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="markerRadius" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="destination" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linksDestination" inverseEntity="DNode" syncable="YES"/>
         <relationship name="origin" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linksOrigin" inverseEntity="DNode" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="links" inverseEntity="DProject" syncable="YES"/>
@@ -55,7 +56,7 @@
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="DLink" positionX="-63" positionY="126" width="128" height="105"/>
+        <element name="DLink" positionX="-63" positionY="126" width="128" height="120"/>
         <element name="DDrawable" positionX="-45" positionY="135" width="128" height="105"/>
     </elements>
 </model>
