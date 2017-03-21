@@ -31,6 +31,8 @@ extension DLink
         }
         
         let markerRadius:CGFloat = DLink.kMarkerRadius
+        let markerRadius2:CGFloat = markerRadius + markerRadius
+        let markerRadius_2:CGFloat = markerRadius / 2.0
         let lineWidth:CGFloat = CGFloat(self.lineWidth)
         let red:CGFloat = CGFloat(colorRed)
         let green:CGFloat = CGFloat(colorGreen)
@@ -70,11 +72,13 @@ extension DLink
         let destinationAY:CGFloat
         let destinationBY:CGFloat
         let destinationCY:CGFloat
+        let triangleCircleX:CGFloat
+        let triangleCircleY:CGFloat
         
         if originMinX <= destinationMinX
         {
             initialX = originWidth
-            endingX = rectWidth - destinationWidth
+            endingX = rectWidth - destinationWidth - markerRadius2
             
             if originMinY <= destinationMinY
             {
@@ -90,16 +94,19 @@ extension DLink
             originPointX = initialX
             originPointY = initialY
             
-            destinationAX = endingX + markerRadius
+            destinationAX = endingX + markerRadius2
             destinationAY = endingY
-            destinationBX = endingX - markerRadius
+            destinationBX = endingX
             destinationBY = endingY + markerRadius
-            destinationCX = endingX - markerRadius
+            destinationCX = endingX
             destinationCY = endingY - markerRadius
+            
+            triangleCircleX = endingX - markerRadius_2
+            triangleCircleY = endingY - markerRadius_2
         }
         else
         {
-            initialX = destinationWidth
+            initialX = destinationWidth + markerRadius2
             endingX = rectWidth - originWidth
             
             if originMinY <= destinationMinY
@@ -116,22 +123,29 @@ extension DLink
             originPointX = endingX
             originPointY = endingY
             
-            destinationAX = initialX + markerRadius
+            destinationAX = initialX - markerRadius2
             destinationAY = initialY
-            destinationBX = initialX - markerRadius
+            destinationBX = initialX
             destinationBY = initialY + markerRadius
-            destinationCX = initialX - markerRadius
+            destinationCX = initialX
             destinationCY = initialY - markerRadius
+            
+            triangleCircleX = initialX - markerRadius_2
+            triangleCircleY = initialY - markerRadius_2
         }
         
         let initialRectX:CGFloat = originPointX - markerRadius
         let initialRectY:CGFloat = originPointY - markerRadius
-        let initialRectSize:CGFloat = markerRadius + markerRadius
         let initialRect:CGRect = CGRect(
             x:initialRectX,
             y:initialRectY,
-            width:initialRectSize,
-            height:initialRectSize)
+            width:markerRadius2,
+            height:markerRadius2)
+        let triangleCircleRect:CGRect = CGRect(
+            x:triangleCircleX,
+            y:triangleCircleY,
+            width:markerRadius,
+            height:markerRadius)
         
         let initialPoint:CGPoint = CGPoint(
             x:initialX,
@@ -166,6 +180,9 @@ extension DLink
         context.drawPath(using:CGPathDrawingMode.stroke)
         
         context.addEllipse(in:initialRect)
+        context.drawPath(using:CGPathDrawingMode.fill)
+        
+        context.addEllipse(in:triangleCircleRect)
         context.drawPath(using:CGPathDrawingMode.fill)
         
         context.move(to:trianglePointA)
