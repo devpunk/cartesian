@@ -65,22 +65,33 @@ extension DLink
         {
             initialX = originWidth
             endingX = rectWidth - destinationWidth
+            
+            if originMinY <= destinationMinY
+            {
+                initialY = originHeight_2
+                endingY = rectHeight - destinationHeight_2
+            }
+            else
+            {
+                initialY = rectHeight - originHeight_2
+                endingY = destinationHeight_2
+            }
         }
         else
         {
             initialX = destinationWidth
             endingX = rectWidth - originWidth
-        }
-        
-        if originMinY <= destinationMinY
-        {
-            initialY = originHeight_2
-            endingY = rectHeight - destinationHeight_2
-        }
-        else
-        {
-            initialY = destinationHeight_2
-            endingY = rectHeight - originHeight_2
+            
+            if originMinY <= destinationMinY
+            {
+                initialY = rectHeight - destinationHeight_2
+                endingY = originHeight_2
+            }
+            else
+            {
+                initialY = destinationHeight_2
+                endingY = rectHeight - originHeight_2
+            }
         }
         
         let initialPoint:CGPoint = CGPoint(
