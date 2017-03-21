@@ -35,45 +35,52 @@ extension DLink
         let blue:CGFloat = CGFloat(colorBlue)
         let alpha:CGFloat = CGFloat(colorAlpha)
         
-        let rectX:CGFloat = rect.origin.x
-        let rectY:CGFloat = rect.origin.y
-        let rectWidth:CGFloat = rect.size.width
-        let rectHeight:CGFloat = rect.size.height
+        let rectWidth:CGFloat = CGFloat(rect.size.width)
+        let rectHeight:CGFloat = CGFloat(rect.size.height)
+        
         let originX:CGFloat = CGFloat(origin.centerX)
         let originY:CGFloat = CGFloat(origin.centerY)
         let originWidth:CGFloat = CGFloat(origin.width)
         let originHeight:CGFloat = CGFloat(origin.height)
         let originWidth_2:CGFloat = originWidth / 2.0
         let originHeight_2:CGFloat = originHeight / 2.0
+        let originMinX:CGFloat = originX - originWidth_2
+        let originMinY:CGFloat = originY - originHeight_2
+        
         let destinationX:CGFloat = CGFloat(destination.centerX)
         let destinationY:CGFloat = CGFloat(destination.centerY)
         let destinationWidth:CGFloat = CGFloat(destination.width)
         let destinationHeight:CGFloat = CGFloat(destination.height)
         let destinationWidth_2:CGFloat = destinationWidth / 2.0
         let destinationHeight_2:CGFloat = destinationHeight / 2.0
-        let originDeltaX:CGFloat = originX - rectX
-        let originDeltaY:CGFloat = originY - rectY
-        let destinationDeltaX:CGFloat = destinationX - rectX
-        let destinationDeltaY:CGFloat = destinationY - rectY
+        let destinationMinX:CGFloat = destinationX - destinationWidth_2
+        let destinationMinY:CGFloat = destinationY - destinationHeight_2
         
         let initialX:CGFloat
         let initialY:CGFloat
         let endingX:CGFloat
         let endingY:CGFloat
         
-        if originX <= destinationX
+        if originMinX <= destinationMinX
         {
-            initialX = originDeltaX + originWidth_2
-            initialY = originDeltaY
-            endingX = destinationDeltaX - destinationWidth_2
-            endingY = destinationDeltaY
+            initialX = originWidth
+            endingX = rectWidth - destinationWidth
         }
         else
         {
-            initialX = originDeltaX - originWidth_2
-            initialY = originDeltaY
-            endingX = destinationDeltaX + destinationWidth_2
-            endingY = destinationDeltaY
+            initialX = destinationWidth
+            endingX = rectWidth - originWidth
+        }
+        
+        if originMinY <= destinationMinY
+        {
+            initialY = originHeight_2
+            endingY = rectHeight - destinationHeight_2
+        }
+        else
+        {
+            initialY = destinationHeight_2
+            endingY = rectHeight - originHeight_2
         }
         
         let initialPoint:CGPoint = CGPoint(
@@ -91,6 +98,9 @@ extension DLink
             alpha:alpha)
         context.move(to:initialPoint)
         context.addLine(to:endingPoint)
+        
+        print("rect:\(rect)  init: \(initialPoint) end: \(endingPoint)")
+        
         context.drawPath(using:CGPathDrawingMode.stroke)
     }
     
