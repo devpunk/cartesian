@@ -22,6 +22,10 @@
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="labels" inverseEntity="DProject" syncable="YES"/>
     </entity>
     <entity name="DLink" representedClassName="DLink" syncable="YES" codeGenerationType="class">
+        <attribute name="colorAlpha" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorBlue" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorGreen" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="colorRed" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lineWidth" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="destination" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linkDestination" inverseEntity="DNode" syncable="YES"/>
         <relationship name="origin" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linkOrigin" inverseEntity="DNode" syncable="YES"/>
@@ -55,6 +59,6 @@
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="DLink" positionX="-63" positionY="126" width="128" height="90"/>
+        <element name="DLink" positionX="-63" positionY="126" width="128" height="150"/>
     </elements>
 </model>
