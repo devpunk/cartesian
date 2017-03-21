@@ -75,6 +75,7 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
             movingModel.centerX = pointX
             movingModel.centerY = pointY
             movingModel.notifyDraw()
+            movingModel.notifyLinks()
         }
         else if let movingModel:DLabel = movingView.viewSpatial.model as? DLabel
         {

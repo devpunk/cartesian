@@ -38,6 +38,7 @@ class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjec
         node.width = Float(width)
         node.height = Float(height)
         node.notifyDraw()
+        node.notifyLinks()
         DManager.sharedInstance?.save()
     }
     
