@@ -258,6 +258,15 @@ class CDrawProject:CController
         }
     }
     
+    func editLink(editingView:VDrawProjectCanvasLink)
+    {
+        if editingView != self.editingView
+        {
+            self.editingView?.stopEditing()
+            
+        }
+    }
+    
     func trashEditing()
     {
         editingView?.stopEditing()
