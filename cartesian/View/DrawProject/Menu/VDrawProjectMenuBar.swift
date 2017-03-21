@@ -5,6 +5,7 @@ class VDrawProjectMenuBar:UIView
     private(set) weak var viewEdit:VDrawProjectMenuBarEdit!
     private(set) weak var viewMove:VDrawProjectMenuBarMove!
     private(set) weak var viewText:VDrawProjectMenuBarText!
+    private(set) weak var viewLink:VDrawProjectMenuBarLink!
     private weak var controller:CDrawProject!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
@@ -71,6 +72,11 @@ class VDrawProjectMenuBar:UIView
         viewMove.alpha = 0
         self.viewMove = viewMove
         
+        let viewLink:VDrawProjectMenuBarLink = VDrawProjectMenuBarLink(
+            controller:controller)
+        viewLink.alpha = 0
+        self.viewLink = viewLink
+        
         let viewText:VDrawProjectMenuBarText = VDrawProjectMenuBarText(
             controller:controller)
         self.viewText = viewText
@@ -83,6 +89,7 @@ class VDrawProjectMenuBar:UIView
         addSubview(buttonLabels)
         addSubview(viewEdit)
         addSubview(viewMove)
+        addSubview(viewLink)
         addSubview(viewText)
         
         NSLayoutConstraint.equals(
@@ -145,6 +152,10 @@ class VDrawProjectMenuBar:UIView
         
         NSLayoutConstraint.equals(
             view:viewMove,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewLink,
             toView:self)
         
          NSLayoutConstraint.equalsVertical(

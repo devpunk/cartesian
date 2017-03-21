@@ -26,6 +26,8 @@
 "VDrawProjectFontBar_accept"="Accept";
 "VDrawProjectFontSize_labelTitle"="Font size";
 "VDrawProjectFontSize_buttonDone"="Done";
+"VDrawProjectMenuBarLink_labelTitle"="Select destination node";
+"VDrawProjectMenuBarLink_button"="Cancel";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

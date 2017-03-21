@@ -13,7 +13,7 @@ class VDrawProjectMenuBarLink:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.cartesianBlue
+        backgroundColor = UIColor.cartesianOrange
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -23,7 +23,7 @@ class VDrawProjectMenuBarLink:UIView
         label.backgroundColor = UIColor.clear
         label.font = UIFont.bold(size:14)
         label.textColor = UIColor.white
-        label.text = NSLocalizedString("VDrawProjectMenuBarMove_labelTitle", comment:"")
+        label.text = NSLocalizedString("VDrawProjectMenuBarLink_labelTitle", comment:"")
         
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ class VDrawProjectMenuBarLink:UIView
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
         button.setTitle(
-            NSLocalizedString("VDrawProjectMenuBarMove_button", comment:""),
+            NSLocalizedString("VDrawProjectMenuBarLink_button", comment:""),
             for:UIControlState.normal)
         button.titleLabel!.font = UIFont.bold(size:15)
         button.layer.cornerRadius = kCornerRadius
@@ -81,6 +81,6 @@ class VDrawProjectMenuBarLink:UIView
     
     func actionButton(sender button:UIButton)
     {
-        controller.endMoving()
+        controller.stopLinking()
     }
 }
