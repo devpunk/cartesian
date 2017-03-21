@@ -6,6 +6,7 @@ class MDrawProjectMenuEditBar
     
     init()
     {
+        let itemLink:MDrawProjectMenuEditBarItemLink = MDrawProjectMenuEditBarItemLink()
         let itemColor:MDrawProjectMenuEditBarItemColor = MDrawProjectMenuEditBarItemColor()
         let itemResize:MDrawProjectMenuEditBarItemResize = MDrawProjectMenuEditBarItemResize()
         let itemMove:MDrawProjectMenuEditBarItemMove = MDrawProjectMenuEditBarItemMove()
@@ -13,6 +14,7 @@ class MDrawProjectMenuEditBar
         let itemTrash:MDrawProjectMenuEditBarItemTrash = MDrawProjectMenuEditBarItemTrash()
         
         items = [
+            itemLink,
             itemColor,
             itemResize,
             itemMove,

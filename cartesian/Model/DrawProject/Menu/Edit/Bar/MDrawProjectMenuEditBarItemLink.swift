@@ -13,6 +13,6 @@ class MDrawProjectMenuEditBarItemLink:MDrawProjectMenuEditBarItem
     
     override func selected(controller:CDrawProject)
     {
-        controller.startMoving()
+        controller.startLinking()
     }
 }

@@ -29,4 +29,9 @@ class MDrawProjectState
         current = MDrawProjectStateItemText(
             controller:controller)
     }
+    
+    func stateLinking(controller:CDrawProject)
+    {
+        
+    }
 }

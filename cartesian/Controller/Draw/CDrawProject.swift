@@ -313,6 +313,17 @@ class CDrawProject:CController
         viewProject.viewMenu.viewBar.modeNormal()
     }
     
+    func startLinking()
+    {
+        editingLabel?.stopEditing()
+        editingLabel = nil
+    }
+    
+    func stopLinking()
+    {
+        
+    }
+    
     func increaseZoom()
     {
         modelZoom.increase()
