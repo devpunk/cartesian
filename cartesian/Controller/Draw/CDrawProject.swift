@@ -315,17 +315,29 @@ class CDrawProject:CController
     
     func startLinking()
     {
+        if editingNode == nil
+        {
+            return
+        }
+        
         editingLabel?.stopEditing()
         editingLabel = nil
         
         modelState.stateLinking(controller:self)
         modelMenuState.current?.hide()
-        viewProject.viewMenu.viewBar.modeMove()
+        viewProject.viewMenu.viewBar.modeLink()
     }
     
     func stopLinking()
     {
+        editingNode?.endEffect()
+        editingNode = nil
+        editingLabel?.stopEditing()
+        editingLabel = nil
         
+        modelState.stateStand(controller:self)
+        modelMenuState.current?.show()
+        viewProject.viewMenu.viewBar.modeNormal()
     }
     
     func increaseZoom()

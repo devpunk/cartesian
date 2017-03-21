@@ -16,15 +16,23 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
     {
         guard
             
-            let linkingNode:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode
-            
+            let linkingNode:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode,
+            let editingNode:VDrawProjectCanvasNode = controller.editingNode
+        
         else
         {
             return
         }
         
-        linkingNode.startEffect()
-        self.linkingNode = linkingNode
+        if editingNode !== linkingNode
+        {
+            linkingNode.startEffect()
+            self.linkingNode = linkingNode
+        }
+        else
+        {
+            self.linkingNode = nil
+        }
     }
     
     override func touchFinished()
@@ -39,5 +47,7 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
         }
         
         DManager.sharedInstance?.save()
+        
+        self.linkingNode = nil
     }
 }
