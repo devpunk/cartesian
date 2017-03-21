@@ -71,11 +71,22 @@ extension DNode
     {
         guard
         
-            let linksOrigin:[DLink] = linksOrigin as? [DLink]
+            let linksOrigin:[DLink] = self.linksOrigin?.array as? [DLink],
+            let linksDestination:[DLink] = self.linksDestination?.array as? [DLink]
         
         else
         {
             return
+        }
+        
+        for linkOrigin:DLink in linksOrigin
+        {
+            linkOrigin.notifyDraw()
+        }
+        
+        for linkDestination in linksDestination
+        {
+            linkDestination.notifyDraw()
         }
     }
     
