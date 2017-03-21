@@ -64,11 +64,16 @@ class VDrawProjectCanvasLink:VDrawProjectCanvasView
         let deltaX:CGFloat = maxX - minX
         let deltaY:CGFloat = maxY - minY
         
+        let marginedX:CGFloat = minX - kMargin
+        let marginedY:CGFloat = minY - kMargin
+        let widthMargin:CGFloat = deltaX + margin2
+        let heightMargin:CGFloat = deltaY + margin2
+        
         frame = CGRect(
-            x:minX,
-            y:minY,
-            width:deltaX,
-            height:deltaY)
+            x:marginedX,
+            y:marginedY,
+            width:widthMargin,
+            height:heightMargin)
     }
     
     //MARK: notifications

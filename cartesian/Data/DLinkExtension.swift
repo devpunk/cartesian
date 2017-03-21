@@ -3,6 +3,7 @@ import CoreData
 
 extension DLink
 {
+    private static let kMargin:CGFloat = 20
     private static let kMarkerRadius:Int16 = 8
     private static let kLineWidth:Int16 = 2
     
@@ -30,6 +31,8 @@ extension DLink
             return
         }
         
+        let viewMargin:CGFloat = DLink.kMargin
+        let viewMargin2:CGFloat = viewMargin + viewMargin
         let markerRadius:CGFloat = CGFloat(self.markerRadius)
         let markerRadius2:CGFloat = markerRadius + markerRadius
         let markerRadius_2:CGFloat = markerRadius / 2.0
@@ -77,18 +80,18 @@ extension DLink
         
         if originMinX <= destinationMinX
         {
-            initialX = originWidth
-            endingX = rectWidth - destinationWidth - markerRadius2
+            initialX = originWidth + viewMargin
+            endingX = rectWidth - destinationWidth - markerRadius2 - viewMargin2
             
             if originMinY <= destinationMinY
             {
-                initialY = originHeight_2
-                endingY = rectHeight - destinationHeight_2
+                initialY = originHeight_2 + viewMargin
+                endingY = rectHeight - destinationHeight_2 - viewMargin2
             }
             else
             {
-                initialY = rectHeight - originHeight_2
-                endingY = destinationHeight_2
+                initialY = rectHeight - originHeight_2 - viewMargin2
+                endingY = destinationHeight_2 + viewMargin
             }
             
             originPointX = initialX
@@ -106,18 +109,18 @@ extension DLink
         }
         else
         {
-            initialX = destinationWidth + markerRadius2
-            endingX = rectWidth - originWidth
+            initialX = destinationWidth + markerRadius2 + viewMargin
+            endingX = rectWidth - originWidth - viewMargin2
             
             if originMinY <= destinationMinY
             {
-                initialY = rectHeight - destinationHeight_2
-                endingY = originHeight_2
+                initialY = rectHeight - destinationHeight_2 - viewMargin2
+                endingY = originHeight_2 + viewMargin
             }
             else
             {
-                initialY = destinationHeight_2
-                endingY = rectHeight - originHeight_2
+                initialY = destinationHeight_2 + viewMargin
+                endingY = rectHeight - originHeight_2 - viewMargin2
             }
             
             originPointX = endingX
