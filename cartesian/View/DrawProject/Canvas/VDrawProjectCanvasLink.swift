@@ -12,8 +12,8 @@ class VDrawProjectCanvasLink:VDrawProjectCanvasView
         
         NotificationCenter.default.addObserver(
             self,
-            selector:#selector(self.notifiedLabelDraw(sender:)),
-            name:Notification.labelDraw,
+            selector:#selector(self.notifiedLinkDraw(sender:)),
+            name:Notification.linkDraw,
             object:nil)
     }
     
@@ -22,62 +22,70 @@ class VDrawProjectCanvasLink:VDrawProjectCanvasView
         return nil
     }
     
-    deinit
-    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    override func draw(_ rect:CGRect)
-    {
-        viewSpatial.setNeedsDisplay()
-    }
-    
     override func positionCenter()
     {
         guard
             
-            let model:DLabel = viewSpatial.model as? DLabel
+            let model:DLink = viewSpatial.model as? DLink,
+            let nodeOrigin:DNode = model.origin,
+            let nodeDestination:DNode = model.destination
             
         else
         {
             return
         }
         
-        let originalX:CGFloat = CGFloat(model.centerX)
-        let originalY:CGFloat = CGFloat(model.centerY)
-        let widthOriginal:CGFloat = CGFloat(model.width)
-        let heightOriginal:CGFloat = CGFloat(model.height)
-        let widthOriginal_2:CGFloat = widthOriginal / 2.0
-        let heightOriginal_2:CGFloat = heightOriginal / 2.0
-        let positionedOriginalX:CGFloat = originalX - widthOriginal_2
-        let positionedOriginalY:CGFloat = originalY - heightOriginal_2
-        let positionedX:CGFloat = positionedOriginalX - kMargin
-        let positionedY:CGFloat = positionedOriginalY - kMargin
-        let widthExpanded:CGFloat = widthOriginal + margin2
-        let heightExpanded:CGFloat = heightOriginal + margin2
+        let originX:CGFloat = CGFloat(nodeOrigin.centerX)
+        let originY:CGFloat = CGFloat(nodeOrigin.centerY)
+        let originWidth:CGFloat = CGFloat(nodeOrigin.width)
+        let originHeight:CGFloat = CGFloat(nodeOrigin.height)
+        let originWidth_2:CGFloat = originWidth / 2.0
+        let originHeight_2:CGFloat = originHeight / 2.0
+        let originMinX:CGFloat = originX - originWidth_2
+        let originMinY:CGFloat = originY - originHeight_2
+        let originMaxX:CGFloat = originX + originWidth_2
+        let originMaxY:CGFloat = originY + originHeight_2
+        
+        let destinationX:CGFloat = CGFloat(nodeDestination.centerX)
+        let destinationY:CGFloat = CGFloat(nodeDestination.centerY)
+        let destinationWidth:CGFloat = CGFloat(nodeDestination.width)
+        let destinationHeight:CGFloat = CGFloat(nodeDestination.height)
+        let destinationWidth_2:CGFloat = destinationWidth / 2.0
+        let destinationHeight_2:CGFloat = destinationHeight / 2.0
+        let destinationMinX:CGFloat = destinationX - destinationWidth_2
+        let destinationMinY:CGFloat = destinationY - destinationHeight_2
+        let destinationMaxX:CGFloat = destinationX + destinationWidth_2
+        let destinationMaxY:CGFloat = destinationY + destinationHeight_2
+        
+        let minX:CGFloat = min(originMinX, destinationMinX)
+        let maxX:CGFloat = max(originMaxX, destinationMaxX)
+        let minY:CGFloat = min(originMinY, destinationMinY)
+        let maxY:CGFloat = max(originMaxY, destinationMaxY)
+        let deltaX:CGFloat = maxX - minX
+        let deltaY:CGFloat = maxY - minY
         
         frame = CGRect(
-            x:positionedX,
-            y:positionedY,
-            width:widthExpanded,
-            height:heightExpanded)
+            x:minX,
+            y:minY,
+            width:deltaX,
+            height:deltaY)
     }
     
     //MARK: notifications
     
-    func notifiedLabelDraw(sender notification:Notification)
+    func notifiedLinkDraw(sender notification:Notification)
     {
         guard
             
-            let labelSender:DLabel = notification.object as? DLabel,
-            let currentLabel:DLabel = viewSpatial.model as? DLabel
+            let linkSender:DLink = notification.object as? DLink,
+            let currentLink:DLink = viewSpatial.model as? DLink
             
-            else
+        else
         {
             return
         }
         
-        if currentLabel === labelSender
+        if currentLink === linkSender
         {
             positionCenter()
             layoutIfNeeded()

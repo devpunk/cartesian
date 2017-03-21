@@ -40,12 +40,6 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
     deinit
     {
         timer?.invalidate()
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    override func draw(_ rect:CGRect)
-    {
-        viewSpatial.setNeedsDisplay()
     }
     
     override func positionCenter()

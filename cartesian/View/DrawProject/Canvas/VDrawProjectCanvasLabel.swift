@@ -22,16 +22,6 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
         return nil
     }
     
-    deinit
-    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    override func draw(_ rect:CGRect)
-    {
-        viewSpatial.setNeedsDisplay()
-    }
-    
     override func positionCenter()
     {
         guard
