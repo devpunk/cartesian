@@ -12,15 +12,13 @@ class MDrawProjectStateItem
         controller.viewProject.viewScroll.isScrollEnabled = scrollEnabled
     }
     
-    //MARK: private
+    //MARK: public
     
-    private func bringToFront(view:VDrawProjectCanvasView)
+    final func bringToFront(view:VDrawProjectCanvasView)
     {
         controller.viewProject.viewScroll.viewCanvas.bringSubview(
             toFront:view)
     }
-    
-    //MARK: public
     
     final func beganEditing(touch:UITouch)
     {

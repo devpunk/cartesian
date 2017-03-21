@@ -25,6 +25,11 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
             return
         }
         
+        if let _:VDrawProjectCanvasLink = touch.view as? VDrawProjectCanvasLink
+        {
+            return
+        }
+        
         let touchPoint:CGPoint = touch.location(
             in:controller.viewProject.viewScroll.viewCanvas)
         
@@ -45,8 +50,7 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
             deltaY = modelY - touchPoint.y
         }
         
-        controller.viewProject.viewScroll.viewCanvas.bringSubview(
-            toFront:view)
+        bringToFront(view:view)
         controller.viewProject.viewScroll.isScrollEnabled = false
         movingView = view
         view.startEditing()

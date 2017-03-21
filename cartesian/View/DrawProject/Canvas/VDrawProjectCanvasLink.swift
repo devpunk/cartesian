@@ -35,6 +35,7 @@ class VDrawProjectCanvasLink:VDrawProjectCanvasView
             return
         }
         
+        let zoom:CGFloat = controller.modelZoom.currentZoom()
         let originX:CGFloat = CGFloat(nodeOrigin.centerX)
         let originY:CGFloat = CGFloat(nodeOrigin.centerY)
         let originWidth:CGFloat = CGFloat(nodeOrigin.width)
@@ -63,11 +64,15 @@ class VDrawProjectCanvasLink:VDrawProjectCanvasView
         let maxY:CGFloat = max(originMaxY, destinationMaxY)
         let deltaX:CGFloat = maxX - minX
         let deltaY:CGFloat = maxY - minY
+        let zoomedX:CGFloat = minX * zoom
+        let zoomedY:CGFloat = minY * zoom
+        let zoomedWidth:CGFloat = deltaX * zoom
+        let zoomedHeight:CGFloat = deltaY * zoom
         
-        let marginedX:CGFloat = minX - kMargin
-        let marginedY:CGFloat = minY - kMargin
-        let widthMargin:CGFloat = deltaX + margin2
-        let heightMargin:CGFloat = deltaY + margin2
+        let marginedX:CGFloat = zoomedX - kMargin
+        let marginedY:CGFloat = zoomedY - kMargin
+        let widthMargin:CGFloat = zoomedWidth + margin2
+        let heightMargin:CGFloat = zoomedHeight + margin2
         
         frame = CGRect(
             x:marginedX,
