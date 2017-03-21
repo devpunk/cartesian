@@ -2,16 +2,13 @@ import UIKit
 
 class VDrawProjectCanvasLabel:VDrawProjectCanvasView
 {
-    init(
+    override init(
         controller:CDrawProject,
-        model:DLabel)
+        model:DDrawable)
     {
-        let viewSpatial:VDrawProjectCanvasLabelSpatial = VDrawProjectCanvasLabelSpatial(
-            model:model)
-        
         super.init(
             controller:controller,
-            viewSpatial:viewSpatial)
+            model:model)
         
         NotificationCenter.default.addObserver(
             self,
@@ -39,7 +36,7 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
     {
         guard
             
-            let model:DLabel = viewSpatial.model
+            let model:DLabel = viewSpatial.model as? DLabel
             
         else
         {
@@ -73,7 +70,7 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
         guard
             
             let labelSender:DLabel = notification.object as? DLabel,
-            let currentLabel:DLabel = viewSpatial.model
+            let currentLabel:DLabel = viewSpatial.model as? DLabel
             
         else
         {

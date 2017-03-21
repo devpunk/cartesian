@@ -10,7 +10,7 @@ class VDrawProjectCanvasView:UIView
     
     init(
         controller:CDrawProject,
-        viewSpatial:VDrawProjectCanvasViewSpatial)
+        model:DDrawable)
     {
         margin2 = kMargin + kMargin
         selected = false
@@ -19,8 +19,11 @@ class VDrawProjectCanvasView:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         self.controller = controller
+        
+        let viewSpatial:VDrawProjectCanvasViewSpatial = VDrawProjectCanvasViewSpatial(
+            model:model,
+            viewCanvas:self)
         self.viewSpatial = viewSpatial
-        viewSpatial.viewCanvas = self
         
         addSubview(viewSpatial)
         

@@ -30,7 +30,8 @@ class MDrawProjectMenuTextItemFont:MDrawProjectMenuTextItem, MDrawProjectFontDel
     {
         guard
             
-            let fontName:String = controller?.editingLabel?.viewSpatial.model?.fontName
+            let modelLabel:DLabel = controller?.editingLabel?.viewSpatial.model as? DLabel,
+            let fontName:String = modelLabel.fontName
         
         else
         {
@@ -44,7 +45,7 @@ class MDrawProjectMenuTextItemFont:MDrawProjectMenuTextItem, MDrawProjectFontDel
     {
         guard
         
-            let modelLabel:DLabel = controller?.editingLabel?.viewSpatial.model,
+            let modelLabel:DLabel = controller?.editingLabel?.viewSpatial.model as? DLabel,
             let font:String = model.currentType
         
         else

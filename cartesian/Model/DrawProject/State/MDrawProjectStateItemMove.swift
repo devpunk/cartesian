@@ -28,34 +28,16 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         let touchPoint:CGPoint = touch.location(
             in:controller.viewProject.viewScroll.viewCanvas)
         
-        if let viewNode:VDrawProjectCanvasNode = view as? VDrawProjectCanvasNode
+        if let model:DNode = view.viewSpatial.model as? DNode
         {
-            guard
-                
-                let model:DNode = viewNode.viewSpatial.model
-                
-            else
-            {
-                return
-            }
-            
             let modelX:CGFloat = CGFloat(model.centerX)
             let modelY:CGFloat = CGFloat(model.centerY)
             
             deltaX = modelX - touchPoint.x
             deltaY = modelY - touchPoint.y
         }
-        else if let viewLabel:VDrawProjectCanvasLabel = view as? VDrawProjectCanvasLabel
+        else if let model:DLabel = view.viewSpatial.model as? DLabel
         {
-            guard
-                
-                let model:DLabel = viewLabel.viewSpatial.model
-                
-            else
-            {
-                return
-            }
-            
             let modelX:CGFloat = CGFloat(model.centerX)
             let modelY:CGFloat = CGFloat(model.centerY)
             
@@ -88,32 +70,14 @@ class MDrawProjectStateItemMove:MDrawProjectStateItem
         let pointX:Float = Float(point.x + deltaX)
         let pointY:Float = Float(point.y + deltaY)
         
-        if let movingNode:VDrawProjectCanvasNode = movingView as? VDrawProjectCanvasNode
+        if let movingModel:DNode = movingView.viewSpatial.model as? DNode
         {
-            guard
-            
-                let movingModel:DNode = movingNode.viewSpatial.model
-            
-            else
-            {
-                return
-            }
-            
             movingModel.centerX = pointX
             movingModel.centerY = pointY
             movingModel.notifyDraw()
         }
-        else if let movingLabel:VDrawProjectCanvasLabel = movingView as? VDrawProjectCanvasLabel
+        else if let movingModel:DLabel = movingView.viewSpatial.model as? DLabel
         {
-            guard
-                
-                let movingModel:DLabel = movingLabel.viewSpatial.model
-                
-            else
-            {
-                return
-            }
-            
             movingModel.centerX = pointX
             movingModel.centerY = pointY
             movingModel.notifyDraw()

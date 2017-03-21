@@ -10,7 +10,7 @@ class VDrawProjectCanvasNodeEffect:UIView
     
     init(
         viewCanvas:VDrawProjectCanvasView,
-        model:DNode)
+        model:DDrawable)
     {
         image = #imageLiteral(resourceName: "assetNodeEffectStar")
         imageWidth = image.size.width
@@ -24,9 +24,9 @@ class VDrawProjectCanvasNodeEffect:UIView
         isUserInteractionEnabled = false
         self.viewCanvas = viewCanvas
         
-        let viewMask:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
-            viewCanvas:viewCanvas,
-            model:model)
+        let viewMask:VDrawProjectCanvasViewSpatial = VDrawProjectCanvasViewSpatial(
+            model:model,
+            viewCanvas:viewCanvas)
         mask = viewMask
     }
     

@@ -39,7 +39,7 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
     {
         guard
             
-            let linkingNode:DNode = self.linkingNode?.viewSpatial.model
+            let linkingNode:DNode = self.linkingNode?.viewSpatial.model as? DNode
             
         else
         {

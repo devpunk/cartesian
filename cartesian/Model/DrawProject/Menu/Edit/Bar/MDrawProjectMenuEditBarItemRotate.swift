@@ -15,7 +15,7 @@ class MDrawProjectMenuEditBarItemRotate:MDrawProjectMenuEditBarItem
     {
         guard
             
-            let node:DNode = controller.editingNode?.viewSpatial.model
+            let node:DNode = controller.editingNode?.viewSpatial.model as? DNode
         
         else
         {

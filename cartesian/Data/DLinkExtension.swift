@@ -13,26 +13,17 @@ extension DLink
             userInfo:nil)
     }
     
-    //MARK: public
-    
-    func defaultValues()
-    {
-        let defaultColor:UIColor = UIColor.black
-        
-        colorWithColor(color:defaultColor)
-        lineWidth = DLink.kLineWidth
-    }
-    
-    func draw(
+    override func draw(
         rect:CGRect,
         context:CGContext,
+        zoom:CGFloat,
         selected:Bool)
     {
         guard
-        
+            
             let origin:DNode = self.origin,
             let destination:DNode = self.destination
-        
+            
         else
         {
             return
@@ -101,5 +92,15 @@ extension DLink
         context.move(to:initialPoint)
         context.addLine(to:endingPoint)
         context.drawPath(using:CGPathDrawingMode.stroke)
+    }
+    
+    //MARK: public
+    
+    func defaultValues()
+    {
+        let defaultColor:UIColor = UIColor.black
+        
+        colorWithColor(color:defaultColor)
+        lineWidth = DLink.kLineWidth
     }
 }

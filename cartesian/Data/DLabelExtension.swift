@@ -17,6 +17,48 @@ extension DLabel
             userInfo:nil)
     }
     
+    override func draw(
+        rect:CGRect,
+        context:CGContext,
+        zoom:CGFloat,
+        selected:Bool)
+    {
+        guard
+            
+            let attributedString:NSAttributedString = displayableString()
+            
+        else
+        {
+            return
+        }
+        
+        if selected
+        {
+            context.setLineWidth(5)
+            context.setStrokeColor(UIColor.cartesianBlue.withAlphaComponent(0.4).cgColor)
+            context.setFillColor(UIColor(white:1, alpha:0.9).cgColor)
+            context.addRect(rect)
+            context.drawPath(using:CGPathDrawingMode.fillStroke)
+        }
+        
+        let width:CGFloat = CGFloat(self.width)
+        let height:CGFloat = CGFloat(self.height)
+        let remainWidth:CGFloat = rect.size.width - width
+        let remainHeight:CGFloat = rect.size.height - height
+        let left:CGFloat = floor(remainWidth / 2.0)
+        let top:CGFloat = floor(remainHeight / 2.0)
+        let rectString:CGRect = CGRect(
+            x:left,
+            y:top,
+            width:width,
+            height:height)
+        
+        attributedString.draw(
+            with:rectString,
+            options:DLabel.kDrawingOptions,
+            context:nil)
+    }
+    
     //MARK: private
     
     private func displayableString() -> NSAttributedString?
@@ -86,46 +128,5 @@ extension DLabel
     {
         self.text = text
         updateGenerated()
-    }
-    
-    func draw(
-        rect:CGRect,
-        context:CGContext,
-        selected:Bool)
-    {
-        guard
-            
-            let attributedString:NSAttributedString = displayableString()
-        
-        else
-        {
-            return
-        }
-
-        if selected
-        {
-            context.setLineWidth(5)
-            context.setStrokeColor(UIColor.cartesianBlue.withAlphaComponent(0.4).cgColor)
-            context.setFillColor(UIColor(white:1, alpha:0.9).cgColor)
-            context.addRect(rect)
-            context.drawPath(using:CGPathDrawingMode.fillStroke)
-        }
-        
-        let width:CGFloat = CGFloat(self.width)
-        let height:CGFloat = CGFloat(self.height)
-        let remainWidth:CGFloat = rect.size.width - width
-        let remainHeight:CGFloat = rect.size.height - height
-        let left:CGFloat = floor(remainWidth / 2.0)
-        let top:CGFloat = floor(remainHeight / 2.0)
-        let rectString:CGRect = CGRect(
-            x:left,
-            y:top,
-            width:width,
-            height:height)
-        
-        attributedString.draw(
-            with:rectString,
-            options:DLabel.kDrawingOptions,
-            context:nil)
     }
 }

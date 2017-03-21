@@ -140,7 +140,7 @@ class CDrawProject:CController
     {
         guard
         
-            let origin:DNode = editingNode?.viewSpatial.model
+            let origin:DNode = editingNode?.viewSpatial.model as? DNode
         
         else
         {
@@ -224,7 +224,7 @@ class CDrawProject:CController
             
             guard
                 
-                let nodeModel:DNode = editingNode.viewSpatial.model
+                let nodeModel:DNode = editingNode.viewSpatial.model as? DNode
                 
             else
             {
@@ -252,7 +252,7 @@ class CDrawProject:CController
             
             guard
             
-                let labelModel:DLabel = editingLabel.viewSpatial.model
+                let labelModel:DLabel = editingLabel.viewSpatial.model as? DLabel
             
             else
             {

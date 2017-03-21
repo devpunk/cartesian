@@ -11,17 +11,7 @@ extension DNode
             userInfo:nil)
     }
     
-    //MARK: final
-    
-    final func radians() -> CGFloat
-    {
-        let degrees:CGFloat = CGFloat(rotation)
-        let rads:CGFloat = degrees * CGFloat(M_PI) / 180.0
-        
-        return rads
-    }
-    
-    final func draw(
+    override func draw(
         rect:CGRect,
         context:CGContext,
         zoom:CGFloat,
@@ -59,6 +49,16 @@ extension DNode
             rect:rect,
             context:context,
             zoom:zoom)
+    }
+    
+    //MARK: final
+    
+    final func radians() -> CGFloat
+    {
+        let degrees:CGFloat = CGFloat(rotation)
+        let rads:CGFloat = degrees * CGFloat(M_PI) / 180.0
+        
+        return rads
     }
     
     final func centerAt(center:CGPoint)

@@ -29,7 +29,7 @@ class MDrawProjectMenuEditBarItemColor:MDrawProjectMenuEditBarItem, MDrawProject
         guard
             
             let controller:CDrawProject = self.controller,
-            let node:DNode = controller.editingNode?.viewSpatial.model
+            let node:DNode = controller.editingNode?.viewSpatial.model as? DNode
         
         else
         {

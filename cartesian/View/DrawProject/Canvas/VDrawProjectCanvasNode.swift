@@ -6,16 +6,13 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let kTimerInterval:TimeInterval = 0.05
     
-    init(
+    override init(
         controller:CDrawProject,
-        model:DNode)
+        model:DDrawable)
     {
-        let viewSpatial:VDrawProjectCanvasNodeSpatial = VDrawProjectCanvasNodeSpatial(
-            model:model)
-        
         super.init(
             controller:controller,
-            viewSpatial:viewSpatial)
+            model:model)
         
         let viewEffect:VDrawProjectCanvasNodeEffect = VDrawProjectCanvasNodeEffect(
             viewCanvas:self,
@@ -55,7 +52,7 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
     {
         guard
             
-            let model:DNode = viewSpatial.model
+            let model:DNode = viewSpatial.model as? DNode
             
         else
         {
@@ -94,7 +91,7 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
         guard
         
             let nodeSender:DNode = notification.object as? DNode,
-            let currentNode:DNode = viewSpatial.model
+            let currentNode:DNode = viewSpatial.model as? DNode
         
         else
         {

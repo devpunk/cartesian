@@ -9,6 +9,14 @@ extension DDrawable
     {
     }
     
+    func draw(
+        rect:CGRect,
+        context:CGContext,
+        zoom:CGFloat,
+        selected:Bool)
+    {
+    }
+    
     final func colorWithColor(color:UIColor)
     {
         var red:CGFloat = 0
