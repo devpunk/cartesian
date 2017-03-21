@@ -12,7 +12,42 @@ class MDrawProjectStateItem
         controller.viewProject.viewScroll.isScrollEnabled = scrollEnabled
     }
     
+    //MARK: private
+    
+    private func bringToFront(view:VDrawProjectCanvasView)
+    {
+        controller.viewProject.viewScroll.viewCanvas.bringSubview(
+            toFront:view)
+    }
+    
     //MARK: public
+    
+    final func beganEditing(touch:UITouch)
+    {
+        guard
+            
+            let canvasView:VDrawProjectCanvasView = touch.view as? VDrawProjectCanvasView
+            
+        else
+        {
+            return
+        }
+        
+        if let viewNode:VDrawProjectCanvasNode = canvasView as? VDrawProjectCanvasNode
+        {
+            controller.editNode(editingView:viewNode)
+            bringToFront(view:viewNode)
+        }
+        else if let viewLabel:VDrawProjectCanvasLabel = canvasView as? VDrawProjectCanvasLabel
+        {
+            controller.editLabel(editingView:viewLabel)
+            bringToFront(view:viewLabel)
+        }
+        else if let viewLink:VDrawProjectCanvasLink = canvasView as? VDrawProjectCanvasLink
+        {
+            
+        }
+    }
     
     func canvasStartDragging(scrollView:UIScrollView)
     {
