@@ -3,7 +3,8 @@ import CoreData
 
 extension DLink
 {
-    private static let kLineWidth:Int16 = 3
+    private static let kMarkerRadius:CGFloat = 8
+    private static let kLineWidth:Int16 = 2
     
     override func notifyDraw()
     {
@@ -29,6 +30,7 @@ extension DLink
             return
         }
         
+        let markerRadius:CGFloat = DLink.kMarkerRadius
         let lineWidth:CGFloat = CGFloat(self.lineWidth)
         let red:CGFloat = CGFloat(colorRed)
         let green:CGFloat = CGFloat(colorGreen)
@@ -60,6 +62,14 @@ extension DLink
         let initialY:CGFloat
         let endingX:CGFloat
         let endingY:CGFloat
+        let originPointX:CGFloat
+        let originPointY:CGFloat
+        let destinationAX:CGFloat
+        let destinationBX:CGFloat
+        let destinationCX:CGFloat
+        let destinationAY:CGFloat
+        let destinationBY:CGFloat
+        let destinationCY:CGFloat
         
         if originMinX <= destinationMinX
         {
@@ -76,6 +86,16 @@ extension DLink
                 initialY = rectHeight - originHeight_2
                 endingY = destinationHeight_2
             }
+            
+            originPointX = initialX
+            originPointY = initialY
+            
+            destinationAX = endingX + markerRadius
+            destinationAY = endingY
+            destinationBX = endingX - markerRadius
+            destinationBY = endingY + markerRadius
+            destinationCX = endingX - markerRadius
+            destinationCY = endingY - markerRadius
         }
         else
         {
@@ -92,7 +112,26 @@ extension DLink
                 initialY = destinationHeight_2
                 endingY = rectHeight - originHeight_2
             }
+            
+            originPointX = endingX
+            originPointY = endingY
+            
+            destinationAX = initialX + markerRadius
+            destinationAY = initialY
+            destinationBX = initialX - markerRadius
+            destinationBY = initialY + markerRadius
+            destinationCX = initialX - markerRadius
+            destinationCY = initialY - markerRadius
         }
+        
+        let initialRectX:CGFloat = originPointX - markerRadius
+        let initialRectY:CGFloat = originPointY - markerRadius
+        let initialRectSize:CGFloat = markerRadius + markerRadius
+        let initialRect:CGRect = CGRect(
+            x:initialRectX,
+            y:initialRectY,
+            width:initialRectSize,
+            height:initialRectSize)
         
         let initialPoint:CGPoint = CGPoint(
             x:initialX,
@@ -101,8 +140,23 @@ extension DLink
             x:endingX,
             y:endingY)
         
+        let trianglePointA:CGPoint = CGPoint(
+            x:destinationAX,
+            y:destinationAY)
+        let trianglePointB:CGPoint = CGPoint(
+            x:destinationBX,
+            y:destinationBY)
+        let trianglePointC:CGPoint = CGPoint(
+            x:destinationCX,
+            y:destinationCY)
+        
         context.setLineWidth(lineWidth)
         context.setStrokeColor(
+            red:red,
+            green:green,
+            blue:blue,
+            alpha:alpha)
+        context.setFillColor(
             red:red,
             green:green,
             blue:blue,
@@ -110,6 +164,15 @@ extension DLink
         context.move(to:initialPoint)
         context.addLine(to:endingPoint)
         context.drawPath(using:CGPathDrawingMode.stroke)
+        
+        context.addEllipse(in:initialRect)
+        context.drawPath(using:CGPathDrawingMode.fill)
+        
+        context.move(to:trianglePointA)
+        context.addLine(to:trianglePointB)
+        context.addLine(to:trianglePointC)
+        context.closePath()
+        context.drawPath(using:CGPathDrawingMode.fill)
     }
     
     //MARK: public
