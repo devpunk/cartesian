@@ -5,6 +5,10 @@ extension DDrawable
 {
     //MARK: public
     
+    func notifyDraw()
+    {
+    }
+    
     final func colorWithColor(color:UIColor)
     {
         var red:CGFloat = 0

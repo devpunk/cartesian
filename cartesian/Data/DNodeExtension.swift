@@ -3,6 +3,14 @@ import CoreData
 
 extension DNode
 {
+    override func notifyDraw()
+    {
+        NotificationCenter.default.post(
+            name:Notification.nodeDraw,
+            object:self,
+            userInfo:nil)
+    }
+    
     //MARK: final
     
     final func radians() -> CGFloat
@@ -53,37 +61,10 @@ extension DNode
             zoom:zoom)
     }
     
-    final func notifyDraw()
-    {
-        NotificationCenter.default.post(
-            name:Notification.nodeDraw,
-            object:self,
-            userInfo:nil)
-    }
-    
     final func centerAt(center:CGPoint)
     {
         centerX = Float(center.x)
         centerY = Float(center.y)
-    }
-    
-    final func colorWithColor(color:UIColor)
-    {
-        var red:CGFloat = 0
-        var green:CGFloat = 0
-        var blue:CGFloat = 0
-        var alpha:CGFloat = 0
-        
-        color.getRed(
-            &red,
-            green:&green,
-            blue:&blue,
-            alpha:&alpha)
-        
-        colorRed = Float(red)
-        colorGreen = Float(green)
-        colorBlue = Float(blue)
-        colorAlpha = Float(alpha)
     }
     
     //MARK: public

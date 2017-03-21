@@ -9,6 +9,14 @@ extension DLabel
         NSStringDrawingOptions.usesLineFragmentOrigin,
         NSStringDrawingOptions.usesFontLeading])
     
+    override func notifyDraw()
+    {
+        NotificationCenter.default.post(
+            name:Notification.labelDraw,
+            object:self,
+            userInfo:nil)
+    }
+    
     //MARK: private
     
     private func displayableString() -> NSAttributedString?
@@ -49,25 +57,6 @@ extension DLabel
     {
         centerX = Float(center.x)
         centerY = Float(center.y)
-    }
-    
-    func colorWithColor(color:UIColor)
-    {
-        var red:CGFloat = 0
-        var green:CGFloat = 0
-        var blue:CGFloat = 0
-        var alpha:CGFloat = 0
-        
-        color.getRed(
-            &red,
-            green:&green,
-            blue:&blue,
-            alpha:&alpha)
-        
-        colorRed = Float(red)
-        colorGreen = Float(green)
-        colorBlue = Float(blue)
-        colorAlpha = Float(alpha)
     }
     
     func updateGenerated()
@@ -138,13 +127,5 @@ extension DLabel
             with:rectString,
             options:DLabel.kDrawingOptions,
             context:nil)
-    }
-    
-    func notifyDraw()
-    {
-        NotificationCenter.default.post(
-            name:Notification.labelDraw,
-            object:self,
-            userInfo:nil)
     }
 }

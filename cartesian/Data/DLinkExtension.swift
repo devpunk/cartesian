@@ -5,6 +5,14 @@ extension DLink
 {
     private static let kLineWidth:Int16 = 3
     
+    override func notifyDraw()
+    {
+        NotificationCenter.default.post(
+            name:Notification.linkDraw,
+            object:self,
+            userInfo:nil)
+    }
+    
     //MARK: public
     
     func defaultValues()
@@ -13,25 +21,6 @@ extension DLink
         
         colorWithColor(color:defaultColor)
         lineWidth = DLink.kLineWidth
-    }
-    
-    func colorWithColor(color:UIColor)
-    {
-        var red:CGFloat = 0
-        var green:CGFloat = 0
-        var blue:CGFloat = 0
-        var alpha:CGFloat = 0
-        
-        color.getRed(
-            &red,
-            green:&green,
-            blue:&blue,
-            alpha:&alpha)
-        
-        colorRed = Float(red)
-        colorGreen = Float(green)
-        colorBlue = Float(blue)
-        colorAlpha = Float(alpha)
     }
     
     func draw(
@@ -112,13 +101,5 @@ extension DLink
         context.move(to:initialPoint)
         context.addLine(to:endingPoint)
         context.drawPath(using:CGPathDrawingMode.stroke)
-    }
-    
-    func notifyDraw()
-    {
-        NotificationCenter.default.post(
-            name:Notification.linkDraw,
-            object:self,
-            userInfo:nil)
     }
 }
