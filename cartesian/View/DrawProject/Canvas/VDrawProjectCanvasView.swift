@@ -49,6 +49,13 @@ class VDrawProjectCanvasView:UIView
     
     //MARK: public
     
+    final func fullRedraw()
+    {
+        positionCenter()
+        layoutIfNeeded()
+        setNeedsDisplay()
+    }
+    
     func positionCenter()
     {
     }

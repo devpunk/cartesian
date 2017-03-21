@@ -117,14 +117,9 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
         
         if currentNode === nodeSender
         {
-            positionCenter()
-            layoutIfNeeded()
+            fullRedraw()
             
-            if timer == nil
-            {
-                setNeedsDisplay()
-            }
-            else
+            if timer != nil
             {
                 startEditing()
             }

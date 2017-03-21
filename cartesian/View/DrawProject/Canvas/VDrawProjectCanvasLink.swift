@@ -87,9 +87,7 @@ class VDrawProjectCanvasLink:VDrawProjectCanvasView
         
         if currentLink === linkSender
         {
-            positionCenter()
-            layoutIfNeeded()
-            setNeedsDisplay()
+            fullRedraw()
         }
     }
 }

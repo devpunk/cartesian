@@ -69,9 +69,7 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
         
         if currentLabel === labelSender
         {
-            positionCenter()
-            layoutIfNeeded()
-            setNeedsDisplay()
+            fullRedraw()
         }
     }
 }
