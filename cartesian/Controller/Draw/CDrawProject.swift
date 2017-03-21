@@ -263,7 +263,15 @@ class CDrawProject:CController
         if editingView != self.editingView
         {
             self.editingView?.stopEditing()
+            self.editingView = editingView
+            editingView.startEditing()
             
+            viewProject.viewScroll.centerOn(
+                point:editingView.center)
+            
+            modelState.stateEditing(controller:self)
+            modelMenuState.current?.hide()
+            viewProject.viewMenu.viewBar.modeMove()
         }
     }
     

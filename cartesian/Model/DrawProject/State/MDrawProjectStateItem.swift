@@ -43,7 +43,7 @@ class MDrawProjectStateItem
         }
         else if let viewLink:VDrawProjectCanvasLink = canvasView as? VDrawProjectCanvasLink
         {
-            
+            controller.editLink(editingView:viewLink)
         }
     }
     
