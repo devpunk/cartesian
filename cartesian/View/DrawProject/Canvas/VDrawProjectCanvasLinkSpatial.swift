@@ -6,7 +6,7 @@ class VDrawProjectCanvasLinkSpatial:VDrawProjectCanvasViewSpatial
     
     init(
         viewCanvas:VDrawProjectCanvasView,
-        model:DLabel)
+        model:DLink)
     {
         super.init(viewCanvas:viewCanvas)
         self.model = model
@@ -21,10 +21,10 @@ class VDrawProjectCanvasLinkSpatial:VDrawProjectCanvasViewSpatial
     {
         guard
             
-            let model:DLabel = self.model,
+            let model:DLink = self.model,
             let context:CGContext = UIGraphicsGetCurrentContext()
             
-            else
+        else
         {
             return
         }

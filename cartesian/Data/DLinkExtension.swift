@@ -33,4 +33,20 @@ extension DLink
         colorBlue = Float(blue)
         colorAlpha = Float(alpha)
     }
+    
+    func draw(
+        rect:CGRect,
+        context:CGContext,
+        selected:Bool)
+    {
+        
+    }
+    
+    func notifyDraw()
+    {
+        NotificationCenter.default.post(
+            name:Notification.linkDraw,
+            object:self,
+            userInfo:nil)
+    }
 }
