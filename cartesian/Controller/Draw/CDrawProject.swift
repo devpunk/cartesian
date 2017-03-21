@@ -1,5 +1,4 @@
 import UIKit
-import CoreData
 
 class CDrawProject:CController
 {
@@ -9,8 +8,7 @@ class CDrawProject:CController
     let modelColor:MDrawProjectColor
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
-    private(set) weak var editingNode:VDrawProjectCanvasNode?
-    private(set) weak var editingLabel:VDrawProjectCanvasLabel?
+    private(set) weak var editingView:VDrawProjectCanvasView?
     private let kInitialSize:Float = 100
     
     init(model:DProject?)
@@ -140,7 +138,7 @@ class CDrawProject:CController
     {
         guard
         
-            let origin:DNode = editingNode?.viewSpatial.model as? DNode
+            let origin:DNode = editingView?.viewSpatial.model as? DNode
         
         else
         {
@@ -208,23 +206,20 @@ class CDrawProject:CController
         }
     }
     
-    func editNode(editingNode:VDrawProjectCanvasNode)
+    func editNode(editingView:VDrawProjectCanvasNode)
     {
-        if editingNode != self.editingNode
+        if editingView != self.editingView
         {
-            editingLabel?.stopEditing()
-            editingLabel = nil
-            
-            self.editingNode?.endEffect()
-            editingNode.startEffect()
-            self.editingNode = editingNode
+            self.editingView?.stopEditing()
+            self.editingView = editingView
+            editingView.startEditing()
             
             viewProject.viewScroll.centerOn(
-                point:editingNode.center)
+                point:editingView.center)
             
             guard
                 
-                let nodeModel:DNode = editingNode.viewSpatial.model as? DNode
+                let nodeModel:DNode = editingView.viewSpatial.model as? DNode
                 
             else
             {
@@ -237,22 +232,20 @@ class CDrawProject:CController
         }
     }
     
-    func editLabel(editingLabel:VDrawProjectCanvasLabel)
+    func editLabel(editingView:VDrawProjectCanvasLabel)
     {
-        if editingLabel != self.editingLabel
+        if editingView != self.editingView
         {
-            editingNode?.endEffect()
-            editingNode = nil
+            self.editingView?.stopEditing()
+            self.editingView = editingView
+            editingView.startEditing()
             
-            self.editingLabel?.stopEditing()
-            self.editingLabel = editingLabel
-            editingLabel.startEditing()
             viewProject.viewScroll.centerTopOn(
-                point:editingLabel.center)
+                point:editingView.center)
             
             guard
             
-                let labelModel:DLabel = editingLabel.viewSpatial.model as? DLabel
+                let labelModel:DLabel = editingView.viewSpatial.model as? DLabel
             
             else
             {
@@ -266,33 +259,18 @@ class CDrawProject:CController
     
     func trashEditing()
     {
-        let model:NSManagedObject?
-        
-        if let editingNode:VDrawProjectCanvasNode = self.editingNode
-        {
-            editingNode.endEffect()
-            model = editingNode.viewSpatial.model
-        }
-        else if let editingLabel:VDrawProjectCanvasLabel = self.editingLabel
-        {
-            editingLabel.stopEditing()
-            model = editingLabel.viewSpatial.model
-        }
-        else
-        {
-            model = nil
-        }
+        editingView?.stopEditing()
         
         guard
             
-            let editingModel:NSManagedObject = model
+            let drawable:DDrawable = editingView?.viewSpatial.model
         
         else
         {
             return
         }
         
-        DManager.sharedInstance?.delete(data:editingModel)
+        DManager.sharedInstance?.delete(data:drawable)
         {
             DManager.sharedInstance?.save
             {
@@ -307,10 +285,8 @@ class CDrawProject:CController
     
     func stopEdition()
     {
-        editingNode?.endEffect()
-        editingLabel?.stopEditing()
-        editingNode = nil
-        editingLabel = nil
+        editingView?.stopEditing()
+        editingView = nil
         
         modelState.stateStand(controller:self)
         viewProject.viewMenu.viewBar.modeNormal()
@@ -318,10 +294,8 @@ class CDrawProject:CController
     
     func startMoving()
     {
-        editingNode?.endEffect()
-        editingNode = nil
-        editingLabel?.stopEditing()
-        editingLabel = nil
+        editingView?.stopEditing()
+        editingView = nil
         
         modelState.stateMoving(controller:self)
         modelMenuState.current?.hide()
@@ -344,8 +318,8 @@ class CDrawProject:CController
     
     func endText()
     {
-        editingLabel?.stopEditing()
-        editingLabel = nil
+        editingView?.stopEditing()
+        editingView = nil
         modelState.stateStand(controller:self)
         modelMenuState.current?.show()
         viewProject.viewMenu.viewBar.modeNormal()
@@ -353,13 +327,14 @@ class CDrawProject:CController
     
     func startLinking()
     {
-        if editingNode == nil
+        guard
+            
+            let _:VDrawProjectCanvasNode = editingView as? VDrawProjectCanvasNode
+        
+        else
         {
             return
         }
-        
-        editingLabel?.stopEditing()
-        editingLabel = nil
         
         modelState.stateLinking(controller:self)
         modelMenuState.current?.hide()
@@ -368,10 +343,8 @@ class CDrawProject:CController
     
     func stopLinking()
     {
-        editingNode?.endEffect()
-        editingNode = nil
-        editingLabel?.stopEditing()
-        editingLabel = nil
+        editingView?.stopEditing()
+        editingView = nil
         
         modelState.stateStand(controller:self)
         modelMenuState.current?.show()

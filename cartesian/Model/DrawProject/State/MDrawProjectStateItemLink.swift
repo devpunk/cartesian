@@ -17,7 +17,7 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
         guard
             
             let linkingNode:VDrawProjectCanvasNode = touch.view as? VDrawProjectCanvasNode,
-            let editingNode:VDrawProjectCanvasNode = controller.editingNode
+            let editingNode:VDrawProjectCanvasNode = controller.editingView as? VDrawProjectCanvasNode
         
         else
         {
@@ -26,7 +26,7 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
         
         if editingNode !== linkingNode
         {
-            linkingNode.startEffect()
+            linkingNode.startEditing()
             self.linkingNode = linkingNode
         }
         else

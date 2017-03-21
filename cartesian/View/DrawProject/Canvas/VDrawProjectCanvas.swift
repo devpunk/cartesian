@@ -74,7 +74,7 @@ class VDrawProjectCanvas:UIView
                 continue
             }
             
-            node.endEffect()
+            node.stopEditing()
         }
         
         guard

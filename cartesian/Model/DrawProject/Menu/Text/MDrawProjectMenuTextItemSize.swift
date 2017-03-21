@@ -25,7 +25,7 @@ class MDrawProjectMenuTextItemSize:MDrawProjectMenuTextItem, MDrawProjectFontSiz
     
     func fontSizeSelected(size:Int16)
     {
-        let modelLabel:DLabel? = controller?.editingLabel?.viewSpatial.model as? DLabel
+        let modelLabel:DLabel? = controller?.editingView?.viewSpatial.model as? DLabel
         
         controller?.endText()
         modelLabel?.fontSize = size
@@ -39,7 +39,7 @@ class MDrawProjectMenuTextItemSize:MDrawProjectMenuTextItem, MDrawProjectFontSiz
     {
         guard
         
-            let modelLabel:DLabel = controller?.editingLabel?.viewSpatial.model as? DLabel
+            let modelLabel:DLabel = controller?.editingView?.viewSpatial.model as? DLabel
         
         else
         {

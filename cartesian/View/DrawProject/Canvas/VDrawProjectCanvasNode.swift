@@ -84,6 +84,29 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
             height:heightExpanded)
     }
     
+    override func startEditing()
+    {
+        viewEffect.start()
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimerInterval,
+            target:self,
+            selector:#selector(actionTick(sender:)),
+            userInfo:nil,
+            repeats:true)
+        
+        super.startEditing()
+    }
+    
+    override func stopEditing()
+    {
+        viewEffect.end()
+        timer?.invalidate()
+        
+        super.stopEditing()
+    }
+    
     //MARK: notifications
     
     func notifiedNodeDraw(sender notification:Notification)
@@ -109,7 +132,7 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
             }
             else
             {
-                startEffect()
+                startEditing()
             }
         }
     }
@@ -119,29 +142,5 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
     func actionTick(sender timer:Timer)
     {
         viewEffect.tick()
-    }
-    
-    //MARK: public
-    
-    func startEffect()
-    {
-        viewEffect.start()
-        
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(
-            timeInterval:kTimerInterval,
-            target:self,
-            selector:#selector(actionTick(sender:)),
-            userInfo:nil,
-            repeats:true)
-        
-        startEditing()
-    }
-    
-    func endEffect()
-    {
-        viewEffect.end()
-        timer?.invalidate()
-        stopEditing()
     }
 }

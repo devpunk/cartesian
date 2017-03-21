@@ -115,7 +115,7 @@ class VDrawProjectMenuEditSpatial:UIView
     {
         guard
             
-            let point:CGPoint = controller.editingNode?.center
+            let point:CGPoint = controller.editingView?.center
         
         else
         {

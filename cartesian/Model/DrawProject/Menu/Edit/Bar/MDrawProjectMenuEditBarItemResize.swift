@@ -28,7 +28,7 @@ class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjec
     {
         guard
             
-            let node:DNode = controller?.editingNode?.viewSpatial.model as? DNode
+            let node:DNode = controller?.editingView?.viewSpatial.model as? DNode
             
         else
         {
@@ -45,7 +45,7 @@ class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjec
     {
         guard
             
-            let node:DNode = controller?.editingNode?.viewSpatial.model as? DNode
+            let node:DNode = controller?.editingView?.viewSpatial.model as? DNode
             
         else
         {
@@ -61,7 +61,7 @@ class MDrawProjectMenuEditBarItemResize:MDrawProjectMenuEditBarItem, MDrawProjec
     {
         guard
             
-            let node:DNode = controller?.editingNode?.viewSpatial.model as? DNode
+            let node:DNode = controller?.editingView?.viewSpatial.model as? DNode
             
         else
         {

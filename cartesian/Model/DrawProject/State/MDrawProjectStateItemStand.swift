@@ -33,11 +33,11 @@ class MDrawProjectStateItemStand:MDrawProjectStateItem
         
         if let viewNode:VDrawProjectCanvasNode = canvasView as? VDrawProjectCanvasNode
         {
-            controller.editNode(editingNode:viewNode)
+            controller.editNode(editingView:viewNode)
         }
         else if let viewLabel:VDrawProjectCanvasLabel = canvasView as? VDrawProjectCanvasLabel
         {
-            controller.editLabel(editingLabel:viewLabel)
+            controller.editLabel(editingView:viewLabel)
         }
     }
 }
