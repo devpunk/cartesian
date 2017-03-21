@@ -1,20 +1,14 @@
 import UIKit
 
-class VDrawProjectCanvasLabelSpatial:UIView
+class VDrawProjectCanvasLabelSpatial:VDrawProjectCanvasViewSpatial
 {
     private(set) weak var model:DLabel?
-    private weak var viewCanvas:VDrawProjectCanvasView!
     
     init(
         viewCanvas:VDrawProjectCanvasView,
         model:DLabel)
     {
-        super.init(frame:CGRect.zero)
-        clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
-        isUserInteractionEnabled = false
-        backgroundColor = UIColor.clear
-        self.viewCanvas = viewCanvas
+        super.init(viewCanvas:viewCanvas)
         self.model = model
     }
     

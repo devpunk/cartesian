@@ -1,20 +1,14 @@
 import UIKit
 
-class VDrawProjectCanvasNodeSpatial:UIView
+class VDrawProjectCanvasNodeSpatial:VDrawProjectCanvasViewSpatial
 {
     private(set) weak var model:DNode?
-    private weak var viewCanvas:VDrawProjectCanvasView!
     
     init(
         viewCanvas:VDrawProjectCanvasView,
         model:DNode)
     {
-        super.init(frame:CGRect.zero)
-        clipsToBounds = true
-        backgroundColor = UIColor.clear
-        isUserInteractionEnabled = false
-        translatesAutoresizingMaskIntoConstraints = false
-        self.viewCanvas = viewCanvas
+        super.init(viewCanvas:viewCanvas)
         self.model = model
     }
     
