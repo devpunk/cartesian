@@ -33,14 +33,17 @@ class VDrawProjectCanvasLabel:VDrawProjectCanvasView
             return
         }
         
+        let zoom:CGFloat = controller.modelZoom.currentZoom()
         let originalX:CGFloat = CGFloat(model.centerX)
         let originalY:CGFloat = CGFloat(model.centerY)
+        let zoomedX:CGFloat = originalX * zoom
+        let zoomedY:CGFloat = originalY * zoom
         let widthOriginal:CGFloat = CGFloat(model.width)
         let heightOriginal:CGFloat = CGFloat(model.height)
         let widthOriginal_2:CGFloat = widthOriginal / 2.0
         let heightOriginal_2:CGFloat = heightOriginal / 2.0
-        let positionedOriginalX:CGFloat = originalX - widthOriginal_2
-        let positionedOriginalY:CGFloat = originalY - heightOriginal_2
+        let positionedOriginalX:CGFloat = zoomedX - widthOriginal_2
+        let positionedOriginalY:CGFloat = zoomedY - heightOriginal_2
         let positionedX:CGFloat = positionedOriginalX - kMargin
         let positionedY:CGFloat = positionedOriginalY - kMargin
         let widthExpanded:CGFloat = widthOriginal + margin2
