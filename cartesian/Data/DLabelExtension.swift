@@ -140,7 +140,7 @@ extension DLabel
             context:nil)
     }
     
-    final func notifyDraw()
+    func notifyDraw()
     {
         NotificationCenter.default.post(
             name:Notification.labelDraw,
