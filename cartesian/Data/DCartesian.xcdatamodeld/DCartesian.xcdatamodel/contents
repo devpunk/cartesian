@@ -35,8 +35,8 @@
         <attribute name="height" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rotation" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="linkDestination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DLink" inverseName="destination" inverseEntity="DLink" syncable="YES"/>
-        <relationship name="linkOrigin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DLink" inverseName="origin" inverseEntity="DLink" syncable="YES"/>
+        <relationship name="linkDestination" toMany="YES" deletionRule="Nullify" destinationEntity="DLink" inverseName="destination" inverseEntity="DLink" syncable="YES"/>
+        <relationship name="linkOrigin" toMany="YES" deletionRule="Nullify" destinationEntity="DLink" inverseName="origin" inverseEntity="DLink" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
     </entity>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>

@@ -98,9 +98,6 @@ extension DLink
             alpha:alpha)
         context.move(to:initialPoint)
         context.addLine(to:endingPoint)
-        
-        print("rect:\(rect)  init: \(initialPoint) end: \(endingPoint)")
-        
         context.drawPath(using:CGPathDrawingMode.stroke)
     }
     
