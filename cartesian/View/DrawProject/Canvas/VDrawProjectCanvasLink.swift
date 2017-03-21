@@ -2,7 +2,7 @@ import UIKit
 
 class VDrawProjectCanvasLink:VDrawProjectCanvasView
 {
-    override init(
+    required init(
         controller:CDrawProject,
         model:DDrawable)
     {

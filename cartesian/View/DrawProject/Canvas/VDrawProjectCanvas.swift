@@ -57,6 +57,20 @@ class VDrawProjectCanvas:UIView
         controller.modelState.current?.touchFinished()
     }
     
+    //MARK: private
+    
+    private func addCanvasView(
+        type:VDrawProjectCanvasView.Type,
+        model:DDrawable)
+    {
+        let canvasView:VDrawProjectCanvasView = type.init(
+            controller:controller,
+            model:model)
+        
+        addSubview(canvasView)
+        canvasView.positionCenter()
+    }
+    
     //MARK: public
     
     func draw()
@@ -88,34 +102,25 @@ class VDrawProjectCanvas:UIView
             return
         }
         
+        for link:DLink in links
+        {
+            addCanvasView(
+                type:VDrawProjectCanvasLink.self,
+                model:link)
+        }
+        
         for node:DNode in nodes
         {
-            let viewNode:VDrawProjectCanvasNode = VDrawProjectCanvasNode(
-                controller:controller,
+            addCanvasView(
+                type:VDrawProjectCanvasNode.self,
                 model:node)
-            
-            addSubview(viewNode)
-            viewNode.positionCenter()
         }
         
         for label:DLabel in labels
         {
-            let viewLabel:VDrawProjectCanvasLabel = VDrawProjectCanvasLabel(
-                controller:controller,
+            addCanvasView(
+                type:VDrawProjectCanvasLabel.self,
                 model:label)
-            
-            addSubview(viewLabel)
-            viewLabel.positionCenter()
-        }
-        
-        for link:DLink in links
-        {
-            let viewLink:VDrawProjectCanvasLink = VDrawProjectCanvasLink(
-                controller:controller,
-                model:link)
-            
-            addSubview(viewLink)
-            viewLink.positionCenter()
         }
     }
 }

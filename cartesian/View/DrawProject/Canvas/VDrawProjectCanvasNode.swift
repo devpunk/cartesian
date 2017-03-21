@@ -6,7 +6,7 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
     private weak var viewEffect:VDrawProjectCanvasNodeEffect!
     private let kTimerInterval:TimeInterval = 0.05
     
-    override init(
+    required init(
         controller:CDrawProject,
         model:DDrawable)
     {

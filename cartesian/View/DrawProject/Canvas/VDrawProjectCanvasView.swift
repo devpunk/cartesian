@@ -8,7 +8,7 @@ class VDrawProjectCanvasView:UIView
     let kMargin:CGFloat = 20
     var selected:Bool
     
-    init(
+    required init(
         controller:CDrawProject,
         model:DDrawable)
     {
