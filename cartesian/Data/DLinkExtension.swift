@@ -44,19 +44,19 @@ extension DLink
         let rectWidth:CGFloat = CGFloat(rect.size.width) - viewMargin
         let rectHeight:CGFloat = CGFloat(rect.size.height) - viewMargin
         
-        let originX:CGFloat = CGFloat(origin.centerX)
-        let originY:CGFloat = CGFloat(origin.centerY)
-        let originWidth:CGFloat = CGFloat(origin.width)
-        let originHeight:CGFloat = CGFloat(origin.height)
+        let originX:CGFloat = CGFloat(origin.centerX) * zoom
+        let originY:CGFloat = CGFloat(origin.centerY) * zoom
+        let originWidth:CGFloat = CGFloat(origin.width) * zoom
+        let originHeight:CGFloat = CGFloat(origin.height) * zoom
         let originWidth_2:CGFloat = originWidth / 2.0
         let originHeight_2:CGFloat = originHeight / 2.0
         let originMinX:CGFloat = originX - originWidth_2
         let originMinY:CGFloat = originY - originHeight_2
         
-        let destinationX:CGFloat = CGFloat(destination.centerX)
-        let destinationY:CGFloat = CGFloat(destination.centerY)
-        let destinationWidth:CGFloat = CGFloat(destination.width)
-        let destinationHeight:CGFloat = CGFloat(destination.height)
+        let destinationX:CGFloat = CGFloat(destination.centerX) * zoom
+        let destinationY:CGFloat = CGFloat(destination.centerY) * zoom
+        let destinationWidth:CGFloat = CGFloat(destination.width) * zoom
+        let destinationHeight:CGFloat = CGFloat(destination.height) * zoom
         let destinationWidth_2:CGFloat = destinationWidth / 2.0
         let destinationHeight_2:CGFloat = destinationHeight / 2.0
         let destinationMinX:CGFloat = destinationX - destinationWidth_2
