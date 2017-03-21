@@ -136,6 +136,44 @@ class CDrawProject:CController
         }
     }
     
+    func linkNode(destination:DNode)
+    {
+        guard
+        
+            let origin:DNode = editingNode?.viewSpatial.model
+        
+        else
+        {
+            return
+        }
+        
+        DManager.sharedInstance?.createData(
+            entityName:DLink.entityName)
+        { (data) in
+            
+            guard
+            
+                let linkModel:DLink = data as? DLink
+            
+            else
+            {
+                return
+            }
+            
+            linkModel.origin = origin
+            linkModel.destination = destination
+            linkModel.defaultValues()
+            DManager.sharedInstance?.save()
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.reDraw()
+                self?.stopLinking()
+            }
+        }
+    }
+    
     func addLabel(
         text:String,
         fontName:String,

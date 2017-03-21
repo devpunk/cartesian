@@ -3,7 +3,17 @@ import CoreData
 
 extension DLink
 {
+    private static let kLineWidth:Int16 = 3
+    
     //MARK: public
+    
+    func defaultValues()
+    {
+        let defaultColor:UIColor = UIColor.black
+        
+        colorWithColor(color:defaultColor)
+        lineWidth = DLink.kLineWidth
+    }
     
     func colorWithColor(color:UIColor)
     {

@@ -39,15 +39,14 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
     {
         guard
             
-            let linkingNode:VDrawProjectCanvasNode = self.linkingNode
+            let linkingNode:DNode = self.linkingNode?.viewSpatial.model
             
         else
         {
             return
         }
         
-        DManager.sharedInstance?.save()
-        
+        controller.linkNode(destination:linkingNode)
         self.linkingNode = nil
     }
 }
