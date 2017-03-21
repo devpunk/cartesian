@@ -51,7 +51,7 @@ extension DNode
             zoom:zoom)
     }
     
-    //MARK: final
+    //MARK: public
     
     final func radians() -> CGFloat
     {
@@ -67,7 +67,17 @@ extension DNode
         centerY = Float(center.y)
     }
     
-    //MARK: public
+    final func notifyLinks()
+    {
+        guard
+        
+            let linksOrigin:[DLink] = linksOrigin as? [DLink]
+        
+        else
+        {
+            return
+        }
+    }
     
     func drawPaths(
         rect:CGRect,

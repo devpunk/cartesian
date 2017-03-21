@@ -25,8 +25,8 @@
     </entity>
     <entity name="DLink" representedClassName="DLink" parentEntity="DDrawable" syncable="YES" codeGenerationType="class">
         <attribute name="lineWidth" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="destination" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linkDestination" inverseEntity="DNode" syncable="YES"/>
-        <relationship name="origin" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linkOrigin" inverseEntity="DNode" syncable="YES"/>
+        <relationship name="destination" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linksDestination" inverseEntity="DNode" syncable="YES"/>
+        <relationship name="origin" maxCount="1" deletionRule="Nullify" destinationEntity="DNode" inverseName="linksOrigin" inverseEntity="DNode" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="links" inverseEntity="DProject" syncable="YES"/>
     </entity>
     <entity name="DNode" representedClassName="DNode" isAbstract="YES" parentEntity="DDrawable" syncable="YES" codeGenerationType="class">
@@ -35,8 +35,8 @@
         <attribute name="height" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rotation" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="linkDestination" toMany="YES" deletionRule="Nullify" destinationEntity="DLink" inverseName="destination" inverseEntity="DLink" syncable="YES"/>
-        <relationship name="linkOrigin" toMany="YES" deletionRule="Nullify" destinationEntity="DLink" inverseName="origin" inverseEntity="DLink" syncable="YES"/>
+        <relationship name="linksDestination" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DLink" inverseName="destination" inverseEntity="DLink" syncable="YES"/>
+        <relationship name="linksOrigin" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DLink" inverseName="origin" inverseEntity="DLink" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
     </entity>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
