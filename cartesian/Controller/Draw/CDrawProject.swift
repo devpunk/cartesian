@@ -158,6 +158,7 @@ class CDrawProject:CController
                 return
             }
             
+            linkModel.project = origin.project
             linkModel.origin = origin
             linkModel.destination = destination
             linkModel.defaultValues()
