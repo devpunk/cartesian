@@ -80,7 +80,8 @@ class VDrawProjectCanvas:UIView
         guard
         
             let nodes:[DNode] = controller.model?.nodes?.array as? [DNode],
-            let labels:[DLabel] = controller.model?.labels?.array as? [DLabel]
+            let labels:[DLabel] = controller.model?.labels?.array as? [DLabel],
+            let links:[DLink] = controller.model?.links?.array as? [DLink]
         
         else
         {
@@ -105,6 +106,16 @@ class VDrawProjectCanvas:UIView
             
             addSubview(viewLabel)
             viewLabel.positionCenter()
+        }
+        
+        for link:DLink in links
+        {
+            let viewLink:VDrawProjectCanvasLink = VDrawProjectCanvasLink(
+                controller:controller,
+                model:link)
+            
+            addSubview(viewLink)
+            viewLink.positionCenter()
         }
     }
 }
