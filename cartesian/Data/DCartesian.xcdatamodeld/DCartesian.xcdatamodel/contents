@@ -44,7 +44,9 @@
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="height" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DLabel" inverseName="project" inverseEntity="DLabel" syncable="YES"/>
         <relationship name="links" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DLink" inverseName="project" inverseEntity="DLink" syncable="YES"/>
         <relationship name="nodes" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DNode" inverseName="project" inverseEntity="DNode" syncable="YES"/>
@@ -57,6 +59,6 @@
         <element name="DNode" positionX="-54" positionY="0" width="128" height="165"/>
         <element name="DNodeOval" positionX="-63" positionY="36" width="128" height="45"/>
         <element name="DNodeRect" positionX="-45" positionY="54" width="128" height="45"/>
-        <element name="DProject" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="DProject" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
