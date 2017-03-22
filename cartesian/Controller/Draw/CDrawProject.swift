@@ -415,5 +415,17 @@ class CDrawProject:CController
     func share()
     {
         modelMenuState.current?.hide()
+        
+        guard
+        
+            let model:DProject = self.model
+        
+        else
+        {
+            return
+        }
+        
+        let controllerShare:CDrawProjectShare = CDrawProjectShare(model:model)
+        parentController.animateOver(controller:controllerShare)
     }
 }

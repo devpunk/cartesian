@@ -3,6 +3,7 @@ import UIKit
 class CDrawProjectShare:CController
 {
     private weak var model:DProject!
+    private weak var viewShare:VDrawProjectShare!
     
     init(model:DProject)
     {
@@ -17,6 +18,9 @@ class CDrawProjectShare:CController
     
     override func loadView()
     {
-        
+        let viewShare:VDrawProjectShare = VDrawProjectShare(
+            controller:self)
+        self.viewShare = viewShare
+        view = viewShare
     }
 }
