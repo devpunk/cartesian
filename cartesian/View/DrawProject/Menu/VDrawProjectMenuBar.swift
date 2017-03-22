@@ -294,6 +294,7 @@ class VDrawProjectMenuBar:UIView
         viewEdit.alpha = 0
         viewMove.alpha = 0
         viewLink.alpha = 0
+        viewLinkEdit.alpha = 0
     }
     
     func modeEdit()
@@ -308,6 +309,7 @@ class VDrawProjectMenuBar:UIView
             self?.viewEdit.alpha = 1
             self?.viewMove.alpha = 0
             self?.viewLink.alpha = 0
+            self?.viewLinkEdit.alpha = 0
         }
     }
     
@@ -323,6 +325,7 @@ class VDrawProjectMenuBar:UIView
             self?.viewEdit.alpha = 0
             self?.viewMove.alpha = 1
             self?.viewLink.alpha = 0
+            self?.viewLinkEdit.alpha = 0
         }
     }
     
@@ -338,12 +341,24 @@ class VDrawProjectMenuBar:UIView
             self?.viewEdit.alpha = 0
             self?.viewMove.alpha = 0
             self?.viewLink.alpha = 1
+            self?.viewLinkEdit.alpha = 0
         }
     }
     
     func modeLinkEdit()
     {
+        showingText = false
+        setNeedsLayout()
+        hideButtons()
         
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.viewEdit.alpha = 0
+            self?.viewMove.alpha = 0
+            self?.viewLink.alpha = 0
+            self?.viewLinkEdit.alpha = 1
+        }
     }
     
     func modeText(delegate:UITextFieldDelegate)
@@ -366,6 +381,7 @@ class VDrawProjectMenuBar:UIView
             self?.viewEdit.alpha = 0
             self?.viewMove.alpha = 0
             self?.viewLink.alpha = 0
+            self?.viewLinkEdit.alpha = 0
         }
     }
     
@@ -382,6 +398,7 @@ class VDrawProjectMenuBar:UIView
             self?.viewEdit.alpha = 0
             self?.viewMove.alpha = 0
             self?.viewLink.alpha = 0
+            self?.viewLinkEdit.alpha = 0
         }
     }
 }

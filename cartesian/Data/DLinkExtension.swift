@@ -5,7 +5,7 @@ extension DLink
 {
     private static let kMargin:CGFloat = 20
     private static let kLineSelected:CGFloat = 6
-    private static let kMarkerRadius:Int16 = 8
+    private static let kMarkerRadius:Int16 = 5
     private static let kLineWidth:Int16 = 2
     
     override func notifyDraw()
@@ -170,22 +170,27 @@ extension DLink
         if selected
         {
             context.setLineWidth(DLink.kLineSelected)
+            
+            context.setStrokeColor(UIColor.cartesianBlue.cgColor)
+            context.setFillColor(UIColor.cartesianBlue.cgColor)
         }
         else
         {
             context.setLineWidth(lineWidth)
+            
+            context.setStrokeColor(
+                red:red,
+                green:green,
+                blue:blue,
+                alpha:alpha)
+            
+            context.setFillColor(
+                red:red,
+                green:green,
+                blue:blue,
+                alpha:alpha)
         }
         
-        context.setStrokeColor(
-            red:red,
-            green:green,
-            blue:blue,
-            alpha:alpha)
-        context.setFillColor(
-            red:red,
-            green:green,
-            blue:blue,
-            alpha:alpha)
         context.move(to:initialPoint)
         context.addLine(to:endingPoint)
         context.drawPath(using:CGPathDrawingMode.stroke)

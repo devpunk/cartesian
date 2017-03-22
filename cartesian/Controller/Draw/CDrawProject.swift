@@ -271,7 +271,7 @@ class CDrawProject:CController
             
             modelState.stateEditing(controller:self)
             modelMenuState.current?.hide()
-            viewProject.viewMenu.viewBar.modeMove()
+            viewProject.viewMenu.viewBar.modeLinkEdit()
         }
     }
     
