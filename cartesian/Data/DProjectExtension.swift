@@ -3,6 +3,8 @@ import CoreData
 
 extension DProject
 {
+    private static let kInitialSize:Int16 = 1000
+    
     //MARK: private
     
     private func defaultTitle() -> String
@@ -13,6 +15,12 @@ extension DProject
     }
     
     //MARK: public
+    
+    func defaultValues()
+    {
+        width = DProject.kInitialSize
+        height = DProject.kInitialSize
+    }
     
     func projectName() -> String
     {
