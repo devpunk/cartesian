@@ -414,6 +414,6 @@ class CDrawProject:CController
     
     func share()
     {
-        
+        modelMenuState.current?.hide()
     }
 }

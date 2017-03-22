@@ -253,6 +253,7 @@ class VDrawProjectMenuBar:UIView
     
     func actionShare(sender button:UIButton)
     {
+        selectNothing()
         controller.share()
     }
     
