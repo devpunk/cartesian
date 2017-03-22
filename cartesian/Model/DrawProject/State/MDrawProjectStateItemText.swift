@@ -13,6 +13,15 @@ class MDrawProjectStateItemText:MDrawProjectStateItem
     
     override func touchBegan(touch:UITouch)
     {
+        guard
+            
+            let _:VDrawProjectCanvasView = touch.view as? VDrawProjectCanvasView
+            
+        else
+        {
+            return
+        }
+        
         controller.viewProject.viewMenu.viewBar.viewText.textField.delegate = nil
         UIApplication.shared.keyWindow!.endEditing(true)
         
