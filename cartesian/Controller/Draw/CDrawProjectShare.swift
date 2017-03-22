@@ -42,6 +42,15 @@ class CDrawProjectShare:CController
     
     private func render()
     {
+        guard
+            
+            let nodes:[DNode] = model.nodes?.array as? [DNode]
+        
+        else
+        {
+            return
+        }
+        
         let canvasWidth:CGFloat = CGFloat(model.width)
         let canvasHeight:CGFloat = CGFloat(model.height)
         let canvasSize:CGSize = CGSize(
@@ -65,6 +74,13 @@ class CDrawProjectShare:CController
         context.setFillColor(UIColor.white.cgColor)
         context.addRect(canvasRect)
         context.drawPath(using:CGPathDrawingMode.fill)
+        
+        for node:DNode in nodes
+        {
+            MDrawProjectShareRender.render(
+                drawable:node,
+                context:context)
+        }
         
         guard
             
