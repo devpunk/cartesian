@@ -28,6 +28,8 @@
 "VDrawProjectFontSize_buttonDone"="Done";
 "VDrawProjectMenuBarLink_labelTitle"="Select destination node";
 "VDrawProjectMenuBarLink_button"="Cancel";
+"VDrawProjectMenuBarLinkEdit_labelTitle"="Delete connection";
+"VDrawProjectMenuBarLinkEdit_button"="Delete";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

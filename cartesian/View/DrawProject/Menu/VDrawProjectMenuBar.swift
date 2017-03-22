@@ -6,6 +6,7 @@ class VDrawProjectMenuBar:UIView
     private(set) weak var viewMove:VDrawProjectMenuBarMove!
     private(set) weak var viewText:VDrawProjectMenuBarText!
     private(set) weak var viewLink:VDrawProjectMenuBarLink!
+    private(set) weak var viewLinkEdit:VDrawProjectMenuBarLinkEdit!
     private weak var controller:CDrawProject!
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
@@ -77,6 +78,11 @@ class VDrawProjectMenuBar:UIView
         viewLink.alpha = 0
         self.viewLink = viewLink
         
+        let viewLinkEdit:VDrawProjectMenuBarLinkEdit = VDrawProjectMenuBarLinkEdit(
+            controller:controller)
+        viewLinkEdit.alpha = 0
+        self.viewLinkEdit = viewLinkEdit
+        
         let viewText:VDrawProjectMenuBarText = VDrawProjectMenuBarText(
             controller:controller)
         self.viewText = viewText
@@ -90,6 +96,7 @@ class VDrawProjectMenuBar:UIView
         addSubview(viewEdit)
         addSubview(viewMove)
         addSubview(viewLink)
+        addSubview(viewLinkEdit)
         addSubview(viewText)
         
         NSLayoutConstraint.equals(
@@ -156,6 +163,10 @@ class VDrawProjectMenuBar:UIView
         
         NSLayoutConstraint.equals(
             view:viewLink,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewLinkEdit,
             toView:self)
         
          NSLayoutConstraint.equalsVertical(
@@ -328,6 +339,11 @@ class VDrawProjectMenuBar:UIView
             self?.viewMove.alpha = 0
             self?.viewLink.alpha = 1
         }
+    }
+    
+    func modeLinkEdit()
+    {
+        
     }
     
     func modeText(delegate:UITextFieldDelegate)
