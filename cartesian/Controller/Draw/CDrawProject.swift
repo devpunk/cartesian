@@ -411,4 +411,9 @@ class CDrawProject:CController
         modelZoom.decrease()
         viewProject.refresh()
     }
+    
+    func share()
+    {
+        
+    }
 }
