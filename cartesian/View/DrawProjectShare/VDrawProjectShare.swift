@@ -62,6 +62,7 @@ class VDrawProjectShare:VView
         
         let viewImage:VDrawProjectShareImage = VDrawProjectShareImage(
             controller:self.controller)
+        viewImage.isHidden = true
         self.viewImage = viewImage
         
         addSubview(blur)
@@ -96,6 +97,16 @@ class VDrawProjectShare:VView
             constant:kButtonShareBottom)
         layoutButtonShareLeft = NSLayoutConstraint.leftToLeft(
             view:buttonShare,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewImage,
+            toView:self)
+        NSLayoutConstraint.bottomToTop(
+            view:viewImage,
+            toView:buttonShare)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewImage,
             toView:self)
     }
     
