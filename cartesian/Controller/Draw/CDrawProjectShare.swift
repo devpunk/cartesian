@@ -77,6 +77,8 @@ class CDrawProjectShare:CController
             return
         }
         
+        self.shareImage = image
+        
         DispatchQueue.main.async
         { [weak self] in
             
@@ -86,6 +88,27 @@ class CDrawProjectShare:CController
     
     private func endRendering()
     {
+        viewShare.imageRendered()
+    }
+    
+    //MARK: public
+    
+    func close()
+    {
+        parentController.dismissAnimateOver(completion:nil)
+    }
+    
+    func exportImage()
+    {
+        guard
+        
+            let image:UIImage = shareImage
+        
+        else
+        {
+            return
+        }
+        
         let activity:UIActivityViewController = UIActivityViewController(
             activityItems:[image],
             applicationActivities:nil)
@@ -98,12 +121,5 @@ class CDrawProjectShare:CController
         }
         
         present(activity, animated:true)
-    }
-    
-    //MARK: public
-    
-    func close()
-    {
-        parentController.dismissAnimateOver(completion:nil)
     }
 }

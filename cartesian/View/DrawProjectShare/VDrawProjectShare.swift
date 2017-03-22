@@ -43,6 +43,7 @@ class VDrawProjectShare:VView
             for:UIControlEvents.touchUpInside)
         
         let buttonShare:UIButton = UIButton()
+        buttonShare.isHidden = true
         buttonShare.translatesAutoresizingMaskIntoConstraints = false
         buttonShare.setImage(
             #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
@@ -53,6 +54,10 @@ class VDrawProjectShare:VView
         buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.2)
         buttonShare.imageView!.clipsToBounds = true
         buttonShare.imageView!.contentMode = UIViewContentMode.center
+        buttonShare.addTarget(
+            self,
+            action:#selector(actionShare(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonShare = buttonShare
         
         let viewImage:VDrawProjectShareImage = VDrawProjectShareImage(
@@ -119,12 +124,19 @@ class VDrawProjectShare:VView
         controller.close()
     }
     
+    func actionShare(sender button:UIButton)
+    {
+        controller.exportImage()
+    }
+    
     //MARK: public
     
     func viewDidAppear()
     {
         self.viewSpinner?.stopAnimating()
         self.viewSpinner?.removeFromSuperview()
+        buttonShare.isHidden = true
+        viewImage.isHidden = true
         
         let viewSpinner:VSpinner = VSpinner()
         self.viewSpinner = viewSpinner
@@ -134,5 +146,15 @@ class VDrawProjectShare:VView
         NSLayoutConstraint.equals(
             view:viewSpinner,
             toView:self)
+    }
+    
+    func imageRendered()
+    {
+        viewSpinner?.stopAnimating()
+        viewSpinner?.removeFromSuperview()
+        
+        buttonShare.isHidden = false
+        viewImage.isHidden = false
+        viewImage.refresh()
     }
 }
