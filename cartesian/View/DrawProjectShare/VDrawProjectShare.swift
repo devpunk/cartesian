@@ -6,7 +6,7 @@ class VDrawProjectShare:VView
     private weak var layoutButtonCloseLeft:NSLayoutConstraint!
     private let kButtonCloseWidth:CGFloat = 100
     private let kButtonCloseHeight:CGFloat = 32
-    private let kButtonCloseBottom:CGFloat = -10
+    private let kButtonCloseBottom:CGFloat = -20
     
     override init(controller:CController)
     {
@@ -29,7 +29,7 @@ class VDrawProjectShare:VView
         buttonClose.setTitle(
             NSLocalizedString("VDrawProjectShare_buttonClose", comment:""),
             for:UIControlState.normal)
-        buttonClose.titleLabel!.font = UIFont.bold(size:16)
+        buttonClose.titleLabel!.font = UIFont.bold(size:15)
         buttonClose.layer.cornerRadius = kButtonCloseHeight / 2.0
         buttonClose.addTarget(
             self,
