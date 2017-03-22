@@ -4,17 +4,10 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
 {
     weak var viewRules:VDrawProjectRules!
     private(set) weak var viewCanvas:VDrawProjectCanvas!
-    private(set) var contentWidth:CGFloat
-    private(set) var contentHeight:CGFloat
     private weak var controller:CDrawProject!
-    private let kInitialWidth:CGFloat = 3000
-    private let kInitialHeight:CGFloat = 3000
     
     init(controller:CDrawProject)
     {
-        contentWidth = kInitialWidth
-        contentHeight = kInitialHeight
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -55,9 +48,21 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
     
     private func canvasResize()
     {
+        guard
+            
+            let contentWidth:Int16 = controller.model?.width,
+            let contentHeight:Int16 = controller.model?.height
+        
+        else
+        {
+            return
+        }
+        
+        let width:CGFloat = CGFloat(contentWidth)
+        let height:CGFloat = CGFloat(contentHeight)
         let zoom:CGFloat = controller.modelZoom.currentZoom()
-        let zoomedWidth:CGFloat = contentWidth * zoom
-        let zoomedHeight:CGFloat = contentHeight * zoom
+        let zoomedWidth:CGFloat = width * zoom
+        let zoomedHeight:CGFloat = height * zoom
         
         contentSize = CGSize(
             width:zoomedWidth,

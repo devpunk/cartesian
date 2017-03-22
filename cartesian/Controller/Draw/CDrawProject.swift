@@ -19,15 +19,6 @@ class CDrawProject:CController
         modelColor = MDrawProjectColor()
         
         super.init()
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            if self?.model == nil
-            {
-                self?.createProject()
-            }
-        }
     }
     
     required init?(coder:NSCoder)
@@ -57,6 +48,28 @@ class CDrawProject:CController
         parentController.viewParent.panRecognizer.isEnabled = false
         
         viewProject.viewDidAppeared()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+            
+                let strongSelf:CDrawProject = self
+            
+            else
+            {
+                return
+            }
+            
+            if strongSelf.model == nil
+            {
+                strongSelf.createProject()
+            }
+            else
+            {
+                strongSelf.modelLoaded()
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated:Bool)
@@ -87,6 +100,8 @@ class CDrawProject:CController
             self?.model = project
             
             DManager.sharedInstance?.save()
+            
+            self?.modelLoaded()
         }
     }
     
@@ -103,6 +118,15 @@ class CDrawProject:CController
         { [weak self] in
             
             self?.viewProject.viewScroll.viewCanvas.draw()
+        }
+    }
+    
+    private func modelLoaded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewProject.viewScroll.refresh()
         }
     }
     
@@ -379,12 +403,12 @@ class CDrawProject:CController
     func increaseZoom()
     {
         modelZoom.increase()
-        viewProject.refresh()
+        viewProject.viewScroll.refresh()
     }
     
     func decreaseZoom()
     {
         modelZoom.decrease()
-        viewProject.refresh()
+        viewProject.viewScroll.refresh()
     }
 }
