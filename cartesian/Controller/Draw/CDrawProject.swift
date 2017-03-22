@@ -9,7 +9,6 @@ class CDrawProject:CController
     var model:DProject?
     private(set) weak var viewProject:VDrawProject!
     private(set) weak var editingView:VDrawProjectCanvasView?
-    private let kInitialSize:Float = 100
     
     init(model:DProject?)
     {
@@ -75,7 +74,17 @@ class CDrawProject:CController
             entityName:DProject.entityName)
         { [weak self] (data) in
             
-            self?.model = data as? DProject
+            guard
+                
+                let project:DProject = data as? DProject
+            
+            else
+            {
+                return
+            }
+            
+            project.defaultValues()
+            self?.model = project
             
             DManager.sharedInstance?.save()
         }
@@ -115,7 +124,6 @@ class CDrawProject:CController
             guard
             
                 let node:DNode = data as? DNode,
-                let initialSize:Float = self?.kInitialSize,
                 let color:UIColor = self?.modelColor.selectedColor()
             
             else
@@ -125,9 +133,8 @@ class CDrawProject:CController
             
             node.centerAt(center:centerPoint)
             node.project = self?.model
-            node.width = initialSize
-            node.height = initialSize
             node.colorWithColor(color:color)
+            node.defaultValues()
             DManager.sharedInstance?.save()
             
             self?.reDraw()

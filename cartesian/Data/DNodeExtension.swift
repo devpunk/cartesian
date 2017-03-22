@@ -3,6 +3,8 @@ import CoreData
 
 extension DNode
 {
+    private static let kInitialSize:Float = 100
+    
     override func notifyDraw()
     {
         NotificationCenter.default.post(
@@ -88,6 +90,12 @@ extension DNode
         {
             linkDestination.notifyDraw()
         }
+    }
+    
+    final func defaultValues()
+    {
+        width = DNode.kInitialSize
+        height = DNode.kInitialSize
     }
     
     func drawPaths(
