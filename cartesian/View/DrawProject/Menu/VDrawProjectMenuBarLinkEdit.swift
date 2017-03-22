@@ -114,7 +114,7 @@ class VDrawProjectMenuBarLinkEdit:UIView
     
     func actionDelete(sender button:UIButton)
     {
-        controller.stopLinking()
+        controller.trashEditing()
     }
     
     func actionCancel(sender button:UIButton)

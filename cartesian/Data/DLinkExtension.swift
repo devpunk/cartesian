@@ -4,8 +4,8 @@ import CoreData
 extension DLink
 {
     private static let kMargin:CGFloat = 20
-    private static let kLineSelected:CGFloat = 6
-    private static let kMarkerRadius:Int16 = 3
+    private static let kLineSelected:CGFloat = 4
+    private static let kMarkerRadius:Int16 = 8
     private static let kLineWidth:Int16 = 2
     
     override func notifyDraw()
