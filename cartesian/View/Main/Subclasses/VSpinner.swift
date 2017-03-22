@@ -2,7 +2,7 @@ import UIKit
 
 class VSpinner:UIImageView
 {
-    private let kAnimationDuration:TimeInterval = 0.6
+    private let kAnimationDuration:TimeInterval = 1.5
     
     init()
     {
@@ -12,7 +12,8 @@ class VSpinner:UIImageView
             #imageLiteral(resourceName: "assetSpinner0"),
             #imageLiteral(resourceName: "assetSpinner1"),
             #imageLiteral(resourceName: "assetSpinner2"),
-            #imageLiteral(resourceName: "assetSpinner3")
+            #imageLiteral(resourceName: "assetSpinner3"),
+            #imageLiteral(resourceName: "assetSpinner4")
         ]
         
         isUserInteractionEnabled = false

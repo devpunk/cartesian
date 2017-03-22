@@ -24,6 +24,13 @@ class CDrawProjectShare:CController
         view = viewShare
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidDisappear(animated)
+        
+        viewShare.viewDidAppear()
+    }
+    
     //MARK: public
     
     func close()

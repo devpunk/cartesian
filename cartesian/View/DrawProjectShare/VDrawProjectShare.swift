@@ -4,6 +4,7 @@ class VDrawProjectShare:VView
 {
     private weak var controller:CDrawProjectShare!
     private weak var layoutButtonCloseLeft:NSLayoutConstraint!
+    private weak var viewSpinner:VSpinner?
     private let kButtonCloseWidth:CGFloat = 100
     private let kButtonCloseHeight:CGFloat = 32
     private let kButtonCloseBottom:CGFloat = -20
@@ -84,6 +85,16 @@ class VDrawProjectShare:VView
     
     func viewDidAppear()
     {
+        self.viewSpinner?.stopAnimating()
+        self.viewSpinner?.removeFromSuperview()
         
+        let viewSpinner:VSpinner = VSpinner()
+        self.viewSpinner = viewSpinner
+        
+        addSubview(viewSpinner)
+        
+        NSLayoutConstraint.equals(
+            view:viewSpinner,
+            toView:self)
     }
 }
