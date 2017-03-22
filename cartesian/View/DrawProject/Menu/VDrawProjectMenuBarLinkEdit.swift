@@ -5,8 +5,8 @@ class VDrawProjectMenuBarLinkEdit:UIView
     private weak var controller:CDrawProject!
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
-    private let kButtonMargin:CGFloat = 10
-    private let kButtonWidth:CGFloat = 120
+    private let kButtonMargin:CGFloat = -10
+    private let kButtonWidth:CGFloat = 100
     private let kCornerRadius:CGFloat = 5
     
     init(controller:CDrawProject)
@@ -25,28 +25,48 @@ class VDrawProjectMenuBarLinkEdit:UIView
         label.textColor = UIColor.white
         label.text = NSLocalizedString("VDrawProjectMenuBarLinkEdit_labelTitle", comment:"")
         
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        button.backgroundColor = UIColor.cartesianBlue
-        button.setTitleColor(
+        let buttonDelete:UIButton = UIButton()
+        buttonDelete.translatesAutoresizingMaskIntoConstraints = false
+        buttonDelete.clipsToBounds = true
+        buttonDelete.backgroundColor = UIColor.cartesianOrange
+        buttonDelete.setTitleColor(
             UIColor.white,
             for:UIControlState.normal)
-        button.setTitleColor(
+        buttonDelete.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        button.setTitle(
-            NSLocalizedString("VDrawProjectMenuBarLinkEdit_button", comment:""),
+        buttonDelete.setTitle(
+            NSLocalizedString("VDrawProjectMenuBarLinkEdit_buttonDelete", comment:""),
             for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.bold(size:15)
-        button.layer.cornerRadius = kCornerRadius
-        button.addTarget(
+        buttonDelete.titleLabel!.font = UIFont.bold(size:14)
+        buttonDelete.layer.cornerRadius = kCornerRadius
+        buttonDelete.addTarget(
             self,
-            action:#selector(actionButton(sender:)),
+            action:#selector(actionDelete(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
+        let buttonCancel:UIButton = UIButton()
+        buttonCancel.translatesAutoresizingMaskIntoConstraints = false
+        buttonCancel.clipsToBounds = true
+        buttonCancel.backgroundColor = UIColor.cartesianBlue
+        buttonCancel.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonCancel.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonCancel.setTitle(
+            NSLocalizedString("VDrawProjectMenuBarLinkEdit_buttonCancel", comment:""),
+            for:UIControlState.normal)
+        buttonCancel.titleLabel!.font = UIFont.bold(size:14)
+        buttonCancel.layer.cornerRadius = kCornerRadius
+        buttonCancel.addTarget(
+            self,
+            action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(label)
-        addSubview(button)
+        addSubview(buttonDelete)
         
         NSLayoutConstraint.equalsVertical(
             view:label,
@@ -60,15 +80,26 @@ class VDrawProjectMenuBarLinkEdit:UIView
             constant:kLabelWidth)
         
         NSLayoutConstraint.equalsVertical(
-            view:button,
+            view:buttonDelete,
             toView:self,
             margin:kButtonMargin)
         NSLayoutConstraint.rightToRight(
-            view:button,
-            toView:self,
-            constant:-kButtonMargin)
+            view:buttonDelete,
+            toView:buttonCancel,
+            constant:kButtonMargin)
         NSLayoutConstraint.width(
-            view:button,
+            view:buttonDelete,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonCancel,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:buttonCancel,
+            toView:self,
+            constant:kButtonMargin)
+        NSLayoutConstraint.width(
+            view:buttonCancel,
             constant:kButtonWidth)
     }
     
@@ -79,8 +110,13 @@ class VDrawProjectMenuBarLinkEdit:UIView
     
     //MARK: actions
     
-    func actionButton(sender button:UIButton)
+    func actionDelete(sender button:UIButton)
     {
         controller.stopLinking()
+    }
+    
+    func actionCancel(sender button:UIButton)
+    {
+        controller.stopEdition()
     }
 }
