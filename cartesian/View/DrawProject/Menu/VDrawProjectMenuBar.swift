@@ -11,6 +11,7 @@ class VDrawProjectMenuBar:UIView
     private weak var buttonSettings:VDrawProjectMenuBarButton!
     private weak var buttonNodes:VDrawProjectMenuBarButton!
     private weak var buttonLabels:VDrawProjectMenuBarButton!
+    private weak var buttonShare:VDrawProjectMenuBarButton!
     private weak var layoutBackLeft:NSLayoutConstraint!
     private weak var layoutTextLeft:NSLayoutConstraint!
     private var showingText:Bool
@@ -63,6 +64,14 @@ class VDrawProjectMenuBar:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonLabels = buttonLabels
         
+        let buttonShare:VDrawProjectMenuBarButton = VDrawProjectMenuBarButton(
+            image:#imageLiteral(resourceName: "assetGenericShare"))
+        buttonShare.addTarget(
+            self,
+            action:#selector(actionShare(sender:)),
+            for:UIControlEvents.touchUpInside)
+        self.buttonShare = buttonShare
+        
         let viewEdit:VDrawProjectMenuBarEdit = VDrawProjectMenuBarEdit(
             controller:controller)
         viewEdit.alpha = 0
@@ -93,6 +102,7 @@ class VDrawProjectMenuBar:UIView
         addSubview(buttonSettings)
         addSubview(buttonNodes)
         addSubview(buttonLabels)
+        addSubview(buttonShare)
         addSubview(viewEdit)
         addSubview(viewMove)
         addSubview(viewLink)
@@ -151,6 +161,16 @@ class VDrawProjectMenuBar:UIView
             toView:buttonNodes)
         NSLayoutConstraint.width(
             view:buttonLabels,
+            constant:kButtonWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:buttonShare,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonShare,
+            toView:buttonLabels)
+        NSLayoutConstraint.width(
+            view:buttonShare,
             constant:kButtonWidth)
         
         NSLayoutConstraint.equals(
@@ -229,6 +249,11 @@ class VDrawProjectMenuBar:UIView
         {
             selectLabels()
         }
+    }
+    
+    func actionShare(sender button:UIButton)
+    {
+        controller.share()
     }
     
     //MARK: private
