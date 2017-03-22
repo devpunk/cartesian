@@ -126,7 +126,7 @@ class CDrawProject:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.viewProject.viewScroll.refresh()
+            self?.viewProject.refresh()
         }
     }
     
@@ -403,12 +403,12 @@ class CDrawProject:CController
     func increaseZoom()
     {
         modelZoom.increase()
-        viewProject.viewScroll.refresh()
+        viewProject.refresh()
     }
     
     func decreaseZoom()
     {
         modelZoom.decrease()
-        viewProject.viewScroll.refresh()
+        viewProject.refresh()
     }
 }

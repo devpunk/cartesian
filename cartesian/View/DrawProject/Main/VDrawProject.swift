@@ -168,4 +168,12 @@ class VDrawProject:VView
         layoutIfNeeded()
         viewFontSize.animateShow()
     }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        viewScroll.refresh()
+        viewMenu.viewSettings.viewSize.update()
+    }
 }

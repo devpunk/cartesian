@@ -154,7 +154,7 @@ class VDrawProjectMenuSettingsSize:UIView, MDrawProjectSizeDelegate
         project.height = Int16(height)
         DManager.sharedInstance?.save()
         
-        controller.viewProject.viewScroll.refresh()
+        controller.viewProject.refresh()
     }
     
     func originalWidth() -> CGFloat
