@@ -51,7 +51,7 @@ class CDrawProjectShare:CController
             origin:CGPoint.zero,
             size:canvasSize)
         
-        UIGraphicsBeginImageContextWithOptions(canvasSize, true, 0)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, true, 1)
         
         guard
         

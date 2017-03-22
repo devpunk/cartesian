@@ -30,7 +30,7 @@ class VDrawProjectShareImage:UIView
         labelSize.translatesAutoresizingMaskIntoConstraints = false
         labelSize.backgroundColor = UIColor.clear
         labelSize.textAlignment = NSTextAlignment.center
-        labelSize.font = UIFont.numeric(size:16)
+        labelSize.font = UIFont.numeric(size:17)
         labelSize.textColor = UIColor.black
         self.labelSize = labelSize
         
