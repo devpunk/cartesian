@@ -5,8 +5,8 @@ class VDrawProjectMenuBarLinkEdit:UIView
     private weak var controller:CDrawProject!
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 200
-    private let kButtonMargin:CGFloat = -10
-    private let kButtonWidth:CGFloat = 100
+    private let kButtonMargin:CGFloat = 10
+    private let kButtonWidth:CGFloat = 90
     private let kCornerRadius:CGFloat = 5
     
     init(controller:CDrawProject)
@@ -38,7 +38,7 @@ class VDrawProjectMenuBarLinkEdit:UIView
         buttonDelete.setTitle(
             NSLocalizedString("VDrawProjectMenuBarLinkEdit_buttonDelete", comment:""),
             for:UIControlState.normal)
-        buttonDelete.titleLabel!.font = UIFont.bold(size:14)
+        buttonDelete.titleLabel!.font = UIFont.bold(size:13)
         buttonDelete.layer.cornerRadius = kCornerRadius
         buttonDelete.addTarget(
             self,
@@ -58,7 +58,7 @@ class VDrawProjectMenuBarLinkEdit:UIView
         buttonCancel.setTitle(
             NSLocalizedString("VDrawProjectMenuBarLinkEdit_buttonCancel", comment:""),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.bold(size:14)
+        buttonCancel.titleLabel!.font = UIFont.bold(size:13)
         buttonCancel.layer.cornerRadius = kCornerRadius
         buttonCancel.addTarget(
             self,
@@ -67,6 +67,7 @@ class VDrawProjectMenuBarLinkEdit:UIView
         
         addSubview(label)
         addSubview(buttonDelete)
+        addSubview(buttonCancel)
         
         NSLayoutConstraint.equalsVertical(
             view:label,
@@ -83,21 +84,22 @@ class VDrawProjectMenuBarLinkEdit:UIView
             view:buttonDelete,
             toView:self,
             margin:kButtonMargin)
-        NSLayoutConstraint.rightToRight(
+        NSLayoutConstraint.rightToLeft(
             view:buttonDelete,
             toView:buttonCancel,
-            constant:kButtonMargin)
+            constant:-kButtonMargin)
         NSLayoutConstraint.width(
             view:buttonDelete,
             constant:kButtonWidth)
         
         NSLayoutConstraint.equalsVertical(
             view:buttonCancel,
-            toView:self)
+            toView:self,
+            margin:kButtonMargin)
         NSLayoutConstraint.rightToRight(
             view:buttonCancel,
             toView:self,
-            constant:kButtonMargin)
+            constant:-kButtonMargin)
         NSLayoutConstraint.width(
             view:buttonCancel,
             constant:kButtonWidth)
