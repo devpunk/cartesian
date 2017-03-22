@@ -31,6 +31,7 @@
 "VDrawProjectMenuBarLinkEdit_labelTitle"="Delete connection";
 "VDrawProjectMenuBarLinkEdit_buttonDelete"="Delete";
 "VDrawProjectMenuBarLinkEdit_buttonCancel"="Cancel";
+"VDrawProjectMenuSettingsSize_canvasSize"="Canvas size";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

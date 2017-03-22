@@ -1,6 +1,6 @@
 import UIKit
 
-class VDrawProjectMenuSettingsSize:UIView
+class VDrawProjectMenuSettingsSize:UIView, MDrawProjectSizeDelegate
 {
     private weak var controller:CDrawProject!
     private weak var labelWidth:UILabel!
@@ -114,7 +114,9 @@ class VDrawProjectMenuSettingsSize:UIView
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller.viewProject.showSize(
+            title:NSLocalizedString("VDrawProjectMenuSettingsSize_canvasSize", comment:""),
+            delegate:self)
     }
     
     //MARK: public
@@ -133,5 +135,57 @@ class VDrawProjectMenuSettingsSize:UIView
         
         labelWidth.text = stringWidth
         labelHeight.text = stringHeight
+    }
+    
+    //MARK: size delegate
+    
+    func sizeChanged(width:CGFloat, height:CGFloat)
+    {
+        guard
+            
+            let project:DProject = controller.model
+            
+        else
+        {
+            return
+        }
+        
+        project.width = Int16(width)
+        project.height = Int16(height)
+        DManager.sharedInstance?.save()
+        
+        controller.viewProject.viewScroll.refresh()
+    }
+    
+    func originalWidth() -> CGFloat
+    {
+        guard
+            
+            let project:DProject = controller.model
+            
+        else
+        {
+            return 0
+        }
+        
+        let floatWidth:CGFloat = CGFloat(project.width)
+        
+        return floatWidth
+    }
+    
+    func originalHeight() -> CGFloat
+    {
+        guard
+            
+            let project:DProject = controller.model
+            
+        else
+        {
+            return 0
+        }
+        
+        let floatHeight:CGFloat = CGFloat(project.height)
+        
+        return floatHeight
     }
 }
