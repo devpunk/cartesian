@@ -18,7 +18,6 @@ class VDrawProjectMenuSettingsSize:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
-        isUserInteractionEnabled = false
         self.controller = controller
         
         let font:UIFont = UIFont.numeric(size:14)
@@ -47,9 +46,18 @@ class VDrawProjectMenuSettingsSize:UIView
         labelHeight.textColor = color
         self.labelHeight = labelHeight
         
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.clear
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(icon)
         addSubview(labelWidth)
         addSubview(labelHeight)
+        addSubview(button)
         
         NSLayoutConstraint.topToTop(
             view:icon,
@@ -91,11 +99,22 @@ class VDrawProjectMenuSettingsSize:UIView
         NSLayoutConstraint.width(
             view:labelHeight,
             constant:kLabelsWidth)
+        
+        NSLayoutConstraint.equals(
+            view:button,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        
     }
     
     //MARK: public
