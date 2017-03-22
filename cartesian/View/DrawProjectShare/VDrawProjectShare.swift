@@ -3,11 +3,16 @@ import UIKit
 class VDrawProjectShare:VView
 {
     private weak var controller:CDrawProjectShare!
-    private weak var layoutButtonCloseLeft:NSLayoutConstraint!
     private weak var viewSpinner:VSpinner?
+    private weak var viewImage:VDrawProjectShareImage!
+    private weak var buttonShare:UIButton!
+    private weak var layoutButtonCloseLeft:NSLayoutConstraint!
+    private weak var layoutButtonShareLeft:NSLayoutConstraint!
     private let kButtonCloseWidth:CGFloat = 100
     private let kButtonCloseHeight:CGFloat = 32
     private let kButtonCloseBottom:CGFloat = -20
+    private let kButtonShareSize:CGFloat = 50
+    private let kButtonShareBottom:CGFloat = -10
     
     override init(controller:CController)
     {
@@ -37,7 +42,26 @@ class VDrawProjectShare:VView
             action:#selector(actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonShare:UIButton = UIButton()
+        buttonShare.translatesAutoresizingMaskIntoConstraints = false
+        buttonShare.setImage(
+            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonShare.setImage(
+            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonShare.imageView!.clipsToBounds = true
+        buttonShare.imageView!.contentMode = UIViewContentMode.center
+        self.buttonShare = buttonShare
+        
+        let viewImage:VDrawProjectShareImage = VDrawProjectShareImage(
+            controller:self.controller)
+        self.viewImage = viewImage
+        
         addSubview(blur)
+        addSubview(viewImage)
+        addSubview(buttonShare)
         addSubview(buttonClose)
         
         NSLayoutConstraint.equals(
@@ -57,6 +81,17 @@ class VDrawProjectShare:VView
         layoutButtonCloseLeft = NSLayoutConstraint.leftToLeft(
             view:buttonClose,
             toView:self)
+        
+        NSLayoutConstraint.size(
+            view:buttonShare,
+            constant:kButtonShareSize)
+        NSLayoutConstraint.bottomToTop(
+            view:buttonShare,
+            toView:buttonClose,
+            constant:kButtonShareBottom)
+        layoutButtonShareLeft = NSLayoutConstraint.leftToLeft(
+            view:buttonShare,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -68,8 +103,11 @@ class VDrawProjectShare:VView
     {
         let width:CGFloat = bounds.maxX
         let remainButtonClose:CGFloat = width - kButtonCloseWidth
+        let remainButtonShare:CGFloat = width - kButtonShareSize
         let buttonCloseLeft:CGFloat = remainButtonClose / 2.0
+        let buttonShareLeft:CGFloat = remainButtonShare / 2.0
         layoutButtonCloseLeft.constant = buttonCloseLeft
+        layoutButtonShareLeft.constant = buttonShareLeft
         
         super.layoutSubviews()
     }
