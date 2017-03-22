@@ -23,4 +23,11 @@ class CDrawProjectShare:CController
         self.viewShare = viewShare
         view = viewShare
     }
+    
+    //MARK: public
+    
+    func close()
+    {
+        parentController.dismissAnimateOver(completion:nil)
+    }
 }

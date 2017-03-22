@@ -32,6 +32,7 @@
 "VDrawProjectMenuBarLinkEdit_buttonDelete"="Delete";
 "VDrawProjectMenuBarLinkEdit_buttonCancel"="Cancel";
 "VDrawProjectMenuSettingsSize_canvasSize"="Canvas size";
+"VDrawProjectShare_buttonClose"="Close";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";
