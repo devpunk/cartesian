@@ -26,6 +26,7 @@
 		DA38E0851E83339700F22C81 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA38E0841E83339700F22C81 /* spinner.xcassets */; };
 		DA38E0871E833BFF00F22C81 /* VDrawProjectShareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38E0861E833BFF00F22C81 /* VDrawProjectShareImage.swift */; };
 		DA38E08C1E83435900F22C81 /* MDrawProjectShareRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38E08B1E83435900F22C81 /* MDrawProjectShareRender.swift */; };
+		DA38E08E1E834D5D00F22C81 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA38E08D1E834D5D00F22C81 /* brand.xcassets */; };
 		DA45C4931E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4921E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift */; };
 		DA45C4951E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4941E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift */; };
 		DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45C4961E6DBD8900CA6A20 /* VDrawProjectScroll.swift */; };
@@ -184,6 +185,7 @@
 		DA38E0841E83339700F22C81 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DA38E0861E833BFF00F22C81 /* VDrawProjectShareImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectShareImage.swift; sourceTree = "<group>"; };
 		DA38E08B1E83435900F22C81 /* MDrawProjectShareRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectShareRender.swift; sourceTree = "<group>"; };
+		DA38E08D1E834D5D00F22C81 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA45C4921E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuSettingsSize.swift; sourceTree = "<group>"; };
 		DA45C4941E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuNodes.swift; sourceTree = "<group>"; };
 		DA45C4961E6DBD8900CA6A20 /* VDrawProjectScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectScroll.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 		DA630B3A1E6B84D40004245A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				DA38E08D1E834D5D00F22C81 /* brand.xcassets */,
 				DA38E0841E83339700F22C81 /* spinner.xcassets */,
 				DA630B3B1E6B84D40004245A /* generic.xcassets */,
 				DA94437B1E6DE23700CD5993 /* node.xcassets */,
@@ -910,6 +913,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA630B631E6B84D40004245A /* generic.xcassets in Resources */,
+				DA38E08E1E834D5D00F22C81 /* brand.xcassets in Resources */,
 				DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */,
 				DA94437C1E6DE23700CD5993 /* node.xcassets in Resources */,
 				DA630B721E6B84D40004245A /* Localizable.strings in Resources */,
