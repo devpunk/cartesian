@@ -15,6 +15,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceVertical = true
         collectionView.registerHeader(header:VSettingsHeader.self)
+        collectionView.registerCell(cell:VSettingsCellStore.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -50,7 +51,27 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         super.layoutSubviews()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSettingsItem
+    {
+        let item:MSettingsItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(
+            width:width,
+            height:item.cellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -59,7 +80,9 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return 0
+        let count:Int = controller.model.items.count
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
@@ -75,6 +98,12 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        return UICollectionViewCell()
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        let cell:VSettingsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VSettingsCell
+        
+        return cell
     }
 }

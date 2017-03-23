@@ -33,6 +33,7 @@
 "VDrawProjectMenuBarLinkEdit_buttonCancel"="Cancel";
 "VDrawProjectMenuSettingsSize_canvasSize"="Canvas size";
 "VDrawProjectShare_buttonClose"="Close";
+"VSettingsCellStore_label"="Cartesian store";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

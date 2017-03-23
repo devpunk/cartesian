@@ -2,8 +2,10 @@ import UIKit
 
 class VSettingsHeader:UICollectionReusableView
 {
-    private let kLabelHeight:CGFloat = 30
-    private let kLabelBottom:CGFloat = -70
+    private let kImageTop:CGFloat = 110
+    private let kImageHeight:CGFloat = 100
+    private let kLabelTop:CGFloat = -18
+    private let kLabelHeight:CGFloat = 20
     private let kVersionKey:String = "CFBundleShortVersionString"
     
     override init(frame:CGRect)
@@ -24,20 +26,27 @@ class VSettingsHeader:UICollectionReusableView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.numeric(size:16)
+        label.font = UIFont.numeric(size:14)
         label.textAlignment = NSTextAlignment.center
         
         addSubview(imageView)
         addSubview(label)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.topToTop(
+            view:imageView,
+            toView:self,
+            constant:kImageTop)
+        NSLayoutConstraint.height(
+            view:imageView,
+            constant:kImageHeight)
+        NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)
         
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.topToBottom(
             view:label,
-            toView:self,
-            constant:kLabelBottom)
+            toView:imageView,
+            constant:kLabelTop)
         NSLayoutConstraint.height(
             view:label,
             constant:kLabelHeight)
