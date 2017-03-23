@@ -17,6 +17,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         collectionView.alwaysBounceVertical = true
         collectionView.registerHeader(header:VSettingsHeader.self)
         collectionView.registerCell(cell:VSettingsCellStore.self)
+        collectionView.registerCell(cell:VSettingsCellRetina.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         

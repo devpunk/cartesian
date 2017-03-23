@@ -7,8 +7,10 @@ class MSettings
     init()
     {
         let itemStore:MSettingsItemStore = MSettingsItemStore()
+        let itemRetina:MSettingsItemRetina = MSettingsItemRetina()
         
         items = [
-            itemStore]
+            itemStore,
+            itemRetina]
     }
 }
