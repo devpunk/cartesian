@@ -109,6 +109,7 @@ class CDrawProjectShare:CController
             return
         }
         
+        UIGraphicsEndImageContext()
         self.shareImage = image
         
         DispatchQueue.main.async

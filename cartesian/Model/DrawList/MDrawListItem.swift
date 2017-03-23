@@ -71,6 +71,7 @@ class MDrawListItem
             return
         }
         
+        UIGraphicsEndImageContext()
         imageRendered(image:image)
     }
     
