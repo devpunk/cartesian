@@ -2,7 +2,7 @@ import UIKit
 
 class MSettingsItemRetina:MSettingsItem
 {
-    private let kCellHeight:CGFloat = 90
+    private let kCellHeight:CGFloat = 100
     private let kSelectable:Bool = false
     
     init()
