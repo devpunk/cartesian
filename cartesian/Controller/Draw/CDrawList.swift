@@ -58,4 +58,9 @@ class CDrawList:CController
             controller:controllerProject,
             horizontal:CParent.TransitionHorizontal.fromRight)
     }
+    
+    func trashDraw(project:DProject)
+    {
+        
+    }
 }

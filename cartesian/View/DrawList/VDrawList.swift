@@ -110,7 +110,9 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             withReuseIdentifier:
             VDrawListCell.reusableIdentifier,
             for:indexPath) as! VDrawListCell
-        cell.config(model:item)
+        cell.config(
+            controller:controller,
+            model:item)
         
         return cell
     }

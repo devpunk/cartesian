@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawListCell:UICollectionViewCell
 {
+    private weak var controller:CDrawList?
     private weak var model:MDrawListItem?
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
@@ -11,7 +12,7 @@ class VDrawListCell:UICollectionViewCell
     private let kContentTop:CGFloat = 10
     private let kContentLeft:CGFloat = 10
     private let kBorderWidth:CGFloat = 1
-    private let kButtonWidth:CGFloat = 50
+    private let kButtonSize:CGFloat = 50
     private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -87,18 +88,15 @@ class VDrawListCell:UICollectionViewCell
             view:label,
             toView:self)
         
-        NSLayoutConstraint.topToBottom(
-            view:buttonTrash,
-            toView:label)
         NSLayoutConstraint.bottomToBottom(
             view:buttonTrash,
             toView:self)
         NSLayoutConstraint.leftToRight(
             view:buttonTrash,
             toView:imageView)
-        NSLayoutConstraint.width(
+        NSLayoutConstraint.size(
             view:buttonTrash,
-            constant:kButtonWidth)
+            constant:kButtonSize)
         
         NotificationCenter.default.addObserver(
             self,
@@ -161,7 +159,16 @@ class VDrawListCell:UICollectionViewCell
     
     func actionTrash(sender button:UIButton)
     {
+        guard
         
+            let project:DProject = model?.project
+        
+        else
+        {
+            return
+        }
+        
+        controller?.trashDraw(project:project)
     }
     
     //MARK: private
@@ -185,8 +192,9 @@ class VDrawListCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MDrawListItem)
+    func config(controller:CDrawList, model:MDrawListItem)
     {
+        self.controller = controller
         self.model = model
         self.updateImage()
         label.text = model.project.projectName()
