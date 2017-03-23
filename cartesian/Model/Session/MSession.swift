@@ -29,6 +29,7 @@ class MSession
                 return
             }
             
+            settings.becameActive()
             self?.settings = settings
             self?.sessionLoaded()
         }
@@ -56,7 +57,6 @@ class MSession
     
     private func sessionLoaded()
     {
-        
     }
     
     //MARK: public
