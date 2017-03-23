@@ -111,6 +111,20 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         return cell
     }
     
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         collectionView.isUserInteractionEnabled = false
