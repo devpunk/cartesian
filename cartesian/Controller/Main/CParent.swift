@@ -37,7 +37,7 @@ class CParent:UIViewController
         let controllerDraw:CDrawList = CDrawList()
         mainController(controller:controllerDraw)
         
-//        MSession.sharedInstance.loadSettings()
+        MSession.sharedInstance.loadSession()
     }
     
     override func loadView()

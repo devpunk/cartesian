@@ -20,6 +20,6 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     
     func applicationWillEnterForeground(_ application:UIApplication)
     {
-        //MSession.sharedInstance.settings?.addTtl()
+        MSession.sharedInstance.settings?.becameActive()
     }
 }

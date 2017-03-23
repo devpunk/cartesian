@@ -12,5 +12,7 @@ extension DSettings
         ttl += DSettings.kDeltaTtl
         
         DManager.sharedInstance?.save()
+        
+        print("ttl \(ttl)")
     }
 }
