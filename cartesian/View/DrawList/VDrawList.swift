@@ -4,6 +4,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
 {
     private weak var controller:CDrawList!
     private weak var collectionView:VCollection!
+    private weak var spinner:VSpinner?
     private let kHeaderHeight:CGFloat = 170
     private let kCellHeight:CGFloat = 110
     private let kCollectionBottom:CGFloat = 20
@@ -33,10 +34,18 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
                 right:0)
         }
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
         addSubview(collectionView)
+        addSubview(spinner)
         
         NSLayoutConstraint.equals(
             view:collectionView,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:spinner,
             toView:self)
     }
     
@@ -65,6 +74,8 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func refresh()
     {
+        spinner?.stopAnimating()
+        spinner?.removeFromSuperview()
         collectionView.isHidden = false
         collectionView.reloadData()
     }
