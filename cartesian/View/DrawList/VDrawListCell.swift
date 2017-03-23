@@ -60,10 +60,10 @@ class VDrawListCell:UICollectionViewCell
         let buttonShare:UIButton = UIButton()
         buttonShare.translatesAutoresizingMaskIntoConstraints = false
         buttonShare.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            #imageLiteral(resourceName: "assetGenericShareSimple").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         buttonShare.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericShareSimple").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonShare.imageView!.clipsToBounds = true
         buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.1)
