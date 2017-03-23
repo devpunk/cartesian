@@ -45,6 +45,7 @@ class VSettingsCellRetina:VSettingsCell
             self,
             action:#selector(actionCheck(sender:)),
             for:UIControlEvents.valueChanged)
+        self.check = check
         
         addSubview(label)
         addSubview(check)
@@ -73,6 +74,8 @@ class VSettingsCellRetina:VSettingsCell
         NSLayoutConstraint.width(
             view:check,
             constant:kCheckWidth)
+        
+        loadRetina()
     }
     
     required init?(coder:NSCoder)
@@ -84,6 +87,25 @@ class VSettingsCellRetina:VSettingsCell
     
     func actionCheck(sender check:UISwitch)
     {
+        let retina:Bool = check.isOn
+     
+        MSession.sharedInstance.settings?.retina = retina
+        DManager.sharedInstance?.save()
+    }
+    
+    //MARK: private
+    
+    private func loadRetina()
+    {
+        guard
         
+            let retina:Bool = MSession.sharedInstance.settings?.retina
+        
+        else
+        {
+            return
+        }
+        
+        check.isOn = retina
     }
 }

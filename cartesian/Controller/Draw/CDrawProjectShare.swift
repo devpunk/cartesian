@@ -5,6 +5,8 @@ class CDrawProjectShare:CController
     private weak var model:DProject!
     private weak var viewShare:VDrawProjectShare!
     private(set) var shareImage:UIImage?
+    private let kDefaultResolution:CGFloat = 1
+    private let kResolutionRetina:CGFloat = 0
     
     init(model:DProject)
     {
@@ -62,7 +64,25 @@ class CDrawProjectShare:CController
             origin:CGPoint.zero,
             size:canvasSize)
         
-        UIGraphicsBeginImageContextWithOptions(canvasSize, true, 1)
+        let resolution:CGFloat
+        
+        if let retina:Bool = MSession.sharedInstance.settings?.retina
+        {
+            if retina
+            {
+                resolution = kResolutionRetina
+            }
+            else
+            {
+                resolution = kDefaultResolution
+            }
+        }
+        else
+        {
+            resolution = kDefaultResolution
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(canvasSize, true, resolution)
         
         guard
         
