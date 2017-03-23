@@ -8,7 +8,7 @@ class VDrawProjectCanvas:UIView
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         self.controller = controller
     }
     

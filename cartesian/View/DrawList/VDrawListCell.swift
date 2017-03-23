@@ -7,7 +7,7 @@ class VDrawListCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private let kCornerRadius:CGFloat = 5
     private let kImageSize:CGFloat = 90
-    private let kLabelHeight:CGFloat = 30
+    private let kLabelHeight:CGFloat = 26
     private let kContentTop:CGFloat = 10
     private let kContentLeft:CGFloat = 10
     private let kBorderWidth:CGFloat = 1
@@ -23,10 +23,11 @@ class VDrawListCell:UICollectionViewCell
         let imageView:UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.backgroundColor = UIColor.white
         imageView.isUserInteractionEnabled = false
         imageView.layer.cornerRadius = kCornerRadius
-        imageView.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
+        imageView.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         imageView.layer.borderWidth = kBorderWidth
         self.imageView = imageView
         
