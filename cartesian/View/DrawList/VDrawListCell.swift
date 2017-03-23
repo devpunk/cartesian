@@ -67,6 +67,12 @@ class VDrawListCell:UICollectionViewCell
         NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedListItemRendered(sender:)),
+            name:Notification.listItemRendered,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
