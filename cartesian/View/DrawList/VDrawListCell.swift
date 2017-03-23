@@ -50,16 +50,33 @@ class VDrawListCell:UICollectionViewCell
             #imageLiteral(resourceName: "assetGenericTrash").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         buttonTrash.imageView!.clipsToBounds = true
-        buttonTrash.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonTrash.imageView!.tintColor = UIColor(white:0, alpha:0.1)
         buttonTrash.imageView!.contentMode = UIViewContentMode.center
         buttonTrash.addTarget(
             self,
             action:#selector(actionTrash(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let buttonShare:UIButton = UIButton()
+        buttonShare.translatesAutoresizingMaskIntoConstraints = false
+        buttonShare.setImage(
+            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonShare.setImage(
+            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonShare.imageView!.clipsToBounds = true
+        buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        buttonShare.imageView!.contentMode = UIViewContentMode.center
+        buttonShare.addTarget(
+            self,
+            action:#selector(actionShare(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(label)
         addSubview(imageView)
         addSubview(buttonTrash)
+        addSubview(buttonShare)
         
         NSLayoutConstraint.topToTop(
             view:imageView,
@@ -96,6 +113,17 @@ class VDrawListCell:UICollectionViewCell
             toView:imageView)
         NSLayoutConstraint.size(
             view:buttonTrash,
+            constant:kButtonSize)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonShare,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonShare,
+            toView:buttonTrash,
+            constant:kContentLeft)
+        NSLayoutConstraint.size(
+            view:buttonShare,
             constant:kButtonSize)
         
         NotificationCenter.default.addObserver(
@@ -169,6 +197,20 @@ class VDrawListCell:UICollectionViewCell
         }
         
         controller?.trashDraw(project:project)
+    }
+    
+    func actionShare(sender button:UIButton)
+    {
+        guard
+        
+            let project:DProject = model?.project
+        
+        else
+        {
+            return
+        }
+        
+        controller?.shareProject(project:project)
     }
     
     //MARK: private

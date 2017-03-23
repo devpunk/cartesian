@@ -122,4 +122,11 @@ class CDrawList:CController
         
         present(alert, animated:true, completion:nil)
     }
+    
+    func shareProject(project:DProject)
+    {
+        let controllerShare:CDrawProjectShare = CDrawProjectShare(
+            model:project)
+        parentController.animateOver(controller:controllerShare)
+    }
 }
