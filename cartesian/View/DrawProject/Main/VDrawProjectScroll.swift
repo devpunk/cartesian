@@ -10,7 +10,7 @@ class VDrawProjectScroll:UIScrollView, UIScrollViewDelegate
     {
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0.97, alpha:1)
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false

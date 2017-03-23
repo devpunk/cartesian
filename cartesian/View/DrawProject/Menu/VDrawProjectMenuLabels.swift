@@ -75,6 +75,4 @@ class VDrawProjectMenuLabels:UIView
     {
         return nil
     }
-    
-    //MARK: public
 }
