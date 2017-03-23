@@ -36,7 +36,13 @@ class CDrawList:CController
     
     private func confirmDelete(project:DProject)
     {
-        
+        DManager.sharedInstance?.delete(data:project)
+        { [weak self] in
+            
+            DManager.sharedInstance?.save()
+            
+            self?.model.update()
+        }
     }
     
     //MARK: public
