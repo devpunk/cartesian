@@ -30,7 +30,7 @@ class VParentBar:UIView
         self.buttonHome = buttonHome
         
         let buttonSettings:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetGenericDraw"))
+            image:#imageLiteral(resourceName: "assetGenericConfig"))
         buttonSettings.isSelected = false
         buttonSettings.addTarget(
             self,
@@ -157,11 +157,11 @@ class VParentBar:UIView
             buttonSettings.isSelected = true
             buttonStore.isSelected = false
             
-//            let controllerSettings:CSettings = CSettings()
-//            
-//            controller.slideTo(
-//                horizontal:CParent.TransitionHorizontal.fromLeft,
-//                controller:controllerSettings)
+            let controllerSettings:CSettings = CSettings()
+            
+            controller.slideTo(
+                horizontal:CParent.TransitionHorizontal.fromLeft,
+                controller:controllerSettings)
         }
     }
     
