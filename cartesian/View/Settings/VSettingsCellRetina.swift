@@ -2,8 +2,12 @@ import UIKit
 
 class VSettingsCellRetina:VSettingsCell
 {
+    private weak var check:UISwitch!
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 210
+    private let kCheckTop:CGFloat = 30
+    private let kCheckHeight:CGFloat = 100
+    private let kCheckWidth:CGFloat = 70
     
     override init(frame:CGRect)
     {
@@ -33,7 +37,17 @@ class VSettingsCellRetina:VSettingsCell
         label.numberOfLines = 0
         label.attributedText = mutableString
         
+        let check:UISwitch = UISwitch()
+        check.translatesAutoresizingMaskIntoConstraints = false
+        check.tintColor = UIColor.black
+        check.onTintColor = UIColor.cartesianOrange
+        check.addTarget(
+            self,
+            action:#selector(actionCheck(sender:)),
+            for:UIControlEvents.valueChanged)
+        
         addSubview(label)
+        addSubview(check)
         
         NSLayoutConstraint.equalsVertical(
             view:label,
@@ -45,10 +59,31 @@ class VSettingsCellRetina:VSettingsCell
         NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)
+        
+        NSLayoutConstraint.topToTop(
+            view:check,
+            toView:self,
+            constant:kCheckTop)
+        NSLayoutConstraint.height(
+            view:check,
+            constant:kCheckHeight)
+        NSLayoutConstraint.rightToRight(
+            view:check,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:check,
+            constant:kCheckWidth)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: actions
+    
+    func actionCheck(sender check:UISwitch)
+    {
+        
     }
 }
