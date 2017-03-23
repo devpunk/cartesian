@@ -76,60 +76,6 @@ class VDrawProjectRules:UIView
                 position:positionY,
                 compositePosition:sumPositionY,
                 ruleType:MDrawProjectMenuZoom.RuleType.vertical)
-            
-            /*
-            
-            let compositePositionY:Int = positionY + offsetY
-            let lineWidth:Int?
-            
-            if compositePositionY % 100 == 0
-            {
-                lineWidth = kLineHeightFifties
-                
-                let stringPosition:String = "\(compositePositionY)"
-                let attributedString:NSAttributedString = NSAttributedString(
-                    string:stringPosition,
-                    attributes:attributes)
-                let stringRect:CGRect = CGRect(
-                    x:kStringTop,
-                    y:positionY,
-                    width:kStringWidth,
-                    height:kStringHeight)
-                
-                attributedString.draw(in:stringRect)
-            }
-            else if compositePositionY % 50 == 0
-            {
-                lineWidth = kLineHeightFifties
-            }
-            else if compositePositionY % 10 == 0
-            {
-                lineWidth = kLineHeightTens
-            }
-            else if compositePositionY % 5 == 0
-            {
-                lineWidth = kLineHeightFives
-            }
-            else
-            {
-                lineWidth = nil
-            }
-            
-            guard
-                
-                let drawLine:Int = lineWidth
-                
-            else
-            {
-                continue
-            }
-            
-            let rect:CGRect = CGRect(
-                x:0,
-                y:positionY,
-                width:drawLine,
-                height:kLineWidth)
-            context.addRect(rect)*/
         }
         
         context.drawPath(using:CGPathDrawingMode.fill)

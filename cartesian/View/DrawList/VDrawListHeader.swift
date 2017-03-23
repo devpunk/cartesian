@@ -5,7 +5,7 @@ class VDrawListHeader:UICollectionReusableView
     private weak var controller:CDrawList?
     private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kButtonSize:CGFloat = 40
-    private let kButtonBottom:CGFloat = -20
+    private let kButtonBottom:CGFloat = -25
     
     override init(frame:CGRect)
     {
