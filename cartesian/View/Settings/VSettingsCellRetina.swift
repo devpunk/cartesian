@@ -3,15 +3,15 @@ import UIKit
 class VSettingsCellRetina:VSettingsCell
 {
     private let kLabelLeft:CGFloat = 10
-    private let kLabelWidth:CGFloat = 195
+    private let kLabelWidth:CGFloat = 210
     
     override init(frame:CGRect)
     {
         let attributesTitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.bold(size:15),
+            NSFontAttributeName:UIFont.bold(size:16),
             NSForegroundColorAttributeName:UIColor.black]
         let attributesSubtitle:[String:AnyObject] = [
-            NSFontAttributeName:UIFont.regular(size:15),
+            NSFontAttributeName:UIFont.regular(size:14),
             NSForegroundColorAttributeName:UIColor.black]
         
         let stringTitle:NSAttributedString = NSAttributedString(
@@ -40,7 +40,8 @@ class VSettingsCellRetina:VSettingsCell
             toView:self)
         NSLayoutConstraint.leftToLeft(
             view:label,
-            toView:self)
+            toView:self,
+            constant:kLabelLeft)
         NSLayoutConstraint.width(
             view:label,
             constant:kLabelWidth)

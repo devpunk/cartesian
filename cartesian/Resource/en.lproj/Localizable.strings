@@ -34,6 +34,8 @@
 "VDrawProjectMenuSettingsSize_canvasSize"="Canvas size";
 "VDrawProjectShare_buttonClose"="Close";
 "VSettingsCellStore_label"="Cartesian store";
+"VSettingsCellRetina_stringTitle"="Use retina display";
+"VSettingsCellRetina_stringSubtitle"="\nWhen exporting you will get bigger files, better quality";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";
