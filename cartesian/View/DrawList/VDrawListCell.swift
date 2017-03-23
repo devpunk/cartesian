@@ -11,6 +11,7 @@ class VDrawListCell:UICollectionViewCell
     private let kContentTop:CGFloat = 10
     private let kContentLeft:CGFloat = 10
     private let kBorderWidth:CGFloat = 1
+    private let kButtonWidth:CGFloat = 50
     private let kAlphaSelected:CGFloat = 0.15
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -39,8 +40,25 @@ class VDrawListCell:UICollectionViewCell
         label.textColor = UIColor.black
         self.label = label
         
+        let buttonTrash:UIButton = UIButton()
+        buttonTrash.translatesAutoresizingMaskIntoConstraints = false
+        buttonTrash.setImage(
+            #imageLiteral(resourceName: "assetGenericTrash").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.normal)
+        buttonTrash.setImage(
+            #imageLiteral(resourceName: "assetGenericTrash").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        buttonTrash.imageView!.clipsToBounds = true
+        buttonTrash.imageView!.tintColor = UIColor(white:0, alpha:0.2)
+        buttonTrash.imageView!.contentMode = UIViewContentMode.center
+        buttonTrash.addTarget(
+            self,
+            action:#selector(actionTrash(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(label)
         addSubview(imageView)
+        addSubview(buttonTrash)
         
         NSLayoutConstraint.topToTop(
             view:imageView,
@@ -68,6 +86,19 @@ class VDrawListCell:UICollectionViewCell
         NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:buttonTrash,
+            toView:label)
+        NSLayoutConstraint.bottomToBottom(
+            view:buttonTrash,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:buttonTrash,
+            toView:imageView)
+        NSLayoutConstraint.width(
+            view:buttonTrash,
+            constant:kButtonWidth)
         
         NotificationCenter.default.addObserver(
             self,
@@ -124,6 +155,13 @@ class VDrawListCell:UICollectionViewCell
                 self?.updateImage()
             }
         }
+    }
+    
+    //MARK: actions
+    
+    func actionTrash(sender button:UIButton)
+    {
+        
     }
     
     //MARK: private
