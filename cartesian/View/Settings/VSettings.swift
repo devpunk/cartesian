@@ -6,6 +6,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 270
     private let kCollectionBottom:CGFloat = 20
+    private let kDeselectTime:TimeInterval = 0.2
     
     override init(controller:CController)
     {
@@ -103,7 +104,29 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VSettingsCell
+        cell.config(
+            controller:controller,
+            model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        collectionView.isUserInteractionEnabled = false
+        
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+            collectionView?.isUserInteractionEnabled = true
+        }
     }
 }

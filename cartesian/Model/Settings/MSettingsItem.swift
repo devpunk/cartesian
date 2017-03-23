@@ -12,4 +12,10 @@ class MSettingsItem
         self.selectable = selectable
         self.reusableIdentifier = reusableIdentifier
     }
+    
+    //MARK: public
+    
+    func selected(controller:CSettings)
+    {
+    }
 }
