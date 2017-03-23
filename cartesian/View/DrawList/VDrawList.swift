@@ -5,7 +5,7 @@ class VDrawList:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var controller:CDrawList!
     private weak var collectionView:VCollection!
     private let kHeaderHeight:CGFloat = 160
-    private let kCellHeight:CGFloat = 90
+    private let kCellHeight:CGFloat = 110
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 0.2
     

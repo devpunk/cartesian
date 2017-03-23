@@ -5,7 +5,8 @@ class VDrawListCell:UICollectionViewCell
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
     private let kCornerRadius:CGFloat = 5
-    private let kImageSize:CGFloat = 70
+    private let kImageSize:CGFloat = 90
+    private let kLabelHeight:CGFloat = 30
     private let kContentTop:CGFloat = 10
     private let kContentLeft:CGFloat = 10
     private let kBorderWidth:CGFloat = 1
@@ -32,7 +33,7 @@ class VDrawListCell:UICollectionViewCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:14)
+        label.font = UIFont.medium(size:14)
         label.textColor = UIColor.black
         self.label = label
         
@@ -57,7 +58,7 @@ class VDrawListCell:UICollectionViewCell
             constant:kContentTop)
         NSLayoutConstraint.height(
             view:label,
-            constant:kImageSize)
+            constant:kLabelHeight)
         NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView,

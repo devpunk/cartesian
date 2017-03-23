@@ -38,7 +38,7 @@ class MDrawList
             items.sort
             { (itemA, itemB) -> Bool in
             
-                return itemA.project.created > itemB.project.created
+                return itemA.project.created < itemB.project.created
             }
             
             self?.items = items
