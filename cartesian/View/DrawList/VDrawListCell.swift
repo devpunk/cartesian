@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawListCell:UICollectionViewCell
 {
+    private weak var model:MDrawListItem?
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
     private let kCornerRadius:CGFloat = 5
@@ -73,6 +74,11 @@ class VDrawListCell:UICollectionViewCell
         return nil
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override var isSelected:Bool
     {
         didSet
@@ -86,6 +92,30 @@ class VDrawListCell:UICollectionViewCell
         didSet
         {
             hover()
+        }
+    }
+    
+    //MARK: notifications
+    
+    func notifiedListItemRendered(sender notification:Notification)
+    {
+        guard
+        
+            let itemSender:MDrawListItem = notification.object as? MDrawListItem,
+            let model:MDrawListItem = self.model
+        
+        else
+        {
+            return
+        }
+        
+        if itemSender === model
+        {
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.updateImage()
+            }
         }
     }
     
@@ -103,10 +133,18 @@ class VDrawListCell:UICollectionViewCell
         }
     }
     
+    private func updateImage()
+    {
+        imageView.image = model?.image
+    }
+    
     //MARK: public
     
     func config(model:MDrawListItem)
     {
+        self.model = model
+        self.updateImage()
         label.text = model.project.projectName()
+        hover()
     }
 }

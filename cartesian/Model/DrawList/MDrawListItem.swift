@@ -3,7 +3,7 @@ import UIKit
 class MDrawListItem
 {
     let project:DProject
-    var image:UIImage?
+    private(set) var image:UIImage?
     
     init(project:DProject)
     {
