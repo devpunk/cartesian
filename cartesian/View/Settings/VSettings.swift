@@ -4,7 +4,7 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
 {
     private weak var controller:CSettings!
     private weak var collectionView:VCollection!
-    private let kHeaderHeight:CGFloat = 250
+    private let kHeaderHeight:CGFloat = 270
     private let kCollectionBottom:CGFloat = 20
     
     override init(controller:CController)
@@ -15,6 +15,8 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let collectionView:VCollection = VCollection()
         collectionView.alwaysBounceVertical = true
         collectionView.registerHeader(header:VSettingsHeader.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
@@ -40,6 +42,12 @@ class VSettings:VView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
     }
     
     //MARK: collectionView delegate

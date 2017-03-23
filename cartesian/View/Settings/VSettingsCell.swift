@@ -1,9 +1,32 @@
-//
-//  VSettingsCell.swift
-//  cartesian
-//
-//  Created by zero on 3/23/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VSettingsCell:UICollectionViewCell
+{
+    private let kBorderHeight:CGFloat = 1
+    
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
+        
+        addSubview(border)
+        
+        NSLayoutConstraint.topToTop(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:border,
+            constant:kBorderHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:self)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+}

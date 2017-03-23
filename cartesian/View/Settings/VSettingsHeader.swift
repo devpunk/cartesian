@@ -3,7 +3,7 @@ import UIKit
 class VSettingsHeader:UICollectionReusableView
 {
     private let kLabelHeight:CGFloat = 30
-    private let kLabelBottom:CGFloat = -20
+    private let kLabelBottom:CGFloat = -70
     private let kVersionKey:String = "CFBundleShortVersionString"
     
     override init(frame:CGRect)
