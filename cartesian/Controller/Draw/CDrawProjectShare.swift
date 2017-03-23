@@ -44,7 +44,9 @@ class CDrawProjectShare:CController
     {
         guard
             
-            let nodes:[DNode] = model.nodes?.array as? [DNode]
+            let nodes:[DNode] = model.nodes?.array as? [DNode],
+            let labels:[DLabel] = model.labels?.array as? [DLabel],
+            let links:[DLink] = model.links?.array as? [DLink]
         
         else
         {
@@ -77,8 +79,15 @@ class CDrawProjectShare:CController
         
         for node:DNode in nodes
         {
-            MDrawProjectShareRender.render(
-                drawable:node,
+            MDrawProjectShareRender.renderNode(
+                node:node,
+                context:context)
+        }
+        
+        for label:DLabel in labels
+        {
+            MDrawProjectShareRender.renderLabel(
+                label:label,
                 context:context)
         }
         

@@ -41,12 +41,14 @@ extension DLabel
             context.drawPath(using:CGPathDrawingMode.fillStroke)
         }
         
+        let originX:CGFloat = rect.origin.x
+        let originY:CGFloat = rect.origin.y
         let width:CGFloat = CGFloat(self.width)
         let height:CGFloat = CGFloat(self.height)
         let remainWidth:CGFloat = rect.size.width - width
         let remainHeight:CGFloat = rect.size.height - height
-        let left:CGFloat = floor(remainWidth / 2.0)
-        let top:CGFloat = floor(remainHeight / 2.0)
+        let left:CGFloat = originX + floor(remainWidth / 2.0)
+        let top:CGFloat = originY + floor(remainHeight / 2.0)
         let rectString:CGRect = CGRect(
             x:left,
             y:top,
