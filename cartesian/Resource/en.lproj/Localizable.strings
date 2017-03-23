@@ -61,4 +61,8 @@
 "MDrawProjectMenuTextItemTrash_alertDelete"="Delete";
 "MDrawProjectMenuTextItemFont_fontTitle"="Select text font";
 
+"CDrawList_alertTitle"="Delete project?";
+"CDrawList_alertCancel"="Cancel";
+"CDrawList_alertDelete"="Delete";
+
 "DProject_defaultTitle"="Unamed project";

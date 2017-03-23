@@ -32,6 +32,13 @@ class CDrawList:CController
         model.update()
     }
     
+    //MARK: private
+    
+    private func confirmDelete(project:DProject)
+    {
+        
+    }
+    
     //MARK: public
 
     func listLoaded()
@@ -61,6 +68,52 @@ class CDrawList:CController
     
     func trashDraw(project:DProject)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
         
+        let alert:UIAlertController = UIAlertController(
+            title:NSLocalizedString("CDrawList_alertTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CDrawList_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CDrawList_alertDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { (action:UIAlertAction) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self, weak project] in
+                
+                guard
+                
+                    let strongProject:DProject = project
+                
+                else
+                {
+                    return
+                }
+                
+                self?.confirmDelete(project:strongProject)
+            }
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        
+        if let popover:UIPopoverPresentationController = alert.popoverPresentationController
+        {
+            popover.sourceView = viewList
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(alert, animated:true, completion:nil)
     }
 }
