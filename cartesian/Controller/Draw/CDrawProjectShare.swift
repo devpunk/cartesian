@@ -77,6 +77,13 @@ class CDrawProjectShare:CController
         context.addRect(canvasRect)
         context.drawPath(using:CGPathDrawingMode.fill)
         
+        for link:DLink in links
+        {
+            MDrawProjectShareRender.renderLink(
+                link:link,
+                context:context)
+        }
+        
         for node:DNode in nodes
         {
             MDrawProjectShareRender.renderNode(
