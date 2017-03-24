@@ -8,9 +8,11 @@ class MDrawProjectMenuNodes
     {
         let itemOval:MDrawProjectMenuNodesItemOval = MDrawProjectMenuNodesItemOval()
         let itemRect:MDrawProjectMenuNodesItemRect = MDrawProjectMenuNodesItemRect()
+        let itemPentagon:MDrawProjectMenuNodesItemPentagon = MDrawProjectMenuNodesItemPentagon()
         
         items = [
             itemOval,
-            itemRect]
+            itemRect,
+            itemPentagon]
     }
 }
