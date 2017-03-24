@@ -96,6 +96,8 @@
 		DA6612A51E8580780012F6D9 /* DNodePolygonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */; };
 		DA6612A71E8582230012F6D9 /* DNodeHexagonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A61E8582230012F6D9 /* DNodeHexagonExtension.swift */; };
 		DA6612A91E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A81E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift */; };
+		DA6612AB1E858B470012F6D9 /* DNodeLozengeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612AA1E858B470012F6D9 /* DNodeLozengeExtension.swift */; };
+		DA6612AD1E858B540012F6D9 /* DNodeTriangleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612AC1E858B540012F6D9 /* DNodeTriangleExtension.swift */; };
 		DA7FAD4F1E841F1C00BC20B5 /* MDrawListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */; };
 		DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD521E844F3A00BC20B5 /* CSettings.swift */; };
 		DA7FAD571E844F8500BC20B5 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD561E844F8500BC20B5 /* VSettings.swift */; };
@@ -280,6 +282,8 @@
 		DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodePolygonExtension.swift; sourceTree = "<group>"; };
 		DA6612A61E8582230012F6D9 /* DNodeHexagonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeHexagonExtension.swift; sourceTree = "<group>"; };
 		DA6612A81E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemHexagon.swift; sourceTree = "<group>"; };
+		DA6612AA1E858B470012F6D9 /* DNodeLozengeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeLozengeExtension.swift; sourceTree = "<group>"; };
+		DA6612AC1E858B540012F6D9 /* DNodeTriangleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeTriangleExtension.swift; sourceTree = "<group>"; };
 		DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawListItemNode.swift; sourceTree = "<group>"; };
 		DA7FAD521E844F3A00BC20B5 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA7FAD561E844F8500BC20B5 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
@@ -758,6 +762,8 @@
 				DA7FAD6B1E84939000BC20B5 /* DSettingsExtension.swift */,
 				DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */,
 				DA6612A61E8582230012F6D9 /* DNodeHexagonExtension.swift */,
+				DA6612AA1E858B470012F6D9 /* DNodeLozengeExtension.swift */,
+				DA6612AC1E858B540012F6D9 /* DNodeTriangleExtension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1092,6 +1098,7 @@
 				DABAACE41E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift in Sources */,
 				DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */,
 				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
+				DA6612AB1E858B470012F6D9 /* DNodeLozengeExtension.swift in Sources */,
 				DA99BE3A1E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift in Sources */,
 				DA45C4951E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift in Sources */,
 				DA4C8A091E7B0F7400D49913 /* MDrawProjectFontType.swift in Sources */,
@@ -1130,6 +1137,7 @@
 				DA99BE4E1E6E15B000AECF25 /* VDrawProjectMenuSettingsDefaultColor.swift in Sources */,
 				DA7FAD6C1E84939000BC20B5 /* DSettingsExtension.swift in Sources */,
 				DA7FAD5B1E846A0D00BC20B5 /* VSettingsCell.swift in Sources */,
+				DA6612AD1E858B540012F6D9 /* DNodeTriangleExtension.swift in Sources */,
 				DA630B661E6B84D40004245A /* CController.swift in Sources */,
 				DA630B6D1E6B84D40004245A /* ExtensionUIColor.swift in Sources */,
 				DA5F92661E7CA53F00686D84 /* MDrawProjectMenuTextItemMove.swift in Sources */,
