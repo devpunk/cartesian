@@ -36,6 +36,7 @@
 "VSettingsCellStore_label"="Cartesian store";
 "VSettingsCellRetina_stringTitle"="Use retina display";
 "VSettingsCellRetina_stringSubtitle"="\nWhen exporting you will get bigger files, better quality";
+"VSettingsCellShare_label"="Give cartesian to someone";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";
