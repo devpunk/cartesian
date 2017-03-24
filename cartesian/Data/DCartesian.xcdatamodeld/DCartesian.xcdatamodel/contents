@@ -46,6 +46,10 @@
     <entity name="DNodePentagon" representedClassName="DNodePentagon" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodePolygon" representedClassName="DNodePolygon" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeStar" representedClassName="DNodeStar" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeStarFive" representedClassName="DNodeStarFive" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeStarFour" representedClassName="DNodeStarFour" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeStarSix" representedClassName="DNodeStarSix" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeTriangle" representedClassName="DNodeTriangle" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
@@ -77,5 +81,9 @@
         <element name="DNodePolygon" positionX="-36" positionY="117" width="128" height="45"/>
         <element name="DNodeLozenge" positionX="-27" positionY="126" width="128" height="45"/>
         <element name="DNodeTriangle" positionX="-18" positionY="135" width="128" height="45"/>
+        <element name="DNodeStar" positionX="0" positionY="144" width="128" height="45"/>
+        <element name="DNodeStarFive" positionX="18" positionY="153" width="128" height="45"/>
+        <element name="DNodeStarFour" positionX="-27" positionY="99" width="128" height="45"/>
+        <element name="DNodeStarSix" positionX="-18" positionY="108" width="128" height="45"/>
     </elements>
 </model>
