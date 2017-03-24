@@ -1,9 +1,21 @@
-//
-//  DNodeLozengeExtension.swift
-//  cartesian
-//
-//  Created by zero on 3/24/17.
-//  Copyright © 2017 iturbide. All rights reserved.
-//
+import UIKit
+import CoreData
 
-import Foundation
+extension DNodeLozenge
+{
+    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
+    private static let kSides:Int = 4
+    
+    override func drawPaths(
+        rect:CGRect,
+        context:CGContext,
+        zoom:CGFloat)
+    {
+        drawPolygon(
+            rect:rect,
+            context:context,
+            initialAngle:DNodeLozenge.kInitialAngle,
+            zoom:zoom,
+            sides:DNodeLozenge.kSides)
+    }
+}
