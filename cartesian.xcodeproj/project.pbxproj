@@ -90,6 +90,7 @@
 		DA65AD4A1E7C37E600B2DE61 /* VDrawProjectCanvasLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65AD491E7C37E600B2DE61 /* VDrawProjectCanvasLabel.swift */; };
 		DA65AD4E1E7C588300B2DE61 /* VDrawProjectCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65AD4D1E7C588300B2DE61 /* VDrawProjectCanvasView.swift */; };
 		DA66129C1E85651B0012F6D9 /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA66129B1E85651B0012F6D9 /* CStore.swift */; };
+		DA66129F1E8565440012F6D9 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA66129E1E8565440012F6D9 /* VStore.swift */; };
 		DA7FAD4F1E841F1C00BC20B5 /* MDrawListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */; };
 		DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD521E844F3A00BC20B5 /* CSettings.swift */; };
 		DA7FAD571E844F8500BC20B5 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD561E844F8500BC20B5 /* VSettings.swift */; };
@@ -268,6 +269,7 @@
 		DA65AD491E7C37E600B2DE61 /* VDrawProjectCanvasLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvasLabel.swift; sourceTree = "<group>"; };
 		DA65AD4D1E7C588300B2DE61 /* VDrawProjectCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectCanvasView.swift; sourceTree = "<group>"; };
 		DA66129B1E85651B0012F6D9 /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
+		DA66129E1E8565440012F6D9 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawListItemNode.swift; sourceTree = "<group>"; };
 		DA7FAD521E844F3A00BC20B5 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA7FAD561E844F8500BC20B5 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 		DA630B531E6B84D40004245A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA66129D1E85653C0012F6D9 /* Store */,
 				DA7FAD541E844F7900BC20B5 /* Gallery */,
 				DA7FAD551E844F7900BC20B5 /* Settings */,
 				DA38E0811E832B1800F22C81 /* DrawProjectShare */,
@@ -650,6 +653,14 @@
 			isa = PBXGroup;
 			children = (
 				DA66129B1E85651B0012F6D9 /* CStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		DA66129D1E85653C0012F6D9 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				DA66129E1E8565440012F6D9 /* VStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1155,6 +1166,7 @@
 				DAD22FBB1E7A13A400B94AFE /* VDrawProjectFontCellType.swift in Sources */,
 				DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAA94A7D1E705E4E004EB390 /* VDrawProjectMenuEditBarCell.swift in Sources */,
+				DA66129F1E8565440012F6D9 /* VStore.swift in Sources */,
 				DA99BE481E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift in Sources */,
 				DA7FAD761E849FC100BC20B5 /* MSettingsItemReview.swift in Sources */,
 				DA630B7B1E6B84D40004245A /* VCollection.swift in Sources */,
