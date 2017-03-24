@@ -6,6 +6,23 @@ extension DNode
     static let kPi2:CGFloat = CGFloat(M_PI) * 2.0
     private static let kInitialSize:Float = 100
     
+    override func bringToFront()
+    {
+        guard
+            
+            let project:DProject = self.project
+        
+        else
+        {
+            return
+        }
+        
+        project.removeFromNodes(self)
+        self.project = project
+        
+        DManager.sharedInstance?.save()
+    }
+    
     override func notifyDraw()
     {
         NotificationCenter.default.post(
