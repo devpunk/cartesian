@@ -17,6 +17,10 @@ extension DNodePentagon
         let originY:CGFloat = rect.origin.y
         let width:CGFloat = rect.size.width
         let height:CGFloat = rect.size.height
+        let width_2:CGFloat = width / 2.0
+        let height_2:CGFloat = height / 2.0
+        let centerX:CGFloat = width_2 + originX
+        let centerY:CGFloat = height_2 + originY
         let deltaSpaceWidth:CGFloat = modelWidth - width
         let deltaSpaceHeight:CGFloat = modelHeight - height
         
@@ -39,19 +43,19 @@ extension DNodePentagon
         
         let zoomedWidth:CGFloat = modelWidth * zoom
         let zoomedHeight:CGFloat = modelHeight * zoom
-        let minSize:CGFloat = min(zoomedWidth, zoomedHeight)
-        let radius:CGFloat = minSize / 2.0
+        let radiusWidth:CGFloat = zoomedWidth / 2.0
+        let radiusHeight:CGFloat = zoomedHeight / 2.0
         let rotationFactor:CGFloat = DNode.kPi2 / CGFloat(sides)
-        let startingAngle:CGFloat = -CGFloat(M_PI)
+        let startingAngle:CGFloat = -CGFloat(M_PI_2)
         
         for index:Int in 0 ..< sides
         {
             let thisIndex:CGFloat = CGFloat(index) + 1
             let thisAngle:CGFloat = (thisIndex * rotationFactor) + startingAngle
-            let cosineRotation:CGFloat = cos(thisAngle) * radius
-            let sineRotation:CGFloat = sin(thisAngle) * radius
-            let positionX:CGFloat = radius + cosineRotation
-            let positionY:CGFloat = radius + sineRotation
+            let cosineRotation:CGFloat = cos(thisAngle) * radiusWidth
+            let sineRotation:CGFloat = sin(thisAngle) * radiusHeight
+            let positionX:CGFloat = centerX + cosineRotation
+            let positionY:CGFloat = centerY + sineRotation
             let positionPoint:CGPoint = CGPoint(
                 x:positionX,
                 y:positionY)
@@ -64,8 +68,6 @@ extension DNodePentagon
             {
                 context.addLine(to:positionPoint)
             }
-            
-            print("\(positionPoint)")
         }
         
         context.closePath()
