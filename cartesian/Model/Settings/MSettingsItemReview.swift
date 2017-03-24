@@ -14,4 +14,9 @@ class MSettingsItemReview:MSettingsItem
             selectable:kSelectable,
             reusableIdentifier:reusableIdentifier)
     }
+    
+    override func selected(controller:CSettings)
+    {
+        controller.review()
+    }
 }
