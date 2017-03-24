@@ -58,6 +58,7 @@ class VDrawProjectCanvasNode:VDrawProjectCanvasView
         let originalY:CGFloat = CGFloat(model.centerY)
         let widthOriginal:CGFloat = CGFloat(model.width)
         let heightOriginal:CGFloat = CGFloat(model.height)
+        let maxSize:CGFloat = max(widthOriginal, heightOriginal)
         let widthOriginal_2:CGFloat = widthOriginal / 2.0
         let heightOriginal_2:CGFloat = heightOriginal / 2.0
         let positionedOriginalX:CGFloat = originalX - widthOriginal_2

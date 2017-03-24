@@ -10,11 +10,15 @@ class MDrawProjectMenuNodes
         let itemRect:MDrawProjectMenuNodesItemRect = MDrawProjectMenuNodesItemRect()
         let itemPentagon:MDrawProjectMenuNodesItemPentagon = MDrawProjectMenuNodesItemPentagon()
         let itemHexagon:MDrawProjectMenuNodesItemHexagon = MDrawProjectMenuNodesItemHexagon()
+        let itemLozenge:MDrawProjectMenuNodesItemLozenge = MDrawProjectMenuNodesItemLozenge()
+        let itemTriangle:MDrawProjectMenuNodesItemTriangle = MDrawProjectMenuNodesItemTriangle()
         
         items = [
             itemOval,
             itemRect,
             itemPentagon,
-            itemHexagon]
+            itemHexagon,
+            itemLozenge,
+            itemTriangle]
     }
 }
