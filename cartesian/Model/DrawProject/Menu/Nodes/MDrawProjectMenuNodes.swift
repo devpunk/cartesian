@@ -7,18 +7,18 @@ class MDrawProjectMenuNodes
     init()
     {
         let itemOval:MDrawProjectMenuNodesItemOval = MDrawProjectMenuNodesItemOval()
+        let itemTriangle:MDrawProjectMenuNodesItemTriangle = MDrawProjectMenuNodesItemTriangle()
         let itemRect:MDrawProjectMenuNodesItemRect = MDrawProjectMenuNodesItemRect()
+        let itemLozenge:MDrawProjectMenuNodesItemLozenge = MDrawProjectMenuNodesItemLozenge()
         let itemPentagon:MDrawProjectMenuNodesItemPentagon = MDrawProjectMenuNodesItemPentagon()
         let itemHexagon:MDrawProjectMenuNodesItemHexagon = MDrawProjectMenuNodesItemHexagon()
-        let itemLozenge:MDrawProjectMenuNodesItemLozenge = MDrawProjectMenuNodesItemLozenge()
-        let itemTriangle:MDrawProjectMenuNodesItemTriangle = MDrawProjectMenuNodesItemTriangle()
         
         items = [
             itemOval,
+            itemTriangle,
             itemRect,
-            itemPentagon,
-            itemHexagon,
             itemLozenge,
-            itemTriangle]
+            itemPentagon,
+            itemHexagon]
     }
 }
