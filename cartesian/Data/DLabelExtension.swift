@@ -9,6 +9,23 @@ extension DLabel
         NSStringDrawingOptions.usesLineFragmentOrigin,
         NSStringDrawingOptions.usesFontLeading])
     
+    override func bringToFront()
+    {
+        guard
+            
+            let project:DProject = self.project
+            
+        else
+        {
+            return
+        }
+        
+        project.removeFromLabels(self)
+        self.project = project
+        
+        DManager.sharedInstance?.save()
+    }
+    
     override func notifyDraw()
     {
         NotificationCenter.default.post(

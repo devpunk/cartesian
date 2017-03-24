@@ -8,6 +8,23 @@ extension DLink
     private static let kMarkerRadius:Int16 = 8
     private static let kLineWidth:Int16 = 2
     
+    override func bringToFront()
+    {
+        guard
+            
+            let project:DProject = self.project
+            
+        else
+        {
+            return
+        }
+        
+        project.removeFromLinks(self)
+        self.project = project
+        
+        DManager.sharedInstance?.save()
+    }
+    
     override func notifyDraw()
     {
         NotificationCenter.default.post(
