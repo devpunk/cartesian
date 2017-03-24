@@ -1,10 +1,10 @@
 import UIKit
 import CoreData
 
-extension DNodePentagon
+extension DNodeHexagon
 {
     private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
-    private static let kSides:Int = 5
+    private static let kSides:Int = 6
     
     override func drawPaths(
         rect:CGRect,
@@ -14,8 +14,8 @@ extension DNodePentagon
         drawPolygon(
             rect:rect,
             context:context,
-            initialAngle:DNodePentagon.kInitialAngle,
+            initialAngle:DNodeHexagon.kInitialAngle,
             zoom:zoom,
-            sides:DNodePentagon.kSides)
+            sides:DNodeHexagon.kSides)
     }
 }

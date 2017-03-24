@@ -94,6 +94,8 @@
 		DA6612A11E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A01E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift */; };
 		DA6612A31E856E510012F6D9 /* DNodePentagonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A21E856E510012F6D9 /* DNodePentagonExtension.swift */; };
 		DA6612A51E8580780012F6D9 /* DNodePolygonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */; };
+		DA6612A71E8582230012F6D9 /* DNodeHexagonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A61E8582230012F6D9 /* DNodeHexagonExtension.swift */; };
+		DA6612A91E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A81E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift */; };
 		DA7FAD4F1E841F1C00BC20B5 /* MDrawListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */; };
 		DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD521E844F3A00BC20B5 /* CSettings.swift */; };
 		DA7FAD571E844F8500BC20B5 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD561E844F8500BC20B5 /* VSettings.swift */; };
@@ -276,6 +278,8 @@
 		DA6612A01E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemPentagon.swift; sourceTree = "<group>"; };
 		DA6612A21E856E510012F6D9 /* DNodePentagonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodePentagonExtension.swift; sourceTree = "<group>"; };
 		DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodePolygonExtension.swift; sourceTree = "<group>"; };
+		DA6612A61E8582230012F6D9 /* DNodeHexagonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeHexagonExtension.swift; sourceTree = "<group>"; };
+		DA6612A81E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemHexagon.swift; sourceTree = "<group>"; };
 		DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawListItemNode.swift; sourceTree = "<group>"; };
 		DA7FAD521E844F3A00BC20B5 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA7FAD561E844F8500BC20B5 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
@@ -753,6 +757,7 @@
 				DA51B0771E81B4A70085DFCC /* DDrawableExtension.swift */,
 				DA7FAD6B1E84939000BC20B5 /* DSettingsExtension.swift */,
 				DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */,
+				DA6612A61E8582230012F6D9 /* DNodeHexagonExtension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -765,6 +770,7 @@
 				DA94437F1E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift */,
 				DA9443791E6DE10200CD5993 /* MDrawProjectMenuNodesItemRect.swift */,
 				DA6612A01E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift */,
+				DA6612A81E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1108,6 +1114,7 @@
 				DA51B06E1E8191420085DFCC /* MDrawProjectStateItemLink.swift in Sources */,
 				DAA94A7B1E7052DF004EB390 /* VDrawProjectMenuEditInfo.swift in Sources */,
 				DA630B681E6B84D40004245A /* ExtensionFileManager.swift in Sources */,
+				DA6612A91E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift in Sources */,
 				DA8FF2A31E708B4D005D7985 /* MDrawProjectMenuZoomItem50.swift in Sources */,
 				DA8A0DE71E7AEE62004ED996 /* VDrawProjectFontBar.swift in Sources */,
 				DA99BE501E6E312100AECF25 /* MDrawProjectColorDelegate.swift in Sources */,
@@ -1156,6 +1163,7 @@
 				DA5F925B1E7C981700686D84 /* MDrawProjectMenuStateItemHalf.swift in Sources */,
 				DA9443711E6DDA8F00CD5993 /* DManager.swift in Sources */,
 				DA99BE3F1E6E07BF00AECF25 /* VDrawProjectColorCell.swift in Sources */,
+				DA6612A71E8582230012F6D9 /* DNodeHexagonExtension.swift in Sources */,
 				DA45C4931E6DB33A00CA6A20 /* VDrawProjectMenuSettingsSize.swift in Sources */,
 				DA51B0781E81B4A70085DFCC /* DDrawableExtension.swift in Sources */,
 				DA630B6B1E6B84D40004245A /* ExtensionNSManagedObject.swift in Sources */,
