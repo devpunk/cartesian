@@ -3,6 +3,7 @@ import CoreData
 
 extension DNode
 {
+    static let kPi2:CGFloat = CGFloat(M_PI) * 2.0
     private static let kInitialSize:Float = 100
     
     override func notifyDraw()

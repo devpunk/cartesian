@@ -3,11 +3,14 @@ import CoreData
 
 extension DNodePentagon
 {
+    private static let kSides:Int = 5
+    
     override func drawPaths(
         rect:CGRect,
         context:CGContext,
         zoom:CGFloat)
     {
+        let sides:Int = DNodePentagon.kSides
         var modelWidth:CGFloat = CGFloat(self.width)
         var modelHeight:CGFloat = CGFloat(self.height)
         let originX:CGFloat = rect.origin.x
@@ -36,19 +39,36 @@ extension DNodePentagon
         
         let zoomedWidth:CGFloat = modelWidth * zoom
         let zoomedHeight:CGFloat = modelHeight * zoom
-        let deltaWidth:CGFloat = width - zoomedWidth
-        let deltaHeight:CGFloat = height - zoomedHeight
-        let deltaWidth_2:CGFloat = deltaWidth / 2.0
-        let deltaHeight_2:CGFloat = deltaHeight / 2.0
-        let positionX:CGFloat = originX + deltaWidth_2
-        let positionY:CGFloat = originY + deltaHeight_2
-        let rect:CGRect = CGRect(
-            x:positionX,
-            y:positionY,
-            width:zoomedWidth,
-            height:zoomedHeight)
+        let minSize:CGFloat = min(zoomedWidth, zoomedHeight)
+        let radius:CGFloat = minSize / 2.0
+        let rotationFactor:CGFloat = DNode.kPi2 / CGFloat(sides)
+        let startingAngle:CGFloat = -CGFloat(M_PI)
         
-        context.addRect(rect)
+        for index:Int in 0 ..< sides
+        {
+            let thisIndex:CGFloat = CGFloat(index) + 1
+            let thisAngle:CGFloat = (thisIndex * rotationFactor) + startingAngle
+            let cosineRotation:CGFloat = cos(thisAngle) * radius
+            let sineRotation:CGFloat = sin(thisAngle) * radius
+            let positionX:CGFloat = radius + cosineRotation
+            let positionY:CGFloat = radius + sineRotation
+            let positionPoint:CGPoint = CGPoint(
+                x:positionX,
+                y:positionY)
+            
+            if index == 0
+            {
+                context.move(to:positionPoint)
+            }
+            else
+            {
+                context.addLine(to:positionPoint)
+            }
+            
+            print("\(positionPoint)")
+        }
+        
+        context.closePath()
         context.drawPath(using:CGPathDrawingMode.fillStroke)
     }
 }
