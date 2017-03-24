@@ -18,7 +18,7 @@ class MDrawProjectStateItem
     {
         controller.viewProject.viewScroll.viewCanvas.bringSubview(
             toFront:view)
-        view.viewSpatial.model
+        view.viewSpatial.model?.bringToFront()
     }
     
     final func beganEditing(touch:UITouch)

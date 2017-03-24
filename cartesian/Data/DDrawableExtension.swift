@@ -5,6 +5,10 @@ extension DDrawable
 {
     //MARK: public
     
+    func bringToFront()
+    {
+    }
+    
     func notifyDraw()
     {
     }
@@ -34,10 +38,5 @@ extension DDrawable
         colorGreen = Float(green)
         colorBlue = Float(blue)
         colorAlpha = Float(alpha)
-    }
-    
-    final func bringToFront()
-    {
-        self.projec
     }
 }
