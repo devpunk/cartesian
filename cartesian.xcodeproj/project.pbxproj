@@ -104,6 +104,9 @@
 		DA6612B71E85A5840012F6D9 /* DNodeStarFourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612B61E85A5840012F6D9 /* DNodeStarFourExtension.swift */; };
 		DA6612B91E85A5900012F6D9 /* DNodeStarFiveExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612B81E85A5900012F6D9 /* DNodeStarFiveExtension.swift */; };
 		DA6612BB1E85A59B0012F6D9 /* DNodeStarSixExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612BA1E85A59B0012F6D9 /* DNodeStarSixExtension.swift */; };
+		DA6612BD1E85A7700012F6D9 /* MDrawProjectMenuNodesItemStarFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612BC1E85A7700012F6D9 /* MDrawProjectMenuNodesItemStarFour.swift */; };
+		DA6612BF1E85A7790012F6D9 /* MDrawProjectMenuNodesItemStarFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612BE1E85A7790012F6D9 /* MDrawProjectMenuNodesItemStarFive.swift */; };
+		DA6612C11E85A7840012F6D9 /* MDrawProjectMenuNodesItemStarSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612C01E85A7840012F6D9 /* MDrawProjectMenuNodesItemStarSix.swift */; };
 		DA7FAD4F1E841F1C00BC20B5 /* MDrawListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */; };
 		DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD521E844F3A00BC20B5 /* CSettings.swift */; };
 		DA7FAD571E844F8500BC20B5 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD561E844F8500BC20B5 /* VSettings.swift */; };
@@ -296,6 +299,9 @@
 		DA6612B61E85A5840012F6D9 /* DNodeStarFourExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeStarFourExtension.swift; sourceTree = "<group>"; };
 		DA6612B81E85A5900012F6D9 /* DNodeStarFiveExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeStarFiveExtension.swift; sourceTree = "<group>"; };
 		DA6612BA1E85A59B0012F6D9 /* DNodeStarSixExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodeStarSixExtension.swift; sourceTree = "<group>"; };
+		DA6612BC1E85A7700012F6D9 /* MDrawProjectMenuNodesItemStarFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemStarFour.swift; sourceTree = "<group>"; };
+		DA6612BE1E85A7790012F6D9 /* MDrawProjectMenuNodesItemStarFive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemStarFive.swift; sourceTree = "<group>"; };
+		DA6612C01E85A7840012F6D9 /* MDrawProjectMenuNodesItemStarSix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemStarSix.swift; sourceTree = "<group>"; };
 		DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawListItemNode.swift; sourceTree = "<group>"; };
 		DA7FAD521E844F3A00BC20B5 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA7FAD561E844F8500BC20B5 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
@@ -795,6 +801,9 @@
 				DA6612A81E85825B0012F6D9 /* MDrawProjectMenuNodesItemHexagon.swift */,
 				DA6612AE1E858CF90012F6D9 /* MDrawProjectMenuNodesItemLozenge.swift */,
 				DA6612B01E858D050012F6D9 /* MDrawProjectMenuNodesItemTriangle.swift */,
+				DA6612BC1E85A7700012F6D9 /* MDrawProjectMenuNodesItemStarFour.swift */,
+				DA6612BE1E85A7790012F6D9 /* MDrawProjectMenuNodesItemStarFive.swift */,
+				DA6612C01E85A7840012F6D9 /* MDrawProjectMenuNodesItemStarSix.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1083,6 +1092,7 @@
 				DA6612BB1E85A59B0012F6D9 /* DNodeStarSixExtension.swift in Sources */,
 				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
 				DA0158EE1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift in Sources */,
+				DA6612C11E85A7840012F6D9 /* MDrawProjectMenuNodesItemStarSix.swift in Sources */,
 				DA8FF2A11E708B36005D7985 /* MDrawProjectMenuZoomItem200.swift in Sources */,
 				DA9443761E6DE0EB00CD5993 /* MDrawProjectMenuNodesItem.swift in Sources */,
 				DA45C4A01E6DD27700CA6A20 /* MDrawProjectMenuZoom.swift in Sources */,
@@ -1118,6 +1128,7 @@
 				DABAACE41E71DB4800735972 /* MDrawProjectMenuEditBarItemMove.swift in Sources */,
 				DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */,
 				DA630B791E6B84D40004245A /* VBlur.swift in Sources */,
+				DA6612BF1E85A7790012F6D9 /* MDrawProjectMenuNodesItemStarFive.swift in Sources */,
 				DA6612AB1E858B470012F6D9 /* DNodeLozengeExtension.swift in Sources */,
 				DA99BE3A1E6DFD2100AECF25 /* VDrawProjectCanvasNode.swift in Sources */,
 				DA45C4951E6DB54C00CA6A20 /* VDrawProjectMenuNodes.swift in Sources */,
@@ -1258,6 +1269,7 @@
 				DA51B0761E81A2F00085DFCC /* VDrawProjectCanvasViewSpatial.swift in Sources */,
 				DAD22FAC1E79A7C600B94AFE /* MDrawProjectMenuLabelsFontItem.swift in Sources */,
 				DA51B0701E8198A60085DFCC /* VDrawProjectMenuBarLink.swift in Sources */,
+				DA6612BD1E85A7700012F6D9 /* MDrawProjectMenuNodesItemStarFour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
