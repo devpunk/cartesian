@@ -64,25 +64,26 @@ extension DNodeStar
                 x:positionX,
                 y:positionY)
             
+            let mediumIndex:CGFloat = CGFloat(thisIndex * 2) - 1
+            let mediumAngle:CGFloat = (mediumIndex * rotationMedium) + initialAngle
+            let cosineMedium:CGFloat = cos(mediumAngle) * mediumWidth
+            let sineMedium:CGFloat = sin(mediumAngle) * mediumHeight
+            let mediumX:CGFloat = centerX + cosineMedium
+            let mediumY:CGFloat = centerY + sineMedium
+            let mediumPoint:CGPoint = CGPoint(
+                x:mediumX,
+                y:mediumY)
+            
             if index == 0
             {
-                context.move(to:positionPoint)
+                context.move(to:mediumPoint)
             }
             else
             {
-                let mediumIndex:CGFloat = thisIndex + 1
-                let mediumAngle:CGFloat = (mediumIndex * rotationMedium) + initialAngle
-                let cosineMedium:CGFloat = cos(mediumAngle) * mediumWidth
-                let sineMedium:CGFloat = sin(mediumAngle) * mediumHeight
-                let mediumX:CGFloat = centerX + cosineMedium
-                let mediumY:CGFloat = centerY + sineMedium
-                let mediumPoint:CGPoint = CGPoint(
-                    x:mediumX,
-                    y:mediumY)
-                
                 context.addLine(to:mediumPoint)
-                context.addLine(to:positionPoint)
             }
+            
+            context.addLine(to:positionPoint)
         }
         
         context.closePath()

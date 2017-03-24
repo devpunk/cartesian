@@ -52,6 +52,8 @@ extension DNode
             rect:rect,
             context:context,
             zoom:zoom)
+        
+        context.rotate(by:-rads)
     }
     
     //MARK: public
