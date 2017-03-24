@@ -8,6 +8,7 @@ class VDrawProjectShareImage:UIView
     private let kImageTop:CGFloat = 40
     private let kImageMarginHorizontal:CGFloat = 20
     private let kLabelHeight:CGFloat = 50
+    private let kDefaultResolution:CGFloat = 1
     
     init(controller:CDrawProjectShare)
     {
@@ -30,7 +31,7 @@ class VDrawProjectShareImage:UIView
         labelSize.translatesAutoresizingMaskIntoConstraints = false
         labelSize.backgroundColor = UIColor.clear
         labelSize.textAlignment = NSTextAlignment.center
-        labelSize.font = UIFont.numeric(size:17)
+        labelSize.font = UIFont.numeric(size:15)
         labelSize.textColor = UIColor.black
         self.labelSize = labelSize
         
@@ -78,9 +79,27 @@ class VDrawProjectShareImage:UIView
             return
         }
         
-        let imageWidth:Int = Int(image.size.width)
-        let imageHeight:Int = Int(image.size.height)
-        let stringSize:String = "\(imageWidth) × \(imageHeight)"
+        let resolution:CGFloat
+        
+        if let retina:Bool = MSession.sharedInstance.settings?.retina
+        {
+            if retina
+            {
+                resolution = UIScreen.main.scale
+            }
+            else
+            {
+                resolution = kDefaultResolution
+            }
+        }
+        else
+        {
+            resolution = kDefaultResolution
+        }
+        
+        let imageWidth:Int = Int(image.size.width * resolution)
+        let imageHeight:Int = Int(image.size.height * resolution)
+        let stringSize:String = "\(imageWidth) × \(imageHeight) px"
         labelSize.text = stringSize
         imageView.image = image
     }
