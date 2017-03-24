@@ -9,10 +9,12 @@ class MSettings
         let itemStore:MSettingsItemStore = MSettingsItemStore()
         let itemRetina:MSettingsItemRetina = MSettingsItemRetina()
         let itemShare:MSettingsItemShare = MSettingsItemShare()
+        let itemReview:MSettingsItemReview = MSettingsItemReview()
         
         items = [
             itemStore,
             itemRetina,
-            itemShare]
+            itemShare,
+            itemReview]
     }
 }
