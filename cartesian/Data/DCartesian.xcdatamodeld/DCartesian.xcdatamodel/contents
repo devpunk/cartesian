@@ -40,8 +40,10 @@
         <relationship name="linksOrigin" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DLink" inverseName="origin" inverseEntity="DLink" syncable="YES"/>
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
     </entity>
+    <entity name="DNodeHexagon" representedClassName="DNodeHexagon" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
-    <entity name="DNodePentagon" representedClassName="DNodePentagon" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodePentagon" representedClassName="DNodePentagon" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodePolygon" representedClassName="DNodePolygon" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
@@ -69,5 +71,7 @@
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="DSettings" positionX="-54" positionY="99" width="128" height="105"/>
         <element name="DNodePentagon" positionX="-54" positionY="99" width="128" height="45"/>
+        <element name="DNodeHexagon" positionX="-45" positionY="108" width="128" height="45"/>
+        <element name="DNodePolygon" positionX="-36" positionY="117" width="128" height="45"/>
     </elements>
 </model>
