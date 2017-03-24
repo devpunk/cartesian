@@ -37,6 +37,7 @@
 "VSettingsCellRetina_stringTitle"="Use retina display";
 "VSettingsCellRetina_stringSubtitle"="\nWhen exporting you will get bigger files, better quality";
 "VSettingsCellShare_label"="Give cartesian to someone";
+"VSettingsCellReview_label"="Review on the App Store";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

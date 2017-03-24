@@ -4,7 +4,7 @@ class VSettingsCellReview:VSettingsCell
 {
     private let kLabelLeft:CGFloat = 10
     private let kLabelWidth:CGFloat = 250
-    private let kImageWidth:CGFloat = 90
+    private let kImageWidth:CGFloat = 85
     
     override init(frame:CGRect)
     {
@@ -23,7 +23,7 @@ class VSettingsCellReview:VSettingsCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetGenericShareApp")
+        imageView.image = #imageLiteral(resourceName: "assetGenericReview")
         
         addSubview(label)
         addSubview(imageView)
