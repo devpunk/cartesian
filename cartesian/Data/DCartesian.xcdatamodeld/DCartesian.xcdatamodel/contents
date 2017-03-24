@@ -41,6 +41,7 @@
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="DProject" inverseName="nodes" inverseEntity="DProject" syncable="YES"/>
     </entity>
     <entity name="DNodeHexagon" representedClassName="DNodeHexagon" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeInputOutput" representedClassName="DNodeInputOutput" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeLozenge" representedClassName="DNodeLozenge" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodePentagon" representedClassName="DNodePentagon" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
@@ -87,5 +88,6 @@
         <element name="DNodeStarFour" positionX="-27" positionY="99" width="128" height="45"/>
         <element name="DNodeStarSix" positionX="-18" positionY="108" width="128" height="45"/>
         <element name="DNodeStarThree" positionX="-9" positionY="117" width="128" height="45"/>
+        <element name="DNodeInputOutput" positionX="0" positionY="126" width="128" height="45"/>
     </elements>
 </model>
