@@ -22,4 +22,14 @@ class CSettings:CController
         self.viewSettings = viewSettings
         view = viewSettings
     }
+    
+    //MARK: public
+    
+    func openStore()
+    {
+        let controllerStore:CStore = CStore()
+        parentController.push(
+            controller:controllerStore,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
