@@ -44,12 +44,13 @@
     <entity name="DNodeLozenge" representedClassName="DNodeLozenge" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeOval" representedClassName="DNodeOval" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodePentagon" representedClassName="DNodePentagon" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
-    <entity name="DNodePolygon" representedClassName="DNodePolygon" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodePolygon" representedClassName="DNodePolygon" isAbstract="YES" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeRect" representedClassName="DNodeRect" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
-    <entity name="DNodeStar" representedClassName="DNodeStar" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeStar" representedClassName="DNodeStar" isAbstract="YES" parentEntity="DNode" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeStarFive" representedClassName="DNodeStarFive" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeStarFour" representedClassName="DNodeStarFour" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeStarSix" representedClassName="DNodeStarSix" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
+    <entity name="DNodeStarThree" representedClassName="DNodeStarThree" parentEntity="DNodeStar" syncable="YES" codeGenerationType="class"/>
     <entity name="DNodeTriangle" representedClassName="DNodeTriangle" parentEntity="DNodePolygon" syncable="YES" codeGenerationType="class"/>
     <entity name="DProject" representedClassName="DProject" syncable="YES" codeGenerationType="class">
         <attribute name="created" attributeType="Date" defaultDateTimeInterval="-978285600" usesScalarValueType="YES" syncable="YES"/>
@@ -85,5 +86,6 @@
         <element name="DNodeStarFive" positionX="18" positionY="153" width="128" height="45"/>
         <element name="DNodeStarFour" positionX="-27" positionY="99" width="128" height="45"/>
         <element name="DNodeStarSix" positionX="-18" positionY="108" width="128" height="45"/>
+        <element name="DNodeStarThree" positionX="-9" positionY="117" width="128" height="45"/>
     </elements>
 </model>
