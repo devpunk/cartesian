@@ -90,20 +90,6 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
-    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
-    {
-        let item:MDrawProjectMenuNodesItem = modelAtIndex(index:indexPath)
-        
-        return item.available
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
-    {
-        let item:MDrawProjectMenuNodesItem = modelAtIndex(index:indexPath)
-        
-        return item.available
-    }
-    
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         collectionView.isUserInteractionEnabled = false
@@ -121,11 +107,18 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
             collectionView?.isUserInteractionEnabled = true
         }
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.controller.addNode(
-                entityName:item.entityName)
+        if item.available
+        {
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.controller.addNode(
+                    entityName:item.entityName)
+            }
+        }
+        else
+        {
+            controller.viewProject.showStore(purchase:item)
         }
     }
 }

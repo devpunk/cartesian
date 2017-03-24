@@ -2,6 +2,7 @@ import UIKit
 
 class VDrawProjectMenuNodesCell:UICollectionViewCell
 {
+    private weak var model:MDrawProjectMenuNodesItem?
     private weak var imageView:UIImageView!
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
@@ -51,7 +52,16 @@ class VDrawProjectMenuNodesCell:UICollectionViewCell
     
     private func hover()
     {
-        if isSelected || isHighlighted
+        guard
+        
+            let model:MDrawProjectMenuNodesItem = self.model
+        
+        else
+        {
+            return
+        }
+        
+        if !model.available || isSelected || isHighlighted
         {
             alpha = kAlphaSelected
         }
@@ -65,6 +75,7 @@ class VDrawProjectMenuNodesCell:UICollectionViewCell
     
     func config(model:MDrawProjectMenuNodesItem)
     {
+        self.model = model
         imageView.image = model.icon
         hover()
     }

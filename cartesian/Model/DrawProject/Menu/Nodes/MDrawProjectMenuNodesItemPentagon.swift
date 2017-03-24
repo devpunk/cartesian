@@ -2,7 +2,7 @@ import UIKit
 
 class MDrawProjectMenuNodesItemPentagon:MDrawProjectMenuNodesItem
 {
-    private let kAvailable:Bool = true
+    private let kAvailable:Bool = false
     
     init()
     {

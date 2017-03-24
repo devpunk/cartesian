@@ -168,6 +168,11 @@ class VDrawProject:VView
         viewFontSize.animateShow()
     }
     
+    func showStore(purchase:MDrawProjectMenuNodesItem)
+    {
+        
+    }
+    
     //MARK: public
     
     func refresh()
