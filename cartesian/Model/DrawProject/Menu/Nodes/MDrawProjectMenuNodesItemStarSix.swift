@@ -7,7 +7,7 @@ class MDrawProjectMenuNodesItemStarSix:MDrawProjectMenuNodesItem
     init()
     {
         super.init(
-            icon:#imageLiteral(resourceName: "assetNodeStarFour"),
+            icon:#imageLiteral(resourceName: "assetNodeStarSix"),
             entityName:DNodeStarSix.entityName,
             available:kAvailable)
     }

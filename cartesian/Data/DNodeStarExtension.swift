@@ -14,6 +14,7 @@ extension DNodeStar
     {
         var modelWidth:CGFloat = CGFloat(self.width)
         var modelHeight:CGFloat = CGFloat(self.height)
+        let sides2:Int = sides + sides
         let originX:CGFloat = rect.origin.x
         let originY:CGFloat = rect.origin.y
         let width:CGFloat = rect.size.width
@@ -46,7 +47,10 @@ extension DNodeStar
         let zoomedHeight:CGFloat = modelHeight * zoom
         let radiusWidth:CGFloat = zoomedWidth / 2.0
         let radiusHeight:CGFloat = zoomedHeight / 2.0
+        let mediumWidth:CGFloat = radiusWidth / 2.0
+        let mediumHeight:CGFloat =  radiusHeight / 2.0
         let rotationFactor:CGFloat = DNode.kPi2 / CGFloat(sides)
+        let rotationMedium:CGFloat = DNode.kPi2 / CGFloat(sides2)
         
         for index:Int in 0 ..< sides
         {
@@ -66,6 +70,17 @@ extension DNodeStar
             }
             else
             {
+                let mediumIndex:CGFloat = thisIndex + 1
+                let mediumAngle:CGFloat = (mediumIndex * rotationMedium) + initialAngle
+                let cosineMedium:CGFloat = cos(mediumAngle) * mediumWidth
+                let sineMedium:CGFloat = sin(mediumAngle) * mediumHeight
+                let mediumX:CGFloat = centerX + cosineMedium
+                let mediumY:CGFloat = centerY + sineMedium
+                let mediumPoint:CGPoint = CGPoint(
+                    x:mediumX,
+                    y:mediumY)
+                
+                context.addLine(to:mediumPoint)
                 context.addLine(to:positionPoint)
             }
         }
