@@ -3,7 +3,7 @@ import CoreData
 
 extension DNodeStarFour
 {
-    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
+    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_4)
     private static let kMediumDivisor:CGFloat = 2
     private static let kSides:Int = 4
     
