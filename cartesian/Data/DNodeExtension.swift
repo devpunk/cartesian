@@ -53,7 +53,9 @@ extension DNode
             context:context,
             zoom:zoom)
         
+        context.translateBy(x:midX, y:midY)
         context.rotate(by:-rads)
+        context.translateBy(x:-midX, y:-midY)
     }
     
     //MARK: public
