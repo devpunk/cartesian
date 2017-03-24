@@ -68,7 +68,6 @@ class VDrawProject:VView
         viewMenu.viewBar.selectSettings()
         viewMenu.viewSettings.viewSize.update()
         viewMenu.viewSettings.viewTitle.updateTitle()
-        viewScroll.viewCanvas.draw()
     }
     
     func showColor(title:String, delegate:MDrawProjectColorDelegate)

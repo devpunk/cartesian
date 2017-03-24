@@ -8,7 +8,7 @@ class MDrawProjectMenuNodesItemPentagon:MDrawProjectMenuNodesItem
     {
         super.init(
             icon:#imageLiteral(resourceName: "assetNodePentagon"),
-            entityName:DNodeOval.entityName,
+            entityName:DNodePentagon.entityName,
             available:kAvailable)
     }
 }
