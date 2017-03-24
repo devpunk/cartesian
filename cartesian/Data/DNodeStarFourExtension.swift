@@ -4,6 +4,7 @@ import CoreData
 extension DNodeStarFour
 {
     private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
+    private static let kMediumDivisor:CGFloat = 2
     private static let kSides:Int = 4
     
     override func drawPaths(
@@ -15,6 +16,7 @@ extension DNodeStarFour
             rect:rect,
             context:context,
             initialAngle:DNodeStarFour.kInitialAngle,
+            mediumDivisor:DNodeStarFour.kMediumDivisor,
             zoom:zoom,
             sides:DNodeStarFour.kSides)
     }

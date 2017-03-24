@@ -9,6 +9,7 @@ extension DNodeStar
         rect:CGRect,
         context:CGContext,
         initialAngle:CGFloat,
+        mediumDivisor:CGFloat,
         zoom:CGFloat,
         sides:Int)
     {
@@ -47,8 +48,8 @@ extension DNodeStar
         let zoomedHeight:CGFloat = modelHeight * zoom
         let radiusWidth:CGFloat = zoomedWidth / 2.0
         let radiusHeight:CGFloat = zoomedHeight / 2.0
-        let mediumWidth:CGFloat = radiusWidth / 2.0
-        let mediumHeight:CGFloat =  radiusHeight / 2.0
+        let mediumWidth:CGFloat = radiusWidth / mediumDivisor
+        let mediumHeight:CGFloat =  radiusHeight / mediumDivisor
         let rotationFactor:CGFloat = DNode.kPi2 / CGFloat(sides)
         let rotationMedium:CGFloat = DNode.kPi2 / CGFloat(sides2)
         
