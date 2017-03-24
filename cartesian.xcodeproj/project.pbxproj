@@ -93,6 +93,7 @@
 		DA66129F1E8565440012F6D9 /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA66129E1E8565440012F6D9 /* VStore.swift */; };
 		DA6612A11E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A01E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift */; };
 		DA6612A31E856E510012F6D9 /* DNodePentagonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A21E856E510012F6D9 /* DNodePentagonExtension.swift */; };
+		DA6612A51E8580780012F6D9 /* DNodePolygonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */; };
 		DA7FAD4F1E841F1C00BC20B5 /* MDrawListItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */; };
 		DA7FAD531E844F3A00BC20B5 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD521E844F3A00BC20B5 /* CSettings.swift */; };
 		DA7FAD571E844F8500BC20B5 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FAD561E844F8500BC20B5 /* VSettings.swift */; };
@@ -274,6 +275,7 @@
 		DA66129E1E8565440012F6D9 /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA6612A01E856D0F0012F6D9 /* MDrawProjectMenuNodesItemPentagon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuNodesItemPentagon.swift; sourceTree = "<group>"; };
 		DA6612A21E856E510012F6D9 /* DNodePentagonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodePentagonExtension.swift; sourceTree = "<group>"; };
+		DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNodePolygonExtension.swift; sourceTree = "<group>"; };
 		DA7FAD4E1E841F1C00BC20B5 /* MDrawListItemNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawListItemNode.swift; sourceTree = "<group>"; };
 		DA7FAD521E844F3A00BC20B5 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA7FAD561E844F8500BC20B5 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 				DA51B0691E818BCA0085DFCC /* DLinkExtension.swift */,
 				DA51B0771E81B4A70085DFCC /* DDrawableExtension.swift */,
 				DA7FAD6B1E84939000BC20B5 /* DSettingsExtension.swift */,
+				DA6612A41E8580780012F6D9 /* DNodePolygonExtension.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1160,6 +1163,7 @@
 				DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */,
 				DA947DA91E6F0B6E00D9A839 /* VDrawProjectRules.swift in Sources */,
 				DA630B6E1E6B84D40004245A /* ExtensionUIFont.swift in Sources */,
+				DA6612A51E8580780012F6D9 /* DNodePolygonExtension.swift in Sources */,
 				DA630B671E6B84D40004245A /* CParent.swift in Sources */,
 				DA99BE3D1E6E07A900AECF25 /* VDrawProjectColor.swift in Sources */,
 				DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */,
