@@ -12,6 +12,7 @@ class MDrawProjectMenuNodes
         let itemLozenge:MDrawProjectMenuNodesItemLozenge = MDrawProjectMenuNodesItemLozenge()
         let itemPentagon:MDrawProjectMenuNodesItemPentagon = MDrawProjectMenuNodesItemPentagon()
         let itemHexagon:MDrawProjectMenuNodesItemHexagon = MDrawProjectMenuNodesItemHexagon()
+        let itemInputOutput:MDrawProjectMenuNodesItemInputOutput = MDrawProjectMenuNodesItemInputOutput()
         let itemStarThree:MDrawProjectMenuNodesItemStarThree = MDrawProjectMenuNodesItemStarThree()
         let itemStarFour:MDrawProjectMenuNodesItemStarFour = MDrawProjectMenuNodesItemStarFour()
         let itemStarFive:MDrawProjectMenuNodesItemStarFive = MDrawProjectMenuNodesItemStarFive()
@@ -24,6 +25,7 @@ class MDrawProjectMenuNodes
             itemLozenge,
             itemPentagon,
             itemHexagon,
+            itemInputOutput,
             itemStarThree,
             itemStarFour,
             itemStarFive,

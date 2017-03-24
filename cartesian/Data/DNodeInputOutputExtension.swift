@@ -3,6 +3,8 @@ import CoreData
 
 extension DNodeInputOutput
 {
+    private static let kSkewRatio:CGFloat = 0.4
+    
     override func drawPaths(
         rect:CGRect,
         context:CGContext,
@@ -36,19 +38,36 @@ extension DNodeInputOutput
         
         let zoomedWidth:CGFloat = modelWidth * zoom
         let zoomedHeight:CGFloat = modelHeight * zoom
+        let skewFactor:CGFloat = modelWidth * DNodeInputOutput.kSkewRatio
         let deltaWidth:CGFloat = width - zoomedWidth
         let deltaHeight:CGFloat = height - zoomedHeight
         let deltaWidth_2:CGFloat = deltaWidth / 2.0
         let deltaHeight_2:CGFloat = deltaHeight / 2.0
         let positionX:CGFloat = originX + deltaWidth_2
         let positionY:CGFloat = originY + deltaHeight_2
-        let rect:CGRect = CGRect(
-            x:positionX,
-            y:positionY,
-            width:zoomedWidth,
-            height:zoomedHeight)
+        let endingX:CGFloat = positionX + zoomedWidth
+        let skewedInitialX:CGFloat = positionX + skewFactor
+        let skewedEndingX:CGFloat = endingX - skewFactor
+        let endingY:CGFloat = positionY + zoomedHeight
         
-        context.addRect(rect)
+        let initialPoint:CGPoint = CGPoint(
+            x:skewedInitialX,
+            y:positionY)
+        let secondPoint:CGPoint = CGPoint(
+            x:endingX,
+            y:positionY)
+        let thirdPoint:CGPoint = CGPoint(
+            x:skewedEndingX,
+            y:endingY)
+        let endingPoint:CGPoint = CGPoint(
+            x:positionX,
+            y:endingY)
+        
+        context.move(to:initialPoint)
+        context.addLine(to:secondPoint)
+        context.addLine(to:thirdPoint)
+        context.addLine(to:endingPoint)
+        context.closePath()
         context.drawPath(using:CGPathDrawingMode.fillStroke)
     }
 }
