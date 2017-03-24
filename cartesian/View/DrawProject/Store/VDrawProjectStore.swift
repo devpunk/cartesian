@@ -10,8 +10,19 @@ class VDrawProjectStore:UIView
         purchase:MDrawProjectMenuNodesItem)
     {
         super.init(frame:CGRect.zero)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         self.purchase = purchase
+        
+        let blur:VBlur = VBlur.dark()
+        
+        addSubview(blur)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
