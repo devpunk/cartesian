@@ -4,6 +4,7 @@ class VDrawProjectStore:UIView
 {
     private weak var controller:CDrawProject!
     private weak var purchase:MDrawProjectMenuNodesItem!
+    private weak var blurContainer:UIView!
     private let kAnimationDuration:TimeInterval = 0.3
     
     init(
@@ -19,6 +20,13 @@ class VDrawProjectStore:UIView
         
         let blur:VBlur = VBlur.dark()
         
+        let blurContainer:UIView = UIView()
+        blurContainer.isUserInteractionEnabled = false
+        blurContainer.clipsToBounds = true
+        blurContainer.translatesAutoresizingMaskIntoConstraints = false
+        blurContainer.alpha = 0
+        self.blurContainer = blurContainer
+        
         let baseButton:UIButton = UIButton()
         baseButton.clipsToBounds = true
         baseButton.backgroundColor = UIColor.clear
@@ -28,13 +36,16 @@ class VDrawProjectStore:UIView
             action:#selector(self.actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        addSubview(blur)
+        blurContainer.addSubview(blur)
+        addSubview(blurContainer)
         addSubview(baseButton)
         
         NSLayoutConstraint.equals(
             view:blur,
+            toView:blurContainer)
+        NSLayoutConstraint.equals(
+            view:blurContainer,
             toView:self)
-        
         NSLayoutConstraint.equals(
             view:baseButton,
             toView:self)
