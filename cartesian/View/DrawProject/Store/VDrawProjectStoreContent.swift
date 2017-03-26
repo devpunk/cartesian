@@ -12,6 +12,8 @@ class VDrawProjectStoreContent:UIView
     private let kCornerRadius:CGFloat = 20
     private let kCircleTop:CGFloat = 2
     private let kCircleSize:CGFloat = 90
+    private let kLabelTitleTop:CGFloat = 70
+    private let kLabelTitleHeight:CGFloat = 32
     
     init(controller:CDrawProject,
          purchase:MDrawProjectMenuNodesItem)
@@ -43,9 +45,19 @@ class VDrawProjectStoreContent:UIView
         imageView.contentMode = UIViewContentMode.center
         imageView.image = purchase.icon
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.font = UIFont.bolder(size:20)
+        labelTitle.textColor = UIColor.black
+        labelTitle.text = purchase.title
+        
         circle.addSubview(imageView)
         addSubview(baseView)
         addSubview(circle)
+        addSubview(labelTitle)
         
         NSLayoutConstraint.bottomToBottom(
             view:baseView,
@@ -74,6 +86,17 @@ class VDrawProjectStoreContent:UIView
         NSLayoutConstraint.equals(
             view:imageView,
             toView:circle)
+        
+        NSLayoutConstraint.topToTop(
+            view:labelTitle,
+            toView:self,
+            constant:kLabelTitleTop)
+        NSLayoutConstraint.height(
+            view:labelTitle,
+            constant:kLabelTitleHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelTitle,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
