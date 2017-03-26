@@ -10,6 +10,7 @@ class VDrawProject:VView
     private(set) weak var viewRotate:VDrawProjectRotate?
     private(set) weak var viewFont:VDrawProjectFont?
     private(set) weak var viewFontSize:VDrawProjectFontSize?
+    private(set) weak var viewStore:VDrawProjectStore?
     
     override init(controller:CController)
     {
@@ -170,7 +171,21 @@ class VDrawProject:VView
     
     func showStore(purchase:MDrawProjectMenuNodesItem)
     {
+        self.viewStore?.removeFromSuperview()
         
+        let viewStore:VDrawProjectStore = VDrawProjectStore(
+            controller:controller,
+            purchase:purchase)
+        self.viewStore = viewStore
+        
+        addSubview(viewStore)
+        
+        NSLayoutConstraint.equals(
+            view:viewStore,
+            toView:self)
+        
+        layoutIfNeeded()
+        viewStore.animateShow()
     }
     
     //MARK: public
