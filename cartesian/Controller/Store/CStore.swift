@@ -66,6 +66,11 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
     
     //MARK: public
     
+    func back()
+    {
+        parentController.pop(horizontal:CParent.TransitionHorizontal.fromRight)
+    }
+    
     func restorePurchases()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
