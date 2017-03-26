@@ -5,7 +5,10 @@ class VDrawProjectStore:UIView
     private weak var controller:CDrawProject!
     private weak var purchase:MDrawProjectMenuNodesItem!
     private weak var blurContainer:UIView!
+    private weak var layoutContentTop:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.3
+    private let kContentHeight:CGFloat = 300
+    private let kContentTop:CGFloat = 150
     
     init(
         controller:CDrawProject,
@@ -36,9 +39,16 @@ class VDrawProjectStore:UIView
             action:#selector(self.actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let viewContent:VDrawProjectStoreContent = VDrawProjectStoreContent(
+            controller:controller,
+            purchase:purchase)
+        
+        let contentTop:CGFloat = controller.viewProject.bounds.maxY
+        
         blurContainer.addSubview(blur)
         addSubview(blurContainer)
         addSubview(baseButton)
+        addSubview(viewContent)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -48,6 +58,17 @@ class VDrawProjectStore:UIView
             toView:self)
         NSLayoutConstraint.equals(
             view:baseButton,
+            toView:self)
+        
+        layoutContentTop = NSLayoutConstraint.topToTop(
+            view:viewContent,
+            toView:self,
+            constant:contentTop)
+        NSLayoutConstraint.height(
+            view:viewContent,
+            constant:kContentHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewContent,
             toView:self)
     }
     
@@ -67,7 +88,7 @@ class VDrawProjectStore:UIView
     
     private func animateClose()
     {
-//        layoutBaseTop.constant = -kBaseHeight
+        layoutContentTop.constant = bounds.maxY
         
         UIView.animate(
             withDuration:kAnimationDuration,
@@ -86,8 +107,8 @@ class VDrawProjectStore:UIView
     //MARK: public
     
     func animateShow()
-    { 
-//        layoutBaseTop.constant = 0
+    {
+        layoutContentTop.constant = kContentTop
         
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
