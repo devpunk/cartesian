@@ -39,6 +39,8 @@
 "VSettingsCellShare_label"="Give cartesian to someone";
 "VSettingsCellReview_label"="Review on the App Store";
 "VDrawProjectStoreContent_labelSubtitle"="You haven't purchased this figure, make it yours on the store";
+"VDrawProjectStoreContentButtons_buttonStore"="Continue";
+"VDrawProjectStoreContentButtons_buttonCancel"="Not now";
 
 "MDrawProjectMenuEditBarItemTrash_title"="Delete";
 "MDrawProjectMenuEditBarItemColor_title"="Color";

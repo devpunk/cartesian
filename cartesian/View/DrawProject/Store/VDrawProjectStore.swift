@@ -84,9 +84,9 @@ class VDrawProjectStore:UIView
         animateClose()
     }
     
-    //MARK: private
+    //MARK: public
     
-    private func animateClose()
+    func animateClose()
     {
         layoutContentTop.constant = bounds.maxY
         
@@ -103,8 +103,6 @@ class VDrawProjectStore:UIView
             self?.removeFromSuperview()
         }
     }
-    
-    //MARK: public
     
     func animateShow()
     {

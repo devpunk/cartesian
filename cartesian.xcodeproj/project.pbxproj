@@ -40,6 +40,7 @@
 		DA4C8A0F1E7B0FA400D49913 /* MDrawProjectFontTypeItemBold.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C8A0E1E7B0FA400D49913 /* MDrawProjectFontTypeItemBold.swift */; };
 		DA4C8A111E7B0FAE00D49913 /* MDrawProjectFontTypeItemItalic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C8A101E7B0FAE00D49913 /* MDrawProjectFontTypeItemItalic.swift */; };
 		DA4F71D41E87400F00DEC0E9 /* VDrawProjectStoreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F71D31E87400F00DEC0E9 /* VDrawProjectStoreContent.swift */; };
+		DA4F71D81E8750E800DEC0E9 /* VDrawProjectStoreContentButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F71D71E8750E800DEC0E9 /* VDrawProjectStoreContentButtons.swift */; };
 		DA51B06A1E818BCA0085DFCC /* DLinkExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA51B0691E818BCA0085DFCC /* DLinkExtension.swift */; };
 		DA51B06C1E818EF50085DFCC /* MDrawProjectMenuEditBarItemLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA51B06B1E818EF50085DFCC /* MDrawProjectMenuEditBarItemLink.swift */; };
 		DA51B06E1E8191420085DFCC /* MDrawProjectStateItemLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA51B06D1E8191420085DFCC /* MDrawProjectStateItemLink.swift */; };
@@ -239,6 +240,7 @@
 		DA4C8A0E1E7B0FA400D49913 /* MDrawProjectFontTypeItemBold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectFontTypeItemBold.swift; sourceTree = "<group>"; };
 		DA4C8A101E7B0FAE00D49913 /* MDrawProjectFontTypeItemItalic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectFontTypeItemItalic.swift; sourceTree = "<group>"; };
 		DA4F71D31E87400F00DEC0E9 /* VDrawProjectStoreContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectStoreContent.swift; sourceTree = "<group>"; };
+		DA4F71D71E8750E800DEC0E9 /* VDrawProjectStoreContentButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectStoreContentButtons.swift; sourceTree = "<group>"; };
 		DA51B0691E818BCA0085DFCC /* DLinkExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLinkExtension.swift; sourceTree = "<group>"; };
 		DA51B06B1E818EF50085DFCC /* MDrawProjectMenuEditBarItemLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuEditBarItemLink.swift; sourceTree = "<group>"; };
 		DA51B06D1E8191420085DFCC /* MDrawProjectStateItemLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemLink.swift; sourceTree = "<group>"; };
@@ -714,6 +716,7 @@
 			children = (
 				DA6612CD1E85CFEE0012F6D9 /* VDrawProjectStore.swift */,
 				DA4F71D31E87400F00DEC0E9 /* VDrawProjectStoreContent.swift */,
+				DA4F71D71E8750E800DEC0E9 /* VDrawProjectStoreContentButtons.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1301,6 +1304,7 @@
 				DA51B0761E81A2F00085DFCC /* VDrawProjectCanvasViewSpatial.swift in Sources */,
 				DAD22FAC1E79A7C600B94AFE /* MDrawProjectMenuLabelsFontItem.swift in Sources */,
 				DA51B0701E8198A60085DFCC /* VDrawProjectMenuBarLink.swift in Sources */,
+				DA4F71D81E8750E800DEC0E9 /* VDrawProjectStoreContentButtons.swift in Sources */,
 				DA6612BD1E85A7700012F6D9 /* MDrawProjectMenuNodesItemStarFour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
