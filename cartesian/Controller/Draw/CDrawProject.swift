@@ -428,4 +428,12 @@ class CDrawProject:CController
         let controllerShare:CDrawProjectShare = CDrawProjectShare(model:model)
         parentController.animateOver(controller:controllerShare)
     }
+    
+    func openStore()
+    {
+        let controllerStore:CStore = CStore()
+        parentController.push(
+            controller:controllerStore,
+            horizontal:CParent.TransitionHorizontal.fromRight)
+    }
 }
