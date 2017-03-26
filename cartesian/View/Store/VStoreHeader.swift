@@ -17,7 +17,7 @@ class VStoreHeader:UICollectionReusableView
     {
         attrTitle = [
             NSFontAttributeName:UIFont.bolder(size:20),
-            NSForegroundColorAttributeName:UIColor.squadBlue]
+            NSForegroundColorAttributeName:UIColor.cartesianBlue]
         
         attrDescr = [
             NSFontAttributeName:UIFont.regular(size:16),
