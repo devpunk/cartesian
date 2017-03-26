@@ -6,9 +6,12 @@ class MDrawProjectMenuNodesItemHexagon:MDrawProjectMenuNodesItem
     
     init()
     {
+        let title:String = NSLocalizedString("MDrawProjectMenuNodesItemHexagon_title", comment:"")
+        
         super.init(
             icon:#imageLiteral(resourceName: "assetNodeHexagon"),
             entityName:DNodeHexagon.entityName,
+            title:title,
             available:kAvailable)
     }
 }

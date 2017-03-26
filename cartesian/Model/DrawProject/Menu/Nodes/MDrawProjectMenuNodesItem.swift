@@ -15,6 +15,7 @@ class MDrawProjectMenuNodesItem
     {
         self.icon = icon
         self.entityName = entityName
+        self.title = title
         self.available = available
     }
 }

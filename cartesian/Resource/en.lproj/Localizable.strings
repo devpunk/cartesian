@@ -65,6 +65,17 @@
 "MDrawProjectMenuTextItemTrash_alertCancel"="Cancel";
 "MDrawProjectMenuTextItemTrash_alertDelete"="Delete";
 "MDrawProjectMenuTextItemFont_fontTitle"="Select text font";
+"MDrawProjectMenuNodesItemOval_title"="Oval";
+"MDrawProjectMenuNodesItemRect_title"="Rect";
+"MDrawProjectMenuNodesItemPentagon_title"="Pentagon";
+"MDrawProjectMenuNodesItemHexagon_title"="Hexagon";
+"MDrawProjectMenuNodesItemLozenge_title"="Lozenge";
+"MDrawProjectMenuNodesItemTriangle_title"="Triangle";
+"MDrawProjectMenuNodesItemStarThree_title"="Star 3";
+"MDrawProjectMenuNodesItemStarFour_title"="Star 4";
+"MDrawProjectMenuNodesItemStarFive_title"="Star 5";
+"MDrawProjectMenuNodesItemStarSix_title"="Star 6";
+"MDrawProjectMenuNodesItemInputOutput_title"="Input/output";
 
 "CDrawList_alertTitle"="Delete project?";
 "CDrawList_alertCancel"="Cancel";

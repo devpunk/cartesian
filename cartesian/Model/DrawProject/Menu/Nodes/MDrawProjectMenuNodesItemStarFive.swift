@@ -6,9 +6,12 @@ class MDrawProjectMenuNodesItemStarFive:MDrawProjectMenuNodesItem
     
     init()
     {
+        let title:String = NSLocalizedString("MDrawProjectMenuNodesItemStarFive_title", comment:"")
+        
         super.init(
             icon:#imageLiteral(resourceName: "assetNodeStarFive"),
             entityName:DNodeStarFive.entityName,
+            title:title,
             available:kAvailable)
     }
 }

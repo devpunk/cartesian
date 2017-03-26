@@ -6,9 +6,12 @@ class MDrawProjectMenuNodesItemRect:MDrawProjectMenuNodesItem
     
     init()
     {
+        let title:String = NSLocalizedString("MDrawProjectMenuNodesItemRect_title", comment:"")
+        
         super.init(
             icon:#imageLiteral(resourceName: "assetNodeRect"),
             entityName:DNodeRect.entityName,
+            title:title,
             available:kAvailable)
     }
 }

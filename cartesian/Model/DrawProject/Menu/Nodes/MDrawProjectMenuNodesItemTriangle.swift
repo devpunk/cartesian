@@ -6,9 +6,12 @@ class MDrawProjectMenuNodesItemTriangle:MDrawProjectMenuNodesItem
     
     init()
     {
+        let title:String = NSLocalizedString("MDrawProjectMenuNodesItemTriangle_title", comment:"")
+        
         super.init(
             icon:#imageLiteral(resourceName: "assetNodeTriangle"),
             entityName:DNodeTriangle.entityName,
+            title:title,
             available:kAvailable)
     }
 }
