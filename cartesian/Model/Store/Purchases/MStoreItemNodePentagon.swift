@@ -19,24 +19,21 @@ class MStoreItemNodePentagon:MStoreItem
     
     override func purchaseAction()
     {
-        MSession.sharedInstance.settings?.purchasePlus()
+        MSession.sharedInstance.settings?.purchaseNodePentagon = true
+        DManager.sharedInstance?.save()
     }
     
     override func validatePurchase() -> Bool
     {
-        var isPurchased:Bool = false
-        
         guard
             
-            let plus:Bool = MSession.sharedInstance.settings?.plus
+            let purchased:Bool = MSession.sharedInstance.settings?.purchaseNodePentagon
             
         else
         {
-            return isPurchased
+            return false
         }
         
-        isPurchased = plus
-        
-        return isPurchased
+        return purchased
     }
 }
