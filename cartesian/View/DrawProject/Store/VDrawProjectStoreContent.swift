@@ -15,7 +15,8 @@ class VDrawProjectStoreContent:UIView
     private let kLabelTitleTop:CGFloat = 70
     private let kLabelTitleHeight:CGFloat = 32
     private let kSubtitleMargin:CGFloat = 10
-    private let kSubtitleHeight:CGFloat = 110
+    private let kSubtitleHeight:CGFloat = 120
+    private let kButtonsHeight:CGFloat = 62
     
     init(controller:CDrawProject,
          purchase:MDrawProjectMenuNodesItem)
@@ -66,7 +67,11 @@ class VDrawProjectStoreContent:UIView
         labelSubtitle.numberOfLines = 0
         labelSubtitle.text = NSLocalizedString("VDrawProjectStoreContent_labelSubtitle", comment:"")
         
+        let viewButtons:VDrawProjectStoreContentButtons = VDrawProjectStoreContentButtons(
+            controller:controller)
+        
         circle.addSubview(imageView)
+        baseView.addSubview(viewButtons)
         addSubview(baseView)
         addSubview(circle)
         addSubview(labelTitle)
@@ -121,6 +126,16 @@ class VDrawProjectStoreContent:UIView
             view:labelSubtitle,
             toView:baseView,
             margin:kSubtitleMargin)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:viewButtons,
+            toView:baseView)
+        NSLayoutConstraint.height(
+            view:viewButtons,
+            constant:kButtonsHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewButtons,
+            toView:baseView)
     }
     
     required init?(coder:NSCoder)

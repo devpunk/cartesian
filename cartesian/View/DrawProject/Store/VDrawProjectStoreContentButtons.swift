@@ -11,7 +11,7 @@ class VDrawProjectStoreContentButtons:UIView
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(white:0.97, alpha:1)
+        backgroundColor = UIColor(white:0.88, alpha:1)
         self.controller = controller
         
         let buttonStore:UIButton = UIButton()
@@ -27,7 +27,7 @@ class VDrawProjectStoreContentButtons:UIView
         buttonStore.setTitleColor(
             UIColor(white:0, alpha:0.1),
             for:UIControlState.highlighted)
-        buttonStore.titleLabel!.font = UIFont.bold(size:14)
+        buttonStore.titleLabel!.font = UIFont.bolder(size:15)
         buttonStore.addTarget(
             self,
             action:#selector(actionStore(sender:)),
@@ -41,12 +41,12 @@ class VDrawProjectStoreContentButtons:UIView
             NSLocalizedString("VDrawProjectStoreContentButtons_buttonCancel", comment:""),
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
-            UIColor(white:0.6, alpha:1),
+            UIColor(white:0.7, alpha:1),
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
             UIColor(white:0, alpha:0.1),
             for:UIControlState.highlighted)
-        buttonCancel.titleLabel!.font = UIFont.bold(size:14)
+        buttonCancel.titleLabel!.font = UIFont.bolder(size:15)
         buttonCancel.addTarget(
             self,
             action:#selector(self.actionCancel(sender:)),
@@ -90,10 +90,11 @@ class VDrawProjectStoreContentButtons:UIView
     
     func actionStore(sender button:UIButton)
     {
+        
     }
     
     func actionCancel(sender button:UIButton)
     {
-        
+        controller.viewProject.viewStore?.animateClose()
     }
 }
