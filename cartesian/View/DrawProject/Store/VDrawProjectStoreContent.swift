@@ -7,11 +7,11 @@ class VDrawProjectStoreContent:UIView
     private weak var layoutBaseLeft:NSLayoutConstraint!
     private weak var layoutCircleLeft:NSLayoutConstraint!
     private let kBaseWidth:CGFloat = 299
-    private let kBaseHeight:CGFloat = 180
+    private let kBaseHeight:CGFloat = 220
     private let kBaseBottom:CGFloat = -2
     private let kCornerRadius:CGFloat = 20
     private let kCircleTop:CGFloat = 2
-    private let kCircleSize:CGFloat = 140
+    private let kCircleSize:CGFloat = 150
     
     init(controller:CDrawProject,
          purchase:MDrawProjectMenuNodesItem)

@@ -113,7 +113,7 @@ class VDrawProjectStore:UIView
         UIView.animate(withDuration:kAnimationDuration)
         { [weak self] in
             
-            self?.blurContainer.alpha = 0.95
+            self?.blurContainer.alpha = 0.99
             self?.layoutIfNeeded()
         }
     }
