@@ -14,6 +14,8 @@ class VDrawProjectStoreContent:UIView
     private let kCircleSize:CGFloat = 90
     private let kLabelTitleTop:CGFloat = 70
     private let kLabelTitleHeight:CGFloat = 32
+    private let kSubtitleMargin:CGFloat = 10
+    private let kSubtitleHeight:CGFloat = 110
     
     init(controller:CDrawProject,
          purchase:MDrawProjectMenuNodesItem)
@@ -54,10 +56,21 @@ class VDrawProjectStoreContent:UIView
         labelTitle.textColor = UIColor.black
         labelTitle.text = purchase.title
         
+        let labelSubtitle:UILabel = UILabel()
+        labelSubtitle.isUserInteractionEnabled = false
+        labelSubtitle.backgroundColor = UIColor.clear
+        labelSubtitle.translatesAutoresizingMaskIntoConstraints = false
+        labelSubtitle.textAlignment = NSTextAlignment.center
+        labelSubtitle.font = UIFont.regular(size:18)
+        labelSubtitle.textColor = UIColor.black
+        labelSubtitle.numberOfLines = 0
+        labelSubtitle.text = NSLocalizedString("VDrawProjectStoreContent_labelSubtitle", comment:"")
+        
         circle.addSubview(imageView)
         addSubview(baseView)
         addSubview(circle)
         addSubview(labelTitle)
+        addSubview(labelSubtitle)
         
         NSLayoutConstraint.bottomToBottom(
             view:baseView,
@@ -97,6 +110,17 @@ class VDrawProjectStoreContent:UIView
         NSLayoutConstraint.equalsHorizontal(
             view:labelTitle,
             toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:labelSubtitle,
+            toView:labelTitle)
+        NSLayoutConstraint.height(
+            view:labelSubtitle,
+            constant:kSubtitleHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelSubtitle,
+            toView:baseView,
+            margin:kSubtitleMargin)
     }
     
     required init?(coder:NSCoder)
