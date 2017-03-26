@@ -20,6 +20,9 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
+        let viewBar:VStoreBar = VStoreBar(
+            controller:self.controller)
+        
         let collectionView:VCollection = VCollection()
         collectionView.isHidden = true
         collectionView.alwaysBounceVertical = true
@@ -47,6 +50,7 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         
         addSubview(collectionView)
         addSubview(spinner)
+        addSubview(viewBar)
         
         NSLayoutConstraint.topToTop(
             view:collectionView,
@@ -61,6 +65,16 @@ class VStore:VView, UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         
         NSLayoutConstraint.equals(
             view:spinner,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kCollectionTop)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
             toView:self)
     }
     
