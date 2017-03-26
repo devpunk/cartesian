@@ -7,11 +7,11 @@ class VDrawProjectStoreContent:UIView
     private weak var layoutBaseLeft:NSLayoutConstraint!
     private weak var layoutCircleLeft:NSLayoutConstraint!
     private let kBaseWidth:CGFloat = 299
-    private let kBaseHeight:CGFloat = 220
+    private let kBaseHeight:CGFloat = 260
     private let kBaseBottom:CGFloat = -2
     private let kCornerRadius:CGFloat = 20
     private let kCircleTop:CGFloat = 2
-    private let kCircleSize:CGFloat = 150
+    private let kCircleSize:CGFloat = 90
     
     init(controller:CDrawProject,
          purchase:MDrawProjectMenuNodesItem)
@@ -36,6 +36,14 @@ class VDrawProjectStoreContent:UIView
         circle.backgroundColor = UIColor.white
         circle.layer.cornerRadius = kCircleSize / 2.0
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.image = purchase.icon
+        
+        circle.addSubview(imageView)
         addSubview(baseView)
         addSubview(circle)
         
@@ -62,6 +70,10 @@ class VDrawProjectStoreContent:UIView
         NSLayoutConstraint.size(
             view:circle,
             constant:kCircleSize)
+        
+        NSLayoutConstraint.equals(
+            view:imageView,
+            toView:circle)
     }
     
     required init?(coder:NSCoder)
