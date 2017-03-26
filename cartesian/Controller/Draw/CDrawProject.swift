@@ -435,5 +435,9 @@ class CDrawProject:CController
         parentController.push(
             controller:controllerStore,
             horizontal:CParent.TransitionHorizontal.fromRight)
+        { [weak self] in
+            
+            self?.viewProject.viewStore?.animateClose()
+        }
     }
 }

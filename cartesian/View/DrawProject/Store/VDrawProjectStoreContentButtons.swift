@@ -90,7 +90,7 @@ class VDrawProjectStoreContentButtons:UIView
     
     func actionStore(sender button:UIButton)
     {
-        
+        controller.openStore()
     }
     
     func actionCancel(sender button:UIButton)
