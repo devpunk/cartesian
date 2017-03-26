@@ -5,8 +5,8 @@ class MStore
 {
     typealias PurchaseId = String
     
-    let mapItems:[PurchaseId:MStoreItem]
-    let references:[PurchaseId]
+    private(set) var mapItems:[PurchaseId:MStoreItem]
+    private(set) var references:[PurchaseId]
     var error:String?
     private let priceFormatter:NumberFormatter
     
@@ -14,16 +14,20 @@ class MStore
     {
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
+        mapItems = [:]
+        references = []
         
-        let itemPlus:MStoreItemPlus = MStoreItemPlus()
+        addPurchase(item:MStoreItemNodePentagon())
+    }
+    
+    //MARK: private
+    
+    private func addPurchase(item:MStoreItem)
+    {
+        let purchaseId:PurchaseId = item.purchaseId
         
-        mapItems = [
-            itemPlus.purchaseId:itemPlus
-        ]
-        
-        references = [
-            itemPlus.purchaseId
-        ]
+        mapItems[purchaseId] = item
+        references.append(purchaseId)
     }
     
     //MARK: public
