@@ -41,6 +41,12 @@
 "VDrawProjectStoreContent_labelSubtitle"="You haven't purchased this figure, make it yours on the store";
 "VDrawProjectStoreContentButtons_buttonStore"="Continue";
 "VDrawProjectStoreContentButtons_buttonCancel"="Not now";
+"VStoreFooter_buttonRestore"="Restore purchase";
+"VStoreCellNew_buttonPurchase"="Purchase";
+"VStoreCellDeferred_label"="Purchase deferred";
+"VStoreCellPurchasing_label"="Purchasing";
+"VStoreCellPurchased_label"="Purchased";
+"VStoreCellNotAvailable_label"="Not available";
 
 "CDrawList_alertTitle"="Delete project?";
 "CDrawList_alertCancel"="Cancel";
@@ -87,4 +93,4 @@
 "MDrawProjectMenuNodesItemInputOutput_title"="Input/output";
 
 "MStoreItemNodePentagon_title"="Pentagon";
-"MStoreItemNodePentagon_descr"="Enable this figure to your projects";
+"MStoreItemNodePentagon_descr"="\nEnable this figure in your projects";
