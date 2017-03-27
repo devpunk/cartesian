@@ -14,4 +14,10 @@ class VGalleryCell:UICollectionViewCell
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(model:MGalleryItem)
+    {
+    }
 }

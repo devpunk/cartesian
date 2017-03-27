@@ -9,21 +9,22 @@ class MGallery
         case mine
     }
     
-    private weak var controller:CGallery!
-    private(set) var items:[MGalleryItem]
+    private weak var controller:CGallery?
+    private var allItems:[MGalleryItem]
+    private(set) var displayItems:[MGalleryItem]
     private(set) var sorting:Sort
     
-    init(controller:CGallery)
+    init()
     {
-        self.controller = controller
         sorting = Sort.time
-        items = []
+        allItems = []
+        displayItems = []
     }
     
     //MARK: public
     
-    func fetchGallery()
+    func fetchGallery(controller:CGallery)
     {
-        
+        self.controller = controller
     }
 }
