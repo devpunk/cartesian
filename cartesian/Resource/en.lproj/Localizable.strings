@@ -101,7 +101,7 @@
 "MStoreItemNodeStarFour_title"="Star four";
 "MStoreItemNodeStarFour_descr"="\nEnable this figure in your projects";
 "MStoreItemNodeStarFive_title"="Star five";
-"MStoreItemNodeStarFive_decr"="\nEnable this figure in your projects";
+"MStoreItemNodeStarFive_descr"="\nEnable this figure in your projects";
 "MStoreItemNodeStarSix_title"="Star six";
 "MStoreItemNodeStarSix_descr"="\nEnable this figure in your projects";
 "MStoreItemNodeLozenge_title"="Lozenge";
