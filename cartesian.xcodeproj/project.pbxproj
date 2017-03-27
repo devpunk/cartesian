@@ -20,6 +20,7 @@
 		DA12BAF81E8985A400613F99 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF71E8985A400613F99 /* FStorage.swift */; };
 		DA12BAFA1E89867E00613F99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */; };
 		DA12BAFC1E8989C300613F99 /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */; };
+		DA12BAFE1E8998F000613F99 /* VDrawProjectShareButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -258,6 +259,7 @@
 		DA12BAF71E8985A400613F99 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
 		DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
+		DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectShareButtons.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 			children = (
 				DA38E0821E832B2400F22C81 /* VDrawProjectShare.swift */,
 				DA38E0861E833BFF00F22C81 /* VDrawProjectShareImage.swift */,
+				DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */,
 			);
 			path = DrawProjectShare;
 			sourceTree = "<group>";
@@ -1592,6 +1595,7 @@
 				DA630B7F1E6B84D40004245A /* VView.swift in Sources */,
 				DA4F71E51E88712300DEC0E9 /* MStoreItem.swift in Sources */,
 				DA4F71FB1E8874A900DEC0E9 /* VStoreCellPurchasing.swift in Sources */,
+				DA12BAFE1E8998F000613F99 /* VDrawProjectShareButtons.swift in Sources */,
 				DA60FFDE1E89653D006BB157 /* MStoreItemNodeInputOutput.swift in Sources */,
 				DA4F71E91E88712300DEC0E9 /* MStoreItemStatusNotAvailable.swift in Sources */,
 				DA60FFD21E89648D006BB157 /* MStoreItemNodeStarThree.swift in Sources */,
