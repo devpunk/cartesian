@@ -8,15 +8,13 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var collectionView:VCollection!
     private let kBarTop:CGFloat = 70
     private let kBarHeight:CGFloat = 50
-    private let kInterItem:CGFloat = 1
-    private let kHeaderHeight:CGFloat = 30
-    private let kFooterHeight:CGFloat = 90
+    private let kHeaderHeight:CGFloat = 40
+    private let kFooterHeight:CGFloat = 100
     private let kCellHeight:CGFloat = 180
     
     override init(controller:CController)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor(white:0.95, alpha:1)
         self.controller = controller as? CGallery
         
         let spinner:VSpinner = VSpinner()
@@ -36,17 +34,17 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         collectionView.registerFooter(footer:VGalleryFooterMine.self)
         collectionView.registerFooter(footer:VGalleryFooterOther.self)
         collectionView.registerCell(cell:VGalleryCell.self)
+        collectionView.contentInset = UIEdgeInsets(
+            top:kBarHeight,
+            left:0,
+            bottom:0,
+            right:0)
         self.collectionView = collectionView
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
             flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
             flow.footerReferenceSize = CGSize(width:0, height:kFooterHeight)
-            flow.sectionInset = UIEdgeInsets(
-                top:kInterItem,
-                left:0,
-                bottom:kInterItem,
-                right:0)
         }
         
         addSubview(spinner)

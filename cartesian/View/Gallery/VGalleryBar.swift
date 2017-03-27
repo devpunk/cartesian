@@ -11,7 +11,7 @@ class VGalleryBar:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         
-        let blur:VBlur = VBlur.light()
+        let blur:VBlur = VBlur.extraLight()
         
         addSubview(blur)
         

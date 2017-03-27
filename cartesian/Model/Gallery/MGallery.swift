@@ -85,7 +85,6 @@ class MGallery
             
             let item:MGalleryItem
             
-            
             if let _:Bool = posts[itemId]
             {
                 item = MGalleryItemMine(
