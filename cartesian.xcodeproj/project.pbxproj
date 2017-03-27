@@ -31,6 +31,8 @@
 		DA12BB111E89BF1900613F99 /* MGalleryItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */; };
 		DA12BB131E89BF4400613F99 /* MGalleryItemMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB121E89BF4400613F99 /* MGalleryItemMine.swift */; };
 		DA12BB151E89BF4E00613F99 /* MGalleryItemOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */; };
+		DA12BB171E89C30400613F99 /* VGalleryFooterMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB161E89C30400613F99 /* VGalleryFooterMine.swift */; };
+		DA12BB191E89C31000613F99 /* VGalleryFooterOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB181E89C31000613F99 /* VGalleryFooterOther.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -280,6 +282,8 @@
 		DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemImage.swift; sourceTree = "<group>"; };
 		DA12BB121E89BF4400613F99 /* MGalleryItemMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemMine.swift; sourceTree = "<group>"; };
 		DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemOther.swift; sourceTree = "<group>"; };
+		DA12BB161E89C30400613F99 /* VGalleryFooterMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryFooterMine.swift; sourceTree = "<group>"; };
+		DA12BB181E89C31000613F99 /* VGalleryFooterOther.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryFooterOther.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -979,6 +983,8 @@
 				DA12BB031E89BC9400613F99 /* VGalleryBar.swift */,
 				DA12BB051E89BD4B00613F99 /* VGalleryHeader.swift */,
 				DA12BB071E89BD5300613F99 /* VGalleryFooter.swift */,
+				DA12BB161E89C30400613F99 /* VGalleryFooterMine.swift */,
+				DA12BB181E89C31000613F99 /* VGalleryFooterOther.swift */,
 				DA12BB091E89BD5F00613F99 /* VGalleryCell.swift */,
 			);
 			path = Gallery;
@@ -1430,6 +1436,7 @@
 				DA8FF2AA1E70BA5F005D7985 /* VDrawProjectSize.swift in Sources */,
 				DA5F92681E7CA55400686D84 /* MDrawProjectMenuTextItemFont.swift in Sources */,
 				DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */,
+				DA12BB191E89C31000613F99 /* VGalleryFooterOther.swift in Sources */,
 				DAE70D671E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift in Sources */,
 				DA12BB131E89BF4400613F99 /* MGalleryItemMine.swift in Sources */,
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
@@ -1459,6 +1466,7 @@
 				DA8FF2A71E70A4DB005D7985 /* MDrawProjectMenuZoomItem300.swift in Sources */,
 				DAA887221E80855E0085D787 /* VDrawProjectFontSizeStepper.swift in Sources */,
 				DA6612B91E85A5900012F6D9 /* DNodeStarFiveExtension.swift in Sources */,
+				DA12BB171E89C30400613F99 /* VGalleryFooterMine.swift in Sources */,
 				DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */,
 				DA2772501E72025300AC2EE7 /* MDrawProjectStateItemMove.swift in Sources */,
 				DA5F92591E7C8D0700686D84 /* VDrawProjectMenuText.swift in Sources */,
