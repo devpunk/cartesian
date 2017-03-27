@@ -5,6 +5,7 @@ class VDrawProjectShare:VView
     private weak var controller:CDrawProjectShare!
     private weak var viewSpinner:VSpinner?
     private weak var viewImage:VDrawProjectShareImage!
+    private weak var shareButtons:VDrawProjectShareButtons!
     private weak var layoutButtonCloseLeft:NSLayoutConstraint!
     private weak var layoutButtonsShareLeft:NSLayoutConstraint!
     private let kButtonCloseWidth:CGFloat = 100
@@ -43,33 +44,28 @@ class VDrawProjectShare:VView
             action:#selector(actionClose(sender:)),
             for:UIControlEvents.touchUpInside)
         
-        let buttonShare:UIButton = UIButton()
-        buttonShare.isHidden = true
-        buttonShare.translatesAutoresizingMaskIntoConstraints = false
-        buttonShare.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.normal)
-        buttonShare.setImage(
-            #imageLiteral(resourceName: "assetGenericShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.highlighted)
-        buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.2)
-        buttonShare.imageView!.clipsToBounds = true
-        buttonShare.imageView!.contentMode = UIViewContentMode.center
-        buttonShare.addTarget(
-            self,
-            action:#selector(actionShare(sender:)),
-            for:UIControlEvents.touchUpInside)
-        self.buttonShare = buttonShare
+        let shareButtons:VDrawProjectShareButtons = VDrawProjectShareButtons(
+            controller:self.controller)
+        shareButtons.isHidden = true
+        self.shareButtons = shareButtons
         
         let viewImage:VDrawProjectShareImage = VDrawProjectShareImage(
             controller:self.controller)
         viewImage.isHidden = true
         self.viewImage = viewImage
         
+        let viewSpinner:VSpinner = VSpinner()
+        self.viewSpinner = viewSpinner
+        
         addSubview(blur)
         addSubview(viewImage)
-        addSubview(buttonShare)
+        addSubview(shareButtons)
         addSubview(buttonClose)
+        addSubview(viewSpinner)
+        
+        NSLayoutConstraint.equals(
+            view:viewSpinner,
+            toView:self)
         
         NSLayoutConstraint.equals(
             view:blur,
@@ -89,26 +85,29 @@ class VDrawProjectShare:VView
             view:buttonClose,
             toView:self)
         
-        NSLayoutConstraint.size(
-            view:buttonShare,
-            constant:kButtonShareSize)
-        NSLayoutConstraint.bottomToTop(
-            view:buttonShare,
-            toView:buttonClose,
-            constant:kButtonShareBottom)
-        layoutButtonShareLeft = NSLayoutConstraint.leftToLeft(
-            view:buttonShare,
-            toView:self)
-        
         NSLayoutConstraint.topToTop(
             view:viewImage,
             toView:self)
         NSLayoutConstraint.bottomToTop(
             view:viewImage,
-            toView:buttonShare)
+            toView:shareButtons,
+            constant:kImageBottom)
         NSLayoutConstraint.equalsHorizontal(
             view:viewImage,
             toView:self)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:shareButtons,
+            toView:buttonClose)
+        NSLayoutConstraint.height(
+            view:shareButtons,
+            constant:kButtonsShareHeight)
+        layoutButtonsShareLeft = NSLayoutConstraint.leftToLeft(
+            view:shareButtons,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:shareButtons,
+            constant:kButtonsShareWidth)
     }
     
     required init?(coder:NSCoder)
@@ -120,11 +119,11 @@ class VDrawProjectShare:VView
     {
         let width:CGFloat = bounds.maxX
         let remainButtonClose:CGFloat = width - kButtonCloseWidth
-        let remainButtonShare:CGFloat = width - kButtonShareSize
+        let remainButtonsShare:CGFloat = width - kButtonsShareWidth
         let buttonCloseLeft:CGFloat = remainButtonClose / 2.0
-        let buttonShareLeft:CGFloat = remainButtonShare / 2.0
+        let buttonsShareLeft:CGFloat = remainButtonsShare / 2.0
         layoutButtonCloseLeft.constant = buttonCloseLeft
-        layoutButtonShareLeft.constant = buttonShareLeft
+        layoutButtonsShareLeft.constant = buttonsShareLeft
         
         super.layoutSubviews()
     }
@@ -143,29 +142,12 @@ class VDrawProjectShare:VView
     
     //MARK: public
     
-    func viewDidAppear()
-    {
-        self.viewSpinner?.stopAnimating()
-        self.viewSpinner?.removeFromSuperview()
-        buttonShare.isHidden = true
-        viewImage.isHidden = true
-        
-        let viewSpinner:VSpinner = VSpinner()
-        self.viewSpinner = viewSpinner
-        
-        addSubview(viewSpinner)
-        
-        NSLayoutConstraint.equals(
-            view:viewSpinner,
-            toView:self)
-    }
-    
     func imageRendered()
     {
         viewSpinner?.stopAnimating()
         viewSpinner?.removeFromSuperview()
         
-        buttonShare.isHidden = false
+        shareButtons.isHidden = false
         viewImage.isHidden = false
         viewImage.refresh()
     }

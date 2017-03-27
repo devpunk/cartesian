@@ -31,8 +31,6 @@ class CDrawProjectShare:CController
     {
         super.viewDidDisappear(animated)
         
-        viewShare.viewDidAppear()
-        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
