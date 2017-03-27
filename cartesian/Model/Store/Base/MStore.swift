@@ -18,6 +18,14 @@ class MStore
         references = []
         
         addPurchase(item:MStoreItemNodePentagon())
+        addPurchase(item:MStoreItemNodeTriangle())
+        addPurchase(item:MStoreItemNodeStarThree())
+        addPurchase(item:MStoreItemNodeStarFour())
+        addPurchase(item:MStoreItemNodeStarFive())
+        addPurchase(item:MStoreItemNodeStarSix())
+        addPurchase(item:MStoreItemNodeLozenge())
+        addPurchase(item:MStoreItemNodeHexagon())
+        addPurchase(item:MStoreItemNodeInputOutput())
     }
     
     //MARK: private
