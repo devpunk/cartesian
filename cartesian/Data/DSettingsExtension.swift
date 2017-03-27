@@ -13,4 +13,19 @@ extension DSettings
         
         DManager.sharedInstance?.save()
     }
+    
+    func galleryPostsMap() -> [String:Bool]
+    {
+        var myItems:[String:Bool] = [:]
+        
+        if let galleryItemIds:[String] = galleryPost?.array as? [String]
+        {
+            for galleryItemId:String in galleryItemIds
+            {
+                myItems[galleryItemId] = true
+            }
+        }
+        
+        return myItems
+    }
 }
