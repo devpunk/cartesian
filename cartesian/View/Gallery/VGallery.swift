@@ -6,15 +6,17 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var spinner:VSpinner!
     private weak var viewBar:VGalleryBar!
     private weak var collectionView:VCollection!
-    private let kBarHeight:CGFloat = 70
-    private let kSectionBottom:CGFloat = 10
+    private let kBarTop:CGFloat = 70
+    private let kBarHeight:CGFloat = 50
+    private let kInterItem:CGFloat = 1
     private let kHeaderHeight:CGFloat = 30
-    private let kFooterHeight:CGFloat = 50
+    private let kFooterHeight:CGFloat = 90
     private let kCellHeight:CGFloat = 180
     
     override init(controller:CController)
     {
         super.init(controller:controller)
+        backgroundColor = UIColor(white:0.95, alpha:1)
         self.controller = controller as? CGallery
         
         let spinner:VSpinner = VSpinner()
@@ -41,9 +43,9 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
             flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
             flow.footerReferenceSize = CGSize(width:0, height:kFooterHeight)
             flow.sectionInset = UIEdgeInsets(
-                top:0,
+                top:kInterItem,
                 left:0,
-                bottom:kSectionBottom,
+                bottom:kInterItem,
                 right:0)
         }
         
@@ -57,7 +59,8 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
-            toView:self)
+            toView:self,
+            constant:kBarTop)
         NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)
@@ -65,9 +68,10 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
             view:viewBar,
             toView:self)
         
-        NSLayoutConstraint.topToBottom(
+        NSLayoutConstraint.topToTop(
             view:collectionView,
-            toView:viewBar)
+            toView:self,
+            constant:kBarTop)
         NSLayoutConstraint.bottomToBottom(
             view:collectionView,
             toView:self)
@@ -107,10 +111,10 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func stopLoading()
     {
-        spinner.startAnimating()
-        viewBar.isHidden = true
+        spinner.stopAnimating()
+        viewBar.isHidden = false
         viewBar.refresh()
-        collectionView.isHidden = true
+        collectionView.isHidden = false
         collectionView.reloadData()
     }
     

@@ -104,6 +104,7 @@ class MGallery
         
         self.allItems = allItems
         updateDisplayItems()
+        controller?.galleryLoaded()
     }
     
     private func updateDisplayItems()

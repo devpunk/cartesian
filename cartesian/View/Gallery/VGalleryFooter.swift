@@ -6,7 +6,7 @@ class VGalleryFooter:UICollectionReusableView
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
     }
     
     required init?(coder:NSCoder)
