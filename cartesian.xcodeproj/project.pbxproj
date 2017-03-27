@@ -18,6 +18,7 @@
 		DA12BAF41E89824500613F99 /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF31E89824500613F99 /* FDatabase.swift */; };
 		DA12BAF61E89824E00613F99 /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF51E89824E00613F99 /* FDatabaseModel.swift */; };
 		DA12BAF81E8985A400613F99 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF71E8985A400613F99 /* FStorage.swift */; };
+		DA12BAFA1E89867E00613F99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -254,6 +255,7 @@
 		DA12BAF31E89824500613F99 /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
 		DA12BAF51E89824E00613F99 /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
 		DA12BAF71E8985A400613F99 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
+		DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 		DA12BAE91E89807F00613F99 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */,
 				DA12BAEB1E89808900613F99 /* FMain.swift */,
 			);
 			path = Main;
@@ -1307,6 +1310,7 @@
 			files = (
 				DA630B631E6B84D40004245A /* generic.xcassets in Resources */,
 				DA38E08E1E834D5D00F22C81 /* brand.xcassets in Resources */,
+				DA12BAFA1E89867E00613F99 /* GoogleService-Info.plist in Resources */,
 				DA630B731E6B84D40004245A /* ResourceUrl.plist in Resources */,
 				DA94437C1E6DE23700CD5993 /* node.xcassets in Resources */,
 				DA630B721E6B84D40004245A /* Localizable.strings in Resources */,
