@@ -13,6 +13,7 @@
 		DA0158EE1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */; };
 		DA0158F01E784671005DADC7 /* VDrawProjectMenuLabelsFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158EF1E784671005DADC7 /* VDrawProjectMenuLabelsFontSize.swift */; };
 		DA0158F21E784E89005DADC7 /* VDrawProjectMenuLabelsFontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158F11E784E89005DADC7 /* VDrawProjectMenuLabelsFontName.swift */; };
+		DA12BAEC1E89808900613F99 /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAEB1E89808900613F99 /* FMain.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -244,6 +245,7 @@
 		DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabelsAdd.swift; sourceTree = "<group>"; };
 		DA0158EF1E784671005DADC7 /* VDrawProjectMenuLabelsFontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabelsFontSize.swift; sourceTree = "<group>"; };
 		DA0158F11E784E89005DADC7 /* VDrawProjectMenuLabelsFontName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabelsFontName.swift; sourceTree = "<group>"; };
+		DA12BAEB1E89808900613F99 /* FMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMain.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -488,6 +490,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA12BAE61E89807F00613F99 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA12BAE71E89807F00613F99 /* Analytics */,
+				DA12BAE81E89807F00613F99 /* Database */,
+				DA12BAE91E89807F00613F99 /* Main */,
+				DA12BAEA1E89807F00613F99 /* Storage */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DA12BAE71E89807F00613F99 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		DA12BAE81E89807F00613F99 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DA12BAE91E89807F00613F99 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA12BAEB1E89808900613F99 /* FMain.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DA12BAEA1E89807F00613F99 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		DA2772461E72021D00AC2EE7 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +688,7 @@
 		DA630B271E6B823D0004245A /* cartesian */ = {
 			isa = PBXGroup;
 			children = (
+				DA12BAE61E89807F00613F99 /* Firebase */,
 				DA94436C1E6DDA6000CD5993 /* Data */,
 				DA630B3A1E6B84D40004245A /* Assets */,
 				DA630B3D1E6B84D40004245A /* Controller */,
@@ -1327,6 +1370,7 @@
 				DA5CA11F1E70C49700FD2340 /* MDrawProjectMenuEditBarItemResize.swift in Sources */,
 				DA4F71D41E87400F00DEC0E9 /* VDrawProjectStoreContent.swift in Sources */,
 				DAED2DA71E6CA53D0064C837 /* VDrawProject.swift in Sources */,
+				DA12BAEC1E89808900613F99 /* FMain.swift in Sources */,
 				DA65AD4E1E7C588300B2DE61 /* VDrawProjectCanvasView.swift in Sources */,
 				DA8FF29F1E708AD4005D7985 /* MDrawProjectMenuZoomItem100.swift in Sources */,
 				DA4F71FC1E8874A900DEC0E9 /* VStoreFooter.swift in Sources */,
