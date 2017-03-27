@@ -173,11 +173,11 @@ class VParentBar:UIView
             buttonSettings.isSelected = false
             buttonGallery.isSelected = true
             
-            let controllerSettings:CSettings = CSettings()
+            let controllerGallery:CGallery = CGallery()
             
             controller.slideTo(
-                horizontal:CParent.TransitionHorizontal.fromLeft,
-                controller:controllerSettings)
+                horizontal:CParent.TransitionHorizontal.fromRight,
+                controller:controllerGallery)
         }
     }
 }
