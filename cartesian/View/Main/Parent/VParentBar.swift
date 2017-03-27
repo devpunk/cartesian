@@ -5,7 +5,7 @@ class VParentBar:UIView
     private weak var controller:CParent!
     private weak var buttonHome:VParentBarButton!
     private weak var buttonSettings:VParentBarButton!
-    private weak var buttonStore:VParentBarButton!
+    private weak var buttonGallery:VParentBarButton!
     private weak var layoutHomeLeft:NSLayoutConstraint!
     private let kBorderHeight:CGFloat = 1
     private let kButtonsTop:CGFloat = 20
@@ -38,17 +38,17 @@ class VParentBar:UIView
             for:UIControlEvents.touchUpInside)
         self.buttonSettings = buttonSettings
         
-        let buttonStore:VParentBarButton = VParentBarButton(
-            image:#imageLiteral(resourceName: "assetGenericDraw"))
-        buttonStore.isSelected = false
-        buttonStore.addTarget(
+        let buttonGallery:VParentBarButton = VParentBarButton(
+            image:#imageLiteral(resourceName: "assetGenericGallery"))
+        buttonGallery.isSelected = false
+        buttonGallery.addTarget(
             self,
-            action:#selector(actionStore(sender:)),
+            action:#selector(actionGallery(sender:)),
             for:UIControlEvents.touchUpInside)
-        self.buttonStore = buttonStore
+        self.buttonGallery = buttonGallery
         
         addSubview(border)
-        addSubview(buttonStore)
+        addSubview(buttonGallery)
         addSubview(buttonSettings)
         addSubview(buttonHome)
         
@@ -91,17 +91,17 @@ class VParentBar:UIView
             constant:kButtonsWidth)
         
         NSLayoutConstraint.topToTop(
-            view:buttonStore,
+            view:buttonGallery,
             toView:self,
             constant:kButtonsTop)
         NSLayoutConstraint.bottomToBottom(
-            view:buttonStore,
+            view:buttonGallery,
             toView:self)
         NSLayoutConstraint.rightToRight(
-            view:buttonStore,
+            view:buttonGallery,
             toView:self)
         NSLayoutConstraint.width(
-            view:buttonStore,
+            view:buttonGallery,
             constant:kButtonsWidth)
     }
     
@@ -139,7 +139,7 @@ class VParentBar:UIView
             
             buttonHome.isSelected = true
             buttonSettings.isSelected = false
-            buttonStore.isSelected = false
+            buttonGallery.isSelected = false
             
             let controllerDraw:CDrawList = CDrawList()
             
@@ -155,7 +155,7 @@ class VParentBar:UIView
         {
             buttonHome.isSelected = false
             buttonSettings.isSelected = true
-            buttonStore.isSelected = false
+            buttonGallery.isSelected = false
             
             let controllerSettings:CSettings = CSettings()
             
@@ -165,25 +165,19 @@ class VParentBar:UIView
         }
     }
     
-    func actionStore(sender button:UIButton)
+    func actionGallery(sender button:UIButton)
     {
-        if !buttonStore.isSelected
+        if !buttonGallery.isSelected
         {
-            goStore()
+            buttonHome.isSelected = false
+            buttonSettings.isSelected = false
+            buttonGallery.isSelected = true
+            
+            let controllerSettings:CSettings = CSettings()
+            
+            controller.slideTo(
+                horizontal:CParent.TransitionHorizontal.fromLeft,
+                controller:controllerSettings)
         }
-    }
-    
-    //MARK: public
-    
-    func goStore()
-    {
-        buttonHome.isSelected = false
-        buttonSettings.isSelected = false
-        buttonStore.isSelected = true
-        
-//        let controllerStore:CStore = CStore()
-//        controller.slideTo(
-//            horizontal:CParent.TransitionHorizontal.fromRight,
-//            controller:controllerStore)
     }
 }
