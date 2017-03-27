@@ -19,8 +19,9 @@
 		DA12BAF61E89824E00613F99 /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF51E89824E00613F99 /* FDatabaseModel.swift */; };
 		DA12BAF81E8985A400613F99 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF71E8985A400613F99 /* FStorage.swift */; };
 		DA12BAFA1E89867E00613F99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */; };
-		DA12BAFC1E8989C300613F99 /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */; };
 		DA12BAFE1E8998F000613F99 /* VDrawProjectShareButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */; };
+		DA12BB001E89AB9000613F99 /* FDatabaseModelGalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFF1E89AB9000613F99 /* FDatabaseModelGalleryItem.swift */; };
+		DA12BB021E89AB9E00613F99 /* FDatabaseModelUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB011E89AB9E00613F99 /* FDatabaseModelUserItem.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -258,8 +259,9 @@
 		DA12BAF51E89824E00613F99 /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
 		DA12BAF71E8985A400613F99 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
 		DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectShareButtons.swift; sourceTree = "<group>"; };
+		DA12BAFF1E89AB9000613F99 /* FDatabaseModelGalleryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGalleryItem.swift; sourceTree = "<group>"; };
+		DA12BB011E89AB9E00613F99 /* FDatabaseModelUserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserItem.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -552,7 +554,8 @@
 		DA12BAF11E89823800613F99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */,
+				DA12BAFF1E89AB9000613F99 /* FDatabaseModelGalleryItem.swift */,
+				DA12BB011E89AB9E00613F99 /* FDatabaseModelUserItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1530,8 +1533,8 @@
 				DA6612C31E85C13B0012F6D9 /* DNodeStarThreeExtension.swift in Sources */,
 				DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */,
 				DA2772571E720B7300AC2EE7 /* MDrawProjectMenuStateItemHidden.swift in Sources */,
-				DA12BAFC1E8989C300613F99 /* FDatabaseModelUser.swift in Sources */,
 				DA8FF29D1E708A03005D7985 /* MDrawProjectMenuZoomItem.swift in Sources */,
+				DA12BB021E89AB9E00613F99 /* FDatabaseModelUserItem.swift in Sources */,
 				DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */,
 				DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */,
 				DA45C4991E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift in Sources */,
@@ -1596,6 +1599,7 @@
 				DA4F71E51E88712300DEC0E9 /* MStoreItem.swift in Sources */,
 				DA4F71FB1E8874A900DEC0E9 /* VStoreCellPurchasing.swift in Sources */,
 				DA12BAFE1E8998F000613F99 /* VDrawProjectShareButtons.swift in Sources */,
+				DA12BB001E89AB9000613F99 /* FDatabaseModelGalleryItem.swift in Sources */,
 				DA60FFDE1E89653D006BB157 /* MStoreItemNodeInputOutput.swift in Sources */,
 				DA4F71E91E88712300DEC0E9 /* MStoreItemStatusNotAvailable.swift in Sources */,
 				DA60FFD21E89648D006BB157 /* MStoreItemNodeStarThree.swift in Sources */,

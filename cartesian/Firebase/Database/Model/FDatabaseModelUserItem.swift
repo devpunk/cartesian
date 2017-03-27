@@ -1,6 +1,6 @@
 import Foundation
 
-class FDatabaseModelUser:FDatabaseModel
+class FDatabaseModelUserItem:FDatabaseModel
 {
     enum Property:String
     {

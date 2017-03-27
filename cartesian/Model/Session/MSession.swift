@@ -73,7 +73,7 @@ class MSession
     private func createFirebaseUser()
     {
         let nodeUser:String = FDatabase.Node.user.rawValue
-        let modelUser:FDatabaseModelUser = FDatabaseModelUser()
+        let modelUser:FDatabaseModelUserItem = FDatabaseModelUserItem()
         
         guard
             
@@ -100,12 +100,12 @@ class MSession
         
         FMain.sharedInstance.database.listenOnce(
             path:path,
-            modelType:FDatabaseModelUser.self)
-        { (dataUser:FDatabaseModelUser?) in
+            modelType:FDatabaseModelUserItem.self)
+        { (dataUser:FDatabaseModelUserItem?) in
             
             guard
             
-                let modelUser:FDatabaseModelUser = dataUser
+                let modelUser:FDatabaseModelUserItem = dataUser
             
             else
             {
@@ -116,7 +116,7 @@ class MSession
         }
     }
     
-    private func fireBaseUserLoaded(modelUser:FDatabaseModelUser)
+    private func fireBaseUserLoaded(modelUser:FDatabaseModelUserItem)
     {
         settings?.shouldPost = modelUser.shouldPost
         DManager.sharedInstance?.save()
