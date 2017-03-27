@@ -16,7 +16,7 @@ class MSession
         DManager.sharedInstance?.fetchData(
             entityName:DSettings.entityName,
             limit:1)
-        { [weak self] (data) in
+        { (data) in
             
             guard
             
@@ -24,14 +24,14 @@ class MSession
             
             else
             {
-                self?.createSession()
+                self.createSession()
                 
                 return
             }
             
             settings.becameActive()
-            self?.settings = settings
-            self?.sessionLoaded()
+            self.settings = settings
+            self.sessionLoaded()
         }
     }
     
@@ -39,7 +39,7 @@ class MSession
     {
         DManager.sharedInstance?.createData(
             entityName:DSettings.entityName)
-        { [weak self] (data) in
+        { (data) in
             
             guard
             
@@ -50,20 +50,23 @@ class MSession
                 return
             }
             
-            self?.settings = settings
-            self?.sessionLoaded()
+            self.settings = settings
+            self.sessionLoaded()
         }
     }
     
     private func sessionLoaded()
     {
-        if settings?.userId == nil
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            createFirebaseUser()
-        }
-        else
-        {
-            
+            if let userId:String = self.settings?.userId
+            {
+                self.loadFirebaseUser(userId:userId)
+            }
+            else
+            {
+                self.createFirebaseUser()
+            }
         }
     }
     
@@ -94,6 +97,36 @@ class MSession
         
         settings?.userId = userId
         DManager.sharedInstance?.save()
+        
+        fireBaseUserLoaded(modelUser:modelUser)
+    }
+    
+    private func loadFirebaseUser(userId:String)
+    {
+        let nodeUser:String = FDatabase.Node.user.rawValue
+        let path:String = "\(nodeUser)/\(userId)"
+        
+        FMain.sharedInstance.database?.listenOnce(
+            path:path,
+            modelType:FDatabaseModelUser.self)
+        { (dataUser:FDatabaseModelUser?) in
+            
+            guard
+            
+                let modelUser:FDatabaseModelUser = dataUser
+            
+            else
+            {
+                return
+            }
+            
+            self.settings?.shouldPost = modelUser.shouldPost
+        }
+    }
+    
+    private func fireBaseUserLoaded(modelUser:FDatabaseModelUser)
+    {
+        
     }
     
     //MARK: public
@@ -101,9 +134,8 @@ class MSession
     func loadSession()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.asyncLoadSession()
+        {
+            self.asyncLoadSession()
         }
     }
 }
