@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3791DF51D832B186E719CD8F /* Pods_cartesian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 465C4CD15AAF6310A82071DD /* Pods_cartesian.framework */; };
 		DA007DB11E6B9673005684F6 /* VDrawListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */; };
 		DA007DB31E6B967E005684F6 /* VDrawListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA007DB21E6B967E005684F6 /* VDrawListCell.swift */; };
 		DA0158EE1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */; };
@@ -235,6 +236,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26D1B4921321FD89B5401108 /* Pods-cartesian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cartesian.release.xcconfig"; path = "Pods/Target Support Files/Pods-cartesian/Pods-cartesian.release.xcconfig"; sourceTree = "<group>"; };
+		465C4CD15AAF6310A82071DD /* Pods_cartesian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cartesian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B55A3FB770E787E360569F35 /* Pods-cartesian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cartesian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cartesian/Pods-cartesian.debug.xcconfig"; sourceTree = "<group>"; };
 		DA007DB01E6B9673005684F6 /* VDrawListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListHeader.swift; sourceTree = "<group>"; };
 		DA007DB21E6B967E005684F6 /* VDrawListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawListCell.swift; sourceTree = "<group>"; };
 		DA0158ED1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectMenuLabelsAdd.swift; sourceTree = "<group>"; };
@@ -469,12 +473,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3791DF51D832B186E719CD8F /* Pods_cartesian.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A9382E59754678EA7A87C36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				465C4CD15AAF6310A82071DD /* Pods_cartesian.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA2772461E72021D00AC2EE7 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +630,8 @@
 			children = (
 				DA630B271E6B823D0004245A /* cartesian */,
 				DA630B261E6B823D0004245A /* Products */,
+				F193C0B590AF2F25EBDE33A9 /* Pods */,
+				6A9382E59754678EA7A87C36 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1148,6 +1163,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		F193C0B590AF2F25EBDE33A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B55A3FB770E787E360569F35 /* Pods-cartesian.debug.xcconfig */,
+				26D1B4921321FD89B5401108 /* Pods-cartesian.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1155,9 +1179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA630B371E6B823D0004245A /* Build configuration list for PBXNativeTarget "cartesian" */;
 			buildPhases = (
+				76D4AC606B497049AC7F3C09 /* [CP] Check Pods Manifest.lock */,
 				DA630B211E6B823C0004245A /* Sources */,
 				DA630B221E6B823C0004245A /* Frameworks */,
 				DA630B231E6B823C0004245A /* Resources */,
+				586F9253ADD7C28490E918CA /* [CP] Embed Pods Frameworks */,
+				C627065F781A36ED80C1BA73 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1219,6 +1246,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		586F9253ADD7C28490E918CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cartesian/Pods-cartesian-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76D4AC606B497049AC7F3C09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C627065F781A36ED80C1BA73 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cartesian/Pods-cartesian-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA630B211E6B823C0004245A /* Sources */ = {
@@ -1554,6 +1629,7 @@
 		};
 		DA630B381E6B823D0004245A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B55A3FB770E787E360569F35 /* Pods-cartesian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -1568,6 +1644,7 @@
 		};
 		DA630B391E6B823D0004245A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26D1B4921321FD89B5401108 /* Pods-cartesian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
