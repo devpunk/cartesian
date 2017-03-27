@@ -90,7 +90,7 @@
 "MDrawProjectMenuNodesItemStarFour_title"="Star 4";
 "MDrawProjectMenuNodesItemStarFive_title"="Star 5";
 "MDrawProjectMenuNodesItemStarSix_title"="Star 6";
-"MDrawProjectMenuNodesItemInputOutput_title"="Input/output";
+"MDrawProjectMenuNodesItemInputOutput_title"="Input / output";
 
 "MStoreItemNodePentagon_title"="Pentagon";
 "MStoreItemNodePentagon_descr"="\nEnable this figure in your projects";
@@ -108,5 +108,5 @@
 "MStoreItemNodeLozenge_descr"="\nEnable this figure in your projects";
 "MStoreItemNodeHexagon_title"="Hexagon";
 "MStoreItemNodeHexagon_descr"="\nEnable this figure in your projects";
-"MStoreItemNodeInputOutput_title"="Input/output";
+"MStoreItemNodeInputOutput_title"="Input / output";
 "MStoreItemNodeInputOutput_descr"="\nEnable this figure in your projects";

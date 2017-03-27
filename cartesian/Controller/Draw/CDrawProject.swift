@@ -7,6 +7,7 @@ class CDrawProject:CController
     let modelZoom:MDrawProjectMenuZoom
     let modelColor:MDrawProjectColor
     var model:DProject?
+    private var firstTime:Bool
     private(set) weak var viewProject:VDrawProject!
     private(set) weak var editingView:VDrawProjectCanvasView?
     
@@ -17,6 +18,7 @@ class CDrawProject:CController
         modelMenuState = MDrawProjectMenuState()
         modelZoom = MDrawProjectMenuZoom()
         modelColor = MDrawProjectColor()
+        firstTime = true
         
         super.init()
     }
@@ -61,13 +63,18 @@ class CDrawProject:CController
                 return
             }
             
-            if strongSelf.model == nil
+            if strongSelf.firstTime
             {
-                strongSelf.createProject()
-            }
-            else
-            {
-                strongSelf.modelLoaded()
+                strongSelf.firstTime = false
+                
+                if strongSelf.model == nil
+                {
+                    strongSelf.createProject()
+                }
+                else
+                {
+                    strongSelf.modelLoaded()
+                }
             }
         }
     }
