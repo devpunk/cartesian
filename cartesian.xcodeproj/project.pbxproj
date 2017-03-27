@@ -596,9 +596,9 @@
 			children = (
 				DA12BB0C1E89BEB800613F99 /* MGallery.swift */,
 				DA12BB0E1E89BEEA00613F99 /* MGalleryItem.swift */,
-				DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */,
 				DA12BB121E89BF4400613F99 /* MGalleryItemMine.swift */,
 				DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */,
+				DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
