@@ -2,9 +2,10 @@ import UIKit
 
 class VGalleryHeader:UICollectionReusableView
 {
-    private weak var label:UILabel!
+    private weak var labelDate:UILabel!
+    private weak var labelLikes:UILabel!
     private let dateFormatter:DateFormatter
-    private let kLabelLeft:CGFloat = 10
+    private let kLabelMargin:CGFloat = 10
     private let kBorderHeight:CGFloat = 1
     
     override init(frame:CGRect)
@@ -19,15 +20,26 @@ class VGalleryHeader:UICollectionReusableView
         
         let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:13)
-        label.textColor = UIColor.black
+        let labelDate:UILabel = UILabel()
+        labelDate.isUserInteractionEnabled = false
+        labelDate.translatesAutoresizingMaskIntoConstraints = false
+        labelDate.backgroundColor = UIColor.clear
+        labelDate.font = UIFont.regular(size:12)
+        labelDate.textColor = UIColor.black
+        self.labelDate = labelDate
+        
+        let labelLikes:UILabel = UILabel()
+        labelLikes.isUserInteractionEnabled = false
+        labelLikes.translatesAutoresizingMaskIntoConstraints = false
+        labelLikes.backgroundColor = UIColor.clear
+        labelLikes.font = UIFont.bold(size:12)
+        labelLikes.textColor = UIColor.black
+        labelLikes.textAlignment = NSTextAlignment.right
+        self.labelLikes = labelLikes
         
         addSubview(border)
-        addSubview(label)
+        addSubview(labelDate)
+        addSubview(labelLikes)
         
         NSLayoutConstraint.bottomToBottom(
             view:border,
@@ -40,14 +52,25 @@ class VGalleryHeader:UICollectionReusableView
             toView:self)
         
         NSLayoutConstraint.equalsVertical(
-            view:label,
+            view:labelDate,
             toView:self)
         NSLayoutConstraint.leftToLeft(
-            view:label,
+            view:labelDate,
             toView:self,
-            constant:kLabelLeft)
+            constant:kLabelMargin)
         NSLayoutConstraint.rightToRight(
-            view:label,
+            view:labelDate,
+            toView:self)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:labelLikes,
+            toView:self)
+        NSLayoutConstraint.rightToRight(
+            view:labelLikes,
+            toView:self,
+            constant:-kLabelMargin)
+        NSLayoutConstraint.leftToLeft(
+            view:labelLikes,
             toView:self)
     }
     
@@ -62,7 +85,12 @@ class VGalleryHeader:UICollectionReusableView
     {
         let date:Date = Date(timeIntervalSince1970:model.lastUpdated)
         let dateString:String = dateFormatter.string(from:date)
+        let likes:NSNumber = model.likes as NSNumber
+        let likeString:String = String(
+            format:NSLocalizedString("VGalleryHeader_labelLikes", comment:""),
+            likes)
         
-        label.text = dateString
+        labelDate.text = dateString
+        labelLikes.text = likeString
     }
 }
