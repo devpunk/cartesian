@@ -14,4 +14,10 @@ class VGalleryHeader:UICollectionReusableView
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(model:MGalleryItem)
+    {
+    }
 }

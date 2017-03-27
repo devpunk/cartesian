@@ -13,4 +13,10 @@ class VGalleryFooter:UICollectionReusableView
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func config(controller:CGallery, model:MGalleryItem)
+    {
+    }
 }
