@@ -139,7 +139,7 @@ class CDrawProjectShare:CController
     
     private func endRendering()
     {
-        viewShare.imageRendered()
+        viewShare.stopLoading()
     }
     
     //MARK: public
@@ -176,11 +176,11 @@ class CDrawProjectShare:CController
     
     func postImage()
     {
-        
+        viewShare.startLoading()
     }
     
     func updateImage()
     {
-        
+        viewShare.startLoading()
     }
 }

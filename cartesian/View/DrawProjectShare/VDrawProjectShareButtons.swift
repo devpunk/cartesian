@@ -6,8 +6,9 @@ class VDrawProjectShareButtons:UIView
     private weak var buttonLeft:UIButton!
     private weak var buttonRightUpdate:UIButton!
     private weak var buttonRightPost:UIButton!
-    private let kButtonRightWidth:CGFloat = 210
+    private let kButtonRightWidth:CGFloat = 190
     private let kCornerRadius:CGFloat = 10
+    private let kBorderWidth:CGFloat = 1
     
     init(controller:CDrawProjectShare)
     {
@@ -29,7 +30,7 @@ class VDrawProjectShareButtons:UIView
         buttonLeft.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        buttonLeft.titleLabel!.font = UIFont.bolder(size:15)
+        buttonLeft.titleLabel!.font = UIFont.bolder(size:14)
         buttonLeft.addTarget(
             self,
             action:#selector(actionShare(sender:)),
@@ -48,7 +49,7 @@ class VDrawProjectShareButtons:UIView
         buttonRightPost.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        buttonRightPost.titleLabel!.font = UIFont.bolder(size:15)
+        buttonRightPost.titleLabel!.font = UIFont.bolder(size:14)
         buttonRightPost.addTarget(
             self,
             action:#selector(actionPost(sender:)),
@@ -67,13 +68,16 @@ class VDrawProjectShareButtons:UIView
         buttonRightUpdate.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        buttonRightUpdate.titleLabel!.font = UIFont.bolder(size:15)
+        buttonRightUpdate.titleLabel!.font = UIFont.bolder(size:14)
         buttonRightUpdate.addTarget(
             self,
             action:#selector(actionUpdate(sender:)),
             for:UIControlEvents.touchUpInside)
         self.buttonRightUpdate = buttonRightUpdate
         
+        let border:VBorder = VBorder(color:UIColor.white)
+        
+        addSubview(border)
         addSubview(buttonLeft)
         addSubview(buttonRightPost)
         addSubview(buttonRightUpdate)
@@ -108,6 +112,16 @@ class VDrawProjectShareButtons:UIView
         NSLayoutConstraint.width(
             view:buttonRightUpdate,
             constant:kButtonRightWidth)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:border,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:border,
+            toView:buttonLeft)
+        NSLayoutConstraint.width(
+            view:border,
+            constant:kBorderWidth)
     }
     
     required init?(coder:NSCoder)
@@ -119,17 +133,17 @@ class VDrawProjectShareButtons:UIView
     
     func actionShare(sender button:UIButton)
     {
-        
+        controller.exportImage()
     }
     
     func actionPost(sender button:UIButton)
     {
-        
+        controller.postImage()
     }
     
     func actionUpdate(sender button:UIButton)
     {
-        
+        controller.updateImage()
     }
     
     //MARK: public

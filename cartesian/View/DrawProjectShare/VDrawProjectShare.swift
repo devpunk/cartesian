@@ -3,7 +3,7 @@ import UIKit
 class VDrawProjectShare:VView
 {
     private weak var controller:CDrawProjectShare!
-    private weak var viewSpinner:VSpinner?
+    private weak var viewSpinner:VSpinner!
     private weak var viewImage:VDrawProjectShareImage!
     private weak var shareButtons:VDrawProjectShareButtons!
     private weak var layoutButtonCloseLeft:NSLayoutConstraint!
@@ -143,13 +143,19 @@ class VDrawProjectShare:VView
     
     //MARK: public
     
-    func imageRendered()
+    func startLoading()
     {
-        viewSpinner?.stopAnimating()
-        viewSpinner?.removeFromSuperview()
-        
+        viewSpinner.startAnimating()
+        shareButtons.isHidden = true
+        viewImage.isHidden = true
+    }
+    
+    func stopLoading()
+    {
+        viewSpinner.stopAnimating()
         shareButtons.isHidden = false
         viewImage.isHidden = false
         viewImage.refresh()
+        shareButtons.updateButtons()
     }
 }
