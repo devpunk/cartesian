@@ -19,7 +19,7 @@ class MStoreItemNodeTriangle:MStoreItem
     
     override func purchaseAction()
     {
-        MSession.sharedInstance.settings?.purchaseNodePentagon = true
+        MSession.sharedInstance.settings?.purchaseNodeTriangle = true
         DManager.sharedInstance?.save()
     }
     

@@ -77,6 +77,14 @@
 		DA5F92661E7CA53F00686D84 /* MDrawProjectMenuTextItemMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F92651E7CA53F00686D84 /* MDrawProjectMenuTextItemMove.swift */; };
 		DA5F92681E7CA55400686D84 /* MDrawProjectMenuTextItemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F92671E7CA55400686D84 /* MDrawProjectMenuTextItemFont.swift */; };
 		DA5F926A1E7CB5A500686D84 /* MDrawProjectMenuTextItemSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F92691E7CB5A500686D84 /* MDrawProjectMenuTextItemSize.swift */; };
+		DA60FFD01E89647B006BB157 /* MStoreItemNodeTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFCF1E89647B006BB157 /* MStoreItemNodeTriangle.swift */; };
+		DA60FFD21E89648D006BB157 /* MStoreItemNodeStarThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFD11E89648D006BB157 /* MStoreItemNodeStarThree.swift */; };
+		DA60FFD41E896499006BB157 /* MStoreItemNodeStarFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFD31E896499006BB157 /* MStoreItemNodeStarFour.swift */; };
+		DA60FFD61E8964A5006BB157 /* MStoreItemNodeStarFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFD51E8964A5006BB157 /* MStoreItemNodeStarFive.swift */; };
+		DA60FFD81E8964F8006BB157 /* MStoreItemNodeStarSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFD71E8964F8006BB157 /* MStoreItemNodeStarSix.swift */; };
+		DA60FFDA1E896514006BB157 /* MStoreItemNodeLozenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFD91E896514006BB157 /* MStoreItemNodeLozenge.swift */; };
+		DA60FFDC1E89651E006BB157 /* MStoreItemNodeHexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFDB1E89651E006BB157 /* MStoreItemNodeHexagon.swift */; };
+		DA60FFDE1E89653D006BB157 /* MStoreItemNodeInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60FFDD1E89653D006BB157 /* MStoreItemNodeInputOutput.swift */; };
 		DA630B631E6B84D40004245A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3B1E6B84D40004245A /* generic.xcassets */; };
 		DA630B641E6B84D40004245A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */; };
 		DA630B651E6B84D40004245A /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA630B3F1E6B84D40004245A /* CAppDelegate.swift */; };
@@ -295,6 +303,14 @@
 		DA5F92651E7CA53F00686D84 /* MDrawProjectMenuTextItemMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuTextItemMove.swift; sourceTree = "<group>"; };
 		DA5F92671E7CA55400686D84 /* MDrawProjectMenuTextItemFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuTextItemFont.swift; sourceTree = "<group>"; };
 		DA5F92691E7CB5A500686D84 /* MDrawProjectMenuTextItemSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectMenuTextItemSize.swift; sourceTree = "<group>"; };
+		DA60FFCF1E89647B006BB157 /* MStoreItemNodeTriangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeTriangle.swift; sourceTree = "<group>"; };
+		DA60FFD11E89648D006BB157 /* MStoreItemNodeStarThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeStarThree.swift; sourceTree = "<group>"; };
+		DA60FFD31E896499006BB157 /* MStoreItemNodeStarFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeStarFour.swift; sourceTree = "<group>"; };
+		DA60FFD51E8964A5006BB157 /* MStoreItemNodeStarFive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeStarFive.swift; sourceTree = "<group>"; };
+		DA60FFD71E8964F8006BB157 /* MStoreItemNodeStarSix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeStarSix.swift; sourceTree = "<group>"; };
+		DA60FFD91E896514006BB157 /* MStoreItemNodeLozenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeLozenge.swift; sourceTree = "<group>"; };
+		DA60FFDB1E89651E006BB157 /* MStoreItemNodeHexagon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeHexagon.swift; sourceTree = "<group>"; };
+		DA60FFDD1E89653D006BB157 /* MStoreItemNodeInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemNodeInputOutput.swift; sourceTree = "<group>"; };
 		DA630B251E6B823D0004245A /* cartesian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cartesian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA630B3B1E6B84D40004245A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA630B3C1E6B84D40004245A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -567,6 +583,14 @@
 			isa = PBXGroup;
 			children = (
 				DA4F71EC1E88715000DEC0E9 /* MStoreItemNodePentagon.swift */,
+				DA60FFCF1E89647B006BB157 /* MStoreItemNodeTriangle.swift */,
+				DA60FFD11E89648D006BB157 /* MStoreItemNodeStarThree.swift */,
+				DA60FFD31E896499006BB157 /* MStoreItemNodeStarFour.swift */,
+				DA60FFD51E8964A5006BB157 /* MStoreItemNodeStarFive.swift */,
+				DA60FFD71E8964F8006BB157 /* MStoreItemNodeStarSix.swift */,
+				DA60FFD91E896514006BB157 /* MStoreItemNodeLozenge.swift */,
+				DA60FFDB1E89651E006BB157 /* MStoreItemNodeHexagon.swift */,
+				DA60FFDD1E89653D006BB157 /* MStoreItemNodeInputOutput.swift */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";
@@ -1259,6 +1283,7 @@
 				DAE70D5D1E6F56E9009FAA27 /* MDrawProjectCanvasEffect.swift in Sources */,
 				DA94437A1E6DE10200CD5993 /* MDrawProjectMenuNodesItemRect.swift in Sources */,
 				DA0158F01E784671005DADC7 /* VDrawProjectMenuLabelsFontSize.swift in Sources */,
+				DA60FFD61E8964A5006BB157 /* MStoreItemNodeStarFive.swift in Sources */,
 				DA630B7A1E6B84D40004245A /* VBorder.swift in Sources */,
 				DA6612C51E85C1710012F6D9 /* MDrawProjectMenuNodesItemStarThree.swift in Sources */,
 				DA4C8A111E7B0FAE00D49913 /* MDrawProjectFontTypeItemItalic.swift in Sources */,
@@ -1281,6 +1306,7 @@
 				DAA94A851E706552004EB390 /* MDrawProjectMenuEditBarItemTrash.swift in Sources */,
 				DADA76B11E7763B700B9EFDA /* DLabelExtension.swift in Sources */,
 				DA99BE4E1E6E15B000AECF25 /* VDrawProjectMenuSettingsDefaultColor.swift in Sources */,
+				DA60FFDC1E89651E006BB157 /* MStoreItemNodeHexagon.swift in Sources */,
 				DA7FAD6C1E84939000BC20B5 /* DSettingsExtension.swift in Sources */,
 				DA4F71FF1E8875D000DEC0E9 /* VStoreBar.swift in Sources */,
 				DA7FAD5B1E846A0D00BC20B5 /* VSettingsCell.swift in Sources */,
@@ -1351,6 +1377,7 @@
 				DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAA94A7D1E705E4E004EB390 /* VDrawProjectMenuEditBarCell.swift in Sources */,
 				DA6612CB1E85C7190012F6D9 /* MDrawProjectMenuNodesItemInputOutput.swift in Sources */,
+				DA60FFD01E89647B006BB157 /* MStoreItemNodeTriangle.swift in Sources */,
 				DA66129F1E8565440012F6D9 /* VStore.swift in Sources */,
 				DA99BE481E6E08FC00AECF25 /* MDrawProjectColorItemSystem.swift in Sources */,
 				DA7FAD761E849FC100BC20B5 /* MSettingsItemReview.swift in Sources */,
@@ -1364,6 +1391,7 @@
 				DA4F71FA1E8874A900DEC0E9 /* VStoreCellPurchased.swift in Sources */,
 				DAC13B4C1E72F6DF009A8D94 /* VDrawProjectMenuSettingsTitle.swift in Sources */,
 				DA6612B11E858D050012F6D9 /* MDrawProjectMenuNodesItemTriangle.swift in Sources */,
+				DA60FFD81E8964F8006BB157 /* MStoreItemNodeStarSix.swift in Sources */,
 				DA5F926A1E7CB5A500686D84 /* MDrawProjectMenuTextItemSize.swift in Sources */,
 				DA95A81C1E7F23D70086667C /* VDrawProjectFontSize.swift in Sources */,
 				DA38E0801E832A9000F22C81 /* CDrawProjectShare.swift in Sources */,
@@ -1375,6 +1403,7 @@
 				DAD22FB71E7A136300B94AFE /* VDrawProjectFont.swift in Sources */,
 				DA4F71F91E8874A900DEC0E9 /* VStoreCellNotAvailable.swift in Sources */,
 				DA2772531E720B5D00AC2EE7 /* MDrawProjectMenuState.swift in Sources */,
+				DA60FFDA1E896514006BB157 /* MStoreItemNodeLozenge.swift in Sources */,
 				DADA76B31E77763100B9EFDA /* VDrawProjectMenuLabels.swift in Sources */,
 				DA630B6C1E6B84D40004245A /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA630B711E6B84D40004245A /* MSession.swift in Sources */,
@@ -1388,6 +1417,7 @@
 				DAED2DAD1E6CAA940064C837 /* VDrawProjectMenuSettings.swift in Sources */,
 				DA99BE4C1E6E0BBB00AECF25 /* VDrawProjectColorBar.swift in Sources */,
 				DA7FAD641E847C7F00BC20B5 /* VSettingsCellStore.swift in Sources */,
+				DA60FFD41E896499006BB157 /* MStoreItemNodeStarFour.swift in Sources */,
 				DA8FF2A51E70A3CF005D7985 /* MDrawProjectMenuZoomItem10.swift in Sources */,
 				DA4F71EB1E88712300DEC0E9 /* MStoreItemStatusPurchasing.swift in Sources */,
 				DA5F92641E7CA53500686D84 /* MDrawProjectMenuTextItemTrash.swift in Sources */,
@@ -1395,7 +1425,9 @@
 				DA630B7F1E6B84D40004245A /* VView.swift in Sources */,
 				DA4F71E51E88712300DEC0E9 /* MStoreItem.swift in Sources */,
 				DA4F71FB1E8874A900DEC0E9 /* VStoreCellPurchasing.swift in Sources */,
+				DA60FFDE1E89653D006BB157 /* MStoreItemNodeInputOutput.swift in Sources */,
 				DA4F71E91E88712300DEC0E9 /* MStoreItemStatusNotAvailable.swift in Sources */,
+				DA60FFD21E89648D006BB157 /* MStoreItemNodeStarThree.swift in Sources */,
 				DAED2DAF1E6CB5B60064C837 /* VDrawProjectMenuBarButton.swift in Sources */,
 				DA51B0761E81A2F00085DFCC /* VDrawProjectCanvasViewSpatial.swift in Sources */,
 				DAD22FAC1E79A7C600B94AFE /* MDrawProjectMenuLabelsFontItem.swift in Sources */,
