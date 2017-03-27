@@ -12,9 +12,9 @@ class VDrawProjectShare:VView
     private let kButtonCloseHeight:CGFloat = 32
     private let kButtonCloseBottom:CGFloat = -20
     private let kButtonsShareHeight:CGFloat = 34
-    private let kButtonsShareWidth:CGFloat = 260
-    private let kButtonsShareBottom:CGFloat = -15
-    private let kImageBottom:CGFloat = 15
+    private let kButtonsShareWidth:CGFloat = 300
+    private let kButtonsShareBottom:CGFloat = -20
+    private let kImageBottom:CGFloat = -20
     
     override init(controller:CController)
     {
@@ -98,7 +98,8 @@ class VDrawProjectShare:VView
         
         NSLayoutConstraint.bottomToTop(
             view:shareButtons,
-            toView:buttonClose)
+            toView:buttonClose,
+            constant:kButtonsShareBottom)
         NSLayoutConstraint.height(
             view:shareButtons,
             constant:kButtonsShareHeight)

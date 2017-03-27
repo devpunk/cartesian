@@ -2,7 +2,7 @@ import UIKit
 
 class CDrawProjectShare:CController
 {
-    private weak var model:DProject!
+    private(set) weak var model:DProject!
     private weak var viewShare:VDrawProjectShare!
     private(set) var shareImage:UIImage?
     private let kDefaultResolution:CGFloat = 1
@@ -172,5 +172,15 @@ class CDrawProjectShare:CController
         }
         
         present(activity, animated:true)
+    }
+    
+    func postImage()
+    {
+        
+    }
+    
+    func updateImage()
+    {
+        
     }
 }

@@ -47,6 +47,9 @@
 "VStoreCellPurchasing_label"="Purchasing";
 "VStoreCellPurchased_label"="Purchased";
 "VStoreCellNotAvailable_label"="Not available";
+"VDrawProjectShareButtons_buttonLeft"="Share";
+"VDrawProjectShareButtons_buttonRightPost"="Post to Gallery";
+"VDrawProjectShareButtons_buttonRightUpdate"="Update to Gallery";
 
 "CDrawList_alertTitle"="Delete project?";
 "CDrawList_alertCancel"="Cancel";
