@@ -26,6 +26,24 @@ class MStore
         addPurchase(item:MStoreItemNodeLozenge())
         addPurchase(item:MStoreItemNodeHexagon())
         addPurchase(item:MStoreItemNodeInputOutput())
+        
+        references.sort
+        { (purchaseA:PurchaseId, purchaseB:PurchaseId) -> Bool in
+            
+            let comparison:ComparisonResult = purchaseA.compare(purchaseB)
+            
+            switch comparison
+            {
+            case ComparisonResult.orderedAscending,
+                 ComparisonResult.orderedSame:
+                
+                return true
+                
+            case ComparisonResult.orderedDescending:
+                
+                return false
+            }
+        }
     }
     
     //MARK: private
