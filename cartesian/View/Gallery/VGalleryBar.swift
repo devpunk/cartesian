@@ -9,6 +9,7 @@ class VGalleryBar:UIView
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
         
         let blur:VBlur = VBlur.light()
         

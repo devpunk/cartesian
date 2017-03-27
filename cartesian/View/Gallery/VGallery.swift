@@ -48,6 +48,8 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
         
         addSubview(spinner)
+        addSubview(collectionView)
+        addSubview(viewBar)
         
         NSLayoutConstraint.equals(
             view:spinner,
