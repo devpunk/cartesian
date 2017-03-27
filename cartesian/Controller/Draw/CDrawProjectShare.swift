@@ -142,6 +142,75 @@ class CDrawProjectShare:CController
         viewShare.stopLoading()
     }
     
+    private func asyncPostImage()
+    {
+        guard
+            
+            let userId:String = MSession.sharedInstance.settings?.userId,
+            let image:UIImage = shareImage,
+            let imageData:Data = UIImagePNGRepresentation(image),
+            let modelGalleryItem:FDatabaseModelGalleryItem = FDatabaseModelGalleryItem(
+                userId:userId),
+            let jsonGallery:Any = modelGalleryItem.modelJson()
+        
+        else
+        {
+            return
+        }
+        
+        let nodeGallery:String = FDatabase.Node.gallery.rawValue
+        let folderGallery:String = FStorage.Folder.gallery.rawValue
+        let galleryItemId:String = FMain.sharedInstance.database.createChild(
+            path:nodeGallery,
+            json:jsonGallery)
+        let galleryPath:String = "\(folderGallery)/\(galleryItemId)"
+        
+        FMain.sharedInstance.storage.saveData(
+            path:galleryPath,
+            data:imageData)
+        { [weak self] (error:String?) in
+            
+            if let error:String = error
+            {
+                VAlert.message(message:error)
+                self?.finishActivity()
+            }
+            else
+            {
+                DManager.sharedInstance?.createData(
+                    entityName:DGalleryPost.entityName)
+                { [weak self] (data) in
+                    
+                    guard
+                    
+                        let project:DProject = self?.model,
+                        let galleryPost:DGalleryPost = data as? DGalleryPost
+                    
+                    else
+                    {
+                        return
+                    }
+                    
+                    project.sharedId = galleryItemId
+                    galleryPost.galleryItemId = galleryItemId
+                    MSession.sharedInstance.settings?.addToGalleryPost(galleryPost)
+                    DManager.sharedInstance?.save()
+                    
+                    self?.finishActivity()
+                }
+            }
+        }
+    }
+    
+    private func finishActivity()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewShare.stopLoading()
+        }
+    }
+    
     //MARK: public
     
     func close()
@@ -177,6 +246,12 @@ class CDrawProjectShare:CController
     func postImage()
     {
         viewShare.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncPostImage()
+        }
     }
     
     func updateImage()

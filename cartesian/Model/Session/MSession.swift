@@ -76,8 +76,8 @@ class MSession
         
         guard
             
-            let modelUser:FDatabaseModelUserItem = FDatabaseModelUserItem(),
-            let userJson:Any = modelUser.modelJson()
+            let modelUserItem:FDatabaseModelUserItem = FDatabaseModelUserItem(),
+            let userJson:Any = modelUserItem.modelJson()
             
         else
         {
@@ -90,7 +90,7 @@ class MSession
         settings?.userId = userId
         DManager.sharedInstance?.save()
         
-        fireBaseUserLoaded(modelUser:modelUser)
+        fireBaseUserLoaded(modelUserItem:modelUserItem)
     }
     
     private func loadFirebaseUser(userId:String)
@@ -105,20 +105,20 @@ class MSession
             
             guard
             
-                let modelUser:FDatabaseModelUserItem = dataUser
+                let modelUserItem:FDatabaseModelUserItem = dataUser
             
             else
             {
                 return
             }
             
-            self.fireBaseUserLoaded(modelUser:modelUser)
+            self.fireBaseUserLoaded(modelUserItem:modelUserItem)
         }
     }
     
-    private func fireBaseUserLoaded(modelUser:FDatabaseModelUserItem)
+    private func fireBaseUserLoaded(modelUserItem:FDatabaseModelUserItem)
     {
-        settings?.shouldPost = modelUser.shouldPost
+        settings?.shouldPost = modelUserItem.shouldPost
         DManager.sharedInstance?.save()
     }
     
