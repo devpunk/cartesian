@@ -13,6 +13,14 @@
         <attribute name="colorGreen" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="colorRed" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="DGalleryLike" representedClassName="DGalleryLike" syncable="YES" codeGenerationType="class">
+        <attribute name="galleryItemId" attributeType="String" syncable="YES"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DSettings" inverseName="galleryLike" inverseEntity="DSettings" syncable="YES"/>
+    </entity>
+    <entity name="DGalleryPost" representedClassName="DGalleryPost" syncable="YES" codeGenerationType="class">
+        <attribute name="galleryItemId" attributeType="String" syncable="YES"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DSettings" inverseName="galleryPost" inverseEntity="DSettings" syncable="YES"/>
+    </entity>
     <entity name="DLabel" representedClassName="DLabel" parentEntity="DDrawable" syncable="YES" codeGenerationType="class">
         <attribute name="centerX" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="centerY" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -81,6 +89,8 @@
         <attribute name="shouldPost" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ttl" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="galleryLike" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DGalleryLike" inverseName="settings" inverseEntity="DGalleryLike" syncable="YES"/>
+        <relationship name="galleryPost" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DGalleryPost" inverseName="settings" inverseEntity="DGalleryPost" syncable="YES"/>
     </entity>
     <elements>
         <element name="DColor" positionX="-54" positionY="72" width="128" height="120"/>
@@ -102,6 +112,8 @@
         <element name="DNodeStarThree" positionX="-9" positionY="117" width="128" height="45"/>
         <element name="DNodeTriangle" positionX="-18" positionY="135" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="DSettings" positionX="-209" positionY="315" width="128" height="255"/>
+        <element name="DSettings" positionX="-209" positionY="315" width="128" height="285"/>
+        <element name="DGalleryLike" positionX="-99" positionY="135" width="128" height="75"/>
+        <element name="DGalleryPost" positionX="-90" positionY="144" width="128" height="75"/>
     </elements>
 </model>
