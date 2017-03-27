@@ -74,8 +74,7 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
             DispatchQueue.main.async
             { [weak self] in
                 
-                self?.collectionView.reloadData()
-                    
+                self?.collectionView.reloadData()       
             }
         }
     }

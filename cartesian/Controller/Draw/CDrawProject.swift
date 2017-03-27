@@ -10,6 +10,7 @@ class CDrawProject:CController
     private var firstTime:Bool
     private(set) weak var viewProject:VDrawProject!
     private(set) weak var editingView:VDrawProjectCanvasView?
+    private let kAfterPanning:TimeInterval = 1
     
     init(model:DProject?)
     {
@@ -47,7 +48,6 @@ class CDrawProject:CController
     {
         super.viewDidAppear(animated)
         parentController.hideBar(barHidden:true)
-        parentController.viewParent.panRecognizer.isEnabled = false
         
         viewProject.viewDidAppeared()
         
@@ -76,6 +76,13 @@ class CDrawProject:CController
                     strongSelf.modelLoaded()
                 }
             }
+        }
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAfterPanning)
+        { [weak self] in
+            
+            self?.parentController.viewParent.panRecognizer.isEnabled = false
         }
     }
     
