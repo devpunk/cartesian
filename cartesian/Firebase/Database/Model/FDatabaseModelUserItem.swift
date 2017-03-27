@@ -14,7 +14,7 @@ class FDatabaseModelUserItem:FDatabaseModel
     private let kShouldNotPost:Bool = false
     private let kNoTime:TimeInterval = 0
     
-    override init()
+    override init?()
     {
         created = NSDate().timeIntervalSince1970
         shouldPost = kShouldPost

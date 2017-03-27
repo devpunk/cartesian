@@ -73,10 +73,10 @@ class MSession
     private func createFirebaseUser()
     {
         let nodeUser:String = FDatabase.Node.user.rawValue
-        let modelUser:FDatabaseModelUserItem = FDatabaseModelUserItem()
         
         guard
             
+            let modelUser:FDatabaseModelUserItem = FDatabaseModelUserItem(),
             let userJson:Any = modelUser.modelJson()
             
         else

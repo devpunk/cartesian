@@ -6,8 +6,6 @@ class FDatabase
     enum Node:String
     {
         case user = "user"
-        case like = "like"
-        case posts = "posts"
         case gallery = "gallery"
     }
     
