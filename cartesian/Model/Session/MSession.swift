@@ -57,6 +57,31 @@ class MSession
     
     private func sessionLoaded()
     {
+        if settings?.userId == nil
+        {
+            createFirebaseUser()
+        }
+    }
+    
+    private func createFirebaseUser()
+    {
+        let nodeUser:String = FDatabase.Node.user.rawValue
+        FMain.sharedInstance.database?.createChild(
+            path:nodeUser,
+            json: <#T##Any#>)
+        
+        
+        let modelUser:FDatabaseModelUser = FDatabaseModelUser(
+            email:email,
+            token:token,
+            version:version)
+        ttl = modelUser.session.ttl
+        
+        let userJson:Any = modelUser.modelJson()
+        
+        FMain.sharedInstance.database.updateChild(
+            path:userPath,
+            json:userJson)
     }
     
     //MARK: public

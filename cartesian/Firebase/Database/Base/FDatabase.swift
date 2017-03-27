@@ -7,6 +7,7 @@ class FDatabase
     {
         case user = "user"
         case like = "like"
+        case posts = "posts"
         case gallery = "gallery"
     }
     

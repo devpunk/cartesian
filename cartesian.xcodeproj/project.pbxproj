@@ -19,6 +19,7 @@
 		DA12BAF61E89824E00613F99 /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF51E89824E00613F99 /* FDatabaseModel.swift */; };
 		DA12BAF81E8985A400613F99 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF71E8985A400613F99 /* FStorage.swift */; };
 		DA12BAFA1E89867E00613F99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */; };
+		DA12BAFC1E8989C300613F99 /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -256,6 +257,7 @@
 		DA12BAF51E89824E00613F99 /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
 		DA12BAF71E8985A400613F99 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
 		DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 		DA12BAF11E89823800613F99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA12BAFB1E8989C300613F99 /* FDatabaseModelUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1524,6 +1527,7 @@
 				DA6612C31E85C13B0012F6D9 /* DNodeStarThreeExtension.swift in Sources */,
 				DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */,
 				DA2772571E720B7300AC2EE7 /* MDrawProjectMenuStateItemHidden.swift in Sources */,
+				DA12BAFC1E8989C300613F99 /* FDatabaseModelUser.swift in Sources */,
 				DA8FF29D1E708A03005D7985 /* MDrawProjectMenuZoomItem.swift in Sources */,
 				DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */,
 				DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */,
