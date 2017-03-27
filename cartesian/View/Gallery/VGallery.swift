@@ -1,9 +1,11 @@
 import UIKit
 
-class VGallery:VView
+class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CGallery!
     private weak var spinner:VSpinner!
+    private weak var viewBar:VGalleryBar!
+    private weak var collectionView:VCollection!
     
     override init(controller:CController)
     {
@@ -23,5 +25,12 @@ class VGallery:VView
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        
     }
 }

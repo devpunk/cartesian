@@ -26,6 +26,11 @@
 		DA12BB061E89BD4B00613F99 /* VGalleryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB051E89BD4B00613F99 /* VGalleryHeader.swift */; };
 		DA12BB081E89BD5300613F99 /* VGalleryFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB071E89BD5300613F99 /* VGalleryFooter.swift */; };
 		DA12BB0A1E89BD5F00613F99 /* VGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB091E89BD5F00613F99 /* VGalleryCell.swift */; };
+		DA12BB0D1E89BEB800613F99 /* MGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB0C1E89BEB800613F99 /* MGallery.swift */; };
+		DA12BB0F1E89BEEA00613F99 /* MGalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB0E1E89BEEA00613F99 /* MGalleryItem.swift */; };
+		DA12BB111E89BF1900613F99 /* MGalleryItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */; };
+		DA12BB131E89BF4400613F99 /* MGalleryItemMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB121E89BF4400613F99 /* MGalleryItemMine.swift */; };
+		DA12BB151E89BF4E00613F99 /* MGalleryItemOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -270,6 +275,11 @@
 		DA12BB051E89BD4B00613F99 /* VGalleryHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryHeader.swift; sourceTree = "<group>"; };
 		DA12BB071E89BD5300613F99 /* VGalleryFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryFooter.swift; sourceTree = "<group>"; };
 		DA12BB091E89BD5F00613F99 /* VGalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryCell.swift; sourceTree = "<group>"; };
+		DA12BB0C1E89BEB800613F99 /* MGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGallery.swift; sourceTree = "<group>"; };
+		DA12BB0E1E89BEEA00613F99 /* MGalleryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItem.swift; sourceTree = "<group>"; };
+		DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemImage.swift; sourceTree = "<group>"; };
+		DA12BB121E89BF4400613F99 /* MGalleryItemMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemMine.swift; sourceTree = "<group>"; };
+		DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemOther.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -577,6 +587,18 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		DA12BB0B1E89BEAE00613F99 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				DA12BB0C1E89BEB800613F99 /* MGallery.swift */,
+				DA12BB0E1E89BEEA00613F99 /* MGalleryItem.swift */,
+				DA12BB101E89BF1900613F99 /* MGalleryItemImage.swift */,
+				DA12BB121E89BF4400613F99 /* MGalleryItemMine.swift */,
+				DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
 		DA2772461E72021D00AC2EE7 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +823,7 @@
 		DA630B4C1E6B84D40004245A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA12BB0B1E89BEAE00613F99 /* Gallery */,
 				DA4F71D91E88712300DEC0E9 /* Store */,
 				DA7FAD5C1E847AE100BC20B5 /* Settings */,
 				DAC13B4F1E730CF8009A8D94 /* DrawList */,
@@ -1408,11 +1431,13 @@
 				DA5F92681E7CA55400686D84 /* MDrawProjectMenuTextItemFont.swift in Sources */,
 				DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */,
 				DAE70D671E6F85FC009FAA27 /* VDrawProjectMenuEditBar.swift in Sources */,
+				DA12BB131E89BF4400613F99 /* MGalleryItemMine.swift in Sources */,
 				DA630B841E6B8B090004245A /* CDrawList.swift in Sources */,
 				DAE70D651E6F7D79009FAA27 /* VDrawProjectMenuEditSpatial.swift in Sources */,
 				DA630B741E6B84D40004245A /* VParent.swift in Sources */,
 				DAE70D551E6F3A12009FAA27 /* VDrawProjectMenuEdit.swift in Sources */,
 				DA5F92601E7CA51A00686D84 /* MDrawProjectMenuText.swift in Sources */,
+				DA12BB151E89BF4E00613F99 /* MGalleryItemOther.swift in Sources */,
 				DA630B691E6B84D40004245A /* ExtensionNotification.swift in Sources */,
 				DA9443821E6DF7E700CD5993 /* DNodeExtension.swift in Sources */,
 				DA12BAF61E89824E00613F99 /* FDatabaseModel.swift in Sources */,
@@ -1529,6 +1554,7 @@
 				DA6612AF1E858CF90012F6D9 /* MDrawProjectMenuNodesItemLozenge.swift in Sources */,
 				DAC13B511E730D02009A8D94 /* MDrawList.swift in Sources */,
 				DA5F925B1E7C981700686D84 /* MDrawProjectMenuStateItemHalf.swift in Sources */,
+				DA12BB0F1E89BEEA00613F99 /* MGalleryItem.swift in Sources */,
 				DA9443711E6DDA8F00CD5993 /* DManager.swift in Sources */,
 				DA99BE3F1E6E07BF00AECF25 /* VDrawProjectColorCell.swift in Sources */,
 				DA6612A71E8582230012F6D9 /* DNodeHexagonExtension.swift in Sources */,
@@ -1556,6 +1582,7 @@
 				DA65AD4A1E7C37E600B2DE61 /* VDrawProjectCanvasLabel.swift in Sources */,
 				DA4F71F61E8874A900DEC0E9 /* VStoreCell.swift in Sources */,
 				DAB432231E76E83F00799F24 /* VDrawProjectMenuBarText.swift in Sources */,
+				DA12BB0D1E89BEB800613F99 /* MGallery.swift in Sources */,
 				DAD22FBB1E7A13A400B94AFE /* VDrawProjectFontCellType.swift in Sources */,
 				DA6612B31E85A4F60012F6D9 /* DNodeStarExtension.swift in Sources */,
 				DA630B6A1E6B84D40004245A /* ExtensionNSLayoutConstraint.swift in Sources */,
@@ -1595,6 +1622,7 @@
 				DA12BAF41E89824500613F99 /* FDatabase.swift in Sources */,
 				DADA76B31E77763100B9EFDA /* VDrawProjectMenuLabels.swift in Sources */,
 				DA630B6C1E6B84D40004245A /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA12BB111E89BF1900613F99 /* MGalleryItemImage.swift in Sources */,
 				DA630B711E6B84D40004245A /* MSession.swift in Sources */,
 				DAA94A831E706273004EB390 /* MDrawProjectMenuEditBarItem.swift in Sources */,
 				DAED2DA91E6CA5640064C837 /* VDrawProjectMenu.swift in Sources */,
