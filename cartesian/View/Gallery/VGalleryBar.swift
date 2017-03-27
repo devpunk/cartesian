@@ -23,4 +23,11 @@ class VGalleryBar:UIView
     {
         return nil
     }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        
+    }
 }

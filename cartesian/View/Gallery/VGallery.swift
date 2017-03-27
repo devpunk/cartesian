@@ -6,6 +6,7 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var spinner:VSpinner!
     private weak var viewBar:VGalleryBar!
     private weak var collectionView:VCollection!
+    private let kBarHeight:CGFloat = 70
     private let kSectionBottom:CGFloat = 10
     private let kHeaderHeight:CGFloat = 30
     private let kFooterHeight:CGFloat = 50
@@ -18,6 +19,11 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
+        
+        let viewBar:VGalleryBar = VGalleryBar(
+            controller:self.controller)
+        viewBar.isHidden = true
+        self.viewBar = viewBar
         
         let collectionView:VCollection = VCollection()
         collectionView.isHidden = true
@@ -45,6 +51,26 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         NSLayoutConstraint.equals(
             view:spinner,
+            toView:self)
+        
+        NSLayoutConstraint.topToTop(
+            view:viewBar,
+            toView:self)
+        NSLayoutConstraint.height(
+            view:viewBar,
+            constant:kBarHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.topToBottom(
+            view:collectionView,
+            toView:viewBar)
+        NSLayoutConstraint.bottomToBottom(
+            view:collectionView,
+            toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:collectionView,
             toView:self)
     }
     
@@ -81,6 +107,7 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     {
         spinner.startAnimating()
         viewBar.isHidden = true
+        viewBar.refresh()
         collectionView.isHidden = true
         collectionView.reloadData()
     }
