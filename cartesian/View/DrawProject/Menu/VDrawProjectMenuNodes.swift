@@ -2,7 +2,7 @@ import UIKit
 
 class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private let model:MDrawProjectMenuNodes
+    private var model:MDrawProjectMenuNodes?
     private weak var controller:CDrawProject!
     private weak var collectionView:VCollection!
     private let kRows:CGFloat = 2
@@ -10,8 +10,6 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     init(controller:CDrawProject)
     {
-        model = MDrawProjectMenuNodes()
-        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -59,9 +57,27 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     private func modelAtIndex(index:IndexPath) -> MDrawProjectMenuNodesItem
     {
-        let item:MDrawProjectMenuNodesItem = model.items[index.item]
+        let item:MDrawProjectMenuNodesItem = model!.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model = MDrawProjectMenuNodes()
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.collectionView.reloadData()
+                    
+            }
+        }
     }
     
     //MARK: collectionView delegate
@@ -73,7 +89,14 @@ class VDrawProjectMenuNodes:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = model.items.count
+        guard
+        
+            let count:Int = model?.items.count
+        
+        else
+        {
+            return 0
+        }
         
         return count
     }

@@ -49,7 +49,7 @@ class VAlert:UIView
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         
         let blur:VBlur = VBlur.extraLight()
         
