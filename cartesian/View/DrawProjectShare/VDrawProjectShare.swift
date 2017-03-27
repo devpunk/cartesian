@@ -5,14 +5,15 @@ class VDrawProjectShare:VView
     private weak var controller:CDrawProjectShare!
     private weak var viewSpinner:VSpinner?
     private weak var viewImage:VDrawProjectShareImage!
-    private weak var buttonShare:UIButton!
     private weak var layoutButtonCloseLeft:NSLayoutConstraint!
-    private weak var layoutButtonShareLeft:NSLayoutConstraint!
+    private weak var layoutButtonsShareLeft:NSLayoutConstraint!
     private let kButtonCloseWidth:CGFloat = 100
     private let kButtonCloseHeight:CGFloat = 32
     private let kButtonCloseBottom:CGFloat = -20
-    private let kButtonShareSize:CGFloat = 50
-    private let kButtonShareBottom:CGFloat = -10
+    private let kButtonsShareHeight:CGFloat = 34
+    private let kButtonsShareWidth:CGFloat = 260
+    private let kButtonsShareBottom:CGFloat = -15
+    private let kImageBottom:CGFloat = 15
     
     override init(controller:CController)
     {
