@@ -23,15 +23,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>cartesian-38c88.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
-	<key>IS_ANALYTICS_ENABLED</key>
 	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<false/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<false/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:323238328011:ios:f7481b503ca91345</string>
 	<key>DATABASE_URL</key>
