@@ -10,7 +10,7 @@ class VGalleryFooter:UICollectionReusableView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.2))
+        let border:VBorder = VBorder(color:UIColor(white:0, alpha:0.1))
         
         addSubview(border)
         

@@ -8,9 +8,9 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var collectionView:VCollection!
     private let kBarTop:CGFloat = 70
     private let kBarHeight:CGFloat = 50
-    private let kHeaderHeight:CGFloat = 40
-    private let kFooterHeight:CGFloat = 100
-    private let kCellHeight:CGFloat = 180
+    private let kHeaderHeight:CGFloat = 45
+    private let kFooterHeight:CGFloat = 110
+    private let kCellHeight:CGFloat = 250
     
     override init(controller:CController)
     {
