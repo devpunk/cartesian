@@ -76,6 +76,7 @@
         <attribute name="purchaseNodeTriangle" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="retina" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="reviewed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shouldPost" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ttl" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -99,6 +100,6 @@
         <element name="DNodeStarThree" positionX="-9" positionY="117" width="128" height="45"/>
         <element name="DNodeTriangle" positionX="-18" positionY="135" width="128" height="45"/>
         <element name="DProject" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="DSettings" positionX="-209" positionY="315" width="128" height="238"/>
+        <element name="DSettings" positionX="-209" positionY="315" width="128" height="255"/>
     </elements>
 </model>
