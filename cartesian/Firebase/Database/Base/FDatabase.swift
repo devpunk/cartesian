@@ -60,16 +60,25 @@ class FDatabase
             if let _:NSNull = json as? NSNull
             {
                 completion(nil)
+                
+                return
             }
-            else
-            {
+                
+            guard
+                
                 let model:ModelType = ModelType(snapshot:json)
                 
-                completion(model)
+            else
+            {
+                completion(nil)
+                
+                return
             }
+            
+            completion(model)
         }
     }
-    
+
     func listen<ModelType:FDatabaseModel>(eventType:FIRDataEventType, path:String, modelType:ModelType.Type, completion:@escaping((ModelType?) -> ())) -> UInt
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
@@ -90,13 +99,22 @@ class FDatabase
             if let _:NSNull = json as? NSNull
             {
                 completion(nil)
+                
+                return
             }
-            else
-            {
+            
+            guard
+                
                 let model:ModelType = ModelType(snapshot:json)
                 
-                completion(model)
+            else
+            {
+                completion(nil)
+                
+                return
             }
+            
+            completion(model)
         }
         
         return handler
