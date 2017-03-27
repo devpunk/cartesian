@@ -84,17 +84,9 @@ class MSession
             return
         }
         
-        guard
-        
-            let userId:String = FMain.sharedInstance.database?.createChild(
-                path:nodeUser,
-                json:userJson)
-        
-        else
-        {
-            return
-        }
-        
+        let userId:String = FMain.sharedInstance.database.createChild(
+            path:nodeUser,
+            json:userJson)
         settings?.userId = userId
         DManager.sharedInstance?.save()
         
@@ -106,7 +98,7 @@ class MSession
         let nodeUser:String = FDatabase.Node.user.rawValue
         let path:String = "\(nodeUser)/\(userId)"
         
-        FMain.sharedInstance.database?.listenOnce(
+        FMain.sharedInstance.database.listenOnce(
             path:path,
             modelType:FDatabaseModelUser.self)
         { (dataUser:FDatabaseModelUser?) in
@@ -120,13 +112,14 @@ class MSession
                 return
             }
             
-            self.settings?.shouldPost = modelUser.shouldPost
+            self.fireBaseUserLoaded(modelUser:modelUser)
         }
     }
     
     private func fireBaseUserLoaded(modelUser:FDatabaseModelUser)
     {
-        
+        settings?.shouldPost = modelUser.shouldPost
+        DManager.sharedInstance?.save()
     }
     
     //MARK: public

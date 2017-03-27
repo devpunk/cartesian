@@ -4,31 +4,21 @@ import Firebase
 class FMain
 {
     static let sharedInstance:FMain = FMain()
-    private(set) var analytics:FAnalytics?
-    private(set) var database:FDatabase?
-    private(set) var storage:FStorage?
+    let analytics:FAnalytics
+    let database:FDatabase
+    let storage:FStorage
     
     private init()
     {
+        FIRApp.configure()
+        analytics = FAnalytics()
+        database = FDatabase()
+        storage = FStorage()
     }
     
     //MARK: public
     
     func load()
     {
-        FIRApp.configure()
-        
-        #if DEBUG
-            
-            analytics = nil
-            
-        #else
-            
-            analytics = FAnalytics()
-            
-        #endif
-        
-        database = FDatabase()
-        storage = FStorage()
     }
 }
