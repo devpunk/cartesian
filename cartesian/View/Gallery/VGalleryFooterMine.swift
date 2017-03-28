@@ -18,10 +18,11 @@ class VGalleryFooterMine:VGalleryFooter
         
         addSubview(label)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:label,
-            toView:self)
-        NSLayoutConstraint.leftToLeft(
+            toView:self,
+            constant:kButtonTop)
+        NSLayoutConstraint.leftToRight(
             view:label,
             toView:buttonShare,
             constant:kLabelLeft)
