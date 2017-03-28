@@ -87,13 +87,41 @@ class VGalleryBar:UIView
     
     func actionSegmented(sender segmented:UISegmentedControl)
     {
+        segmented.isUserInteractionEnabled = false
         
+        let itemSelected:Int = segmented.selectedSegmentIndex
+        let sorting:MGallery.Sort
+        
+        switch itemSelected
+        {
+        case 0:
+            
+            sorting = MGallery.Sort.time
+            
+            break
+            
+        case 1:
+            
+            sorting = MGallery.Sort.likes
+            
+            break
+            
+        default:
+            
+            sorting = MGallery.Sort.mine
+            
+            break
+        }
+        
+        controller.model.sortGallery(sorting:sorting)
     }
     
     //MARK: public
     
     func refresh()
     {
+        segmented.isUserInteractionEnabled = true
+        
         switch controller.model.sorting
         {
         case MGallery.Sort.time:

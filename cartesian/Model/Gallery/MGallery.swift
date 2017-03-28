@@ -172,4 +172,16 @@ class MGallery
             self?.asyncFetchGallery()
         }
     }
+    
+    func sortGallery(sorting:Sort)
+    {
+        self.sorting = sorting
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.updateDisplayItems()
+            self?.controller?.galleryLoaded()
+        }
+    }
 }
