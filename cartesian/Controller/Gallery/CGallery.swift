@@ -56,6 +56,7 @@ class CGallery:CController
         if liked
         {
             deltaLike = -1
+            model.likes += deltaLike
             
             if let allLikes:[DGalleryLike] = MSession.sharedInstance.settings?.galleryLike?.array as? [DGalleryLike]
             {
@@ -77,7 +78,7 @@ class CGallery:CController
                             DManager.sharedInstance?.save
                             { [weak self] in
                                 
-                                self?.viewGallery.collectionView.reloadData()
+                                self?.galleryLoaded()
                             }
                         }
                         
@@ -89,6 +90,7 @@ class CGallery:CController
         else
         {
             deltaLike = 1
+            model.likes += deltaLike
             
             DManager.sharedInstance?.createData(
                 entityName:DGalleryLike.entityName)
@@ -110,12 +112,10 @@ class CGallery:CController
                 DManager.sharedInstance?.save
                 { [weak self] in
                     
-                    self?.viewGallery.collectionView.reloadData()
+                    self?.galleryLoaded()
                 }
             }
         }
-        
-        model.likes += deltaLike
         
         FMain.sharedInstance.database.transaction(
             path:path)
