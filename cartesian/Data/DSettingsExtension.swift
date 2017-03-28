@@ -37,4 +37,20 @@ extension DSettings
         
         return myItems
     }
+    
+    func likedGalleryPost(galleryItemId:String) -> Bool
+    {
+        if let galleryLikes:[DGalleryLike] = self.galleryLike?.array as? [DGalleryLike]
+        {
+            for galleryLike:DGalleryLike in galleryLikes
+            {
+                if galleryLike.galleryItemId == galleryItemId
+                {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
 }
