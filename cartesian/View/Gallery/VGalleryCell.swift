@@ -12,6 +12,19 @@ class VGalleryCell:UICollectionViewCell
         backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        self.imageView = imageView
+        
+        addSubview(imageView)
+        
+        NSLayoutConstraint.equals(
+            view:imageView,
+            toView:self)
+        
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(notifiedGalleryImageLoaded(sender:)),
