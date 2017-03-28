@@ -7,7 +7,7 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var viewBar:VGalleryBar!
     private(set) weak var collectionView:VCollection!
     private let kBarTop:CGFloat = 70
-    private let kBarHeight:CGFloat = 50
+    private let kBarHeight:CGFloat = 45
     private let kHeaderHeight:CGFloat = 45
     private let kFooterHeight:CGFloat = 90
     private let kCellHeight:CGFloat = 250

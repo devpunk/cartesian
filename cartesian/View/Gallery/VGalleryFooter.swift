@@ -29,6 +29,10 @@ class VGalleryFooter:UICollectionReusableView
         buttonShare.imageView!.clipsToBounds = true
         buttonShare.imageView!.contentMode = UIViewContentMode.center
         buttonShare.imageView!.tintColor = UIColor(white:0, alpha:0.1)
+        buttonShare.addTarget(
+            self,
+            action:#selector(actionShare(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonShare = buttonShare
         
         addSubview(border)
