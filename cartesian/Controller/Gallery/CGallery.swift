@@ -46,4 +46,9 @@ class CGallery:CController
     {
         
     }
+    
+    func likeItem(model:MGalleryItem)
+    {
+        
+    }
 }

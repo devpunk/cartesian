@@ -9,7 +9,7 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private let kBarTop:CGFloat = 70
     private let kBarHeight:CGFloat = 50
     private let kHeaderHeight:CGFloat = 45
-    private let kFooterHeight:CGFloat = 110
+    private let kFooterHeight:CGFloat = 90
     private let kCellHeight:CGFloat = 250
     
     override init(controller:CController)

@@ -8,7 +8,7 @@ class VGalleryFooter:UICollectionReusableView
     private(set) weak var model:MGalleryItem?
     let kButtonWidth:CGFloat = 60
     let kButtonHeight:CGFloat = 40
-    let kButtonTop:CGFloat = 10
+    let kButtonTop:CGFloat = 2
     
     override init(frame:CGRect)
     {
