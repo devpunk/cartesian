@@ -28,6 +28,7 @@ class VGalleryBar:UIView
         
         let segmented:UISegmentedControl = UISegmentedControl(
             items:segmentedItems)
+        segmented.tintColor = UIColor.cartesianBlue
         segmented.translatesAutoresizingMaskIntoConstraints = false
         segmented.addTarget(
             self,

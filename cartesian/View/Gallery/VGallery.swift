@@ -5,7 +5,7 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var controller:CGallery!
     private weak var spinner:VSpinner!
     private weak var viewBar:VGalleryBar!
-    private(set) weak var collectionView:VCollection!
+    private weak var collectionView:VCollection!
     private let kBarTop:CGFloat = 70
     private let kBarHeight:CGFloat = 45
     private let kHeaderHeight:CGFloat = 45
@@ -114,6 +114,20 @@ class VGallery:VView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         viewBar.refresh()
         collectionView.isHidden = false
         collectionView.reloadData()
+        
+        let count:Int = controller.model.displayItems.count
+        
+        if count > 0
+        {
+            let indexPath:IndexPath = IndexPath(
+                item:0,
+                section:0)
+            
+            collectionView.scrollToItem(
+                at:indexPath,
+                at:UICollectionViewScrollPosition.top,
+                animated:true)
+        }
     }
     
     //MARK: collectionView delegate
