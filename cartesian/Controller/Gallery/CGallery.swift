@@ -41,4 +41,9 @@ class CGallery:CController
             self?.viewGallery.stopLoading()
         }
     }
+    
+    func shareItem(model:MGalleryItem)
+    {
+        
+    }
 }
