@@ -52,9 +52,9 @@
 "VDrawProjectShareButtons_buttonRightUpdate"="Update to Gallery";
 "VGalleryHeader_labelLikes"="%@ likes";
 "VGalleryFooterMine_label"="I shared this";
-"VGalleryBar_titleTime"="Most recent";
+"VGalleryBar_titleTime"="Recent";
 "VGalleryBar_titleLikes"="Top";
-"VGalleryBar_titleMine"="Only mine";
+"VGalleryBar_titleMine"="Mine";
 
 "CDrawList_alertTitle"="Delete project?";
 "CDrawList_alertCancel"="Cancel";

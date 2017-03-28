@@ -8,7 +8,7 @@ class VGalleryBar:UIView
     private let kBorderHeight:CGFloat = 1
     private let kSegmentedWidth:CGFloat = 310
     private let kSegmentedHeight:CGFloat = 30
-    private let kSegmentedTop:CGFloat = 5
+    private let kSegmentedTop:CGFloat = 6
     
     init(controller:CGallery)
     {
@@ -16,6 +16,7 @@ class VGalleryBar:UIView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let segmentedItems:[String] = [
             NSLocalizedString("VGalleryBar_titleTime", comment:""),
@@ -28,6 +29,10 @@ class VGalleryBar:UIView
         let segmented:UISegmentedControl = UISegmentedControl(
             items:segmentedItems)
         segmented.translatesAutoresizingMaskIntoConstraints = false
+        segmented.addTarget(
+            self,
+            action:#selector(actionSegmented(sender:)),
+            for:UIControlEvents.valueChanged)
         self.segmented = segmented
         
         addSubview(blur)
@@ -78,10 +83,36 @@ class VGalleryBar:UIView
         super.layoutSubviews()
     }
     
+    //MARK: actions
+    
+    func actionSegmented(sender segmented:UISegmentedControl)
+    {
+        
+    }
+    
     //MARK: public
     
     func refresh()
     {
-        
+        switch controller.model.sorting
+        {
+        case MGallery.Sort.time:
+            
+            segmented.selectedSegmentIndex = 0
+            
+            break
+            
+        case MGallery.Sort.likes:
+            
+            segmented.selectedSegmentIndex = 1
+            
+            break
+            
+        case MGallery.Sort.mine:
+            
+            segmented.selectedSegmentIndex = 2
+            
+            break
+        }
     }
 }
