@@ -158,7 +158,27 @@ class CGallery:CController
     
     func shareItem(model:MGalleryItem)
     {
+        guard
         
+            let image:UIImage = model.image.state?.image()
+        
+        else
+        {
+            return
+        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
+        
+        if let popover:UIPopoverPresentationController = activity.popoverPresentationController
+        {
+            popover.sourceView = viewGallery
+            popover.sourceRect = CGRect.zero
+            popover.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
     }
     
     func likeItem(model:MGalleryItem)
