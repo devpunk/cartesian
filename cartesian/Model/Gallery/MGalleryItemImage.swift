@@ -20,6 +20,12 @@ class MGalleryItemImage
     
     func imageLoaded(image:UIImage)
     {
+        state = MGalleryItemImageStateStandLoaded(
+            img:image,
+            modelImage:self)
         
+        NotificationCenter.default.post(
+            name:Notification.galleryImageLoaded,
+            object:self)
     }
 }
