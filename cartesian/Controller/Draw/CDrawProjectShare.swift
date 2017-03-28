@@ -202,6 +202,44 @@ class CDrawProjectShare:CController
         }
     }
     
+    private func asyncUpdateImage()
+    {
+        guard
+            
+            let image:UIImage = shareImage,
+            let imageData:Data = UIImagePNGRepresentation(image),
+            let galleryItemId:String = model.sharedId
+            
+        else
+        {
+            return
+        }
+        
+        let nodeGallery:String = FDatabase.Node.gallery.rawValue
+        let folderGallery:String = FStorage.Folder.gallery.rawValue
+        let propertyUpdated:String = FDatabaseModelGalleryItem.Property.updated.rawValue
+        let updatedPath:String = "\(nodeGallery)/\(galleryItemId)/\(propertyUpdated)"
+        let timestamp:TimeInterval = Date().timeIntervalSince1970
+        let folderPath:String = "\(folderGallery)/\(galleryItemId)"
+        
+        FMain.sharedInstance.database.updateChild(
+            path:updatedPath,
+            json:timestamp)
+        
+        FMain.sharedInstance.storage.saveData(
+            path:folderPath,
+            data:imageData)
+        { [weak self] (error:String?) in
+            
+            if let error:String = error
+            {
+                VAlert.message(message:error)
+            }
+            
+            self?.finishActivity()
+        }
+    }
+    
     private func finishActivity()
     {
         DispatchQueue.main.async
@@ -257,5 +295,11 @@ class CDrawProjectShare:CController
     func updateImage()
     {
         viewShare.startLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncUpdateImage()
+        }
     }
 }
