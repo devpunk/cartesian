@@ -51,6 +51,7 @@
 "VDrawProjectShareButtons_buttonRightPost"="Post to Gallery";
 "VDrawProjectShareButtons_buttonRightUpdate"="Update to Gallery";
 "VGalleryHeader_labelLikes"="%@ likes";
+"VGalleryFooterMine_label"="I did this";
 
 "CDrawList_alertTitle"="Delete project?";
 "CDrawList_alertCancel"="Cancel";
