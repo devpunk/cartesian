@@ -2,8 +2,8 @@ import Foundation
 
 class MGalleryItem
 {
+    var likes:Int
     let image:MGalleryItemImage
-    let likes:Int
     let lastUpdated:TimeInterval
     let reusableIdentifier:String
     
