@@ -18,10 +18,19 @@ extension DSettings
     {
         var myItems:[String:Bool] = [:]
         
-        if let galleryItemIds:[String] = galleryPost?.array as? [String]
+        if let galleryPosts:[DGalleryPost] = self.galleryPost?.array as? [DGalleryPost]
         {
-            for galleryItemId:String in galleryItemIds
+            for galleryPost:DGalleryPost in galleryPosts
             {
+                guard
+                    
+                    let galleryItemId:String = galleryPost.galleryItemId
+                
+                else
+                {
+                    continue
+                }
+                
                 myItems[galleryItemId] = true
             }
         }
