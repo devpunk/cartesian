@@ -2,8 +2,8 @@ import UIKit
 
 class VParent:UIView
 {
-    weak var viewBar:VParentBar!
-    weak var panRecognizer:UIPanGestureRecognizer!
+    private(set) weak var viewBar:VParentBar!
+    private(set) weak var panRecognizer:UIPanGestureRecognizer!
     private weak var controller:CParent!
     private weak var layoutBarTop:NSLayoutConstraint!
     private var panningX:CGFloat?
