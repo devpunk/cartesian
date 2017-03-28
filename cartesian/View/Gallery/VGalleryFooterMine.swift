@@ -2,8 +2,6 @@ import UIKit
 
 class VGalleryFooterMine:VGalleryFooter
 {
-    private let kLabelLeft:CGFloat = 5
-    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -12,7 +10,7 @@ class VGalleryFooterMine:VGalleryFooter
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:14)
+        label.font = UIFont.medium(size:12)
         label.textColor = UIColor.black
         label.text = NSLocalizedString("VGalleryFooterMine_label", comment:"")
         
@@ -22,10 +20,12 @@ class VGalleryFooterMine:VGalleryFooter
             view:label,
             toView:self,
             constant:kButtonTop)
+        NSLayoutConstraint.height(
+            view:label,
+            constant:kButtonHeight)
         NSLayoutConstraint.leftToRight(
             view:label,
-            toView:buttonShare,
-            constant:kLabelLeft)
+            toView:buttonShare)
         NSLayoutConstraint.rightToRight(
             view:label,
             toView:self)
