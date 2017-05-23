@@ -25,16 +25,14 @@ class MGallery
     
     private func asyncFetchGallery()
     {
-        let nodeGallery:String = FDatabase.Node.gallery.rawValue
-        
-        FMain.sharedInstance.database.listenOnce(
-            path:nodeGallery,
-            modelType:FDatabaseModelGallery.self)
-        { [weak self] (data:FDatabaseModelGallery?) in
+        FMain.sharedInstance.db.listenOnce(
+            path:FDb.gallery,
+            nodeType:FDbGallery.self)
+        { [weak self] (data:FDbProtocol?) in
             
             guard
             
-                let gallery:FDatabaseModelGallery = data
+                let gallery:FDbGallery = data as? FDbGallery
             
             else
             {
@@ -47,7 +45,7 @@ class MGallery
         }
     }
     
-    private func galleryFetched(gallery:FDatabaseModelGallery)
+    private func galleryFetched(gallery:FDbGallery)
     {
         guard
         
@@ -66,7 +64,7 @@ class MGallery
     }
     
     private func postsFetched(
-        gallery:FDatabaseModelGallery,
+        gallery:FDbGallery,
         posts:[String:Bool])
     {
         var allItems:[MGalleryItem] = []
@@ -76,7 +74,7 @@ class MGallery
         {
             guard
                 
-                let galleryItem:FDatabaseModelGalleryItem = gallery.items[itemId]
+                let galleryItem:FDbGalleryItem = gallery.items[itemId]
             
             else
             {

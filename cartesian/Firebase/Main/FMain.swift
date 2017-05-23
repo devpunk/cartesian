@@ -5,14 +5,14 @@ class FMain
 {
     static let sharedInstance:FMain = FMain()
     let analytics:FAnalytics
-    let database:FDatabase
+    let db:FDb
     let storage:FStorage
     
     private init()
     {
         FirebaseApp.configure()
         analytics = FAnalytics()
-        database = FDatabase()
+        db = FDb()
         storage = FStorage()
     }
     

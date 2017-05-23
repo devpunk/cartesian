@@ -20,11 +20,11 @@ class FStorage
     
     func saveData(path:String, data:Data, completionHandler:@escaping((String?) -> ()))
     {
-        let childReference:FIRStorageReference = reference.child(path)
-        childReference.put(
+        let childReference:StorageReference = reference.child(path)
+        childReference.putData(
             data,
             metadata:nil)
-        { (metaData:FIRStorageMetadata?, error:Error?) in
+        { (metaData:StorageMetadata?, error:Error?) in
             
             let errorString:String? = error?.localizedDescription
             completionHandler(errorString)
@@ -33,15 +33,15 @@ class FStorage
     
     func loadData(path:String, completionHandler:@escaping((Data?, Error?) -> ()))
     {
-        let childReference:FIRStorageReference = reference.child(path)
-        childReference.data(
-            withMaxSize:kTenMegaBytes,
+        let childReference:StorageReference = reference.child(path)
+        childReference.getData(
+            maxSize:kTenMegaBytes,
             completion:completionHandler)
     }
     
     func deleteData(path:String, completionHandler:@escaping((Error?) -> ()))
     {
-        let childReference:FIRStorageReference = reference.child(path)
+        let childReference:StorageReference = reference.child(path)
         childReference.delete(completion:completionHandler)
     }
 }

@@ -95,28 +95,27 @@ class MSession
     
     private func loadFirebaseUser(userId:String)
     {
-        let nodeUser:String = FDatabase.Node.user.rawValue
-        let path:String = "\(nodeUser)/\(userId)"
+        let path:String = "\(FDb.user)/\(userId)"
         
-        FMain.sharedInstance.database.listenOnce(
+        FMain.sharedInstance.db.listenOnce(
             path:path,
-            modelType:FDatabaseModelUserItem.self)
-        { (dataUser:FDatabaseModelUserItem?) in
+            nodeType:FDbUserItem.self)
+        { (data:FDbProtocol?) in
             
             guard
-            
-                let modelUserItem:FDatabaseModelUserItem = dataUser
-            
+                
+                let userItem:FDbUserItem = data as? FDbUserItem
+                
             else
             {
                 return
             }
             
-            self.fireBaseUserLoaded(modelUserItem:modelUserItem)
+            self.fireBaseUserLoaded(modelUserItem:userItem)
         }
     }
     
-    private func fireBaseUserLoaded(modelUserItem:FDatabaseModelUserItem)
+    private func fireBaseUserLoaded(modelUserItem:FDbUserItem)
     {
         settings?.shouldPost = modelUserItem.shouldPost
         DManager.sharedInstance?.save()

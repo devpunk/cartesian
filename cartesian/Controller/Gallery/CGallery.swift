@@ -48,9 +48,7 @@ class CGallery:CController
             return
         }
         
-        let node:String = FDatabase.Node.gallery.rawValue
-        let propertyLike:String = FDatabaseModelGalleryItem.Property.likes.rawValue
-        let path:String = "\(node)/\(galleryItemId)/\(propertyLike)"
+        let path:String = "\(FDb.gallery)/\(galleryItemId)/\(FDbGalleryItem.likes)"
         let deltaLike:Int
         
         if liked
@@ -117,9 +115,9 @@ class CGallery:CController
             }
         }
         
-        FMain.sharedInstance.database.transaction(
+        FMain.sharedInstance.db.transaction(
             path:path)
-        { (mutableData:FIRMutableData) -> (FIRTransactionResult) in
+        { (mutableData:MutableData) -> (TransactionResult) in
             
             if let currentLikes:Int = mutableData.value as? Int
             {
@@ -138,7 +136,7 @@ class CGallery:CController
                 }
             }
             
-            let transationResult:FIRTransactionResult = FIRTransactionResult.success(
+            let transationResult:TransactionResult = TransactionResult.success(
                 withValue:mutableData)
             
             return transationResult

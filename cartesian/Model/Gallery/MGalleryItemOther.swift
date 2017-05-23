@@ -4,7 +4,7 @@ class MGalleryItemOther:MGalleryItem
 {
     init(
         galleryItemId:String,
-        galleryItem:FDatabaseModelGalleryItem)
+        galleryItem:FDbGalleryItem)
     {
         let reusableIdentifier:String = VGalleryFooterOther.reusableIdentifier
         

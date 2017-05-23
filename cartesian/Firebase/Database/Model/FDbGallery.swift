@@ -4,7 +4,7 @@ class FDbGallery:FDbProtocol
 {
     static let items:String = "items"
     
-    let items:[String:FDatabaseModelGalleryItem]
+    let items:[String:FDbGalleryItem]
     
     required init?(snapshot:Any)
     {
@@ -17,7 +17,7 @@ class FDbGallery:FDbProtocol
             return nil
         }
         
-        var items:[String:FDatabaseModelGalleryItem] = [:]
+        var items:[String:FDbGalleryItem] = [:]
         let allKeys:[String] = Array(snapshotDict.keys)
         
         for itemKey:String in allKeys
@@ -25,8 +25,7 @@ class FDbGallery:FDbProtocol
             guard
                 
                 let snapshot:Any = snapshotDict[itemKey],
-                let itemGallery:FDatabaseModelGalleryItem = FDatabaseModelGalleryItem(
-                    snapshot:snapshot)
+                let itemGallery:FDbGalleryItem = FDbGalleryItem(snapshot:snapshot)
                 
             else
             {

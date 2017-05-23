@@ -74,7 +74,7 @@ class FDb
     }
     
     func listen(
-        eventType:FIRDataEventType,
+        eventType:DataEventType,
         path:String,
         nodeType:FDbProtocol.Type,
         completion:@escaping((FDbProtocol?) -> ())) -> UInt
@@ -114,15 +114,15 @@ class FDb
         path:String,
         handler:UInt)
     {
-        let pathReference:FIRDatabaseReference = reference.child(path)
+        let pathReference:DatabaseReference = reference.child(path)
         pathReference.removeObserver(withHandle:handler)
     }
     
     func transaction(
         path:String,
-        transactionBlock:@escaping((FIRMutableData) -> (FIRTransactionResult)))
+        transactionBlock:@escaping((MutableData) -> (TransactionResult)))
     {
-        let childReference:FIRDatabaseReference = reference.child(path)
+        let childReference:DatabaseReference = reference.child(path)
         childReference.runTransactionBlock(transactionBlock)
     }
 }

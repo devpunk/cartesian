@@ -9,7 +9,7 @@ class MGalleryItem
     
     init(
         galleryItemId:String,
-        galleryItem:FDatabaseModelGalleryItem,
+        galleryItem:FDbGalleryItem,
         reusableIdentifier:String)
     {
         image = MGalleryItemImage(galleryItemId:galleryItemId)
