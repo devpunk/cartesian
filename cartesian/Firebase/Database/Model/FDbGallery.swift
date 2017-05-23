@@ -2,10 +2,7 @@ import Foundation
 
 class FDbGallery:FDbProtocol
 {
-    enum Property:String
-    {
-        case items = "items"
-    }
+    static let items:String = "items"
     
     let items:[String:FDatabaseModelGalleryItem]
     
@@ -15,7 +12,7 @@ class FDbGallery:FDbProtocol
             
             let snapshotDict:[String:Any] = snapshot as? [String:Any]
             
-            else
+        else
         {
             return nil
         }
@@ -31,7 +28,7 @@ class FDbGallery:FDbProtocol
                 let itemGallery:FDatabaseModelGalleryItem = FDatabaseModelGalleryItem(
                     snapshot:snapshot)
                 
-                else
+            else
             {
                 continue
             }
@@ -40,7 +37,10 @@ class FDbGallery:FDbProtocol
         }
         
         self.items = items
-        
-        super.init()
+    }
+    
+    func json() -> Any?
+    {
+        return nil
     }
 }
