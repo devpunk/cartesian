@@ -8,6 +8,8 @@ class FStorage
         case gallery = "gallery"
     }
     
+    static let gallery:String = "gallery"
+    
     private let reference:StorageReference
     private let kTenMegaBytes:Int64 = 10000000
     

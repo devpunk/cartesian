@@ -72,20 +72,19 @@ class MSession
     
     private func createFirebaseUser()
     {
-        let nodeUser:String = FDatabase.Node.user.rawValue
+        let modelUserItem:FDbUserItem = FDbUserItem()
         
         guard
             
-            let modelUserItem:FDatabaseModelUserItem = FDatabaseModelUserItem(),
-            let userJson:Any = modelUserItem.modelJson()
+            let userJson:Any = modelUserItem.json()
             
         else
         {
             return
         }
         
-        let userId:String = FMain.sharedInstance.database.createChild(
-            path:nodeUser,
+        let userId:String = FMain.sharedInstance.db.createChild(
+            path:FDb.user,
             json:userJson)
         settings?.userId = userId
         DManager.sharedInstance?.save()

@@ -44,9 +44,9 @@ class FDb
         nodeType:FDbProtocol.Type,
         completion:@escaping((FDbProtocol?) -> ()))
     {
-        let pathReference:FIRDatabaseReference = reference.child(path)
-        pathReference.observeSingleEvent(of:FIRDataEventType.value)
-        { (snapshot:FIRDataSnapshot) in
+        let pathReference:DatabaseReference = reference.child(path)
+        pathReference.observeSingleEvent(of:DataEventType.value)
+        { (snapshot:DataSnapshot) in
             
             var node:FDbProtocol?
             
@@ -54,7 +54,7 @@ class FDb
                 
                 let json:Any = snapshot.value
                 
-                else
+            else
             {
                 completion(node)
                 
@@ -79,9 +79,9 @@ class FDb
         nodeType:FDbProtocol.Type,
         completion:@escaping((FDbProtocol?) -> ())) -> UInt
     {
-        let pathReference:FIRDatabaseReference = reference.child(path)
+        let pathReference:DatabaseReference = reference.child(path)
         let handler:UInt = pathReference.observe(eventType)
-        { (snapshot:FIRDataSnapshot) in
+        { (snapshot:DataSnapshot) in
             
             var node:FDbProtocol?
             
@@ -89,7 +89,7 @@ class FDb
                 
                 let json:Any = snapshot.value
                 
-                else
+            else
             {
                 completion(node)
                 

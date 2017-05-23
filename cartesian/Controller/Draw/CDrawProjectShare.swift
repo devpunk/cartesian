@@ -148,22 +148,29 @@ class CDrawProjectShare:CController
             
             let userId:String = MSession.sharedInstance.settings?.userId,
             let image:UIImage = shareImage,
-            let imageData:Data = UIImagePNGRepresentation(image),
-            let modelGalleryItem:FDatabaseModelGalleryItem = FDatabaseModelGalleryItem(
-                userId:userId),
-            let jsonGallery:Any = modelGalleryItem.modelJson()
+            let imageData:Data = UIImagePNGRepresentation(image)
         
         else
         {
             return
         }
         
-        let nodeGallery:String = FDatabase.Node.gallery.rawValue
-        let folderGallery:String = FStorage.Folder.gallery.rawValue
-        let galleryItemId:String = FMain.sharedInstance.database.createChild(
-            path:nodeGallery,
+        let modelGalleryItem:FDbGalleryItem = FDbGalleryItem(
+            userId:userId)
+        
+        guard
+            
+            let jsonGallery:Any = modelGalleryItem.json()
+        
+        else
+        {
+            return
+        }
+        
+        let galleryItemId:String = FMain.sharedInstance.db.createChild(
+            path:FDb.gallery,
             json:jsonGallery)
-        let galleryPath:String = "\(folderGallery)/\(galleryItemId)"
+        let galleryPath:String = "\(FStorage.gallery)/\(galleryItemId)"
         
         FMain.sharedInstance.storage.saveData(
             path:galleryPath,
@@ -182,10 +189,10 @@ class CDrawProjectShare:CController
                 { [weak self] (data) in
                     
                     guard
-                    
+                        
                         let project:DProject = self?.model,
                         let galleryPost:DGalleryPost = data as? DGalleryPost
-                    
+                        
                     else
                     {
                         return
@@ -215,14 +222,11 @@ class CDrawProjectShare:CController
             return
         }
         
-        let nodeGallery:String = FDatabase.Node.gallery.rawValue
-        let folderGallery:String = FStorage.Folder.gallery.rawValue
-        let propertyUpdated:String = FDatabaseModelGalleryItem.Property.updated.rawValue
-        let updatedPath:String = "\(nodeGallery)/\(galleryItemId)/\(propertyUpdated)"
+        let updatedPath:String = "\(FDb.gallery)/\(galleryItemId)/\(FDbGalleryItem.updated)"
         let timestamp:TimeInterval = Date().timeIntervalSince1970
-        let folderPath:String = "\(folderGallery)/\(galleryItemId)"
+        let folderPath:String = "\(FStorage.gallery)/\(galleryItemId)"
         
-        FMain.sharedInstance.database.updateChild(
+        FMain.sharedInstance.db.updateChild(
             path:updatedPath,
             json:timestamp)
         
