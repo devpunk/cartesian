@@ -1,7 +1,7 @@
 import Foundation
 import FirebaseDatabase
 
-class FDatabase
+class FDb
 {
     static let user:String = "user"
     static let gallery:String = "gallery"
