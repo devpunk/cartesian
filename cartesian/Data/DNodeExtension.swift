@@ -4,6 +4,7 @@ import CoreData
 extension DNode
 {
     static let kPi2:CGFloat = CGFloat.pi * 2.0
+    static let kPi_2:CGFloat = CGFloat.pi / 2.0
     private static let kInitialSize:Float = 100
     
     override func bringToFront()

@@ -3,7 +3,6 @@ import CoreData
 
 extension DNodeHexagon
 {
-    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
     private static let kSides:Int = 6
     
     override func drawPaths(
@@ -14,7 +13,7 @@ extension DNodeHexagon
         drawPolygon(
             rect:rect,
             context:context,
-            initialAngle:DNodeHexagon.kInitialAngle,
+            initialAngle:-DNode.kPi_2,
             zoom:zoom,
             sides:DNodeHexagon.kSides)
     }

@@ -3,7 +3,6 @@ import CoreData
 
 extension DNodeStarThree
 {
-    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
     private static let kMediumDivisor:CGFloat = 3
     private static let kSides:Int = 3
     
@@ -15,7 +14,7 @@ extension DNodeStarThree
         drawStar(
             rect:rect,
             context:context,
-            initialAngle:DNodeStarThree.kInitialAngle,
+            initialAngle:-DNode.kPi_2,
             mediumDivisor:DNodeStarThree.kMediumDivisor,
             zoom:zoom,
             sides:DNodeStarThree.kSides)

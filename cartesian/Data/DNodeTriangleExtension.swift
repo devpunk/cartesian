@@ -3,7 +3,6 @@ import CoreData
 
 extension DNodeTriangle
 {
-    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
     private static let kSides:Int = 3
     
     override func drawPaths(
@@ -14,7 +13,7 @@ extension DNodeTriangle
         drawPolygon(
             rect:rect,
             context:context,
-            initialAngle:DNodeTriangle.kInitialAngle,
+            initialAngle:-DNode.kPi_2,
             zoom:zoom,
             sides:DNodeTriangle.kSides)
     }
