@@ -8,12 +8,12 @@ class FStorage
         case gallery = "gallery"
     }
     
-    private let reference:FIRStorageReference
+    private let reference:StorageReference
     private let kTenMegaBytes:Int64 = 10000000
     
     init()
     {
-        reference = FIRStorage.storage().reference()
+        reference = Storage.storage().reference()
     }
     
     //MARK: public
