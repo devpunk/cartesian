@@ -9,8 +9,8 @@ class VDrawProjectRotateCircle:UIView
     private let kMargin:CGFloat = 20
     private let kMarginNode:CGFloat = 35
     private let kLineWidth:CGFloat = 6
-    private let kPi_2:CGFloat = CGFloat(M_PI_2)
-    private let kPi_3_4:CGFloat = CGFloat(M_PI_2 + M_PI)
+    private let kPi_2:CGFloat = CGFloat.pi / 2
+    private let kPi_3_4:CGFloat = CGFloat.pi * 0.75
     private let kZoom:CGFloat = 1
     private let kSelected:Bool = false
     
