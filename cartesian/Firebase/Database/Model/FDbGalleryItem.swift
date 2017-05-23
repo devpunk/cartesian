@@ -18,7 +18,7 @@ class FDbGalleryItem:FDbProtocol
     private let kNoTime:TimeInterval = 0
     private let kNotAvailable:Bool = false
     
-    init?(userId:String)
+    init(userId:String)
     {
         available = kInitialAvailability
         created = NSDate().timeIntervalSince1970
@@ -92,8 +92,7 @@ class FDbGalleryItem:FDbProtocol
             FDbGalleryItem.created:created,
             FDbGalleryItem.updated:updated,
             FDbGalleryItem.likes:likes,
-            FDbGalleryItem.userId:userId
-        ]
+            FDbGalleryItem.userId:userId]
         
         return json
     }

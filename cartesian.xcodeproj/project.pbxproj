@@ -18,8 +18,6 @@
 		DA12BAF81E8985A400613F99 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAF71E8985A400613F99 /* FStorage.swift */; };
 		DA12BAFA1E89867E00613F99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */; };
 		DA12BAFE1E8998F000613F99 /* VDrawProjectShareButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */; };
-		DA12BB001E89AB9000613F99 /* FDatabaseModelGalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BAFF1E89AB9000613F99 /* FDatabaseModelGalleryItem.swift */; };
-		DA12BB021E89AB9E00613F99 /* FDatabaseModelUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB011E89AB9E00613F99 /* FDatabaseModelUserItem.swift */; };
 		DA12BB041E89BC9400613F99 /* VGalleryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB031E89BC9400613F99 /* VGalleryBar.swift */; };
 		DA12BB061E89BD4B00613F99 /* VGalleryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB051E89BD4B00613F99 /* VGalleryHeader.swift */; };
 		DA12BB081E89BD5300613F99 /* VGalleryFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB071E89BD5300613F99 /* VGalleryFooter.swift */; };
@@ -31,7 +29,6 @@
 		DA12BB151E89BF4E00613F99 /* MGalleryItemOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */; };
 		DA12BB171E89C30400613F99 /* VGalleryFooterMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB161E89C30400613F99 /* VGalleryFooterMine.swift */; };
 		DA12BB191E89C31000613F99 /* VGalleryFooterOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB181E89C31000613F99 /* VGalleryFooterOther.swift */; };
-		DA12BB1B1E89CCED00613F99 /* FDatabaseModelGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA12BB1A1E89CCED00613F99 /* FDatabaseModelGallery.swift */; };
 		DA2772481E72022900AC2EE7 /* MDrawProjectState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */; };
 		DA27724A1E72023100AC2EE7 /* MDrawProjectStateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */; };
 		DA27724C1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */; };
@@ -277,8 +274,6 @@
 		DA12BAF71E8985A400613F99 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
 		DA12BAF91E89867E00613F99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA12BAFD1E8998F000613F99 /* VDrawProjectShareButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDrawProjectShareButtons.swift; sourceTree = "<group>"; };
-		DA12BAFF1E89AB9000613F99 /* FDatabaseModelGalleryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGalleryItem.swift; sourceTree = "<group>"; };
-		DA12BB011E89AB9E00613F99 /* FDatabaseModelUserItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserItem.swift; sourceTree = "<group>"; };
 		DA12BB031E89BC9400613F99 /* VGalleryBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryBar.swift; sourceTree = "<group>"; };
 		DA12BB051E89BD4B00613F99 /* VGalleryHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryHeader.swift; sourceTree = "<group>"; };
 		DA12BB071E89BD5300613F99 /* VGalleryFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryFooter.swift; sourceTree = "<group>"; };
@@ -290,7 +285,6 @@
 		DA12BB141E89BF4E00613F99 /* MGalleryItemOther.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGalleryItemOther.swift; sourceTree = "<group>"; };
 		DA12BB161E89C30400613F99 /* VGalleryFooterMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryFooterMine.swift; sourceTree = "<group>"; };
 		DA12BB181E89C31000613F99 /* VGalleryFooterOther.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGalleryFooterOther.swift; sourceTree = "<group>"; };
-		DA12BB1A1E89CCED00613F99 /* FDatabaseModelGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelGallery.swift; sourceTree = "<group>"; };
 		DA2772471E72022900AC2EE7 /* MDrawProjectState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectState.swift; sourceTree = "<group>"; };
 		DA2772491E72023100AC2EE7 /* MDrawProjectStateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItem.swift; sourceTree = "<group>"; };
 		DA27724B1E72024100AC2EE7 /* MDrawProjectStateItemStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDrawProjectStateItemStand.swift; sourceTree = "<group>"; };
@@ -592,9 +586,6 @@
 		DA12BAF11E89823800613F99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DA12BAFF1E89AB9000613F99 /* FDatabaseModelGalleryItem.swift */,
-				DA12BB011E89AB9E00613F99 /* FDatabaseModelUserItem.swift */,
-				DA12BB1A1E89CCED00613F99 /* FDatabaseModelGallery.swift */,
 				DA34147E1ED488DE00789080 /* FDbGallery.swift */,
 				DA3414801ED488E800789080 /* FDbGalleryItem.swift */,
 				DA3414821ED488F200789080 /* FDbUserItem.swift */,
@@ -1452,7 +1443,6 @@
 			files = (
 				DAC13B531E730D15009A8D94 /* MDrawListItem.swift in Sources */,
 				DA6612BB1E85A59B0012F6D9 /* DNodeStarSixExtension.swift in Sources */,
-				DA12BB1B1E89CCED00613F99 /* FDatabaseModelGallery.swift in Sources */,
 				DA630B7C1E6B84D40004245A /* VCollectionFlow.swift in Sources */,
 				DA0158EE1E784453005DADC7 /* VDrawProjectMenuLabelsAdd.swift in Sources */,
 				DA6612C11E85A7840012F6D9 /* MDrawProjectMenuNodesItemStarSix.swift in Sources */,
@@ -1613,7 +1603,6 @@
 				DA9443801E6DE92200CD5993 /* MDrawProjectMenuNodesItemOval.swift in Sources */,
 				DA2772571E720B7300AC2EE7 /* MDrawProjectMenuStateItemHidden.swift in Sources */,
 				DA8FF29D1E708A03005D7985 /* MDrawProjectMenuZoomItem.swift in Sources */,
-				DA12BB021E89AB9E00613F99 /* FDatabaseModelUserItem.swift in Sources */,
 				DA45C4971E6DBD8900CA6A20 /* VDrawProjectScroll.swift in Sources */,
 				DA94436F1E6DDA6F00CD5993 /* DCartesian.xcdatamodeld in Sources */,
 				DA45C4991E6DC0A000CA6A20 /* VDrawProjectMenuSettingsZoom.swift in Sources */,
@@ -1684,7 +1673,6 @@
 				DA4F71E51E88712300DEC0E9 /* MStoreItem.swift in Sources */,
 				DA4F71FB1E8874A900DEC0E9 /* VStoreCellPurchasing.swift in Sources */,
 				DA12BAFE1E8998F000613F99 /* VDrawProjectShareButtons.swift in Sources */,
-				DA12BB001E89AB9000613F99 /* FDatabaseModelGalleryItem.swift in Sources */,
 				DA60FFDE1E89653D006BB157 /* MStoreItemNodeInputOutput.swift in Sources */,
 				DA4F71E91E88712300DEC0E9 /* MStoreItemStatusNotAvailable.swift in Sources */,
 				DA60FFD21E89648D006BB157 /* MStoreItemNodeStarThree.swift in Sources */,
