@@ -3,17 +3,13 @@ import FirebaseDatabase
 
 class FDatabase
 {
-    enum Node:String
-    {
-        case user = "user"
-        case gallery = "gallery"
-    }
-    
-    private let reference:FIRDatabaseReference
+    static let user:String = "user"
+    static let gallery:String = "gallery"
+    private let reference:DatabaseReference
     
     init()
     {
-        reference = FIRDatabase.database().reference()
+        reference = Database.database().reference()
     }
     
     //MARK: public
@@ -22,7 +18,7 @@ class FDatabase
         path:String,
         json:Any) -> String
     {
-        let childReference:FIRDatabaseReference = reference.child(path).childByAutoId()
+        let childReference:DatabaseReference = reference.child(path).childByAutoId()
         let childId:String = childReference.key
         childReference.setValue(json)
         
@@ -33,13 +29,13 @@ class FDatabase
         path:String,
         json:Any)
     {
-        let childReference:FIRDatabaseReference = reference.child(path)
+        let childReference:DatabaseReference = reference.child(path)
         childReference.setValue(json)
     }
     
     func removeChild(path:String)
     {
-        let childReference:FIRDatabaseReference = reference.child(path)
+        let childReference:DatabaseReference = reference.child(path)
         childReference.removeValue()
     }
     
