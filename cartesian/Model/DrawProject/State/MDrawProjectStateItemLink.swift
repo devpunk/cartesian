@@ -46,7 +46,12 @@ class MDrawProjectStateItemLink:MDrawProjectStateItem
             return
         }
         
-        controller.linkNode(destination:linkingNode)
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.controller.linkNode(destination:linkingNode)
+        }
+        
         self.linkingNode = nil
     }
 }

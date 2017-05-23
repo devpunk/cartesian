@@ -183,11 +183,26 @@ class CDrawProject:CController
     {
         guard
         
-            let origin:DNode = editingView?.viewSpatial.model as? DNode
+            let origin:DNode = editingView?.viewSpatial.model as? DNode,
+            let linksOrigin:[DLink] = origin.linksOrigin?.array as? [DLink]
         
         else
         {
             return
+        }
+        
+        for link:DLink in linksOrigin
+        {
+            if link.destination == destination
+            {
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.stopLinking()
+                }
+                
+                return
+            }
         }
         
         DManager.sharedInstance?.createData(
