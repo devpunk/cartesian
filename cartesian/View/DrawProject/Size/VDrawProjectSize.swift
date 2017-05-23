@@ -200,7 +200,7 @@ class VDrawProjectSize:UIView, UITextFieldDelegate
             return 0
         }
         
-        let scalar:CGFloat = number as CGFloat
+        let scalar:CGFloat = CGFloat(number)
         
         return scalar
     }
