@@ -18,7 +18,9 @@ class FDatabase
     
     //MARK: public
     
-    func createChild(path:String, json:Any) -> String
+    @discardableResult func createChild(
+        path:String,
+        json:Any) -> String
     {
         let childReference:FIRDatabaseReference = reference.child(path).childByAutoId()
         let childId:String = childReference.key
@@ -27,7 +29,9 @@ class FDatabase
         return childId
     }
     
-    func updateChild(path:String, json:Any)
+    func updateChild(
+        path:String,
+        json:Any)
     {
         let childReference:FIRDatabaseReference = reference.child(path)
         childReference.setValue(json)
@@ -39,93 +43,88 @@ class FDatabase
         childReference.removeValue()
     }
     
-    func listenOnce<ModelType:FDatabaseModel>(path:String, modelType:ModelType.Type, completion:@escaping((ModelType?) -> ()))
+    func listenOnce(
+        path:String,
+        nodeType:FDbProtocol.Type,
+        completion:@escaping((FDbProtocol?) -> ()))
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
         pathReference.observeSingleEvent(of:FIRDataEventType.value)
         { (snapshot:FIRDataSnapshot) in
             
+            var node:FDbProtocol?
+            
             guard
                 
                 let json:Any = snapshot.value
                 
-            else
+                else
             {
-                completion(nil)
+                completion(node)
                 
                 return
             }
             
             if let _:NSNull = json as? NSNull
             {
-                completion(nil)
-                
-                return
             }
-                
-            guard
-                
-                let model:ModelType = ModelType(snapshot:json)
-                
             else
             {
-                completion(nil)
-                
-                return
+                node = nodeType.init(snapshot:json)
             }
             
-            completion(model)
+            completion(node)
         }
     }
-
-    func listen<ModelType:FDatabaseModel>(eventType:FIRDataEventType, path:String, modelType:ModelType.Type, completion:@escaping((ModelType?) -> ())) -> UInt
+    
+    func listen(
+        eventType:FIRDataEventType,
+        path:String,
+        nodeType:FDbProtocol.Type,
+        completion:@escaping((FDbProtocol?) -> ())) -> UInt
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
         let handler:UInt = pathReference.observe(eventType)
         { (snapshot:FIRDataSnapshot) in
             
+            var node:FDbProtocol?
+            
             guard
                 
                 let json:Any = snapshot.value
                 
-            else
+                else
             {
-                completion(nil)
+                completion(node)
                 
                 return
             }
             
             if let _:NSNull = json as? NSNull
             {
-                completion(nil)
-                
-                return
             }
-            
-            guard
-                
-                let model:ModelType = ModelType(snapshot:json)
-                
             else
             {
-                completion(nil)
-                
-                return
+                node = nodeType.init(snapshot:json)
             }
             
-            completion(model)
+            completion(node)
         }
         
         return handler
     }
     
-    func stopListening(path:String, handler:UInt)
+    func stopListening(
+        path:String,
+        handler:UInt)
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
         pathReference.removeObserver(withHandle:handler)
     }
     
-    func transaction(path:String, transactionBlock:@escaping((FIRMutableData) -> (FIRTransactionResult)))
+    func transaction(
+        path:String,
+        transactionBlock:@escaping((FIRMutableData) -> (FIRTransactionResult)))
     {
         let childReference:FIRDatabaseReference = reference.child(path)
         childReference.runTransactionBlock(transactionBlock)
