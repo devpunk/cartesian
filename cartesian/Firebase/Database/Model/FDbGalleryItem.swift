@@ -25,8 +25,6 @@ class FDbGalleryItem:FDbProtocol
         updated = created
         likes = kInitialLikes
         self.userId = userId
-        
-        super.init()
     }
     
     required init?(snapshot:Any)
@@ -34,7 +32,7 @@ class FDbGalleryItem:FDbProtocol
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
         if let available:Bool = snapshotDict?[
-            Property.available.rawValue] as? Bool
+            FDbGalleryItem.available] as? Bool
         {
             self.available = available
         }
@@ -44,7 +42,7 @@ class FDbGalleryItem:FDbProtocol
         }
         
         if let created:TimeInterval = snapshotDict?[
-            Property.created.rawValue] as? TimeInterval
+            FDbGalleryItem.created] as? TimeInterval
         {
             self.created = created
         }
@@ -54,7 +52,7 @@ class FDbGalleryItem:FDbProtocol
         }
         
         if let updated:TimeInterval = snapshotDict?[
-            Property.updated.rawValue] as? TimeInterval
+            FDbGalleryItem.updated] as? TimeInterval
         {
             self.updated = updated
         }
@@ -64,7 +62,7 @@ class FDbGalleryItem:FDbProtocol
         }
         
         if let likes:Int = snapshotDict?[
-            Property.likes.rawValue] as? Int
+            FDbGalleryItem.likes] as? Int
         {
             
             self.likes = likes
@@ -77,7 +75,7 @@ class FDbGalleryItem:FDbProtocol
         guard
             
             let userId:String = snapshotDict?[
-                Property.userId.rawValue] as? String
+                FDbGalleryItem.userId] as? String
             
             else
         {
@@ -85,18 +83,16 @@ class FDbGalleryItem:FDbProtocol
         }
         
         self.userId = userId
-        
-        super.init()
     }
     
-    override func modelJson() -> Any?
+    func json() -> Any?
     {
         let json:[String:Any] = [
-            Property.available.rawValue:available,
-            Property.created.rawValue:created,
-            Property.updated.rawValue:updated,
-            Property.likes.rawValue:likes,
-            Property.userId.rawValue:userId
+            FDbGalleryItem.available:available,
+            FDbGalleryItem.created:created,
+            FDbGalleryItem.updated:updated,
+            FDbGalleryItem.likes:likes,
+            FDbGalleryItem.userId:userId
         ]
         
         return json
