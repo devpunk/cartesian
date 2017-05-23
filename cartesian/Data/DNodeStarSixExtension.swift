@@ -3,7 +3,7 @@ import CoreData
 
 extension DNodeStarSix
 {
-    private static let kInitialAngle:CGFloat = -CGFloat(M_PI_2)
+    private static let kInitialAngle:CGFloat = -CGFloat.pi / 2.0
     private static let kMediumDivisor:CGFloat = 2
     private static let kSides:Int = 6
     

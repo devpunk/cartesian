@@ -3,7 +3,7 @@ import CoreData
 
 extension DNode
 {
-    static let kPi2:CGFloat = CGFloat(M_PI) * 2.0
+    static let kPi2:CGFloat = CGFloat.pi * 2.0
     private static let kInitialSize:Float = 100
     
     override func bringToFront()
@@ -80,7 +80,7 @@ extension DNode
     final func radians() -> CGFloat
     {
         let degrees:CGFloat = CGFloat(rotation)
-        let rads:CGFloat = degrees * CGFloat(M_PI) / 180.0
+        let rads:CGFloat = degrees * CGFloat.pi / 180.0
         
         return rads
     }
